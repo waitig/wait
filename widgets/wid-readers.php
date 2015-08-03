@@ -8,7 +8,7 @@ function d_readers() {
 class d_reader extends WP_Widget {
 	function d_reader() {
 		$widget_ops = array( 'classname' => 'd_reader', 'description' => '显示近期评论频繁的网友头像等' );
-		$this->WP_Widget( 'd_reader', 'Yusi-活跃读者', $widget_ops, $control_ops );
+		$this->WP_Widget( 'd_reader', 'wait-活跃读者', $widget_ops, $control_ops );
 	}
 
 	function widget( $args, $instance ) {
