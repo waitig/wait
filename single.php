@@ -25,7 +25,7 @@
 			</div>
 		</header>
 <?php if( waitig_gopt('waitig_adpost_01') ) echo '<div class="banner banner-post">'.waitig_gopt('waitig_adpost_01').'</div>'; ?>
-<?php if (wp_is_mobile() ): ?><?php if( waitig_gopt('Mobiled_adpost_01_b') ) echo '<div class="banner-post">'.waitig_gopt('Mobiled_adpost_01').'</div>'; ?><?php endif ;?>
+<?php if (wp_is_mobile() ): ?><?php if( waitig_gopt('Mobiled_adpost_01') ) echo '<div class="banner-post">'.waitig_gopt('Mobiled_adpost_01').'</div>'; ?><?php endif ;?>
 		<article class="article-content">
 			<?php the_content(); ?>
 

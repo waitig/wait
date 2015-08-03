@@ -45,12 +45,12 @@ $options = array(
 		array(
 				'name'	=>	'文章无图时不显示缩略图',
 				'desc'	=>	'注意：选择此项目可能导致文章显示错位',
-				'id'	=>	'waitig_thumbnail_en',
+				'id'	=>	'waitig_thumbnail_un',
 				'type'	=>	'checkbox'
 		),
 		array(
 				'name'	=>	'文章列表Ajax下拉加载',
-				'desc'	=>	'开启后，网站会采用Ajax方式自动下拉加载',
+				'desc'	=>	'开启后，网站会采用Ajax方式自动下拉加载【非CMS模式】',
 				'id'	=>	'waitig_ajaxpager_en',
 				'type'	=>	'checkbox'
 		),
@@ -82,6 +82,13 @@ $options = array(
 						'点赞数目' => 'waitig_hot_zan'
 				),
 				'std'   => 'waitig_hot_comment'
+		),
+		array(
+				'name'  => '显示条目',
+				'desc'  => '设置显示的文章数量，建议不要大于10',
+				'id'    => "hot_list_number",
+				'type'  => 'text',
+				'std'   => '本周热门'
 		),
 		array(
 				'name'  => '排行名称',
@@ -192,11 +199,7 @@ $options = array(
 				'id'	=>	'socialsetting',
 				'type'	=>	'panelstart'
 		),
-		/*array(
-				'title' => '社交设置',
-				'id'    => 'Socialsetting',
-				'type'  => 'panelstart'
-		),*/
+		
 		array(
 				'title' => '在网站显示社交图标，建议不要超过六个，否则会显示错位，留空则代表关闭',
 				'type'  => 'subtitle'
@@ -743,6 +746,12 @@ $options = array(
 				'type'  => 'checkbox'
 		),
 		array(
+				'name'  => '用户登陆信息',
+				'desc'  => '启用',
+				'id'    => "waitig_sign_en",
+				'type'  => 'checkbox'
+		),
+		array(
 				'type'	=>	'panelend'
 		),
 		//高级设置标签页结束
@@ -766,7 +775,7 @@ $options = array(
 		),
 		array(
 				'name'  => '广告：全站 - 正文列表最前',
-				'desc'  => '显示在公告栏下',
+				'desc'  => '显示在正文列表之前',
 				'id'    => 'waitig_adsite_02',
 				'type'  => 'textarea',
 				'std'   => ''

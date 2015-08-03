@@ -5,29 +5,27 @@
 <meta name="360-site-verification" content="a4c8021896c8ab798a98295823e921ba" />
 <meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<title><?php wp_title('-', true, 'right'); echo get_option('blogname'); if (is_home ()) echo '_' ,get_option('blogdescription'); if ($paged > 1) echo '-Page ', $paged; ?></title>
+<title><?php wp_title(waitig_gopt('waitig_delimiter'), true, 'right'); echo get_option('blogname'); if (is_home ()) echo '_' ,get_option('blogdescription'); if ($paged > 1) echo '-Page ', $paged; ?></title>
 <?php
 $sr_1 = 0; $sr_2 = 0; $commenton = 0; 
-if( waitig_gopt('d_sideroll_b') ){ 
-    $sr_1 = waitig_gopt('d_sideroll_1');
-    $sr_2 = waitig_gopt('d_sideroll_2');
+if( waitig_gopt('waitig_sideroll_en') ){ 
+    $sr_1 = waitig_gopt('waitig_sideroll_1');
+    $sr_2 = waitig_gopt('waitig_sideroll_2');
 }
 if( is_singular() ){ 
     if( comments_open() ) $commenton = 1;
 }
 ?>
-<!--<script src="<?php echo get_bloginfo("template_url") ?>/js/jquery.min.js" type="text/javascript"></script>-->
 <script>
-window._deel = {name: '<?php bloginfo('name') ?>',url: '<?php echo get_bloginfo("template_url") ?>', ajaxpager: '<?php echo waitig_gopt('d_ajaxpager_b') ?>', commenton: <?php echo $commenton ?>, roll: [<?php echo $sr_1 ?>,<?php echo $sr_2 ?>]}
+window._deel = {name: '<?php bloginfo('name') ?>',url: '<?php echo get_bloginfo("template_url") ?>', ajaxpager: '<?php echo waitig_gopt('waitig_ajaxpager_en') ?>', commenton: <?php echo $commenton ?>, roll: [<?php echo $sr_1 ?>,<?php echo $sr_2 ?>]}
 </script>
 
 
 <?php 
 wp_head(); 
-if( waitig_gopt('d_headcode_b') ) echo waitig_gopt('d_headcode'); ?>
+if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/jquery.easing.js" type="text/javascript"></script>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/studio.js" type="text/javascript"></script>
-<!--<script type='text/javascript' src="<?php //echo get_bloginfo('template_url').'/js/global.js'?>"></script>-->
 
 <!--[if lt IE 9]><script src="<?php bloginfo('template_url'); ?>/js/html5.js"></script><![endif]-->
 </head>
@@ -59,7 +57,7 @@ if( waitig_gopt('d_headcode_b') ) echo waitig_gopt('d_headcode'); ?>
 </header>
 <section class="container"><div class="speedbar">
 		<?php 
-		if( waitig_gopt('d_sign_b') ){ 
+		if( waitig_gopt('waitig_sign_en') ){ 
 			global $current_user; 
 			get_currentuserinfo();
 			$uid = $current_user->ID;
@@ -69,6 +67,6 @@ if( waitig_gopt('d_headcode_b') ) echo waitig_gopt('d_headcode'); ?>
 				<?php if(is_user_logged_in()){echo '<i class="fa fa-user"></i> '.$u_name.' &nbsp; '; echo ' &nbsp; &nbsp; <i class="fa fa-power-off"></i> ';}else{echo '<i class="fa fa-user"></i> ';}; wp_loginout(); ?>
 			</div>
 		<?php } ?>
-		<div class="toptip"><strong class="text-success"><i class="fa fa-volume-up"></i> </strong> <?php echo waitig_gopt('d_tui'); ?></div>
+		<div class="toptip"><strong class="text-success"><i class="fa fa-volume-up"></i> </strong> <?php echo waitig_gopt('waitig_tui'); ?></div>
 	</div>
-	<?php if( waitig_gopt('d_adsite_01_b') ) echo '<div class="banner banner-site">'.waitig_gopt('d_adsite_01').'</div>'; ?>
+	<?php if( waitig_gopt('waitig_adsite_01') ) echo '<div class="banner banner-site">'.waitig_gopt('waitig_adsite_01').'</div>'; ?>

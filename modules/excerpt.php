@@ -1,22 +1,22 @@
-		<?php if( waitig_gopt('d_adindex_02_b') ) printf('<div class="banner banner-sticky">'.waitig_gopt('d_adindex_02').'</div>'); ?>
+		<?php if( waitig_gopt('waitig_adindex_02') ) printf('<div class="banner banner-sticky">'.waitig_gopt('waitig_adindex_02').'</div>'); ?>
 <?php if(is_home()&& waitig_gopt('hot_list_check') ){ ?>
 		<div><div class="left-ad" style="clear: both;background-color: #fff; width: 30%;float: left;margin-right:2%;"></div><div class="hot-posts">
 			<h2 class="title"><?php echo waitig_gopt('hot_list_title') ?></h2>
-			<ul><?php hot_posts_list($days=waitig_gopt('hot_list_date'), $nums=waitig_gopt('hot_list_number')); ?></ul>
+			<ul><?php hot_posts_list($number=waitig_gopt('hot_list_number')); ?></ul>
 		</div></div>
 		<?php } ?>
-<?php if (wp_is_mobile() ): ?><?php if( waitig_gopt('Mobiled_adindex_02_b') ) printf('<div class="banner-sticky">'.waitig_gopt('Mobiled_adindex_02').'</div>'); ?><?php endif ;?>
+<?php if (wp_is_mobile() ): ?><?php if( waitig_gopt('Mobiled_adindex_02') ) printf('<div class="banner-sticky">'.waitig_gopt('Mobiled_adindex_02').'</div>'); ?><?php endif ;?>
 <?php  
-$_author = waitig_gopt('d_post_author_b');
-$_time = waitig_gopt('d_post_time_b');
-$_views = waitig_gopt('d_post_views_b');
-$_comment = waitig_gopt('d_post_comment_b');
-$_like = waitig_gopt('d_post_like_b');
+$_author = waitig_gopt('waitig_post_author_un');
+$_time = waitig_gopt('waitig_post_time_un');
+$_views = waitig_gopt('waitig_post_views_un');
+$_comment = waitig_gopt('waitig_post_comment_un');
+$_like = waitig_gopt('waitig_post_like_un');
 ?>
 <?php while ( have_posts() ) : the_post(); ?>
 <?php  
 $_thumbnail = false;
-if( has_post_thumbnail() || !waitig_gopt('d_thumbnail_b') ){
+if( has_post_thumbnail() || !waitig_gopt('waitig_thumbnail_un') ){
 	$_thumbnail = true;
 }
 ?>
