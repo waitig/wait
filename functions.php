@@ -362,6 +362,18 @@ function deel_disable_autosave() {
   wp_deregister_script('autosave');
 }
 
+//隐藏分类
+function exclude_category_home($query) {
+    if ($query->is_home) {
+        $query->set('cat', '-' . waitig_gopt('waitiglockcat_1') . ',-' . waitig_gopt('waitiglockcat_1') . ''); //隐藏这两个分类
+    }
+    return $query;
+}
+if (waitig_gopt('waitiglockcat')) {
+    add_filter('pre_get_posts', 'exclude_category_home');
+}
+
+
 //修改默认发信地址
 function deel_res_from_email($email) {
 	$wp_from_email = get_option('admin_email');

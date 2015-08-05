@@ -21,6 +21,13 @@
 				echo '<span class="muted">'.baidu_record().'</span>';
 				?>
 				<?php if ( comments_open() ) echo '<span class="muted"><i class="fa fa-comments-o"></i> <a href="'.get_comments_link().'">'.get_comments_number('去', '1', '%').'评论</a></span>'; ?>
+
+				<?php
+    if (waitig_gopt('waitig_qr_en') && !wp_is_mobile()) { ?><span class="muted"><i class="fa fa-qrcode"></i> <a style="cursor : pointer;" onMouseOver="document.all.qr.style.visibility=''" onMouseOut="document.all.qr.style.visibility='hidden'">扫描二维码</a>
+			<span id="qr" style="visibility: hidden;"><img style="position:absolute;z-index:99999;" src="<?php echo get_bloginfo("template_url")?>/phpqrcode.php?url=<?php
+        the_permalink(); ?>"/></span></span><?php
+	} ?>
+
 				<?php edit_post_link('[编辑]'); ?>
 			</div>
 		</header>

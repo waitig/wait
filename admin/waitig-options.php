@@ -102,13 +102,13 @@ $options = array(
 				'title' => '占位文本设置',
 				'type'  => 'subtitle'
 		),
-		array(
+		/*array(
 				'name'  => '搜索框',
 				'desc'  => '占位文本',
 				'id'    => "waitig_search_placeholder",
 				'type'  => 'text',
 				'std'   => '输入内容并回车'
-		),
+		),*/
 		array(
 				'name'  => '评论',
 				'desc'  => '评论框占位文本',
@@ -432,7 +432,7 @@ $options = array(
 				'type'  => 'panelstart'
 		),
 		array(
-				'title' => '列表文章属性',
+				'title' => '列表文章属性【非CMS模式】',
 				'type'  => 'subtitle'
 		),
 		array(
@@ -464,6 +464,10 @@ $options = array(
 				'desc'  => '不显示',
 				'id'    => 'waitig_post_like_un',
 				'type'  => 'checkbox'
+		),
+		array(
+				'title' => '文章页选项',
+				'type'  => 'subtitle'
 		),
 		array(
 				'name'  => '百度分享',
