@@ -37,11 +37,12 @@
 			<?php the_content(); ?>
 
 
+
 <?php wp_link_pages(array('before' => '<div class="fenye">', 'after' => '', 'next_or_number' => 'next', 'previouspagelink' => '<span>上一页</span>', 'nextpagelink' => "")); ?>   <?php wp_link_pages(array('before' => '', 'after' => '', 'next_or_number' => 'number', 'link_before' =>'<span>', 'link_after'=>'</span>')); ?>   <?php wp_link_pages(array('before' => '', 'after' => '</div>', 'next_or_number' => 'next', 'previouspagelink' => '', 'nextpagelink' => "<span>下一页</span>")); ?>
 
 <div class="article-social">
-<form action="https://shenghuo.alipay.com/send/payment/fill.htm" method="POST" target="_Blank" name="rewardForm" accept-charset="GBK" rel="nofollow" ><input name="optEmail" type="hidden" value="waitig@hotmail.com"><input name="payAmount" type="hidden" value="10"><input name="memo" type="hidden" value="感谢您对小站的捐赠，请留下您的联系方式！">
-			<a href="javascript:;" data-action="ding" data-id="<?php the_ID(); ?>" id="Addlike" class="action<?php if(isset($_COOKIE['bigfa_ding_'.$post->ID])) echo ' actived';?>"><i class="fa fa-heart-o"></i>喜欢 (<span class="count"><?php if( get_post_meta($post->ID,'bigfa_ding',true) ){ echo get_post_meta($post->ID,'bigfa_ding',true); } else {echo '0';}?></span>)</a><?php if( waitig_gopt('waitig_bdshare_en') ) echo'<span class="or"><button class="subsub" type=submit">赏</button></span>';  deel_share(); ?>	
+		<form action="https://shenghuo.alipay.com/send/payment/fill.htm" method="POST" target="_Blank" name="rewardForm" accept-charset="GBK" rel="nofollow" ><input name="optEmail" type="hidden" value="<?php echo waitig_gopt('waitig_pay');?>"><input name="payAmount" type="hidden" value="10"><input name="memo" type="hidden" value="感谢您对小站的捐赠，请留下您的联系方式！">
+			<a href="javascript:;" data-action="ding" data-id="<?php the_ID(); ?>" id="Addlike" class="action<?php if(isset($_COOKIE['bigfa_ding_'.$post->ID])) echo ' actived';?>"><i class="fa fa-heart-o"></i>喜欢 (<span class="count"><?php if( get_post_meta($post->ID,'bigfa_ding',true) ){ echo get_post_meta($post->ID,'bigfa_ding',true); } else {echo '0';}?></span>)</a><?php if( waitig_gopt('waitig_payme_en') ) echo'<span class="or"><button class="subsub" type=submit">赏</button></span>'; if( waitig_gopt('waitig_bdshare_en') )  deel_share(); ?>	
 </form>
 </div>
 	</article>	

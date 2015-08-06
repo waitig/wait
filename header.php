@@ -42,6 +42,15 @@ if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
                     </a>
     </div>
 </div>
+<?php
+if (waitig_gopt('waitig_tmnav')) 
+{
+		$tran=waitig_gopt('waitig_nav_tran');
+		$color_R=waitig_gopt('waitig_nav_color_r');
+		$color_G=waitig_gopt('waitig_nav_color_g');
+		$color_B=waitig_gopt('waitig_nav_color_b');		
+	echo '<style type="text/css">#nav-header{background-color: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');background: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');color: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');}</style>';
+}?>
 
 	<div id="nav-header" class="navbar">
 		
@@ -70,3 +79,4 @@ if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 		<div class="toptip"><strong class="text-success"><i class="fa fa-volume-up"></i> </strong> <?php echo waitig_gopt('waitig_tui'); ?></div>
 	</div>
 	<?php if( waitig_gopt('waitig_adsite_01') ) echo '<div class="banner banner-site">'.waitig_gopt('waitig_adsite_01').'</div>'; ?>
+<?php if( waitig_gopt('waitig_adsite_02') ) echo '<div class="banner banner-site">'.waitig_gopt('waitig_adsite_02').'</div>'; ?>

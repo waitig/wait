@@ -96,6 +96,19 @@ function waitig_options_page() {
 </tr>
 <?php
 						break;
+						case 'smalltext':
+?>
+<tr>
+	<th><label for="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></label></th>
+	<td>
+		<label>
+		<input name="<?php echo $value['id']; ?>" class="small-text" id="<?php echo $value['id']; ?>" type="text" value="<?php if ( $optionsSetup || get_option( $value['id'] ) != '') { echo get_option( $value['id'] ); } else { echo $value['std']; } ?>" />
+		<span class="description"><?php echo $value['desc']; ?></span>
+		</label>
+	</td>
+</tr>
+<?php
+						break;
 				case 'password':
 ?>
 <tr>

@@ -1,6 +1,7 @@
-		<?php if( waitig_gopt('waitig_adindex_02') ) printf('<div class="banner banner-sticky">'.waitig_gopt('waitig_adindex_02').'</div>'); ?>
+<?php if( waitig_gopt('waitig_adindex_02') ) echo '<div>'.waitig_gopt('waitig_adindex_02').'</div>'; ?>	
 <?php if(is_home()&& waitig_gopt('hot_list_check') ){ ?>
-		<div><div class="left-ad" style="clear: both;background-color: #fff; width: 30%;float: left;margin-right:2%;"></div><div class="hot-posts">
+<div>
+		<div class="hot-posts">
 			<h2 class="title"><?php echo waitig_gopt('hot_list_title') ?></h2>
 			<ul><?php hot_posts_list($number=waitig_gopt('hot_list_number')); ?></ul>
 		</div></div>

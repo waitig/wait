@@ -177,14 +177,14 @@ $options = array(
 		array(
 				'name'  => '网站footer公共代码',
 				'desc'  => '在全站页面footer部分出现，可放置网站的版权信息等等',
-				'id'    => 'waitig_footcode',
+				'id'    => 'waitig_footercode',
 				'type'  => 'textarea',
 				'std'   => ''
 		),
 		array(
 				'name'  => '全站底部脚本代码',
 				'desc'  => '可放置广告代码等自定义（css或js）的全局代码块',
-				'id'    => 'waitig_footercode',
+				'id'    => 'waitig_footcode',
 				'type'  => 'textarea',
 				'std'   => ''
 		),
@@ -357,7 +357,7 @@ $options = array(
 				'std'   => ''
 		),
 		array(
-				'title' => '首页隐藏分类',
+				'title' => '首页隐藏分类【博客模式下】',
 				'type'  => 'subtitle'
 		),
 		array(
@@ -408,17 +408,45 @@ $options = array(
 				'title' => '导航栏设置',
 				'type'  => 'subtitle'
 		),
-		array(
+		/*array(
 				'name'  => '顶部悬浮菜单导航',
 				'desc'  => '开启【开启后您的菜单导航就会悬停在网站顶部】',
 				'id'    => "waitig_topnav",
 				'type'  => 'checkbox'
-		),
+		),*/
 		array(
 				'name'  => '透明导航栏',
 				'desc'  => '开启【开启后您的菜单导航栏就会变成半透明】',
 				'id'    => "waitig_tmnav",
 				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '导航栏透明度',
+				'desc'  => '设置透明度，【0~1】0为全透明，1为不透明',
+				'id'    => "waitig_nav_tran",
+				'type'  => 'smalltext',
+				'std'	=> '0.5'
+		),
+		array(
+				'name'  => '导航栏颜色设置【RGB】',
+				'desc'  => 'R',
+				'id'    => "waitig_nav_color_r",
+				'type'  => 'number',
+				'std'	=>	45
+		),
+		array(
+				'name'  => '',
+				'desc'  => 'G',
+				'id'    => "waitig_nav_color_g",
+				'type'  => 'number',
+				'std'	=>	45
+		),
+		array(
+				'name'  => '',
+				'desc'  => 'B',
+				'id'    => "waitig_nav_color_b",
+				'type'  => 'number',
+				'std'	=>	45
 		),
 		array(
 				'type'  => 'panelend'
@@ -480,18 +508,8 @@ $options = array(
 				'desc'  => '开启',
 				'id'    => 'waitig_singleMenu_en',
 				'type'  => 'checkbox'
-		),   
-		array(
-				'title' => '垃圾评论屏蔽',
-				'type'  => 'subtitle'
-		),
-		array(
-				'name'  => '过滤外语评论',
-				'desc'  => '开启 【启用后，将屏蔽所有含有日文以及英语的评论，外贸站慎用】',
-				'id'    => 'waitig_spam_lang',
-				'type'  => 'checkbox'
-		),
-		array(
+		),  
+	   array(
 				'name'  => '文章摘要',
 				'desc'  => '个字',
 				'id'    => 'waitig_excerpt_length',
@@ -504,31 +522,31 @@ $options = array(
 				'id'    => 'waitig_qr_en',
 				'type'  => 'checkbox'
 		),
+	array(
+				'name'  => '相关文章显示条数',
+				'desc'  => '条&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 文章下面的相关文章数目【尽量设置为2的倍数】',
+				'id'    => "waitig_related_count",
+				'type'  => 'number',
+				'std'   => 8
+		),	
 		array(
+				'title' => '垃圾评论屏蔽',
+				'type'  => 'subtitle'
+		),
+		array(
+				'name'  => '过滤外语评论',
+				'desc'  => '开启 【启用后，将屏蔽所有含有日文以及英语的评论，外贸站慎用】',
+				'id'    => 'waitig_spam_lang',
+				'type'  => 'checkbox'
+		),
+		
+		/*array(
 				'name'  => '自动超链接',
 				'desc'  => '启用 【就是那种可以把一个链接自动变成可以点击的超链接】',
 				'id'    => 'waitig_linktrue_en',
 				'type'  => 'checkbox'
-		),
-		array(
-				'name'  => '相关文章显示条数',
-				'desc'  => '条&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这是是显示文章下面的相关文章数目的',
-				'id'    => "waitig_related_count",
-				'type'  => 'number',
-				'std'   => 8
-		),
-		array(
-				'name'  => '禁止站内文章Pingback',
-				'desc'  => '开启&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 开启后，不会发送站内Pingback，建议开启',
-				'id'    => "waitig_pingback_un",
-				'type'  => 'checkbox'
-		),
-		array(
-				'name'  => '禁止后台编辑时自动保存',
-				'desc'  => '开启&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 开启后，后台编辑文章时候不会定时保存，有效缩减数据库存储量；但是，一般不建议开启，除非你的数据库容量很小',
-				'id'    => "waitig_autosave_un",
-				'type'  => 'checkbox'
-		),
+		),*/
+		
 		array(
 				'type'  => 'panelend'
 		),
@@ -583,7 +601,7 @@ $options = array(
 				'desc'  => '在这里输入您的幻灯片的图片路径',
 				'id'    => "waitig_slick1img",
 				'type'  => 'text',
-				'std'   => 'http://i1.tietuku.com/4d78aebacd716fa1.png'
+				'std'   => ''
 		),
 		array(
 				'name'  => '幻灯片一链接',
@@ -604,7 +622,7 @@ $options = array(
 				'desc'  => '在这里输入您的幻灯片的图片路径',
 				'id'    => "waitig_slick2img",
 				'type'  => 'text',
-				'std'   => 'http://i1.tietuku.com/8cc27226d364646d.png'
+				'std'   => ''
 		),
 		array(
 				'name'  => '幻灯片二链接',
@@ -625,7 +643,7 @@ $options = array(
 				'desc'  => '在这里输入您的幻灯片的图片路径',
 				'id'    => "waitig_slick3img",
 				'type'  => 'text',
-				'std'   => 'http://i1.tietuku.com/10b38e0699c19f13.png'
+				'std'   => ''
 		),
 		array(
 				'name'  => '幻灯片三链接',
@@ -646,7 +664,7 @@ $options = array(
 				'desc'  => '在这里输入您的幻灯片的图片路径',
 				'id'    => "waitig_slick4img",
 				'type'  => 'text',
-				'std'   => 'http://i1.tietuku.com/e363019d7956a1b8.png'
+				'std'   => ''
 		),
 		array(
 				'name'  => '幻灯片四链接',
@@ -667,7 +685,7 @@ $options = array(
 				'desc'  => '在这里输入您的幻灯片的图片路径',
 				'id'    => "waitig_slick5img",
 				'type'  => 'text',
-				'std'   => 'http://i1.tietuku.com/4be202dae236d98e.png'
+				'std'   => ''
 		),
 		array(
 				'name'  => '幻灯片五链接',
@@ -688,7 +706,7 @@ $options = array(
 				'desc'  => '在这里输入您的幻灯片的图片路径',
 				'id'    => "waitig_slick6img",
 				'type'  => 'text',
-				'std'   => 'http://i1.tietuku.com/15ff831524d8bbde.png'
+				'std'   => ''
 		),
 		array(
 				'name'  => '幻灯片六链接',
@@ -726,15 +744,33 @@ $options = array(
 				'type'  => 'checkbox'
 		),
 		array(
+				'name'  => '文章页面显示“赏”按钮',
+				'desc'  => '启用【使用在社交设置中的支付宝账号作为收款账号】',
+				'id'    => "waitig_payme_en",
+				'type'  => 'checkbox'
+		),
+			array(
+				'name'  => '禁止站内文章Pingback',
+				'desc'  => '开启&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 开启后，不会发送站内Pingback，建议开启',
+				'id'    => "waitig_pingback_un",
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '禁止后台编辑时自动保存',
+				'desc'  => '开启&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 开启后，后台编辑文章时候不会定时保存，有效缩减数据库存储量；但是，一般不建议开启，除非你的数据库容量很小',
+				'id'    => "waitig_autosave_un",
+				'type'  => 'checkbox'
+		),
+		/*array(
 				'name'  => '网站禁止复制',
 				'desc'  => '启用    【启用后访客无法使用右键复制】',
 				'id'    => "waitig_copy_un",
 				'type'  => 'checkbox'
-		),
+		),*/
 		array(
 				'name'  => '屏蔽谷歌字体',
 				'desc'  => '启用  【开启后，将屏蔽加载谷歌字体文件，建议开启】',
-				'id'    => "waitig_fuckziti_en",
+				'id'    => "waitig_google_un",
 				'type'  => 'checkbox'
 		),
 		array(
@@ -743,12 +779,12 @@ $options = array(
 				'id'    => "waitig_uncategroy_en",
 				'type'  => 'checkbox'
 		),
-		array(
+		/*array(
 				'name'  => '头像旋转',
 				'desc'  => '启用',
 				'id'    => "waitig_avatar_en",
 				'type'  => 'checkbox'
-		),
+		),*/
 		array(
 				'name'  => '用户登陆信息',
 				'desc'  => '启用',
