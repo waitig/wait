@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<?php if( waitig_gopt('waitig_adindex_01') ) printf('<div class="banner banner-navbar">'.waitig_gopt('waitig_adindex_01').'</div>'); ?>
+<?php if( waitig_gopt('waitig_adindex_01') ) echo '<div class="banner banner-navbar">'.waitig_gopt('waitig_adindex_01').'</div>'; ?>
 <div class="content-wrap">
 	<div class="content">
 	<?php 
