@@ -1,4 +1,4 @@
-<? 
+<?php 
 include "./lib/phpqrcode/phpqrcode.php"; 
 $value=$_GET["url"]; 
 $errorCorrectionLevel = "L"; 
