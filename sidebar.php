@@ -8,8 +8,8 @@
 <?php if( waitig_gopt('waitig_facebook') ) echo '<a href="'.waitig_gopt('waitig_facebook').'" rel="external nofollow" title="Facebook" target="lank"><i class="facebook fa fa-facebook"></i></a>'; ?>
 <?php if( waitig_gopt('waitig_weixin') ) echo '<a class="weixin"><i class="weixins fa fa-weixin"></i><div class="weixin-popover"><div class="popover bottom in"><div class="arrow"></div><div class="popover-title">订阅号“'.waitig_gopt('waitig_weixin').'”</div><div class="popover-content"><img src="'.waitig_gopt('waitig_weixin_qr').'" ></div></div></div></a>';?>
 <?php if( waitig_gopt('waitig_pay') ) echo '<a class="weixin"><i class="pay fa fa-paypal"></i><div class="weixin-popover"><div class="popover bottom in"><div class="arrow"></div><div class="popover-title">支付宝“'.waitig_gopt('waitig_pay').'”</div><div class="popover-content"><img src="'.waitig_gopt('waitig_pay_qr').'" ></div></div></div></a>';?>
-<?php if( waitig_gopt('waitig_emailContact') ) echo '<a href="'.waitig_gopt('waitig_emailContact').'" rel="external nofollow" title="Email" target="lank"><i class="email fa fa-envelope-o"></i></a>'; ?>
-<?php if( waitig_gopt('waitig_qqContact') ) echo '<a href="'.waitig_gopt('waitig_qqContact').'" rel="external nofollow" title="联系QQ" target="lank"><i class="qq fa fa-qq"></i></a>'; ?>
+<?php if( waitig_gopt('waitig_emailContact') ) echo '<a href="mailto:'.waitig_gopt('waitig_emailContact').'" rel="external nofollow" title="Email" target="lank"><i class="email fa fa-envelope-o"></i></a>'; ?>
+<?php if( waitig_gopt('waitig_qqContact') ) echo '<a href="http://wpa.qq.com/msgrd?v=3&uin='.waitig_gopt('waitig_qqContact').'&site=qq&menu=yes" rel="external nofollow" title="联系QQ" target="lank"><i class="qq fa fa-qq"></i></a>'; ?>
 <?php echo'<a href="'.waitig_gopt('waitig_rss').'" rel="external nofollow" target="lank"  title="订阅本站"><i class="rss fa fa-rss"></i></a>'; ?>
 
 <?php } ?>

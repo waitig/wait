@@ -383,12 +383,12 @@ if (waitig_gopt('waitig_google_un')):
     add_action('init', 'googlo_remove_open_sans_from_wp_core');
 endif;
 //免插件去除Category
-if (waitig_gopt('waitig_uncategroy_en')) {
+if (waitig_gopt('waitig_uncategroy_en')){
     add_action('load-themes.php', 'no_category_base_refresh_rules');
     add_action('created_category', 'no_category_base_refresh_rules');
     add_action('edited_category', 'no_category_base_refresh_rules');
     add_action('delete_category', 'no_category_base_refresh_rules');
-}
+
 function no_category_base_refresh_rules() {
     global $wp_rewrite;
     $wp_rewrite->flush_rules();
@@ -445,7 +445,7 @@ function no_category_base_request($query_vars) {
     }
     return $query_vars;
 }
-
+}
 //修改默认发信地址
 function deel_res_from_email($email) {
 	$wp_from_email = get_option('admin_email');
