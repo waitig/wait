@@ -28,7 +28,7 @@ echo '
 			<div class="c3">通过搜索把你想找的文章给揪出来吧...</div>
 		</div>';
 		}else{ echo '<div style="text-align:center;padding:10px 0;font-size:16px;background-color:#ffffff;">
-		<h2 style="font-size:36px;margin-bottom:10px;">哎呦卧槽～404了～休息一下，玩个游戏吧！</h2>
+		<h2 style="font-size:36px;margin-bottom:10px;">哎呦～404了～休息一下，玩个游戏吧！</h2>
   <embed type="application/x-shockwave-flash" width="600" height="400" src="http://www.waitig.com/games/1.swf" wmode="transparent" quality="high" scale="noborder" flashvars="width=600&amp;height=400" allowscriptaccess="sameDomain" align="L">
 </div>';
 } ?>
