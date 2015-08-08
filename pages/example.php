@@ -1,7 +1,7 @@
 <?php 
 /*
 	template name: 案例展示
-	description: template for yusi123.com Yusi theme 
+	description: template for waitig.com wait theme 
 */
 $pid = isset( $_GET['pid'] ) ? trim(htmlspecialchars($_GET['pid'], ENT_QUOTES)) : '';
 if( !$pid ) die('No param pid');

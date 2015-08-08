@@ -1,7 +1,7 @@
 <?php
 /*
     template name: 文章存档
-    description: template for yusi123.com Yusi theme 
+    description: template for waitig.com wait theme 
 */
 get_header(); 
 ?>

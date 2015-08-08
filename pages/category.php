@@ -2,7 +2,7 @@
 
 /*
 	template name: 分类信息
-	description: template for yusi123.com Yusi theme 
+	description: template for waitig.com wait theme 
 */
 ?>
 <div class="content-wrap">
