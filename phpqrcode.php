@@ -1,5 +1,5 @@
-<? 
-include "lib/phpqrcode/phpqrcode.php"; 
+<?php 
+include "./lib/phpqrcode/phpqrcode.php"; 
 $value=$_GET["url"]; 
 $errorCorrectionLevel = "L"; 
 $matrixPointSize = "4"; 
