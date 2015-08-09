@@ -37,12 +37,12 @@ add_filter("mce_buttons_3", "add_editor_buttoness");
  ****************************/
 function deel_setup(){
 	//去除头部冗余代码
-	remove_action( 'wp_head',   'feed_links_extra', 3 ); 
-	remove_action( 'wp_head',   'rsd_link' ); 
+	//remove_action( 'wp_head',   'feed_links_extra', 3 ); 
+	//remove_action( 'wp_head',   'rsd_link' ); 
 	//remove_action( 'wp_head',   'wlwmanifest_link' ); 
-	remove_action( 'wp_head',   'index_rel_link' ); 
+	//remove_action( 'wp_head',   'index_rel_link' ); 
 	//remove_action( 'wp_head',   'start_post_rel_link', 10, 0 ); 
-	remove_action( 'wp_head',   'wp_generator' ); 
+	//remove_action( 'wp_head',   'wp_generator' ); 
 	
 	add_theme_support( 'custom-background' );
 	//隐藏admin Bar
@@ -846,5 +846,11 @@ function baidu_record() {
    }
 }
 //百度收录结束，在需要调用的地方添加 baidu_record()的调用即可
+//
+//获取关于主题内容
+function get_about_theme()
+{
+
+}
 ?>
 
