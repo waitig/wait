@@ -850,7 +850,14 @@ function baidu_record() {
 //获取关于主题内容
 function get_about_theme()
 {
-
+		$fp=fopen(get_bloginfo('template_url').'/README.md','r');
+		$content='<p>';
+		while(!feof($fp))
+		{
+			$content.=fgets($fp);
+			$content.='</p><p>';
+		}
+		return $content;
 }
 ?>
 

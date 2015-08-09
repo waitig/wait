@@ -208,6 +208,7 @@ foreach ( $value['options'] as $id => $title ) : ?>
 ?>
 <div class="panel" id="about_theme">
 <h2>关于wait主题</h2>
+<?php echo get_about_theme(); ?>
 </div>
 <p class="submit">
 	<input name="submit" type="submit" class="button button-primary" value="保存选项"/>
@@ -216,7 +217,7 @@ foreach ( $value['options'] as $id => $title ) : ?>
 </form>
 <form method="post">
 <p>
-	<input name="reset" type="submit" class="button button-secondary" value="重置选项" onclick="return confirm('你确定要重置选项吗？重置之后您的全部设置将被清空，您确定您不是手残了？？？→_→ ');"/>
+	<input name="reset" type="submit" class="button button-secondary" value="重置选项" onclick="return confirm('你确定要重置选项吗？重置之后您的全部设置将被清空! ');"/>
 	<input type="hidden" name="action" value="reset" />
 </p>
 </form>
