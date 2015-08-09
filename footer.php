@@ -6,6 +6,7 @@
  版权所有，保留一切权利  ·  
 <a href="<?php echo home_url('/'); ?>sitemap.xml" title="站点地图">站点地图</a>
    ·   基于WordPress构建   © 2011-2014  ·  <?php if( waitig_gopt('waitig_footercode') ) echo waitig_gopt('waitig_footercode'); ?> 
+<p>Theme by <a href='http://www.waitig.com'>wait主题</a></p>
 
 <!--</div>-->
         <div class="trackcode pull-right">
