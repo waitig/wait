@@ -47,11 +47,7 @@ function deel_setup(){
 	add_theme_support( 'custom-background' );
 	//隐藏admin Bar
 	add_filter('show_admin_bar','hide_admin_bar');
-	//关键字
-	add_action('wp_head','deel_keywords');   
-
-	//页面描述 
-	add_action('wp_head','deel_description');   
+   
 
 	//阻止站内PingBack
 	if( waitig_gopt('waitig_pingback_un') ){
@@ -372,6 +368,12 @@ function exclude_category_home($query) {
 if (waitig_gopt('waitiglockcat')) {
     add_filter('pre_get_posts', 'exclude_category_home');
 }
+//关键字
+if(waitig_gopt('waitig_keywords'))
+	add_action('wp_head','deel_keywords');   
+//页面描述 
+if(waitig_gopt('waitig_description'))
+	add_action('wp_head','deel_description');
 
 //禁用谷歌字体
 if (waitig_gopt('waitig_google_un')):
