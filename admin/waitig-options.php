@@ -522,12 +522,18 @@ $options = array(
 				'id'    => 'waitig_qr_en',
 				'type'  => 'checkbox'
 		),
-	array(
+		array(
 				'name'  => '相关文章显示条数',
 				'desc'  => '条&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 文章下面的相关文章数目【尽量设置为2的倍数】',
 				'id'    => "waitig_related_count",
 				'type'  => 'number',
 				'std'   => 8
+		),
+		array(
+				'name'  => '文章底部版权信息',
+				'desc'  => '输入您文章底部的版权标识，您可以使用如下代码：{{title}}--文章标题，{{link}}--文章链接，{{blog_name}}--博客名称，{{blog_link}}--博客主页链接，完美支持HTML标签，留空代表关闭，',
+				'id'    => 'waitig_copyright',
+				'type'  => 'textarea'
 		),	
 		array(
 				'title' => '垃圾评论屏蔽',
