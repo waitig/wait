@@ -1,5 +1,5 @@
 <?php 
-if(!(waitig_gopt(waitig_mobilesticky)&&waitig_is_mobile())):
+if((!waitig_gopt(waitig_mobilesticky))||(!waitig_is_mobile())):
 ?>
 <!--<div class="ps_box" style="height:300px">-->
 	<div class="pics_switch">
