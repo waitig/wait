@@ -1,0 +1,19 @@
+<?php
+
+/*$post_data = get_post($post->ID, ARRAY_A);
+$slug = $post_data['post_name'];*/
+//header('Location:'.$result); ?>
+<HTML>
+<HEAD>
+<?
+$url=get_permalink();
+$result = preg_replace('/eshome.me/','/waitig.com/',$url);
+echo "<script language=\"javascript\">";
+echo "location.href=\"$result\"";
+echo "</script>";
+?>
+</HEAD>
+<BODY>
+</BODY>
+</HTML>
+
