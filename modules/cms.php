@@ -1,13 +1,13 @@
 <?php
 if (is_home()) {
-	   if( waitig_gopt('waitig_adindex_02') ) echo '<div>'.waitig_gopt('waitig_adindex_02').'</div>';	
-	if (waitig_gopt('hot_list_check') || waitig_gopt('waitig_slide')=='waitig_sticky_en') { ?>
+		if( waitig_gopt('waitig_adindex_02') ) echo '<div>'.waitig_gopt('waitig_adindex_02').'</div>';	
+		if (waitig_gopt('hot_list_check') || waitig_gopt('waitig_slide')=='waitig_sticky_en') { ?>
 		<div><div class="left-ad" style="clear: both;background-color: #fff; width: 30%;float: left;margin-right:2%;"></div><div class="hot-posts">
 			<h2 class="title"><?php echo waitig_gopt('hot_list_title') ?></h2>
 			<ul><?php hot_posts_list(); ?></ul>
 		</div></div>
-	<?php
-	} 
+<?php
+		} 
 } ?>
 <style type="text/css">
 .widget-title{background:#FFFFFF;} 
@@ -38,266 +38,54 @@ foreach ($result as $post) {
 </div>
 <!-- 最新文章结束 -->
 <?php
-if (waitig_gopt('waitig_cat_1')) { ?>
+for($i='1';$i<='8';$i++)
+{
+		if (waitig_gopt('waitig_cat_'.$i)) { ?>
 		<div class="widget-title">
 		<h2 class="title-h2"><small><?php
-		echo get_cat_name(waitig_gopt('waitig_cat_1')); ?></small><span class="more" style="float:right;"><a style="left: 0px;" href="<?php
-		echo get_category_link(waitig_gopt('waitig_cat_1')); ?>" title="阅读更多" target="_blank"><small>阅读更多</small></a></span></h2>
+				echo get_cat_name(waitig_gopt('waitig_cat_'.$i)); ?></small><span class="more" style="float:right;"><a style="left: 0px;" href="<?php
+				echo get_category_link(waitig_gopt('waitig_cat_'.$i)); ?>" title="阅读更多" target="_blank"><small>阅读更多</small></a></span></h2>
 		<div class="related_posts">
 <?php
-		query_posts(array(
-				'showposts' => waitig_gopt('waitig_cat_num') ? waitig_gopt('waitig_cat_num') : 4,
-				'cat' => waitig_gopt('waitig_cat_1')
-		)); ?>
+				query_posts(array(
+						'showposts' => waitig_gopt('waitig_cat_num') ? waitig_gopt('waitig_cat_num') : 4,
+						'cat' => waitig_gopt('waitig_cat_'.$i)
+				)); ?>
 <?php
-    while (have_posts()):
-        the_post(); ?>
-				<ul class="related_img" style="display:inline" ><li class="related_box" ><a href="<?php
-        the_permalink(); ?>" title="<?php
-        the_title(); ?>" ><?php
-        if (waitig_gopt('waitig_cdnurl_b')) {
-            echo '<img src="';
-            echo post_thumbnail_src();
-            echo '?imageView2/1/w/185/h/110/q/75" width="185px" height="110px" alt="' . get_the_title() . '" />';
-        } else {
-            echo '<img src="' . get_bloginfo("template_url") . '/timthumb.php?src=';
-            echo post_thumbnail_src();
-            echo '&h=110&w=185&q=90&zc=1&ct=1" width="185px" height="110px" alt="' . get_the_title() . '" />';
-        } ?><br><span class="r_title"><?php
-        the_title(); ?></span></a></li></ul>
-            <?php
-    endwhile; ?>
-		</div></div>
+		$tmp=0;
+		echo '<ul class="related_img" style="display:inline" >';
+		while (have_posts()):
+				the_post(); 
+		if($tmp<4)
+		{
+?>
+		<li class="related_box" ><a href="<?php
+				the_permalink(); ?>" title="<?php
+						the_title(); ?>" ><?php
+						if (waitig_gopt('waitig_cdnurl_b')) {
+								echo '<img src="';
+								echo post_thumbnail_src();
+								echo '?imageView2/1/w/185/h/110/q/75" width="185px" height="110px" alt="' . get_the_title() . '" />';
+						} else {
+								echo '<img src="' . get_bloginfo("template_url") . '/timthumb.php?src=';
+								echo post_thumbnail_src();
+								echo '&h=110&w=185&q=90&zc=1&ct=1" width="185px" height="110px" alt="' . get_the_title() . '" />';
+						} ?><br><span class="r_title"><?php
+								the_title(); ?></span></a></li>
 <?php
-} ?>
+		}
+		else
+		{
+				if($tmp==4)
+						echo '</ul><div class="relates"><ul>';
+				echo '<li><i class="fa fa-minus"></i><a target="_blank" href="'.get_permalink().'">',get_the_title(),'</a></li>';
+		}
+		$tmp++;
+		endwhile; ?>
+		</ul></div></div>
 <?php
-if (waitig_gopt('waitig_cat_2')) { ?>
-        <div class="widget-title">
-			<h2 class="title-h2"><small><?php
-    echo get_cat_name(waitig_gopt('waitig_cat_2')); ?></small><span class="more" style="float:right;"><a style="left: 0px;" href="<?php
-    echo get_category_link(waitig_gopt('waitig_cat_2')); ?>" title="阅读更多" target="_blank"><small>阅读更多</small></a></span></h2>
-			<div class="related_posts">
-			<?php
-    query_posts(array(
-        'showposts' => waitig_gopt('waitig_cat_num') ? waitig_gopt('waitig_cat_num') : 4,
-        'cat' => waitig_gopt('waitig_cat_2')
-    )); ?>
-            <?php
-    while (have_posts()):
-        the_post(); ?>
-				<ul class="related_img" style="display:inline" ><li class="related_box" ><a href="<?php
-        the_permalink(); ?>" title="<?php
-        the_title(); ?>" ><?php
-        if (waitig_gopt('waitig_cdnurl_b')) {
-            echo '<img src="';
-            echo post_thumbnail_src();
-            echo '?imageView2/1/w/185/h/110/q/75" width="185px" height="110px" alt="' . get_the_title() . '" />';
-        } else {
-            echo '<img src="' . get_bloginfo("template_url") . '/timthumb.php?src=';
-            echo post_thumbnail_src();
-            echo '&h=110&w=185&q=90&zc=1&ct=1" width="185px" height="110px" alt="' . get_the_title() . '" />';
-        } ?><br><span class="r_title"><?php
-        the_title(); ?></span></a></li></ul>
-            <?php
-    endwhile; ?>
-		</div></div>
-<?php
-} ?>
-<?php
-if (waitig_gopt('waitig_cat_3')) { ?>
-        <div class="widget-title">
-			<h2 class="title-h2"><small><?php
-    echo get_cat_name(waitig_gopt('waitig_cat_3')); ?></small><span class="more" style="float:right;"><a style="left: 0px;" href="<?php
-    echo get_category_link(waitig_gopt('waitig_cat_3')); ?>" title="阅读更多" target="_blank"><small>阅读更多</small></a></span></h2>
-		<div class="related_posts">
-			<?php
-    query_posts(array(
-        'showposts' => waitig_gopt('waitig_cat_num') ? waitig_gopt('waitig_cat_num') : 4,
-        'cat' => waitig_gopt('waitig_cat_3')
-    )); ?>
-            <?php
-    while (have_posts()):
-        the_post(); ?>
-				<ul class="related_img" style="display:inline" ><li class="related_box" ><a href="<?php
-        the_permalink(); ?>" title="<?php
-        the_title(); ?>" ><?php
-        if (waitig_gopt('waitig_cdnurl_b')) {
-            echo '<img src="';
-            echo post_thumbnail_src();
-            echo '?imageView2/1/w/185/h/110/q/75" width="185px" height="110px" alt="' . get_the_title() . '" />';
-        } else {
-            echo '<img src="' . get_bloginfo("template_url") . '/timthumb.php?src=';
-            echo post_thumbnail_src();
-            echo '&h=110&w=185&q=90&zc=1&ct=1" width="185px" height="110px" alt="' . get_the_title() . '" />';
-        } ?><br><span class="r_title"><?php
-        the_title(); ?></span></a></li></ul>
-            <?php
-    endwhile; ?>
-		</div></div>
-<?php
-} ?>
-<?php
-if (waitig_gopt('waitig_cat_4')) { ?>
-        <div class="widget-title">
-			<h2 class="title-h2"><small><?php
-    echo get_cat_name(waitig_gopt('waitig_cat_4')); ?></small><span class="more" style="float:right;"><a style="left: 0px;" href="<?php
-    echo get_category_link(waitig_gopt('waitig_cat_4')); ?>" title="阅读更多" target="_blank"><small>阅读更多</small></a></span></h2>
-		<div class="related_posts">
-			<?php
-    query_posts(array(
-        'showposts' => waitig_gopt('waitig_cat_num') ? waitig_gopt('waitig_cat_num') : 4,
-        'cat' => waitig_gopt('waitig_cat_4')
-    )); ?>
-            <?php
-    while (have_posts()):
-        the_post(); ?>
-				<ul class="related_img" style="display:inline" ><li class="related_box" ><a href="<?php
-        the_permalink(); ?>" title="<?php
-        the_title(); ?>" ><?php
-        if (waitig_gopt('waitig_cdnurl_b')) {
-            echo '<img src="';
-            echo post_thumbnail_src();
-            echo '?imageView2/1/w/185/h/110/q/75" width="185px" height="110px" alt="' . get_the_title() . '" />';
-        } else {
-            echo '<img src="' . get_bloginfo("template_url") . '/timthumb.php?src=';
-            echo post_thumbnail_src();
-            echo '&h=110&w=185&q=90&zc=1&ct=1" width="185px" height="110px" alt="' . get_the_title() . '" />';
-        } ?><br><span class="r_title"><?php
-        the_title(); ?></span></a></li></ul>
-            <?php
-    endwhile; ?>
-		</div></div>
-<?php
-} ?>
-<?php
-if (waitig_gopt('waitig_cat_5')) { ?>
-        <div class="widget-title">
-			<h2 class="title-h2"><small><?php
-    echo get_cat_name(waitig_gopt('waitig_cat_5')); ?></small><span class="more" style="float:right;"><a style="left: 0px;" href="<?php
-    echo get_category_link(waitig_gopt('waitig_cat_5')); ?>" title="阅读更多" target="_blank"><small>阅读更多</small></a></span></h2>
-		<div class="related_posts">
-			<?php
-    query_posts(array(
-        'showposts' => waitig_gopt('waitig_cat_num') ? waitig_gopt('waitig_cat_num') : 4,
-        'cat' => waitig_gopt('waitig_cat_5')
-    )); ?>
-            <?php
-    while (have_posts()):
-        the_post(); ?>
-				<ul class="related_img" style="display:inline" ><li class="related_box" ><a href="<?php
-        the_permalink(); ?>" title="<?php
-        the_title(); ?>" ><?php
-        if (waitig_gopt('waitig_cdnurl_b')) {
-            echo '<img src="';
-            echo post_thumbnail_src();
-            echo '?imageView2/1/w/185/h/110/q/75" width="185px" height="110px" alt="' . get_the_title() . '" />';
-        } else {
-            echo '<img src="' . get_bloginfo("template_url") . '/timthumb.php?src=';
-            echo post_thumbnail_src();
-            echo '&h=110&w=185&q=90&zc=1&ct=1" width="185px" height="110px" alt="' . get_the_title() . '" />';
-        } ?><br><span class="r_title"><?php
-        the_title(); ?></span></a></li></ul>
-            <?php
-    endwhile; ?>
-		</div></div>
-<?php
-} ?>
-<?php
-if (waitig_gopt('waitig_cat_6')) { ?>
-        <div class="widget-title">
-			<h2 class="title-h2"><small><?php
-    echo get_cat_name(waitig_gopt('waitig_cat_6')); ?></small><span class="more" style="float:right;"><a style="left: 0px;" href="<?php
-    echo get_category_link(waitig_gopt('waitig_cat_6')); ?>" title="阅读更多" target="_blank"><small>阅读更多</small></a></span></h2>
-		<div class="related_posts">
-			<?php
-    query_posts(array(
-        'showposts' => waitig_gopt('waitig_cat_num') ? waitig_gopt('waitig_cat_num') : 4,
-        'cat' => waitig_gopt('waitig_cat_6')
-    )); ?>
-            <?php
-    while (have_posts()):
-        the_post(); ?>
-				<ul class="related_img" style="display:inline" ><li class="related_box" ><a href="<?php
-        the_permalink(); ?>" title="<?php
-        the_title(); ?>" ><?php
-        if (waitig_gopt('waitig_cdnurl_b')) {
-            echo '<img src="';
-            echo post_thumbnail_src();
-            echo '?imageView2/1/w/185/h/110/q/75" width="185px" height="110px" alt="' . get_the_title() . '" />';
-        } else {
-            echo '<img src="' . get_bloginfo("template_url") . '/timthumb.php?src=';
-            echo post_thumbnail_src();
-            echo '&h=110&w=185&q=90&zc=1&ct=1" width="185px" height="110px" alt="' . get_the_title() . '" />';
-        } ?><br><span class="r_title"><?php
-        the_title(); ?></span></a></li></ul>
-            <?php
-    endwhile; ?>
-		</div></div>
-<?php
-} ?>
-<?php
-if (waitig_gopt('waitig_cat_7')) { ?>
-        <div class="widget-title">
-			<h2 class="title-h2"><small><?php
-    echo get_cat_name(waitig_gopt('waitig_cat_7')); ?></small><span class="more" style="float:right;"><a style="left: 0px;" href="<?php
-    echo get_category_link(waitig_gopt('waitig_cat_7')); ?>" title="阅读更多" target="_blank"><small>阅读更多</small></a></span></h2>
-		<div class="related_posts">
-			<?php
-    query_posts(array(
-        'showposts' => waitig_gopt('waitig_cat_num') ? waitig_gopt('waitig_cat_num') : 4,
-        'cat' => waitig_gopt('waitig_cat_7')
-    )); ?>
-            <?php
-    while (have_posts()):
-        the_post(); ?>
-				<ul class="related_img" style="display:inline" ><li class="related_box" ><a href="<?php
-        the_permalink(); ?>" title="<?php
-        the_title(); ?>" ><?php
-        if (waitig_gopt('waitig_cdnurl_b')) {
-            echo '<img src="';
-            echo post_thumbnail_src();
-            echo '?imageView2/1/w/185/h/110/q/75" width="185px" height="110px" alt="' . get_the_title() . '" />';
-        } else {
-            echo '<img src="' . get_bloginfo("template_url") . '/timthumb.php?src=';
-            echo post_thumbnail_src();
-            echo '&h=110&w=185&q=90&zc=1&ct=1" width="185px" height="110px" alt="' . get_the_title() . '" />';
-        } ?><br><span class="r_title"><?php
-        the_title(); ?></span></a></li></ul>
-            <?php
-    endwhile; ?>
-		</div></div>
-<?php
-} ?>
-<?php
-if (waitig_gopt('waitig_cat_8')) { ?>
-        <div class="widget-title">
-			<h2 class="title-h2"><small><?php
-    echo get_cat_name(waitig_gopt('waitig_cat_8')); ?></small><span class="more" style="float:right;"><a style="left: 0px;" href="<?php
-    echo get_category_link(waitig_gopt('waitig_cat_8')); ?>" title="阅读更多" target="_blank"><small>阅读更多</small></a></span></h2>
-		<div class="related_posts">
-			<?php
-    query_posts(array(
-        'showposts' => waitig_gopt('waitig_cat_num') ? waitig_gopt('waitig_cat_num') : 4,
-        'cat' => waitig_gopt('waitig_cat_8')
-    )); ?>
-            <?php
-    while (have_posts()):
-        the_post(); ?>
-				<ul class="related_img" style="display:inline" ><li class="related_box" ><a href="<?php
-        the_permalink(); ?>" title="<?php
-        the_title(); ?>" ><?php
-        if (waitig_gopt('waitig_cdnurl_b')) {
-            echo '<img src="';
-            echo post_thumbnail_src();
-            echo '?imageView2/1/w/185/h/110/q/75" width="185px" height="110px" alt="' . get_the_title() . '" />';
-        } else {
-            echo '<img src="' . get_bloginfo("template_url") . '/timthumb.php?src=';
-            echo post_thumbnail_src();
-            echo '&h=110&w=185&q=90&zc=1&ct=1" width="185px" height="110px" alt="' . get_the_title() . '" />';
-        } ?><br><span class="r_title"><?php
-        the_title(); ?></span></a></li></ul>
-            <?php
-    endwhile; ?>
-		</div></div>
-<?php
-} ?>
+		if($tmp>4)
+				echo '</div>';
+		} 
+}
+?>

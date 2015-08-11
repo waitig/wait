@@ -4324,6 +4324,8 @@ input[type="radio"],input[type="checkbox"] {
 			   background-color:#fff;
 			   border-top:1px solid #f2f2f2;
 			   margin-bottom:10px
+			   height:100%;
+			   width:100%;
 	   }
 	   .relates h3 {
 			   font-size:15px;
