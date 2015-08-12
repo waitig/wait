@@ -87,8 +87,8 @@ $options = array(
 				'name'  => '显示条目',
 				'desc'  => '设置显示的文章数量，建议不要大于10',
 				'id'    => "hot_list_number",
-				'type'  => 'text',
-				'std'   => '本周热门'
+				'type'  => 'number',
+				'std'   => 5
 		),
 		array(
 				'name'  => '排行名称',
