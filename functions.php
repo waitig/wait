@@ -683,7 +683,7 @@ function hot_posts_list($number=6) {
 		} elseif (waitig_gopt('waitig_hot') == 'waitig_hot_zan') {
 				$result = get_posts("numberposts=".$number."&meta_key=bigfa_ding&orderby=meta_value_num&order=desc");
 		} elseif (waitig_gopt('waitig_hot') == 'waitig_hot_comment') {
-				$result = waitig_gopt("numberposts=".$number."&orderby=comment_count&order=desc");
+				$result = get_posts("numberposts=".$number."&orderby=comment_count&order=desc");
 		}
 		$output = '';
 		if (empty($result)) {

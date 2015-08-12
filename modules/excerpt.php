@@ -3,7 +3,7 @@
 <div>
 		<div class="hot-posts">
 			<h2 class="title"><?php echo waitig_gopt('hot_list_title') ?></h2>
-			<ul><?php hot_posts_list($number=waitig_gopt('hot_list_number')); ?></ul>
+			<ul><?php hot_posts_list(); ?></ul>
 		</div></div>
 		<?php } ?>
 <?php if (wp_is_mobile() ): ?><?php if( waitig_gopt('Mobiled_adindex_02') ) printf('<div class="banner-sticky">'.waitig_gopt('Mobiled_adindex_02').'</div>'); ?><?php endif ;?>
