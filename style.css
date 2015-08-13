@@ -2008,7 +2008,7 @@ audio,canvas,video {
 																									   }
 																									   .header {
 																											   top:0;
-																											   max-width:1226px;
+																											   /*max-width:1226px;*/
 																											   margin:auto;
 																											   margin-bottom:10px;
 																											   float:none;
@@ -2834,12 +2834,15 @@ input[type="radio"],input[type="checkbox"] {
 														 cursor:default
 												 }
 												 .navbar {
-														 height:52px;
+														 height:50px;
 														 background-color:#424242;
 														 *z-index:2;
 														 *zoom:1;
 														 //opacity:.9;
-														 clear:both
+														 clear:both;
+														 width:100%;
+														 top:0px;
+														 position:fixed;
 												 }
 												 .navbar:before,.navbar:after {
 														 display:table;
@@ -2856,7 +2859,7 @@ input[type="radio"],input[type="checkbox"] {
 												 .container-inner {
 														 max-width:1226px;
 														 width:100%;
-														 margin:0 auto;
+														 margin:50px auto 0px;
 														 text-align:center;
 														 position:relative
 												 }
@@ -2866,7 +2869,7 @@ input[type="radio"],input[type="checkbox"] {
 														 display:block;
 														 margin:0 auto;
 														 font-size:16px;
-														 width:100%;
+														 max-width:1226px;
 												 }
 												 .navbar .nav.pull-right {
 														 float:right;
@@ -2877,7 +2880,7 @@ input[type="radio"],input[type="checkbox"] {
 														 float:left;
 														 margin-right:1px;
 														 display:block;
-														 min-width:75px;
+														 min-width:90px;
 														 width:auto
 												 }
 												 .navbar .nav li a {
@@ -2937,7 +2940,7 @@ input[type="radio"],input[type="checkbox"] {
 																 background-color:#000000;
 														 }
 														 .sub-menu {
-																 min-width:130px;
+																 min-width:90px;
 																 left:0;
 																 max-height:0;
 																 position:absolute;
@@ -2956,11 +2959,11 @@ input[type="radio"],input[type="checkbox"] {
 																 -ms-transform:rotateY(90deg);
 																 -o-transform:rotateY(90deg);
 																 ransform:rotateY(90deg);
-																 -webkit-transition:opacity .4s,-webkit-transform .5s;
-																 -moz-transition:opacity .4s,-moz-transform .5s;
-																 -ms-transition:opacity .4s,-ms-transform .5s;
-																 -o-transition:opacity .4s,-o-transform .5s;
-																 transition:opacity .4s,transform .5s
+																 -webkit-transition:opacity .2s,-webkit-transform .2s;
+																 -moz-transition:opacity .2s,-moz-transform .2s;
+																 -ms-transition:opacity .2s,-ms-transform .2s;
+																 -o-transition:opacity .2s,-o-transform .2s;
+																 transition:opacity .2s,transform .2s
 														 }
 														 .nav>li:hover .sub-menu,.nav>li:focus .sub-menu {
 																 max-height:1000px;
@@ -3035,7 +3038,7 @@ input[type="radio"],input[type="checkbox"] {
 																 -moz-transition-delay:350ms;
 																 -ms-transition-delay:350ms;
 																 -o-transition-delay:350ms;
-																 transition-delay:350ms
+																 transition-delay:100ms
 														 }
 														 .sub-menu li:nth-child(2) {
 																 -webkit-transition-delay:300ms;
@@ -3098,6 +3101,7 @@ input[type="radio"],input[type="checkbox"] {
 														 .yusi-logo {
 																 display:block;
 																 text-align:left;
+																 background-color:#FBFBFB;
 														 }
 														 .yusi-logo h1 {
 																 display:inline-block;
@@ -3107,12 +3111,11 @@ input[type="radio"],input[type="checkbox"] {
 																 font-weight:100
 														 }
 														 .yusi-mono {
-																 letter-spacing:-1px;
+																 letter-spacing:-2px;
 																 position:relative;
 																 color:#000;
 																 font-size:54px;
-																 text-shadow:0 0 10px #B3A29F;
-																 margin:0;
+																 /*text-shadow:0 0 10px #B3A29F;*/																 margin:0;
 																 padding:0;
 																 z-index:0;
 																 -webkit-transition:all .1s ease-out;
@@ -3123,14 +3126,14 @@ input[type="radio"],input[type="checkbox"] {
 														 }
 														 .yusi-bloger {
 																 position:relative;
-																 color:#ffe;
+																 color:#000;
 																 font-weight:normal;
 																 font-size:24px;
-																 text-shadow:0 0 15px rgba(0, 0, 0, 1);
+																 /*text-shadow:0 0 15px rgba(0, 0, 0, 1);*/
 																 margin-left:10px;
 																 letter-spacing:-1px;
 																 padding:0;
-																 z-index:2;
+																 /*z-index:2;*/
 																 -webkit-transition:all .5s ease-out;
 																 -moz-transition:all .5s ease-out;
 																 -o-transition:all .5s ease-out;
