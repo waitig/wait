@@ -2881,7 +2881,9 @@ input[type="radio"],input[type="checkbox"] {
 														 margin-right:1px;
 														 display:block;
 														 min-width:116px;
-														 width:auto
+														 width:auto;
+														 text-align:center;
+
 												 }
 												 .navbar .nav li a {
 														 padding:16px 20px;
@@ -3049,7 +3051,7 @@ input[type="radio"],input[type="checkbox"] {
 																 transition-delay:300ms
 														 }
 														 .sub-menu li:nth-child(3) {
-																 -webkit-transition-delay:250ms;
+																 -webkit-transition-dewp-content/themes/wait/style.csswp-content/themes/wait/style.csslay:250ms;
 																 -moz-transition-delay:250ms;
 																 -ms-transition-delay:250ms;
 																 -o-transition-delay:250ms;
