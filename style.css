@@ -2859,7 +2859,7 @@ input[type="radio"],input[type="checkbox"] {
 												 .container-inner {
 														 max-width:1226px;
 														 width:100%;
-														 margin:50px auto 0px;
+														 margin:60px auto 0px;
 														 text-align:center;
 														 position:relative
 												 }
@@ -2880,7 +2880,7 @@ input[type="radio"],input[type="checkbox"] {
 														 float:left;
 														 margin-right:1px;
 														 display:block;
-														 min-width:90px;
+														 min-width:116px;
 														 width:auto
 												 }
 												 .navbar .nav li a {
@@ -2911,7 +2911,7 @@ input[type="radio"],input[type="checkbox"] {
 														 text-align:left;
 														 position:absolute;
 														 left:100%;
-														 min-width:120px;
+														 min-width:116px;
 														 z-index:10;
 														 display:none;
 														 font-size:12px
@@ -2921,6 +2921,7 @@ input[type="radio"],input[type="checkbox"] {
 														 margin:0;
 														 position:relative;
 														 background-color:#445552
+														 min-width:116px;
 												 }
 												 .navbar .nav>li>ul>li>a,.navbar .nav>li>ul>li>ul>li>a {
 														 float:none;
@@ -3105,7 +3106,7 @@ input[type="radio"],input[type="checkbox"] {
 														 }
 														 .yusi-logo h1 {
 																 display:inline-block;
-																 padding:20px 0 10px 0;
+																 padding:12px 0 5px 0;
 																 cursor:pointer;
 																 font-family:'Handlee',"华文隶书","Microsoft Yahei",arial,sans-serif;
 																 font-weight:100
