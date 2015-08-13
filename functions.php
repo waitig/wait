@@ -677,11 +677,12 @@ function hot_posts_list($days=7, $nums=10) {
 }
  */
 
-function hot_posts_list($number=6) {
+function hot_posts_list() {
+		$number=waitig_gopt('hot_list_number');
 		if (waitig_gopt('waitig_hot') == 'waitig_hot_views') {
-				$result = get_posts("numberposts=".$number."&meta_key=views&orderby=meta_value_num&order=desc");
+				$result = get_posts(array('numberposts'=>$number,'meta_key'=>'views','orderby'=>'meta_value_num','order'=>'desc'));
 		} elseif (waitig_gopt('waitig_hot') == 'waitig_hot_zan') {
-				$result = get_posts("numberposts=".$number."&meta_key=bigfa_ding&orderby=meta_value_num&order=desc");
+				$result = get_posts(array('numberposts'=>$number,'meta_key'=>'bigfa_ding','orderby'=>'meta_value_num','order'=>'desc'));
 		} elseif (waitig_gopt('waitig_hot') == 'waitig_hot_comment') {
 				$result = get_posts("numberposts=".$number."&orderby=comment_count&order=desc");
 		}
