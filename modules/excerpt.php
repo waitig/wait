@@ -22,6 +22,9 @@ if( has_post_thumbnail() || !waitig_gopt('waitig_thumbnail_un') ){
 }
 ?>
 <article class="excerpt<?php echo !$_thumbnail ? ' excerpt-nothumbnail' : '' ?>">
+
+<?php if( $_thumbnail ){ ?>
+	<div class="focus"><a target="_blank" href="<?php the_permalink(); ?>"><img class="thumb" src="<?php echo get_bloginfo("template_url") ?>/timthumb.php?src=<?php echo post_thumbnail_src(); ?>&h=123&w=200&q=90&zc=1&ct=1" alt="<?php the_title(); ?>" /></a></div>
 	<header><?php  if( !is_category() ) {$category = get_the_category();
 		        if($category[0]){echo '<a class="label label-important" href="'.get_category_link($category[0]->term_id ).'">'.$category[0]->cat_name.'<i class="label-arrow"></i></a>';}
 	        };?><h2><a target="_blank" href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php the_title(); ?>
@@ -30,8 +33,6 @@ $t2=date("Y-m-d H:i:s");
 $diff=(strtotime($t2)-strtotime($t1))/3600;
 if($diff<12){echo '<img src="'.get_bloginfo("template_url").'/img/new.gif" alt="24小时内最新">';}?> </a></h2>
 	</header>
-<?php if( $_thumbnail ){ ?>
-	<div class="focus"><a target="_blank" href="<?php the_permalink(); ?>"><img class="thumb" src="<?php echo get_bloginfo("template_url") ?>/timthumb.php?src=<?php echo post_thumbnail_src(); ?>&h=123&w=200&q=90&zc=1&ct=1" alt="<?php the_title(); ?>" /></a></div>
 	<?php } ?>
 		<span class="note"> <?php echo deel_strimwidth(strip_tags(apply_filters('the_content', $post->post_content)), 0, 140, '...'); ?></span>
 <p class="auth-span">
