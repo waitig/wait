@@ -2345,11 +2345,11 @@ input[type="radio"],input[type="checkbox"] {
 					  }
 					  .btn-primary {
 							  color:#fff;
-							  background-color:#5fbaac
+							  background-color:#333
 					  }
 					  .btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.btn-primary.disabled,.btn-primary[disabled] {
 							  color:#fff;
-							  background-color:#35d2ab
+							  background-color:#999
 					  }
 					  .btn-warning {
 							  color:#fff;
