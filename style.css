@@ -5215,34 +5215,36 @@ input[type="radio"],input[type="checkbox"] {
 						text-indent:0
 				}
 				.article-social a {
-						border-bottom:1px solid #d6d6d6;
+						/*border-bottom:1px solid #d6d6d6;*/
 						text-indent:0
 				}
 				.article-social a:hover {
 						background:#f17067;
-						border-bottom:1px solid #d6d6d6
+						/*border-bottom:1px solid #d6d6d6*/
 				}
 				#Addlike {
-						background-color:#f78585;
-						color:#fff
+						background-color:#fff;
+						color:#000
 				}
 				#Addlike:hover {
-						background-color:#f17067
+						background-color:#999;
+						color:#fff;
 				}
 				.action {
 						position:relative;
 						padding:8px 40px;
 						display:inline-block;
-						border:1px solid #d6d6d6;
+						border:1px solid #000;
 						border-radius:2px;
-						background-color:#5fcec0;
+						background-color:#fff;
 						font-size:15px;
 						margin:0 3px;
-						color:#fff
+						color:#000
 				}
 				.action:hover {
 						background-color:#3bbfaf;
-						border-bottom:1px solid #d6d6d6
+						color:#fff;
+						/*border-bottom:1px solid #d6d6d6*/
 				}
 				.action i,bdsharebuttonbox i {
 						margin-right:5px;
@@ -5302,7 +5304,7 @@ input[type="radio"],input[type="checkbox"] {
 
 }
 .article-social .or>button{
-		color: #FFF;
+		color: #000;
 		display: inline-block;
 		position: absolute;
 		z-index: 2;
@@ -5310,14 +5312,15 @@ input[type="radio"],input[type="checkbox"] {
 		height: 60px;
 		width: 60px;
 		margin: -8px 0px 0px -30px;
-		border: 5px solid rgb(255, 255, 255);
+		border: 1px solid #000;
 		font-size: 20px;
 		font-weight: 600;
 		text-align: center;
-		background: #7AB951 none repeat scroll 0% 0%;
+		background: #fff none repeat scroll 0% 0%;
 }
 .article-social .or>button:hover{
-		background:#555;
+		color:#fff;
+		background:#999;
 }
 
 @-ms-viewport {
