@@ -28,8 +28,6 @@ if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/jquery.easing.js" type="text/javascript"></script>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/studio.js" type="text/javascript"></script>
 
-<?php if( waitig_gopt('waitig_track') ) echo waitig_gopt('waitig_track'); ?>
-
 <!--[if lt IE 9]><script src="<?php bloginfo('template_url'); ?>/js/html5.js"></script><![endif]-->
 </head>
 <body <?php body_class(); ?>>

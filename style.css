@@ -6720,6 +6720,17 @@ input[type="radio"],input[type="checkbox"] {
 .pics_switch_clients ul li.li_5 .current { background-position:-636px -185px;}
 .pics_switch_clients ul li.li_6 .current { background-position:-795px -185px;}
 
+
+/************************百度share********************/
+.bdsharebuttonbox a{border-bottom:0;margin-right:5px;width:28px;height:28px;line-height:28px;color: #000;}
+.bds_renren{background:#fff;/*border:solid 1px;*/}
+.bds_qzone{background:#fff;/*border:solid 1px;*/}
+.bds_more{background:#fff;/*border:solid 1px;*/}
+.bds_weixin{background:#fff;/*border:solid 1px;*/}
+.bdsharebuttonbox a:hover{background-color:#7fb4ab;color: #fff;}
+
+
+
 /******************** 响应式 ********************/
 /*
 @media all and (max-width: 1226px) {
