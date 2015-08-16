@@ -43,6 +43,12 @@ $options = array(
 				'std'	=>	''
 		),
 		array(
+				'name'	=>	'网站多彩风格',
+				'desc'	=>	'【开启】，默认为黑白简约风格，开启后将会变为多彩风格',
+				'id'	=>	'waitig_colorful_en',
+				'type'	=>	'checkbox'
+		),
+		array(
 				'name'	=>	'文章无图时不显示缩略图',
 				'desc'	=>	'注意：选择此项目可能导致文章显示错位',
 				'id'	=>	'waitig_thumbnail_un',
