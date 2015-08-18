@@ -168,7 +168,7 @@ function footerScript() {
 				wp_enqueue_script( 'default' );   
 				if(waitig_gopt('waitig_colorful_en'))
 						wp_register_style( 'style', get_template_directory_uri() . '/colorful.css',false,'1.0' );
-				wp_register_style( 'style', get_template_directory_uri() . '/simple.css',false,'1.0' );
+				wp_register_style( 'style', get_template_directory_uri() . '/style.css',false,'1.0' );
 				wp_enqueue_style( 'style' ); 
 		}  
 }  
