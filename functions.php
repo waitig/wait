@@ -840,7 +840,7 @@ function baidu_record() {
 //获取关于主题内容
 function get_about_theme()
 {
-		$fp=fopen(get_bloginfo('template_url').'/README.md','r');
+		@$fp=fopen(get_bloginfo('template_url').'/README.md','r');
 		$content='<p>';
 		while(!feof($fp))
 		{
@@ -850,4 +850,3 @@ function get_about_theme()
 		return $content;
 }
 ?>
-
