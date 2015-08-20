@@ -1,6 +1,5 @@
 <?php
 $themename = $dname.'主题';
-
 $options = array(
 		//将选项放入数组中，管理更加方便
 		//

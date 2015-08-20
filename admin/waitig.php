@@ -150,7 +150,6 @@ function waitig_options_page() {
 		</label>
 	</td>
 </tr>
-
 <?php
 						break;
 				case 'radio':
@@ -167,7 +166,6 @@ function waitig_options_page() {
 		<p><span class="description"><?php echo $value['desc']; ?></span></p>
 	</td>
 </tr>
-
 <?php
 						break;
 				case 'checkbox':
@@ -181,7 +179,6 @@ function waitig_options_page() {
 		</label>
 	</td>
 </tr>
-
 <?php
 						break;
 				case 'checkboxs':
@@ -200,7 +197,6 @@ foreach ( $value['options'] as $id => $title ) : ?>
 		<span class="description"><?php echo $value['desc']; ?></span>
 	</td>
 </tr>
-
 <?php
 		break;
 				}

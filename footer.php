@@ -6,14 +6,12 @@
  版权所有，保留一切权利  ·  
 <a href="<?php echo home_url('/'); ?>sitemap.xml" title="站点地图">站点地图</a>
    ·   基于WordPress构建  ·   Theme by <a href='http://www.waitig.com'>wait主题</a>  © 2011-2015  ·  <?php if( waitig_gopt('waitig_footercode') ) echo waitig_gopt('waitig_footercode'); ?> 
-
 <!--</div>-->
         <div class="trackcode pull-right">
             <?php if( waitig_gopt('waitig_track') ) echo waitig_gopt('waitig_track'); ?>
         </div>
     </div>
 </footer>
-
 <?php 
 wp_footer(); 
 global $dHasShare; 
@@ -22,7 +20,5 @@ if($dHasShare == true){
 }  
 if( waitig_gopt('waitig_footcode') ) echo waitig_gopt('waitig_footcode'); 
 ?>
-
-
 </body>
 </html>
