@@ -1099,9 +1099,9 @@ function() {
                 "bdStyle": "0",
                 "bdSize": "24"
             },
-            share: [{
-                bdCustomStyle: "/wp-content/themes/yusi1.0/share.css"
-            }],
+            /*share: [{
+                bdCustomStyle: "/wp-content/themes/wait/share.css"
+            }],*/
         };
         if (a(".article-content").length) {
             a(".article-content a").tooltip({
