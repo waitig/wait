@@ -27,7 +27,7 @@ wp_head();
 if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/jquery.easing.js" type="text/javascript"></script>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/studio.js" type="text/javascript"></script>
-
+<link type="text/css" rel="styleSheet" href="<?php echo get_bloginfo("template_url") ?>/share.css">
 <!--[if lt IE 9]><script src="<?php bloginfo('template_url'); ?>/js/html5.js"></script><![endif]-->
 </head>
 <body <?php body_class(); ?>>
