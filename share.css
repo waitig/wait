@@ -1,6 +1,6 @@
 .bdsharebuttonbox a{border-bottom:0;margin-right:5px;width:28px;height:28px;line-height:28px;color: #000;}
-.bds_renren{background:#fff;border:solid 1px;}
-.bds_qzone{background:#fff;border:solid 1px;}
-.bds_more{background:#fff;border:solid 1px;}
-.bds_weixin{background:#fff;border:solid 1px;}
+.bds_renren{background:#fff}
+.bds_qzone{background:#fff}
+.bds_more{background:#fff}
+.bds_weixin{background:#fff}
 .bdsharebuttonbox a:hover{background-color:#7fb4ab;color: #fff;border-bottom:0;}
