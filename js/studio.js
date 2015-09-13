@@ -84,3 +84,5 @@ $('.pics_switch .pb').css({'width':totalImgWidth});
 	
 });
 
+
+

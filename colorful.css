@@ -6701,6 +6701,13 @@ input[type="radio"],input[type="checkbox"] {
 .pics_switch_clients ul li.li_5 .current { background-position:-636px -185px;}
 .pics_switch_clients ul li.li_6 .current { background-position:-795px -185px;}
 
+
+#topNotice li
+{
+		line-height:25px;
+}
+
+
 /******************** 响应式 ********************/
 /*
 @media all and (max-width: 1226px) {

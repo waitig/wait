@@ -1,5 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>兼容多种浏览器的公告栏文字滚动效果js代码，sky整理收集。</title>
+<style type="text/css">
+.cls_container{border:1px solid #ccc;width:680px;font-size:12px;height:24px;overflow:hidden;}
+.cls_container ul{list-style-type:none;margin:0;padding:0;margin-left:32px;}
+.cls_container ul li{height:24px;line-height:24px;width:320px;float:left;display:inline;}
+</style>
 <script type="text/javascript">
-var js=document.scripts;
-js=js[js.length-1].src.substring(0,js[js.length-1].src.lastIndexOf("/")+1);
-alert(location.href);
+/*function $(element){
+ if(arguments.length>1){
+  for(var i=0,length=arguments.length,elements=[];i<length;i++){
+   elements.push($(arguments[i]));
+  }
+   return elements;
+ }
+ if(typeof element=="string"){
+  return document.getElementById(element);
+ }else{
+  return element;
+ }
+}
+var Class={
+ create:function(){
+  return function(){
+   this.initialize.apply(this,arguments);
+  }
+ }
+}
+Function.prototype.bind=function(object){
+ var method=this;
+ return function(){
+  method.apply(object,arguments);
+ }
+}
+var Scroll=Class.create();
+Scroll.prototype={
+ initialize:function(element,height){
+  this.element=$(element);
+  this.element.innerHTML+=this.element.innerHTML;
+  this.height=height;
+  this.maxHeight=this.element.scrollHeight/2;
+  this.counter=0;
+  this.scroll();
+  this.timer="";
+  this.element.onmouseover=this.stop.bind(this);
+  this.element.onmouseout=function(){this.timer=setTimeout(this.scroll.bind(this),1000);}.bind(this);
+ },
+ scroll:function(){
+  if(this.element.scrollTop<this.maxHeight){
+   this.element.scrollTop++;
+   this.counter++;
+  }else{
+   this.element.scrollTop=0;
+   this.counter=0;
+  }
+  if(this.counter<this.height){
+   this.timer=setTimeout(this.scroll.bind(this),20);
+  }else{
+   this.counter=0;
+   this.timer=setTimeout(this.scroll.bind(this),3000);
+  }
+ },
+ stop:function(){
+  clearTimeout(this.timer);
+ }
+}
+var myscroll=new Scroll("myscroll",24);*/
+function MarqueeNews(){
+ document.getElementById("news").find("ul").animate({
+  marginTop : "-20px"
+ }, 1000, function () {
+  $(this).css({
+    marginTop : "0px"
+   }).find("li:first").appendTo(this)
+ })
+}
+
+var MarNews = setInterval(MarqueeNews, 3000);
+
+function gstop(){
+ clearInterval(MarNews);
+}
+
+function gstart(){
+ MarNews = setInterval(MarqueeNews, 3000);
+}
+
+function goup(){
+
+ $('#news').find("ul li").last().insertBefore($('#news').find("ul li").first());
+ 
+ $('#news').find("ul").css({marginTop:'-20px'});
+ 
+ $('#news').find("ul").animate({
+  marginTop : "0px"
+ }, 500)
+}
+function godown(){
+ 
+ $('#news').find("ul").animate({
+  marginTop : "-20px"
+ }, 500, function () {
+  $(this).css({
+    marginTop : "0px"
+   }).find("li:first").appendTo(this)
+ })
+}
 </script>
+</head>
+<body>
+<!--<div id="myscroll" class="cls_container">
+ <ul>
+ <li><a href="<#ZC_BLOG_HOST#>?cat=2">欢迎来到站长特效网</a></li>
+  <li><a href="<#ZC_BLOG_HOST#>?cat=3">微软和谷歌对浏览器的垄断会导致Web的私有化吗? </a></li>
+  <li><a href="<#ZC_BLOG_HOST#>?cat=4">Subversion高级应用:SVN的多种认证方式</a></li>
+  <li><a href="<#ZC_BLOG_HOST#>?cat=5">年度总结:2008年Java工具</a></li>
+  <li><a href="<#ZC_BLOG_HOST#>?cat=6">要不要把IT主导权还给业务人员? </a></li>
+  <li><a href="<#ZC_BLOG_HOST#>?cat=7">IT专家网08年回顾:开发语言与开发平台共舞 </a></li>
+  <li><a href="<#ZC_BLOG_HOST#>?cat=8">zzjs站长特效，做国内最帅的网页特效站</a></li>
+  <li><a href="<#ZC_BLOG_HOST#>?cat=9">方正科技七大优势 打造全流程专业外包</a></li>
+  <li><a href="<#ZC_BLOG_HOST#>?cat=10">08回顾:Oracle能否继续领跑者数据库市场? </a></li>
+  <li><a href="<#ZC_BLOG_HOST#>?cat=11">Web安全性问题的层次关系分析</a></li>
+  <li><a href="<#ZC_BLOG_HOST#>?cat=2">从融合至存储 以太网成企业网络终极答案</a></li>
+ </ul>
+</div>
+<div id="showhint"></div>-->
+ <div id="news">
+         <ul id="topNotice" onmouseout="gstart()" onmouseover="gstop()" style="">
+      <li>【公告】一些限量超低价产品在QQ群第一时间发布，欢迎加群——193479703</li>
+<li><a href="/p/$promotion.autoid" target="_blank" style="color: #A81C1C;">【置顶】$promotion.title</a></li>
+                </ul>
+ </div>
+</div>
+
+
+</body>
+</html>
