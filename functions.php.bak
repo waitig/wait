@@ -28,12 +28,7 @@ function add_editor_buttoness($buttons) {
 }
 add_filter("mce_buttons_3", "add_editor_buttoness");
 //增强编辑器结束
-//检测主题更新 wpdaxue.com
-require_once('theme-update-checker.php'); 
-$waitig_update_checker = new ThemeUpdateChecker(
-    	'wait主题', //主题名字
-    	'http://www.waitig.com/themes/info.json'  //info.json 的访问地址
-    );
+
 /*****************************
  *系统初始化函数
  *author：waitig
@@ -47,7 +42,7 @@ function deel_setup(){
 		//remove_action( 'wp_head',   'wlwmanifest_link' ); 
 		//remove_action( 'wp_head',   'index_rel_link' ); 
 		//remove_action( 'wp_head',   'start_post_rel_link', 10, 0 ); 
-		remove_action( 'wp_head',   'wp_generator' ); 
+		//remove_action( 'wp_head',   'wp_generator' ); 
 
 		add_theme_support( 'custom-background' );
 		//隐藏admin Bar
@@ -860,20 +855,5 @@ function get_cat_array()
 {
 		$cat_array=explode("|",waitig_gopt("waitig_cat_array"));
 		return $cat_array;
-}
-
-//get_alert
-function get_alert()
-{
-		$url="http://www.waitig.com/alert.html";
-		$fp=fopen($url,'r');
-		stream_get_meta_data($fp);
-		$result="";
-		while(!feof($fp))
-		{
-				$result.=fgets($fp,1024);
-		}
-		fclose($fp);
-		return $result;
 }
 ?>

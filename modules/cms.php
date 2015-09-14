@@ -38,25 +38,26 @@ foreach ($result as $post) {
 </div>
 <!-- 最新文章结束 -->
 <?php
-for($i='1';$i<='8';$i++)
+$cat_array=get_cat_array();
+foreach($cat_array as $cat_id)
 {
-		if (waitig_gopt('waitig_cat_'.$i)) { ?>
+		if ($cat_id) { ?>
 		<div class="widget-title">
 		<h2 class="title-h2"><small><?php
-				echo get_cat_name(waitig_gopt('waitig_cat_'.$i)); ?></small><span class="more" style="float:right;"><a style="left: 0px;" href="<?php
-				echo get_category_link(waitig_gopt('waitig_cat_'.$i)); ?>" title="阅读更多" target="_blank"><small>阅读更多</small></a></span></h2>
+				echo get_cat_name($cat_id); ?></small><span class="more" style="float:right;"><a style="left: 0px;" href="<?php
+				echo get_category_link($cat_id); ?>" title="阅读更多" target="_blank"><small>阅读更多</small></a></span></h2>
 		<div class="related_posts">
 <?php
 				query_posts(array(
 						'showposts' => waitig_gopt('waitig_cat_num') ? waitig_gopt('waitig_cat_num') : 4,
-						'cat' => waitig_gopt('waitig_cat_'.$i)
+						'cat' => $cat_id
 				)); ?>
 <?php
 		$tmp=0;
 		echo '<ul class="related_img" style="display:inline" >';
 		while (have_posts()):
 				the_post(); 
-		if($tmp<4)
+		if($tmp<waitig_gopt('waitig_cms_img_num'))
 		{
 ?>
 		<li class="related_box" ><a href="<?php
@@ -76,7 +77,7 @@ for($i='1';$i<='8';$i++)
 		}
 		else
 		{
-				if($tmp==4)
+				if($tmp==waitig_gopt('waitig_cms_img_num'))
 						echo '</ul><div class="relates"><ul>';
 				echo '<li><i class="fa fa-minus"></i><a target="_blank" href="'.get_permalink().'">',get_the_title(),'</a></li>';
 		}
@@ -84,7 +85,7 @@ for($i='1';$i<='8';$i++)
 		endwhile; ?>
 		</ul></div></div>
 <?php
-		if($tmp>4)
+		if($tmp>waitig_gopt('waitig_cms_img_num'))
 				echo '</div>';
 		} 
 }

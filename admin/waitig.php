@@ -53,7 +53,7 @@ function waitig_options_page() {
 						echo '<a href="#'.$value["id"].'" class="nav-tab'.( $panelIndex == 0 ? ' nav-tab-active' : '' ) . '">' . $value['title'] . '</a>';
 				$panelIndex++;
 		}
-		echo '<a href="#about_theme" class="nav-tab">关于主题</a>';
+		//echo '<a href="#about_theme" class="nav-tab">关于主题</a>';
 ?>
 </h2>
 <?php
@@ -199,13 +199,17 @@ foreach ( $value['options'] as $id => $title ) : ?>
 </tr>
 <?php
 		break;
+		case 'text_show':
+				echo '<tr class="textshow"><th>' . $value['name'] . '</th>
+						<td>'.$value['desc'].'</td></tr>';
+		break;
 				}
 		}
 ?>
-<div class="panel" id="about_theme">
+<!--<div class="panel" id="about_theme">
 <h2>关于wait主题</h2>
-<?php echo get_about_theme(); ?>
-</div>
+<?php //echo get_about_theme(); ?>
+</div>-->
 <p class="submit">
 	<input name="submit" type="submit" class="button button-primary" value="保存选项"/>
 	<input type="hidden" name="action" value="update" />
@@ -227,11 +231,13 @@ foreach ( $value['options'] as $id => $title ) : ?>
 	color: #000;
 }
 
-.yunluotips {
-	border: 2px solid #FFCC33;
-	padding: 15px
+.textshow {
+	color:blue;
 }
-
+.d_formwrap tr {
+	border: 2px solid #ccc;
+	padding: 20px
+}
 .panel {
 	display: none
 }

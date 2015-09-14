@@ -27,7 +27,7 @@ wp_head();
 if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/jquery.easing.js" type="text/javascript"></script>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/studio.js" type="text/javascript"></script>
-<link type="text/css" rel="styleSheet" href="<?php echo get_bloginfo("template_url") ?>/share.css">
+<script src="<?php echo get_bloginfo("template_url") ?>/js/wait.js" type="text/javascript"></script>
 <!--[if lt IE 9]><script src="<?php bloginfo('template_url'); ?>/js/html5.js"></script><![endif]-->
 </head>
 <body <?php body_class(); ?>>
@@ -80,48 +80,5 @@ if (waitig_gopt('waitig_tmnav'))
 		<div class="toptip"><strong class="text-success" style="float:left"><i class="fa fa-volume-up"></i> </strong><div id="news" style="float:left">
          <ul id="topNotice" onmouseout="gstart()" onmouseover="gstop()" style="margin-left:15px"><?php echo waitig_gopt('waitig_tui'); ?></ul></div></div>
 	</div>
-<script type="text/javascript">
-function MarqueeNews(){
- $('#news').find("ul").animate({
-  marginTop : "-20px"
- }, 1000, function () {
-  $(this).css({
-    marginTop : "0px"
-   }).find("li:first").appendTo(this)
- })
-}
-
-var MarNews = setInterval(MarqueeNews, 3000);
-
-function gstop(){
- clearInterval(MarNews);
-}
-
-function gstart(){
- MarNews = setInterval(MarqueeNews, 3000);
-}
-
-function goup(){
-
- $('#news').find("ul li").last().insertBefore($('#news').find("ul li").first());
- 
- $('#news').find("ul").css({marginTop:'-20px'});
- 
- $('#news').find("ul").animate({
-  marginTop : "0px"
- }, 500)
-}
-function godown(){
- 
- $('#news').find("ul").animate({
-  marginTop : "-20px"
- }, 500, function () {
-  $(this).css({
-    marginTop : "0px"
-   }).find("li:first").appendTo(this)
- })
-}
-
-</script>
 	<?php if( waitig_gopt('waitig_adsite_01') ) echo '<div class="banner banner-site">'.waitig_gopt('waitig_adsite_01').'</div>'; ?>
 <?php if( waitig_gopt('waitig_adsite_02') ) echo '<div class="banner banner-site"`>'.waitig_gopt('waitig_adsite_02').'</div>'; ?>
