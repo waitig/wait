@@ -8,8 +8,25 @@ foreach ( $comments as $comment ) {
 	}
 } 
 
-if ( !comments_open() ) return;
+/********************评论列表**********************/  
+if ( have_comments() ) { 
+?>
+<div id="postcomments">
+	<div id="comments">
+		<i class="fa fa-comments-o"></i> <b><?php echo ' ('.$count_t.')'; ?></b>个小伙伴在吐槽
+	</div>
+	<ol class="commentlist">
+		<?php wp_list_comments('type=comment&callback=deel_comment_list') ?>
+	</ol>
+	<div class="commentnav"	>
+		<?php paginate_comments_links('prev_text=«&next_text=»');?>
+	</div>
+</div>
+<?php 
+} 
 
+/******************添加评论***********************/
+if ( !comments_open() ) return;
 $my_email = get_bloginfo ( 'admin_email' );
 $str = "SELECT COUNT(*) FROM $wpdb->comments WHERE comment_post_ID = $post->ID AND comment_approved = '1' AND comment_type = '' AND comment_author_email";
 $count_t = $post->comment_count;
@@ -89,21 +106,4 @@ $closeTimer = (strtotime(date('Y-m-d G:i:s'))-strtotime(get_the_time('Y-m-d G:i:
 	</form>
 	<?php } ?>
 </div>
-<?php  
 
-if ( have_comments() ) { 
-?>
-<div id="postcomments">
-	<div id="comments">
-		<i class="fa fa-comments-o"></i> <b><?php echo ' ('.$count_t.')'; ?></b>个小伙伴在吐槽
-	</div>
-	<ol class="commentlist">
-		<?php wp_list_comments('type=comment&callback=deel_comment_list') ?>
-	</ol>
-	<div class="commentnav"	>
-		<?php paginate_comments_links('prev_text=«&next_text=»');?>
-	</div>
-</div>
-<?php 
-} 
-?>
