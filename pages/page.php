@@ -25,7 +25,7 @@ get_header();
 			<div class="article-content">
 				<?php the_content(); ?>
 			</div>
-		<?php comments_template('', true); endwhile;  ?>
+		<?php  comments_template('', true); endwhile; ?>
 	</div>
 </div>
 
