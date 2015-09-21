@@ -5,7 +5,7 @@
 <meta name="360-site-verification" content="a4c8021896c8ab798a98295823e921ba" />
 <meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<title><?php wp_title(waitig_gopt('waitig_delimiter'), true, 'right'); echo get_option('blogname'); if (is_home ()) echo '_' ,get_option('blogdescription'); if ($paged > 1) echo '-Page ', $paged; ?></title>
+<title><?php wp_title(waitig_gopt('waitig_delimiter'), true, 'right'); echo get_option('blogname'); if (is_home ()) echo waitig_gopt('waitig_delimiter') ,get_option('blogdescription'); if ($paged > 1) echo '-Page ', $paged; ?></title>
 <?php
 $sr_1 = 0; $sr_2 = 0; $commenton = 0; 
 if( waitig_gopt('waitig_sideroll_en') ){ 
