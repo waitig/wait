@@ -44,7 +44,7 @@ function waitig_options_page() {
 <div class="wrap d_wrap">
 	<h2>wait 主题选项</h2><input placeholder="筛选主题选项…" type="search" id="theme-options-search" />
 <form method="post" class="d_formwrap">
-<h2 class ="nav-tap-wrapper">
+<h2 id ="nav_tap_wrapper">
 <?php
 		$panelIndex=0;
 		foreach($options as $value)
@@ -77,6 +77,7 @@ function waitig_options_page() {
 	<td>
 		<label>
 		<input name="<?php echo $value['id']; ?>" class="regular-text" id="<?php echo $value['id']; ?>" type='text' value="<?php if ( $optionsSetup || get_option( $value['id'] ) != '') { echo stripslashes(get_option( $value['id'] )); } else { echo $value['std']; } ?>" />
+		</br>
 		<span class="description"><?php echo $value['desc']; ?></span>
 		</label>
 	</td>
@@ -230,7 +231,18 @@ foreach ( $value['options'] as $id => $title ) : ?>
 	text-align: center;
 	color: #000;
 }
-
+.d_formwrap
+{
+	max-width:805px;
+}
+#nav_tap_wrapper
+{
+	clear:both;
+	font-size: 23px;
+	font-weight: 400;
+	line-height: 29px;
+	padding: 9px 0px 4px;
+}
 .textshow {
 	color:blue;
 }

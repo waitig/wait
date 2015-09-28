@@ -866,8 +866,13 @@ function get_cat_array()
 function get_alert()
 {
 		$url="http://www.waitig.com/alert.html";
-		$fp=fopen($url,'r');
-		stream_get_meta_data($fp);
+		@$fp=fopen($url,'r');
+		if(!$fp)
+		{
+				return '无法打开路径';
+				//exit;
+		}
+		//stream_get_meta_data($fp);
 		$result="";
 		while(!feof($fp))
 		{
@@ -875,5 +880,66 @@ function get_alert()
 		}
 		fclose($fp);
 		return $result;
+}
+
+function theme_check()
+{
+		$url=get_bloginfo('url');
+		if($_SERVER['HTTP_HOST'] == 'localhost')
+		{
+				return;
+		}
+		$theme="wait";
+		$request="http://www.waitig.com/themes/themecheck.php?url='$url'&theme='$theme'";
+		$fp=fopen($request,'r');
+		$result="";
+		while(!feof($fp))
+		{
+				$result.=fgets($fp,1024);
+		}
+		fclose($fp);
+		$resa=explode("|",$result);
+	
+		$canuse=$resa[0];
+		$isalter=$resa[1];
+		$lefttime=$resa[2];
+		$usertype=$resa[3];
+		$sitealter=$resa[4];
+		$allalter=$resa[5];
+		$other=$resa[6];
+		//首先判断是否可用
+		if(!$canuse)//如果不可用，则执行相应操作
+		{
+				echo "主题现不可用！";
+				exit;
+		}
+		switch($usertype)
+		{
+		case 0:$user="免费用户";
+		break;
+		case 1:$user="付费用户";
+		break;
+		case 2:$user="无限期用户";
+		break;
+		case 3:$user="VIP用户";
+		break;
+		default:
+				$user="未知用户";
+				break;
+		}
+		if($lefttime=='-1')
+		{
+				$lefttime="无期限";
+		}
+		else if(lefttime<='0')//如果剩余时间不够，则控制主题无法使用
+		{
+				echo "主题使用期限已过，请续费使用！";
+				exit;
+		}
+		if($isalter)//如果提示信息
+		{
+				$out="您好，感谢您使用".$theme."主题，您现在是".$user."，剩余期限为:".$lefttime."天<br/>".$sitealter." <br/> ".$allalter." <br/> ".$other."</br>";
+				echo $out;
+		}
 }
 ?>

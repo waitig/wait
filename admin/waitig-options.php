@@ -926,7 +926,7 @@ $options = array(
 		),
 		array(
 				'name'  => '主题公告',
-				'desc'  => get_alert(),
+				'desc'  => get_alert()/*'这里是公告'*/,
 				'type'  => 'text_show'
 		),
 		array(
