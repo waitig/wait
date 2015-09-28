@@ -3,3 +3,6 @@ temp/
 *.bak
 *.swp
 backup/
+test.*
+*.rar
+*.zip
