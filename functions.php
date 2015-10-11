@@ -847,6 +847,10 @@ function get_about_theme()
 {
 		@$fp=fopen(get_bloginfo('template_url').'/README.md','r');
 		$content='<p>';
+		if(!$fp)
+		{
+				return;
+		}
 		while(!feof($fp))
 		{
 				$content.=fgets($fp);
@@ -891,7 +895,12 @@ function theme_check()
 		}
 		$theme="wait";
 		$request="http://www.waitig.com/themes/themecheck.php?url='$url'&theme='$theme'";
-		$fp=fopen($request,'r');
+		@$fp=fopen($request,'r');
+		if(!$fp)
+		{
+				echo "网络连接有错误，请检查！";
+				return;
+		}
 		$result="";
 		while(!feof($fp))
 		{
