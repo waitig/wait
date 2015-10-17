@@ -66,6 +66,12 @@ $options = array(
 				'type'  => 'checkbox'
 		),
 		array(
+				'name'  => '网站CDN网址',
+				'desc'  => '如果您使用了cdn加速，则在此填入您的CDN地址',
+				'id'    => 'waitig_cdnurl',
+				'type'  => 'text'
+		),
+		array(
 				'title' => '热门排行',
 				'type'  => 'subtitle'
 		),
@@ -290,7 +296,7 @@ $options = array(
 		array(
 				'name'	=>	'您的网站分类ID为：',
 				'desc'	=>	Bing_show_category(),
-				'type'	=>	'checkbox'
+				'type'	=>	'text_show'
 		),
 		array(
 				'name'  => 'CMS模式',
@@ -299,13 +305,27 @@ $options = array(
 				'type'  => 'checkbox'
 		),
 		array(
-				'name'  => 'cms 分类文章数目',
-				'desc'  => '默认4个,也可以8个',
+				'name'  => '每个CMS分类显示文章数目',
+				'desc'  => '默认4个,尽量为2的倍数',
 				'id'    => "waitig_cat_num",
 				'type'  => 'number',
 				'std'   => '4'
 		),
+			array(
+				'name'  => '分类显示缩略图文章数目',
+				'desc'  => '默认4个,尽量为4的倍数，否则不太美观~',
+				'id'    => "waitig_cms_img_num",
+				'type'  => 'number',
+				'std'   => '4'
+		),
 		array(
+				'name'	=>	'首页显示的分类ID',
+				'desc'	=>	'这里填入需要在首页显示的分类的ID，数量随意，每个ID之间用“|”符号分割',
+				'id'		=>	"waitig_cat_array",
+				'type'	=>	'text',
+				'std'		=>	""
+		),
+		/*array(
 				'name'  => '分类一',
 				'desc'  => '启用,填入您的分类ID',
 				'id'    => 'waitig_cat_1',
@@ -360,7 +380,7 @@ $options = array(
 				'id'    => 'waitig_cat_8',
 				'type'  => 'number',
 				'std'   => ''
-		),
+		),*/
 		array(
 				'title' => '首页隐藏分类【博客模式下】',
 				'type'  => 'subtitle'
@@ -898,5 +918,41 @@ $options = array(
 		array(
 				'type'	=>	'panelend'
 		),
+		//广告设置标签页结束
+		//
+		//关于主题标签页开始
+		array(
+				'title' => '关于主题',
+				'id'    => 'AboutTheme',
+				'type'  => 'panelstart'
+		),
+		array(
+				'title' => '感谢您使用<a href="http://www.waitig.com">wait主题</a>进行创作！',
+				'type'  => 'subtitle'
+		),
+		array(
+				'name'  => '主题公告',
+				'desc'  => get_alert()/*'这里是公告'*/,
+				'type'  => 'text_show'
+		),
+		array(
+				'name'  => '主题更新地址',
+				'desc'  => '您可以从我的博客获取最新版本，地址:<a href="http://www.waitig.com">www.waitig.com</a>',
+				'type'  => 'text_show'
+		),
+		array(
+				'name'  => '赞助作者',
+				'desc'  => '<a href="http://www.waitig.com">wait主题</a>完全开源免费，如果您感觉这款主题给您带来了方便，可以通过支付宝对作者进行赞助，我将万分感谢！<br/>支付宝账号：waitig@hotmail.com，<br/>二维码：<img src="http://www.waitig.com/img/alipay.png"/>',
+				'type'  => 'text_show'
+		),
+		array(
+				'name'  => '主题说明',
+				'desc'  => get_about_theme(),
+				'type'  => 'text_show'
+		),
+		array(
+				'type'	=>	'panelend'
+		),
+
 );
 ?>

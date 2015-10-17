@@ -43,7 +43,8 @@ function waitig_options_page() {
 ?>
 <div class="wrap d_wrap">
 	<h2>wait 主题选项</h2><input placeholder="筛选主题选项…" type="search" id="theme-options-search" />
-<form method="post" class="d_formwrap">
+<div  class="d_formwrap">
+<form method="post">
 <h2 id ="nav_tap_wrapper">
 <?php
 		$panelIndex=0;
@@ -223,7 +224,28 @@ foreach ( $value['options'] as $id => $title ) : ?>
 </p>
 </form>
 </div>
+<div class="d_alter_w">
+<div class="d_alter">
+<h3>网站公告：</h3>
+<?php echo get_alert(); ?><hr />
+<?php theme_check(); ?>
+
+</div>
+</div>
+</div>
 <style>
+.d_alter_w{
+	display: inline;
+	float: right;
+	height: 100%;
+	width: 29%;
+	margin-top: 10px;	
+}
+.d_alter{
+	padding: 20px 10px;
+	border: 2px solid #CCC;
+	min-height: 500px;
+}
 .catlist {
 	border: 2px solid #FFB6C1;
 	padding: 5px;
@@ -234,6 +256,7 @@ foreach ( $value['options'] as $id => $title ) : ?>
 .d_formwrap
 {
 	max-width:805px;
+	float:left;
 }
 #nav_tap_wrapper
 {

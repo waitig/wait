@@ -171,8 +171,6 @@ function footerScript() {
 				wp_enqueue_script( 'jquery' );
 				wp_register_script( 'default', get_template_directory_uri() . '/js/jquery.js', false, '1.0', waitig_gopt('d_jquerybom_b') ? true : false );   
 				wp_enqueue_script( 'default' );   
-				if(waitig_gopt('waitig_colorful_en'))
-						wp_register_style( 'style', get_template_directory_uri() . '/colorful.css',false,'1.0' );
 				wp_register_style( 'style', get_template_directory_uri() . '/style.css',false,'1.0' );
 				wp_enqueue_style( 'style' ); 
 		}  
@@ -504,19 +502,6 @@ function deel_add_checkbox() {
 		echo '<label for="comment_mail_notify" class="checkbox inline" style="padding-top:0"><input type="checkbox" name="comment_mail_notify" id="comment_mail_notify" value="comment_mail_notify" checked="checked"/>有人回复时邮件通知我</label>';
 }
 
-
-//文章（包括feed）末尾加版权说明
-if(waitig_gopt('waitig_copyright'))
-{
-		function deel_copyright($content) {
-				if (is_single() || is_feed()) {
-						$copyright = str_replace(array('{{title}}','{{link}}','{{blog_name}}','{{blog_link}}'), array(get_the_title(), get_permalink(),get_bloginfo('name'),get_bloginfo('url')), waitig_gopt('waitig_copyright'));
-						$content.= '<hr /><div align="left" style="margin-bottom: 10px;padding:5px 20px;border-radius: 5px;background-color: #fcf8e3;border: 1px solid #4094EF;color: #8a6d3b"><i class="fa fa-bullhorn" style="text-indent:-20px"></i>' . $copyright . '</div>';
-				}
-				return $content;
-		}
-		add_filter( 'the_content',  'deel_copyright' );
-}
 //时间显示方式‘xx以前’
 function time_ago( $type = 'commennt', $day = 7 ) {
 		$d = $type == 'post' ? 'get_post_time' : 'get_comment_time';
@@ -894,7 +879,7 @@ function theme_check()
 				return;
 		}
 		$theme="wait";
-		$request="http://www.waitig.com/themes/themecheck.php?url='$url'&theme='$theme'";
+		$request="http://www.waitig.com/themes/themecheck.php?url=$url&theme=$theme";
 		@$fp=fopen($request,'r');
 		if(!$fp)
 		{
@@ -920,7 +905,7 @@ function theme_check()
 		if(!$canuse)//如果不可用，则执行相应操作
 		{
 				echo "主题现不可用！";
-				exit;
+				return;
 		}
 		switch($usertype)
 		{
@@ -943,7 +928,7 @@ function theme_check()
 		else if(lefttime<='0')//如果剩余时间不够，则控制主题无法使用
 		{
 				echo "主题使用期限已过，请续费使用！";
-				exit;
+				return;
 		}
 		if($isalter)//如果提示信息
 		{
@@ -951,4 +936,33 @@ function theme_check()
 				echo $out;
 		}
 }
+//自动加入tag链接
+function replace_text_wps($content){
+ global $match_num_from,$match_num_to;
+ $posttags = get_the_tags();
+ if ($posttags) {
+// $replace=array(
+ foreach($posttags as $tag) {
+	 $link = get_tag_link($tag->term_id);
+	 $keyword = $tag->name;
+	 $content = str_replace($keyword,"<a href='$link' title='$keyword'>$keyword</a>",$content);
+ }
+ }
+ return $content;
+}
+add_filter('the_content','replace_text_wps');
+
+//文章（包括feed）末尾加版权说明
+if(waitig_gopt('waitig_copyright'))
+{
+		function deel_copyright($content) {
+				if (is_single() || is_feed()) {
+						$copyright = str_replace(array('{{title}}','{{link}}','{{blog_name}}','{{blog_link}}'), array(get_the_title(), get_permalink(),get_bloginfo('name'),get_bloginfo('url')), waitig_gopt('waitig_copyright'));
+						$content.= '<hr /><div align="left" style="margin-bottom: 10px;padding:5px 20px;border-radius: 5px;background-color: #fcf8e3;border: 1px solid #4094EF;color: #8a6d3b"><i class="fa fa-bullhorn" style="text-indent:-20px"></i>' . $copyright . '</div>';
+				}
+				return $content;
+		}
+		add_filter( 'the_content',  'deel_copyright' );
+}
+
 ?>

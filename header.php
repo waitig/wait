@@ -18,7 +18,7 @@ if( is_singular() ){
 ?>
 <script>
 window._deel = {name: '<?php bloginfo('name') ?>',url: '<?php echo get_bloginfo("template_url") ?>', ajaxpager: '<?php echo waitig_gopt('waitig_ajaxpager_en') ?>', commenton: <?php echo $commenton ?>, roll: [<?php echo $sr_1 ?>,<?php echo $sr_2 ?>]}
-_deel.url = _deel.url.replace('7xkziu.com1.z0.glb.clouddn.com','www.waitig.com');
+_deel.url = _deel.url.replace('<?php echo waitig_gopt("waitig_cdnurl"); ?>','<?php echo get_bloginfo("url"); ?>');
 </script>
 
 
@@ -28,7 +28,8 @@ if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/jquery.easing.js" type="text/javascript"></script>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/studio.js" type="text/javascript"></script>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/wait.js" type="text/javascript"></script>
-<!--[if lt IE 9]><script src="<?php bloginfo('template_url'); ?>/js/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url'); if(waitig_gopt('waitig_colorful_en')){ echo '/colorful.css';} else{ echo '/simple.css';} ?>">
+<!--[if IE 9]><script src="<?php bloginfo('template_url'); ?>/js/html5.js"></script><![endif]-->
 </head>
 <body <?php body_class(); ?>>
 

@@ -35,6 +35,12 @@ $options = array(
 				'std'	=>	'|'
 		),
 		array(
+				'name'  => '网站CDN网址',
+				'desc'  => '如果您使用了cdn加速，则在此填入您的CDN地址',
+				'id'    => 'waitig_cdnurl',
+				'type'  => 'text'
+		),
+		array(
 				'name'	=>	'最新消息',
 				'desc'	=>	'在全站导航栏下方显示一个最新消息【支持滚动公告，每个公告请用 li 标签包裹】',
 				'id'	=>	'waitig_tui',
