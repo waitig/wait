@@ -6308,7 +6308,7 @@ input[type="radio"],input[type="checkbox"] {
 				 background-color:#fd9790;
 				 color:#fff
 		 }
-		 //实现渐变效果
+		 /*实现渐变效果*/
 		 a{
 				 transition: all 0.2s ease-in-out 0s;
 		 }
@@ -6726,7 +6726,7 @@ input[type="radio"],input[type="checkbox"] {
 }
 
 /******************** 响应式 ********************/
-/*
+
 @media all and (max-width: 1226px) {
 }
 
@@ -6819,4 +6819,4 @@ input[type="radio"],input[type="checkbox"] {
 			body {}
 	}
 
-*/
+
