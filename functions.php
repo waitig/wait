@@ -876,15 +876,15 @@ function theme_check()
 		$url=get_bloginfo('url');
 		if($_SERVER['HTTP_HOST'] == 'localhost')
 		{
-				return;
+				return '您正在进行本地调试。';
 		}
 		$theme="wait";
 		$request="http://www.waitig.com/themes/themecheck.php?url=$url&theme=$theme";
 		@$fp=fopen($request,'r');
 		if(!$fp)
 		{
-				echo "网络连接有错误，请检查！";
-				return;
+				return "无网络连接！";
+				//return;
 		}
 		$result="";
 		while(!feof($fp))
@@ -904,8 +904,12 @@ function theme_check()
 		//首先判断是否可用
 		if(!$canuse)//如果不可用，则执行相应操作
 		{
-				echo "主题现不可用！";
-				return;
+				return "主题现不可用！";
+				//return;
+		}
+		if(!$isalter)//如果不提示信息
+		{
+				return 0;
 		}
 		switch($usertype)
 		{
@@ -927,30 +931,42 @@ function theme_check()
 		}
 		else if(lefttime<='0')//如果剩余时间不够，则控制主题无法使用
 		{
-				echo "主题使用期限已过，请续费使用！";
-				return;
+				return "主题使用期限已过，请续费使用！";
+				//return;
 		}
 		if($isalter)//如果提示信息
 		{
 				$out="您好，感谢您使用".$theme."主题，您现在是".$user."，剩余期限为:".$lefttime."天<br/>".$sitealter." <br/> ".$allalter." <br/> ".$other."</br>";
-				echo $out;
+				return $out;
 		}
 }
 //自动加入tag链接
-function replace_text_wps($content){
- global $match_num_from,$match_num_to;
- $posttags = get_the_tags();
- if ($posttags) {
-// $replace=array(
- foreach($posttags as $tag) {
-	 $link = get_tag_link($tag->term_id);
-	 $keyword = $tag->name;
-	 $content = str_replace($keyword,"<a href='$link' title='$keyword'>$keyword</a>",$content);
- }
- }
- return $content;
+if(waitig_gopt('waitig_autotaglink_en')){
+	
+	function replace_text_wps($content)
+	{
+		 $posttags = get_the_tags();
+		 if ($posttags) 
+		 {
+				foreach($posttags as $tag) 
+				{
+					 $link = get_tag_link($tag->term_id);
+					 $keyword = $tag->name;
+					 $content = str_replace($keyword,"<a href='$link' title='$keyword'>$keyword</a>",$content);
+				}
+		 }
+		 if(waitig_gopt('waitig_autotextlink_en')) {
+		 	$con=explode("|",waitig_gopt('waitig_autotextlink_text'));
+		 	$array=array();
+		 	foreach($con as $arr){
+					$text=explode(",",$arr);
+					$content = str_replace($text[0],"<a href='$text[1]' title='$text[0]'>$text[0]</a>",$content);
+		 	}
+		}
+		 return $content;
+	}
+	add_filter('the_content','replace_text_wps');
 }
-add_filter('the_content','replace_text_wps');
 
 //文章（包括feed）末尾加版权说明
 if(waitig_gopt('waitig_copyright'))

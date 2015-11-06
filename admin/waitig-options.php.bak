@@ -35,6 +35,12 @@ $options = array(
 				'std'	=>	'|'
 		),
 		array(
+				'name'  => '网站CDN网址',
+				'desc'  => '如果您使用了cdn加速，则在此填入您的CDN地址',
+				'id'    => 'waitig_cdnurl',
+				'type'  => 'text'
+		),
+		array(
 				'name'	=>	'最新消息',
 				'desc'	=>	'在全站导航栏下方显示一个最新消息【支持滚动公告，每个公告请用 li 标签包裹】',
 				'id'	=>	'waitig_tui',
@@ -64,12 +70,6 @@ $options = array(
 				'desc'  => '默认的404是神经猫游戏，开启后是一个白色哭泣的404',
 				'id'    => 'waitig_404_en',
 				'type'  => 'checkbox'
-		),
-		array(
-				'name'  => '网站CDN网址',
-				'desc'  => '如果您使用了cdn加速，则在此填入您的CDN地址',
-				'id'    => 'waitig_cdnurl',
-				'type'  => 'text'
 		),
 		array(
 				'title' => '热门排行',
@@ -810,6 +810,25 @@ $options = array(
 				'id'    => "waitig_uncategroy_en",
 				'type'  => 'checkbox'
 		),
+		array(
+				'name'  => '自动在文章中加入文章标签超链接',
+				'desc'  => '启用 【开启后，将在文章中自动加入文章标签的超链接】',
+				'id'    => "waitig_autotaglink_en",
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '文章自动添加文字超链接',
+				'desc'  => '启用 【开启后，系统自动将自订文字加上自定义超链接】',
+				'id'    => "waitig_autotextlink_en",
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '需添加的文字和超链接',
+				'desc'  => '启用 【格式举例：等英博客,waitig.com 文字为等英博客，链接为waitig.com,多个数据之间用'|'分割】',
+				'id'    => "waitig_autotextlink_text",
+				'type'  => 'text'
+		),
+		
 		/*array(
 				'name'  => '头像旋转',
 				'desc'  => '启用',

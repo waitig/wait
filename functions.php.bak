@@ -937,18 +937,45 @@ function theme_check()
 		}
 }
 //自动加入tag链接
-function replace_text_wps($content){
- global $match_num_from,$match_num_to;
- $posttags = get_the_tags();
- if ($posttags) {
-// $replace=array(
- foreach($posttags as $tag) {
-	 $link = get_tag_link($tag->term_id);
-	 $keyword = $tag->name;
-	 $content = str_replace($keyword,"<a href='$link' title='$keyword'>$keyword</a>",$content);
- }
- }
- return $content;
+if(waitig_gopt('waitig_autotaglink_en')){
+	
+	function replace_text_wps($content)
+	{
+		 $posttags = get_the_tags();
+		 if ($posttags) 
+		 {
+				foreach($posttags as $tag) 
+				{
+					 $link = get_tag_link($tag->term_id);
+					 $keyword = $tag->name;
+					 $content = str_replace($keyword,"<a href='$link' title='$keyword'>$keyword</a>",$content);
+				}
+		 }
+		 if(waitig_gopt('waitig_autotextlink_en')) {
+		 	$con=explode("|",waitig_gopt('waitig_autotextlink_text'));
+		 	$array=array();
+		 	foreach($con as $arr){
+		 		$text=explode(",",$arr);
+		 		$array = array($text[0] => "<a href='$text[1]' title='$text[0]'>$text[0]</a>") + $array; 
+		 	}
+		 	$content = str_replace(array_keys($array), $array, $content);  
+		}
+		 return $content;
+	}
+	add_filter('the_content','replace_text_wps');
 }
-add_filter('the_content','replace_text_wps');
+
+//文章（包括feed）末尾加版权说明
+if(waitig_gopt('waitig_copyright'))
+{
+		function deel_copyright($content) {
+				if (is_single() || is_feed()) {
+						$copyright = str_replace(array('{{title}}','{{link}}','{{blog_name}}','{{blog_link}}'), array(get_the_title(), get_permalink(),get_bloginfo('name'),get_bloginfo('url')), waitig_gopt('waitig_copyright'));
+						$content.= '<hr /><div align="left" style="margin-bottom: 10px;padding:5px 20px;border-radius: 5px;background-color: #fcf8e3;border: 1px solid #4094EF;color: #8a6d3b"><i class="fa fa-bullhorn" style="text-indent:-20px"></i>' . $copyright . '</div>';
+				}
+				return $content;
+		}
+		add_filter( 'the_content',  'deel_copyright' );
+}
+
 ?>

@@ -2,7 +2,7 @@
 include ("waitig-options.php");
 function waitig_add_admin_page()
 {
-		global $themename, $options;
+		global $themename, $options, $notice;
 		if ( $_GET['page'] == basename(__FILE__) ) 
 		{
 				if ('update' == $_REQUEST['action'])
@@ -36,7 +36,7 @@ function waitig_add_admin_page()
 }
 add_action('admin_menu', 'waitig_add_admin_page');
 function waitig_options_page() {
-		global $themename, $options;
+		global $themename, $options,$notice;
 		$i=0;
 		if ($_REQUEST['update']) echo '<div class="updated"><p><strong>设置已保存。</strong></p></div>';
 		if ($_REQUEST['reset']) echo '<div class="updated"><p><strong>设置已重置。</strong></p></div>';
@@ -208,10 +208,6 @@ foreach ( $value['options'] as $id => $title ) : ?>
 				}
 		}
 ?>
-<!--<div class="panel" id="about_theme">
-<h2>关于wait主题</h2>
-<?php //echo get_about_theme(); ?>
-</div>-->
 <p class="submit">
 	<input name="submit" type="submit" class="button button-primary" value="保存选项"/>
 	<input type="hidden" name="action" value="update" />
@@ -226,10 +222,21 @@ foreach ( $value['options'] as $id => $title ) : ?>
 </div>
 <div class="d_alter_w">
 <div class="d_alter">
-<h3>网站公告：</h3>
-<?php echo get_alert(); ?><hr />
-<?php theme_check(); ?>
-
+<?php
+		if(theme_check())
+		{
+			echo "<h3>授权信息</h3>";
+			echo theme_check();
+		}
+		if(is_array($notice))
+		{	
+foreach ($notice as $value)
+{
+		echo "<h3>".$value['name']."</h3>";
+		echo "<span>".$value['desc']."</span><hr/>";
+}
+		}
+?>
 </div>
 </div>
 </div>

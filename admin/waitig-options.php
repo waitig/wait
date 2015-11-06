@@ -810,6 +810,24 @@ $options = array(
 				'id'    => "waitig_uncategroy_en",
 				'type'  => 'checkbox'
 		),
+		array(
+				'name'  => '自动在文章中加入文章标签超链接',
+				'desc'  => '启用 【开启后，将在文章中自动加入文章标签的超链接】',
+				'id'    => "waitig_autotaglink_en",
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '文章自动添加文字超链接',
+				'desc'  => '启用 【开启后，系统自动将自订文字加上自定义超链接】',
+				'id'    => "waitig_autotextlink_en",
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '需添加的文字和超链接',
+				'desc'  => '举例:【文字1,链接1|文字2,链接2】逗号为英文半角',
+				'id'    => "waitig_autotextlink_text",
+				'type'  => 'text'
+		),	
 		/*array(
 				'name'  => '头像旋转',
 				'desc'  => '启用',
@@ -945,14 +963,31 @@ $options = array(
 				'desc'  => '<a href="http://www.waitig.com">wait主题</a>完全开源免费，如果您感觉这款主题给您带来了方便，可以通过支付宝对作者进行赞助，我将万分感谢！<br/>支付宝账号：waitig@hotmail.com，<br/>二维码：<img src="http://www.waitig.com/img/alipay.png"/>',
 				'type'  => 'text_show'
 		),
-		array(
+		/*array(
 				'name'  => '主题说明',
 				'desc'  => get_about_theme(),
 				'type'  => 'text_show'
-		),
+		),*/
 		array(
 				'type'	=>	'panelend'
 		),
-
+);
+$notice = array(
+		//将选项放入数组中，管理更加方便
+		//
+		//右侧公告
+		array(
+				'name'  => '主题公告',
+				'desc'  =>  get_alert(),
+		),
+		/*array(
+				'name'  => '主题信息',
+				'desc'  =>  theme_check(),
+		),*/
+		array(
+				'name'  => '赞助作者：',
+				'desc'  => '欢迎您使用<a href="http://www.waitig.com">wait主题</a>！，如果您感觉这款主题给您带来了方便，可以通过支付宝对作者进行赞助，我将万分感谢！<br/>支付宝账号：waitig@hotmail.com，<br/>二维码：<img src="http://www.waitig.com/img/alipay.png"/>',
+		),
+		
 );
 ?>
