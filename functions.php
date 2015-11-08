@@ -954,18 +954,24 @@ if(waitig_gopt('waitig_autotaglink_en')){
 					 $keyword = $tag->name;
 					 $content = str_replace($keyword,"<a href='$link' title='$keyword'>$keyword</a>",$content);
 				}
-		 }
-		 if(waitig_gopt('waitig_autotextlink_en')) {
+		 }		 
+		 return $content;
+	}
+	add_filter('the_content','replace_text_wps');
+}
+
+//自动文字超链接
+if(waitig_gopt('waitig_autotextlink_en')) {
+		function replace_text_auto($content){
 		 	$con=explode("|",waitig_gopt('waitig_autotextlink_text'));
 		 	$array=array();
 		 	foreach($con as $arr){
 					$text=explode(",",$arr);
 					$content = str_replace($text[0],"<a href='$text[1]' title='$text[0]'>$text[0]</a>",$content);
 		 	}
+		return $content;
 		}
-		 return $content;
-	}
-	add_filter('the_content','replace_text_wps');
+		add_filter('the_content','replace_text_auto');
 }
 
 //文章（包括feed）末尾加版权说明
