@@ -895,13 +895,19 @@ function theme_check()
 		$resa=explode("|",$result);
 	
 		$canuse=$resa[0];
+<<<<<<< HEAD
 		$alter=$resa[1];
+=======
+		$out=$resa[1];
+>>>>>>> e717427188e10b5e723a3f8572adf92d78d44e9d
 		//首先判断是否可用
 		if(!$canuse)//如果不可用，则执行相应操作
 		{
 				return "主题现不可用！";
+				exit;
 				//return;
 		}
+<<<<<<< HEAD
 		return $alter;
 		/*if(!$isalter)//如果不提示信息
 		{
@@ -935,6 +941,9 @@ function theme_check()
 				$out="您好，感谢您使用".$theme."主题，您现在是".$user."，剩余期限为:".$lefttime."天<br/>".$sitealter." <br/> ".$allalter." <br/> ".$other."</br>";
 				return $out;
 		}*/
+=======
+		return $out;
+>>>>>>> e717427188e10b5e723a3f8572adf92d78d44e9d
 }
 //自动加入tag链接
 if(waitig_gopt('waitig_autotaglink_en')){
@@ -950,18 +959,24 @@ if(waitig_gopt('waitig_autotaglink_en')){
 					 $keyword = $tag->name;
 					 $content = str_replace($keyword,"<a href='$link' title='$keyword'>$keyword</a>",$content);
 				}
-		 }
-		 if(waitig_gopt('waitig_autotextlink_en')) {
+		 }		 
+		 return $content;
+	}
+	add_filter('the_content','replace_text_wps');
+}
+
+//自动文字超链接
+if(waitig_gopt('waitig_autotextlink_en')) {
+		function replace_text_auto($content){
 		 	$con=explode("|",waitig_gopt('waitig_autotextlink_text'));
 		 	$array=array();
 		 	foreach($con as $arr){
 					$text=explode(",",$arr);
 					$content = str_replace($text[0],"<a href='$text[1]' title='$text[0]'>$text[0]</a>",$content);
 		 	}
+		return $content;
 		}
-		 return $content;
-	}
-	add_filter('the_content','replace_text_wps');
+		add_filter('the_content','replace_text_auto');
 }
 
 //文章（包括feed）末尾加版权说明
