@@ -858,7 +858,7 @@ function get_alert()
 		@$fp=fopen($url,'r');
 		if(!$fp)
 		{
-				return '无法打开路径';
+				return '无法链接网络';
 				//exit;
 		}
 		//stream_get_meta_data($fp);
@@ -895,19 +895,15 @@ function theme_check()
 		$resa=explode("|",$result);
 	
 		$canuse=$resa[0];
-		$isalter=$resa[1];
-		$lefttime=$resa[2];
-		$usertype=$resa[3];
-		$sitealter=$resa[4];
-		$allalter=$resa[5];
-		$other=$resa[6];
+		$alter=$resa[1];
 		//首先判断是否可用
 		if(!$canuse)//如果不可用，则执行相应操作
 		{
 				return "主题现不可用！";
 				//return;
 		}
-		if(!$isalter)//如果不提示信息
+		return $alter;
+		/*if(!$isalter)//如果不提示信息
 		{
 				return 0;
 		}
@@ -938,7 +934,7 @@ function theme_check()
 		{
 				$out="您好，感谢您使用".$theme."主题，您现在是".$user."，剩余期限为:".$lefttime."天<br/>".$sitealter." <br/> ".$allalter." <br/> ".$other."</br>";
 				return $out;
-		}
+		}*/
 }
 //自动加入tag链接
 if(waitig_gopt('waitig_autotaglink_en')){

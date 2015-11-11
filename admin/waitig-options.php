@@ -939,7 +939,7 @@ $options = array(
 		//广告设置标签页结束
 		//
 		//关于主题标签页开始
-		array(
+		/*array(
 				'title' => '关于主题',
 				'id'    => 'AboutTheme',
 				'type'  => 'panelstart'
@@ -950,7 +950,7 @@ $options = array(
 		),
 		array(
 				'name'  => '主题公告',
-				'desc'  => get_alert()/*'这里是公告'*/,
+				'desc'  => get_alert(),//'这里是公告'
 				'type'  => 'text_show'
 		),
 		array(
@@ -960,17 +960,17 @@ $options = array(
 		),
 		array(
 				'name'  => '赞助作者',
-				'desc'  => '<a href="http://www.waitig.com">wait主题</a>完全开源免费，如果您感觉这款主题给您带来了方便，可以通过支付宝对作者进行赞助，我将万分感谢！<br/>支付宝账号：waitig@hotmail.com，<br/>二维码：<img src="http://www.waitig.com/img/alipay.png"/>',
+				'desc'  => '<a href="http://www.waitig.com">wait主题</a>完全开源免费，如果您感觉这款主题给您带来了方便，可以通过支付宝对作者进行赞助，我将万分感谢！<br/>支付宝账号：waitig@hotmail.com，<br/>二维码：<img src="http://www.waitig.com/img/alipay.gif"/>',
 				'type'  => 'text_show'
 		),
-		/*array(
+		array(
 				'name'  => '主题说明',
 				'desc'  => get_about_theme(),
 				'type'  => 'text_show'
-		),*/
+		),
 		array(
 				'type'	=>	'panelend'
-		),
+		),*/
 );
 $notice = array(
 		//将选项放入数组中，管理更加方便
@@ -986,7 +986,7 @@ $notice = array(
 		),*/
 		array(
 				'name'  => '赞助作者：',
-				'desc'  => '欢迎您使用<a href="http://www.waitig.com">wait主题</a>！，如果您感觉这款主题给您带来了方便，可以通过支付宝对作者进行赞助，我将万分感谢！<br/>支付宝账号：waitig@hotmail.com，<br/>二维码：<img src="http://www.waitig.com/img/alipay.png"/>',
+				'desc'  => '欢迎您使用<a href="http://www.waitig.com">wait主题</a>！，如果您感觉这款主题给您带来了方便，可以通过支付宝对作者进行赞助，我将万分感谢！<br/>支付宝账号：waitig@hotmail.com，<br/>二维码：<img src="http://www.waitig.com/img/alipay.gif"/>',
 		),
 		
 );
