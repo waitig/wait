@@ -895,11 +895,8 @@ function theme_check()
 		$resa=explode("|",$result);
 	
 		$canuse=$resa[0];
-<<<<<<< HEAD
 		$alter=$resa[1];
-=======
 		$out=$resa[1];
->>>>>>> e717427188e10b5e723a3f8572adf92d78d44e9d
 		//首先判断是否可用
 		if(!$canuse)//如果不可用，则执行相应操作
 		{
@@ -907,7 +904,6 @@ function theme_check()
 				exit;
 				//return;
 		}
-<<<<<<< HEAD
 		return $alter;
 		/*if(!$isalter)//如果不提示信息
 		{
@@ -941,9 +937,7 @@ function theme_check()
 				$out="您好，感谢您使用".$theme."主题，您现在是".$user."，剩余期限为:".$lefttime."天<br/>".$sitealter." <br/> ".$allalter." <br/> ".$other."</br>";
 				return $out;
 		}*/
-=======
-		return $out;
->>>>>>> e717427188e10b5e723a3f8572adf92d78d44e9d
+		//return $out;
 }
 //自动加入tag链接
 if(waitig_gopt('waitig_autotaglink_en')){
