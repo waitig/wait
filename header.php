@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="360-site-verification" content="a4c8021896c8ab798a98295823e921ba" />
 <meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 <title><?php wp_title(waitig_gopt('waitig_delimiter'), true, 'right'); echo get_option('blogname'); if (is_home ()) echo waitig_gopt('waitig_delimiter') ,get_option('blogdescription'); if ($paged > 1) echo '-Page ', $paged; ?></title>
@@ -28,6 +27,7 @@ if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/jquery.easing.js" type="text/javascript"></script>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/studio.js" type="text/javascript"></script>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/wait.js" type="text/javascript"></script>
+<link rel="shortcut icon" href="<?phpecho get_bloginfo("template_url"); ?>/images/favicon.ico">
 <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url'); if(waitig_gopt('waitig_colorful_en')){ echo '/colorful.css';} else{ echo '/simple.css';} ?>">
 <!--[if IE 9]><script src="<?php bloginfo('template_url'); ?>/js/html5.js"></script><![endif]-->
 </head>
