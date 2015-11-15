@@ -11,12 +11,7 @@
 				if( waitig_gopt('waitig_slide')=='waitig_sticky_en') include 'modules/sticky.php';
 				if(waitig_gopt('waitig_slide')=='waitig_slick_en') include 'modules/slick.php';
 		}
-/*if(_GET['show']=='cms')
-{
-				include 'modules/cms.php';
-}
-else
-{*/
+
 		if(waitig_gopt('waitig_cms_en'))
 		{
 				include 'modules/cms.php';

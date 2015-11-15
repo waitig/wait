@@ -35,6 +35,24 @@ $options = array(
 				'std'	=>	'|'
 		),
 		array(
+				'name'  => '网站logo形式',
+				'desc'  => '选择你的网站logo为文字形式还是图片形式',
+				'id'    => "waitig_logo_type",
+				'type'  => 'radio',
+				'options' => array(
+						'文字形式' => 'waitig_logo_text',
+						'图片形式' => 'waitig_logo_pic',
+				),
+				'std'   => 'waitig_logo_text'
+		),
+		array(
+				'name'  => '网站图片logo地址',
+				'desc'  => '如果您选择使用图片logo，则在此填入您的图片logo地址',
+				'id'    => 'waitig_logo_url',
+				'type'  => 'text',
+				'std'	=> get_bloginfo("template_url").'/img/logo.png'
+		),
+		array(
 				'name'  => '网站CDN网址',
 				'desc'  => '如果您使用了cdn加速，则在此填入您的CDN地址',
 				'id'    => 'waitig_cdnurl',
@@ -854,6 +872,13 @@ $options = array(
 		array(
 				'title' => '您可以在本页面管理您网站广告位',
 				'type'  => 'subtitle'
+		),
+		array(
+				'name'  => '广告：全站 - logo右侧广告',
+				'desc'  => '显示在网站LOGO的右侧，请注意宽度！',
+				'id'    => 'waitig_nav_ad',
+				'type'  => 'textarea',
+				'std'   => '<img src="'.get_bloginfo("template_url").'/img/logo_ad1.jpg" alt="等英博客"></img>'
 		),
 		array(
 				'name'  => '广告：全站 - 导航下横幅',

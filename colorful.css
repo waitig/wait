@@ -1596,55 +1596,7 @@ input[type="radio"],input[type="checkbox"] {
 																 margin-top:11px;
 																 background-color:#16a085
 														 }
-														 .yusi-logo {
-																 display:block;
-																 text-align:left;
-																 background-color:#FBFBFB;
-														 }
-														 .yusi-logo h1 {
-																 display:inline-block;
-																 padding:12px 0 5px 0;
-																 cursor:pointer;
-																 font-family:'Handlee',"华文隶书","Microsoft Yahei",arial,sans-serif;
-																 font-weight:100
-														 }
-														 .yusi-mono {
-																 letter-spacing:-2px;
-																 position:relative;
-																 color:#000;
-																 font-size:54px;
-																 /*text-shadow:0 0 10px #B3A29F;*/																 margin:0;
-																 padding:0;
-																 z-index:0;
-																 -webkit-transition:all .1s ease-out;
-																 -moz-transition:all .1s ease-out;
-																 -o-transition:all .1s ease-out;
-																 -ms-transition:all .1s ease-out;
-																 transition:all .1s ease-out
-														 }
-														 .yusi-bloger {
-																 position:relative;
-																 color:#000;
-																 font-weight:normal;
-																 font-size:24px;
-																 /*text-shadow:0 0 15px rgba(0, 0, 0, 1);*/
-																 margin-left:10px;
-																 letter-spacing:-1px;
-																 padding:0;
-																 /*z-index:2;*/
-																 -webkit-transition:all .5s ease-out;
-																 -moz-transition:all .5s ease-out;
-																 -o-transition:all .5s ease-out;
-																 -ms-transition:all .5s ease-out;
-																 transition:all .5s ease-out
-														 }
-														 .yusi-logo h1:hover .yusi-mono {
-																 letter-spacing:5px
-														 }
-														 .yusi-logo h1:hover .yusi-bloger {
-																 left:26px;
-																 opacity:.2
-														 }
+														 
 														 .toggle-search {
 																 position:absolute;
 																 margin-top:0;
@@ -3863,7 +3815,7 @@ input[type="radio"],input[type="checkbox"] {
 		.toggle-search {
 				padding:11px 25px 10px 20px
 		}
-		.yusi-mono {
+		.wait-mono {
 				font-size:42px!important
 		}
 		.navbar {
@@ -3950,7 +3902,7 @@ input[type="radio"],input[type="checkbox"] {
 						color:#444;
 						display:block
 				}
-				.yusi-bloger,.speedbar,.screen-search {
+				.wait-bloger,.speedbar,.screen-search {
 						display:none
 				}
 				.sidebar {
@@ -4267,7 +4219,7 @@ input[type="radio"],input[type="checkbox"] {
 																									  display:none
 																							  }
 																					  }@media(max-width:334px) {
-																							  .yusi-mono {
+																							  .wait-mono {
 																									  font-size:32px!important
 																							  }
 																							  .article-title a {

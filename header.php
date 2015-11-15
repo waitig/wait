@@ -8,11 +8,11 @@
 <?php
 $sr_1 = 0; $sr_2 = 0; $commenton = 0; 
 if( waitig_gopt('waitig_sideroll_en') ){ 
-    $sr_1 = waitig_gopt('waitig_sideroll_1');
-    $sr_2 = waitig_gopt('waitig_sideroll_2');
+		$sr_1 = waitig_gopt('waitig_sideroll_1');
+		$sr_2 = waitig_gopt('waitig_sideroll_2');
 }
 if( is_singular() ){ 
-    if( comments_open() ) $commenton = 1;
+		if( comments_open() ) $commenton = 1;
 }
 ?>
 <script>
@@ -27,7 +27,7 @@ if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/jquery.easing.js" type="text/javascript"></script>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/studio.js" type="text/javascript"></script>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/wait.js" type="text/javascript"></script>
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="<?php echo get_bloginfo("template_url") ?>/favicon.ico">
 <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url'); if(waitig_gopt('waitig_colorful_en')){ echo '/colorful.css';} else{ echo '/simple.css';} ?>">
 <!--[if IE 9]><script src="<?php bloginfo('template_url'); ?>/js/html5.js"></script><![endif]-->
 </head>
@@ -35,14 +35,19 @@ if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 
 <header id="header" class="header">
 <div class="container-inner">
- <div class="yusi-logo">
-                    <a href="/">
-                        <h1>
-                                                        <span class="yusi-mono"><?php bloginfo('name'); ?>|</span>
-                                                        <span class="yusi-bloger"><?php bloginfo('description'); ?></span>
-                                                    </h1>
-                    </a>
-    </div>
+ <div class="wait-logo">
+	<a href="/">
+	<span class="wait-mono">
+<?php if(waitig_gopt('waitig_logo_type')=='waitig_logo_pic'){ ?>
+<img src="<?php echo waitig_gopt('waitig_logo_url'); ?>" alt="<?php bloginfo('name'); ?>">
+<?php }else{ 
+bloginfo('name');} 
+?></span><span class="wait-bloger"><?php bloginfo('description'); ?></span>
+	</a>
+ </div>
+ <div class="nav-ad">
+	<?php echo waitig_gopt('waitig_nav_ad'); ?>
+ </div>
 </div>
 <?php
 if (waitig_gopt('waitig_tmnav')) 
@@ -51,15 +56,15 @@ if (waitig_gopt('waitig_tmnav'))
 		$color_R=waitig_gopt('waitig_nav_color_r');
 		$color_G=waitig_gopt('waitig_nav_color_g');
 		$color_B=waitig_gopt('waitig_nav_color_b');		
-	echo '<style type="text/css">#nav-header{background-color: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');background: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');color: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');}</style>';
+		echo '<style type="text/css">#nav-header{background-color: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');background: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');color: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');}</style>';
 }?>
 
 	<div id="nav-header" class="navbar">
-		
+
 		<ul class="nav">
 			<?php echo str_replace("</ul></div>", "", ereg_replace("<div[^>]*><ul[^>]*>", "", wp_nav_menu(array('theme_location' => 'nav', 'echo' => false)) )); ?>
 <li style="float:right;">
-                    <div class="toggle-search"><i class="fa fa-search"></i></div>
+					<div class="toggle-search"><i class="fa fa-search"></i></div>
 <div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href='<?php echo home_url('/search/'); ?>' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="/"><div> <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';" onfocus="if(this.value=='search...')this.value='';" value="search..."></div></form></div></div>
 </li>
 		</ul>
@@ -67,19 +72,19 @@ if (waitig_gopt('waitig_tmnav'))
 	</div>
 </header>
 <section class="container"><div class="speedbar">
-		<?php 
+<?php 
 		if( waitig_gopt('waitig_sign_en') ){ 
-			global $current_user; 
-			get_currentuserinfo();
-			$uid = $current_user->ID;
-			$u_name = get_user_meta($uid,'nickname',true);
-		?>
+				global $current_user; 
+				get_currentuserinfo();
+				$uid = $current_user->ID;
+				$u_name = get_user_meta($uid,'nickname',true);
+?>
 			<div class="pull-right">
 				<?php if(is_user_logged_in()){echo '<i class="fa fa-user"></i> '.$u_name.' &nbsp; '; echo ' &nbsp; &nbsp; <i class="fa fa-power-off"></i> ';}else{echo '<i class="fa fa-user"></i> ';}; wp_loginout(); ?>
 			</div>
 		<?php } ?>
 		<div class="toptip"><strong class="text-success" style="float:left"><i class="fa fa-volume-up"></i> </strong><div id="news" style="float:left">
-         <ul id="topNotice" onmouseout="gstart()" onmouseover="gstop()" style="margin-left:15px"><?php echo waitig_gopt('waitig_tui'); ?></ul></div></div>
+		 <ul id="topNotice" onmouseout="gstart()" onmouseover="gstop()" style="margin-left:15px"><?php echo waitig_gopt('waitig_tui'); ?></ul></div></div>
 	</div>
 	<?php if( waitig_gopt('waitig_adsite_01') ) echo '<div class="banner banner-site">'.waitig_gopt('waitig_adsite_01').'</div>'; ?>
 <?php if( waitig_gopt('waitig_adsite_02') ) echo '<div class="banner banner-site"`>'.waitig_gopt('waitig_adsite_02').'</div>'; ?>

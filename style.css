@@ -1503,5 +1503,52 @@ Version:2.3
 		content:"支";
 }
 
-
-
+.wait-logo {
+text-align:left;
+padding: 10px 0px 0px 10px;
+float: left;
+font-family:'Handlee',"华文隶书","Microsoft Yahei",arial,sans-serif;
+}
+.wait-logo h1 {
+display:inline-block;
+padding:12px 0 5px 0;
+cursor:pointer;
+font-family:'Handlee',"华文隶书","Microsoft Yahei",arial,sans-serif;
+font-weight:100
+}
+.wait-mono {
+letter-spacing:-2px;
+font-size:54px;
+z-index:0;
+line-height:60px;
+-webkit-transition:all .1s ease-out;
+-moz-transition:all .1s ease-out;
+-o-transition:all .1s ease-out;
+-ms-transition:all .1s ease-out;
+transition:all .1s ease-out
+}
+.wait-bloger {
+font-weight:normal;
+font-size:24px;
+/*text-shadow:0 0 15px rgba(0, 0, 0, 1);*/
+margin-left:15px;
+letter-spacing:-1px;
+/*z-index:2;*/
+-webkit-transition:all .5s ease-out;
+-moz-transition:all .5s ease-out;
+-o-transition:all .5s ease-out;
+-ms-transition:all .5s ease-out;
+transition:all .5s ease-out
+}
+.wait-logo :hover .wait-mono {
+letter-spacing:5px
+}
+.wait-logo :hover .wait-bloger {
+left:26px;
+opacity:.2
+}
+.nav-ad {
+float: right;
+width: auto;
+padding: 10px;
+}
