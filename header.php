@@ -46,7 +46,7 @@ bloginfo('name');}
 	</a>
  </div>
  <div class="nav-ad">
-	<?php echo waitig_gopt('waitig_nav_ad'); ?>
+	<?php if(!wp_is_mobile()) echo waitig_gopt('waitig_nav_ad'); ?>
  </div>
 </div>
 <?php
