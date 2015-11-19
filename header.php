@@ -34,22 +34,7 @@ if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 <body <?php body_class(); ?>>
 
 <header id="header" class="header">
-<div class="container-inner">
- <div class="wait-logo">
-	<a href="/">
-	<span class="wait-mono">
-<?php if(waitig_gopt('waitig_logo_type')=='waitig_logo_pic'){ ?>
-<img src="<?php echo waitig_gopt('waitig_logo_url'); ?>" alt="<?php bloginfo('name'); ?>">
-<?php }else{ 
-bloginfo('name');} 
-?></span><span class="wait-bloger"><?php bloginfo('description'); ?></span>
-	</a>
- </div>
- <div class="nav-ad">
-	<?php if(!wp_is_mobile()) echo waitig_gopt('waitig_nav_ad'); ?>
- </div>
-</div>
-<?php
+	<?php
 if (waitig_gopt('waitig_tmnav')) 
 {
 		$tran=waitig_gopt('waitig_nav_tran');
@@ -69,7 +54,21 @@ if (waitig_gopt('waitig_tmnav'))
 </li>
 		</ul>
 	</div>
-	</div>
+<div class="container-inner">
+ <div class="wait-logo">
+	<a href="/">
+	<span class="wait-mono">
+<?php if(waitig_gopt('waitig_logo_type')=='waitig_logo_pic'){ ?>
+<img src="<?php echo waitig_gopt('waitig_logo_url'); ?>" alt="<?php bloginfo('name'); ?>">
+<?php }else{ 
+bloginfo('name');} 
+?></span><span class="wait-bloger"><?php bloginfo('description'); ?></span>
+	</a>
+ </div>
+ <div class="nav-ad">
+	<?php if(!wp_is_mobile()) echo waitig_gopt('waitig_nav_ad'); ?>
+ </div>
+</div>
 </header>
 <section class="container"><div class="speedbar">
 <?php 

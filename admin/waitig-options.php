@@ -47,7 +47,7 @@ $options = array(
 		),
 		array(
 				'name'  => '网站图片logo地址',
-				'desc'  => '如果您选择使用图片logo，则在此填入您的图片logo地址',
+				'desc'  => '在此填入您的图片l地址【图片高度不要超过75px,等于75px最佳】',
 				'id'    => 'waitig_logo_url',
 				'type'  => 'text',
 				'std'	=> get_bloginfo("template_url").'/img/logo.png'

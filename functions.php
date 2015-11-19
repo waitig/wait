@@ -171,7 +171,7 @@ function footerScript() {
 				wp_enqueue_script( 'jquery' );
 				wp_register_script( 'default', get_template_directory_uri() . '/js/jquery.js', false, '1.0', waitig_gopt('d_jquerybom_b') ? true : false );   
 				wp_enqueue_script( 'default' );   
-				wp_register_style( 'style', get_template_directory_uri() . '/style.css',false,'2.1' );
+				wp_register_style( 'style', get_template_directory_uri() . '/style.css',false,'2.2' );
 				wp_enqueue_style( 'style' ); 
 		}  
 }  
@@ -511,7 +511,7 @@ function time_ago( $type = 'commennt', $day = 7 ) {
 
 function timeago( $ptime ) {
 		$ptime = strtotime($ptime);
-		$etime = time() - $ptime;
+		$etime = time() - $ptime - 8*60*60;
 		if($etime < 1) return '刚刚';
 		$interval = array (
 				12 * 30 * 24 * 60 * 60  =>  '年前 ('.date('Y-m-d', $ptime).')',
