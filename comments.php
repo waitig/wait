@@ -1,5 +1,23 @@
 <?php
 defined('ABSPATH') or die('This file can not be loaded directly.');
+function waitig_comment_protection_pre($commentdata){
+		$sum=$_POST['idcode'];//用户提交的计算结果
+		if($sum==""||$sum==null)
+		{
+				err('请填写计算结果！');
+				return $commentdata;
+		}
+		$rightSum=$_POST['num1']+$_POST['num2'];
+switch($sum){
+//得到正确的计算结果则直接跳出
+case $rightSum:break;
+//未填写结果时提示错误
+case null:err('请填写计算结果！');break;
+//计算错误时的错误讯息
+default:err('你算错了哦，再试一遍吧？！');
+}
+return $commentdata;
+}
 
 global $comment_ids; $comment_ids = array();
 foreach ( $comments as $comment ) {
@@ -50,7 +68,8 @@ $closeTimer = (strtotime(date('Y-m-d G:i:s'))-strtotime(get_the_time('Y-m-d G:i:
 			<div class="comt-avatar pull-left">
 				<?php 
 					global $current_user;
-					get_currentuserinfo();
+get_currentuserinfo();
+
 					if ( is_user_logged_in() ) 
 						echo get_avatar( $current_user->user_email, $size = '54' , deel_avatar_default() );
 					elseif( !is_user_logged_in() && get_option('require_name_email') && $comment_author_email=='' ) 
@@ -86,8 +105,8 @@ $closeTimer = (strtotime(date('Y-m-d G:i:s'))-strtotime(get_the_time('Y-m-d G:i:
 					<div class="comt-tips pull-right"><?php comment_id_fields(); do_action('comment_form', $post->ID); ?></div>
 					<span data-type="comment-insert-smilie" class="muted comt-smilie"><i class="fa fa-smile-o"></i> 表情</span>&nbsp;&nbsp;&nbsp;&nbsp;
 					
-					<input class="ipt" type="text" name="idcode" id="idcode" value='null' tabindex="5" placeholder="<?php $num1=rand(0,9);$num2=rand(0,9);echo "$num1 + $num2 = ? ";?>"><?php echo "$num1 + $num2 = ? (必填)";?>
-<input type='hidden' name='num1' value='$num1'><input type='hidden' name='num1' value='$num2'>
+					<input class="ipt" type="text" name="idcode" id="idcode" value='' tabindex="5" placeholder="<?php $num1=rand(0,9);$num2=rand(0,9);echo "$num1 + $num2 = ? ";?>"><?php echo "$num1 + $num2 = ? (必填)";?>
+					<input type='hidden' name='num1' id='num1' value='<?php echo $num1?>'><input type='hidden' name='num2' id='num2' value='<?php echo $num2;?>'>
 					
 					<span class="muted comt-mailme"><?php deel_add_checkbox() ?></span>
 				</div>

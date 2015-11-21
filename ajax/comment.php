@@ -18,13 +18,31 @@ if ( empty($post->comment_status) ) {
 $status = get_post_status($post);
 $status_obj = get_post_status_object($status);
 
-	do_action('pre_comment_on_post', $comment_post_ID);
+do_action('pre_comment_on_post', $comment_post_ID);
+
 
 $comment_author       = ( isset($_POST['author']) )  ? trim(strip_tags($_POST['author'])) : null;
 $comment_author_email = ( isset($_POST['email']) )   ? trim($_POST['email']) : null;
 $comment_author_url   = ( isset($_POST['url']) )     ? trim($_POST['url']) : null;
 $comment_content      = ( isset($_POST['comment']) ) ? trim($_POST['comment']) : null;
 $edit_id              = ( isset($_POST['edit_id']) ) ? $_POST['edit_id'] : null; // 提取 edit_id
+$num1=$_POST['num1'];
+$num2=$_POST['num2'];
+$sum=$_POST['idcode'];
+$rightSum=$_POST['num1']+$_POST['num2'];
+if($sum==""||$sum==null)
+{
+	err('请填写计算结果！');
+}
+switch($sum){
+//得到正确的计算结果则直接跳出
+case $rightSum:break;
+//未填写结果时提示错误
+case null:err('请填写计算结果！');break;
+//计算错误时的错误讯息
+default:err('你算错了哦，再试一遍吧？！');
+}
+
 // If the user is logged in
 $user = wp_get_current_user();
 if ( $user->ID ) {
