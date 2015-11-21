@@ -72,12 +72,10 @@ function deel_setup(){
 
 		//添加后台左下角文字
 		function waitig_admin_footer_text($text) {
-				$text = '感谢使用<a target="_blank" href=http://www.waitig.com/ >waitig主题 1</a>进行创作';
+				$text = '感谢使用<a target="_blank" href=http://www.waitig.com/ >waitig主题 2.4</a>进行创作！';
 				return $text;
 		}
 		add_filter('admin_footer_text', 'waitig_admin_footer_text');
-
-
 		//移除自动保存和修订版本
 		if( waitig_gopt('waitig_autosave_un') ){
 				add_action('wp_print_scripts','deel_disable_autosave' );
@@ -96,7 +94,7 @@ function deel_setup(){
 		set_post_thumbnail_size(220, 150, true); 
 
 		//编辑器格式
-		add_editor_style('editor-style.css');
+		add_editor_style('/editor-style.css');
 
 		//头像缓存  
 		if( waitig_gopt('d_avatar_b') ){
@@ -733,7 +731,13 @@ function waitig_is_mobile() {
 						return false;
 				}
 }
-
+//新式登陆界面
+if(waitig_gopt('waitig_diy_login_page')){
+function diy_login_page() {
+  echo '<link rel="stylesheet" href="' . get_bloginfo( 'template_directory' ) . '/login.css" type="text/css" media="all" />' . "\n";
+}
+add_action( 'login_enqueue_scripts', 'diy_login_page' );
+}
 //waitig@搜索结果排除所有页面
 function search_filter_page($query) {
 		if ($query->is_search) {
@@ -826,7 +830,7 @@ function get_alert()
 		@$fp=fopen($url,'r');
 		if(!$fp)
 		{
-				return '无网络连接';
+				return '无网络连接！';
 				//exit;
 		}
 		//stream_get_meta_data($fp);
@@ -916,5 +920,33 @@ if(waitig_gopt('waitig_copyright'))
 		}
 		add_filter( 'the_content',  'deel_copyright' );
 }
-
+//评论算术验证码///////////////////////////////
+function waitig_comment_protection(){
+//随机获取范围0~9的两个自然数
+$num1=rand(0,9);
+$num2=rand(0,9);
+echo "<div class='row'><label for='math' class='small'>验证码：</label>$num1 + $num2 = <input type='text' name='sum' class='math_textfield' value='' tabindex='1' size='5'>";
+echo "<input type='hidden' name='num1' value='$num1'>";
+echo "<input type='hidden' name='num2' value='$num2'>";
+echo "<label for='math' class='small'>请输入两数之和（必填）</label></div>";
+}
+function waitig_comment_protection_pre($commentdata){
+		$sum=$_POST['idcode'];//用户提交的计算结果
+		if($sum==""||$sum==null)
+		{
+				err('请填写计算结果！');
+				return $commentdata;
+		}
+		$rightSum=$_POST['num1']+$_POST['num2'];
+switch($sum){
+//得到正确的计算结果则直接跳出
+case $rightSum:break;
+//未填写结果时提示错误
+case null:err('请填写计算结果！');break;
+//计算错误时的错误讯息
+default:err('你算错了哦，再试一遍吧？！');
+}
+return $commentdata;
+}
+add_filter('preprocess_comment','waitig_comment_protection_pre');
 ?>

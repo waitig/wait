@@ -89,7 +89,6 @@ function waitig_options_page() {
 						echo '<a href="#'.$value["id"].'" class="nav-tab'.( $panelIndex == 0 ? ' nav-tab-active' : '' ) . '">' . $value['title'] . '</a>';
 				$panelIndex++;
 		}
-		//echo '<a href="#about_theme" class="nav-tab">关于主题</a>';
 ?>
 </h2>
 <?php

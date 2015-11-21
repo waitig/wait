@@ -792,6 +792,13 @@ $options = array(
 				'title' => '本页面中的一些功能主要是为了替代一些插件，可能会和一些插件发生冲突',
 				'type'  => 'subtitle'
 		),
+		
+		array(
+				'name'  => '新式登陆界面',
+				'desc'  => '启用   【将会修改默认的登陆界面，用新式登陆界面代替】',
+				'id'    => "waitig_diy_login_page",
+				'type'  => 'checkbox'
+		),
 		array(
 				'name'  => '百度收录提示',
 				'desc'  => '启用   【开启后，将会在文章标题下显示百度收录状态，需要curl扩展的支持，否则不生效】',

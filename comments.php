@@ -81,21 +81,28 @@ $closeTimer = (strtotime(date('Y-m-d G:i:s'))-strtotime(get_the_time('Y-m-d G:i:
 			<div class="comt-box">
 			<textarea placeholder="<?php echo waitig_gopt('waitig_comment_placeholder')?>" class="input-block-level comt-area" name="comment" id="comment" cols="100%" rows="3" tabindex="1" onkeydown="if(event.ctrlKey&amp;&amp;event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
 				<div class="comt-ctrl">
+
 					<button class="btn btn-primary pull-right" type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-check-square-o"></i> 提交评论</button>
 					<div class="comt-tips pull-right"><?php comment_id_fields(); do_action('comment_form', $post->ID); ?></div>
-					<span data-type="comment-insert-smilie" class="muted comt-smilie"><i class="fa fa-smile-o"></i> 表情</span>
+					<span data-type="comment-insert-smilie" class="muted comt-smilie"><i class="fa fa-smile-o"></i> 表情</span>&nbsp;&nbsp;&nbsp;&nbsp;
+					
+					<input class="ipt" type="text" name="idcode" id="idcode" value='null' tabindex="5" placeholder="<?php $num1=rand(0,9);$num2=rand(0,9);echo "$num1 + $num2 = ? ";?>"><?php echo "$num1 + $num2 = ? (必填)";?>
+<input type='hidden' name='num1' value='$num1'><input type='hidden' name='num1' value='$num2'>
+					
 					<span class="muted comt-mailme"><?php deel_add_checkbox() ?></span>
 				</div>
 			</div>
 
-			<?php if ( !is_user_logged_in() ) { ?>
-				<?php if( get_option('require_name_email') ){ ?>
+<?php if ( !is_user_logged_in() ) { 
+	
+				 if( get_option('require_name_email') ){ ?>
 					<div class="comt-comterinfo" id="comment-author-info" <?php if ( !empty($comment_author) ) echo 'style="display:none"'; ?>>
 						<h4>Hi，您需要填写昵称和邮箱！</h4>
 						<ul>
 							<li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" tabindex="2" placeholder="昵称"><span class="help-inline">昵称 (必填)</span></li>
 							<li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" tabindex="3" placeholder="邮箱"><span class="help-inline">邮箱 (必填)</span></li>
 							<li class="form-inline"><label class="hide" for="url">网址</label><input class="ipt" type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" tabindex="4" placeholder="网址"><span class="help-inline">网址</span></li>
+							
 						</ul>
 					</div>
 				<?php } ?>
