@@ -12,7 +12,7 @@ function theme_check()
 		@$fp=fopen($request,'r');
 		if(!$fp)
 		{
-				return "";
+				return "无网络连接！";
 		}
 		$result="";
 		while(!feof($fp))
