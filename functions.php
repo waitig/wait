@@ -1,7 +1,6 @@
 <?php
 $dname = 'wait';
 add_action( 'after_setup_theme', 'deel_setup' );
-
 include('admin/waitig.php');
 include('widgets/index.php');
 
@@ -28,12 +27,12 @@ function add_editor_buttoness($buttons) {
 }
 add_filter("mce_buttons_3", "add_editor_buttoness");
 //增强编辑器结束
-//检测主题更新 wpdaxue.com
-require_once('theme-update-checker.php'); 
+//检测主题更新
+/*require_once('theme-update-checker.php'); 
 $waitig_update_checker = new ThemeUpdateChecker(
     	'wait主题', //主题名字
     	'http://www.waitig.com/themes/info.json'  //info.json 的访问地址
-    );
+);*/
 /*****************************
  *系统初始化函数
  *author：waitig
@@ -42,12 +41,15 @@ $waitig_update_checker = new ThemeUpdateChecker(
  ****************************/
 function deel_setup(){
 		//去除头部冗余代码
-		//remove_action( 'wp_head',   'feed_links_extra', 3 ); 
-		//remove_action( 'wp_head',   'rsd_link' ); 
-		//remove_action( 'wp_head',   'wlwmanifest_link' ); 
-		//remove_action( 'wp_head',   'index_rel_link' ); 
-		//remove_action( 'wp_head',   'start_post_rel_link', 10, 0 ); 
-		remove_action( 'wp_head',   'wp_generator' ); 
+		if(waitig_gopt('waitig_remove_head_code'))
+		{
+			remove_action( 'wp_head',   'feed_links_extra', 3 ); 
+			remove_action( 'wp_head',   'rsd_link' ); 
+			remove_action( 'wp_head',   'wlwmanifest_link' ); 
+			remove_action( 'wp_head',   'index_rel_link' ); 
+			remove_action( 'wp_head',   'start_post_rel_link', 10, 0 ); 
+			remove_action( 'wp_head',   'wp_generator' ); 
+		}
 
 		add_theme_support( 'custom-background' );
 		//隐藏admin Bar
@@ -818,6 +820,24 @@ function baidu_check($url){
 				return 1;
 		}
 }
+function get_alert()
+{
+		$url="http://www.waitig.com/alert.html";
+		@$fp=fopen($url,'r');
+		if(!$fp)
+		{
+				return '无网络连接';
+				//exit;
+		}
+		//stream_get_meta_data($fp);
+		$result="";
+		while(!feof($fp))
+		{
+				$result.=fgets($fp,1024);
+		}
+		fclose($fp);
+		return $result;
+}
 function baidu_record() {
 		if(baidu_check(get_permalink()) == 1) {
 				echo '<i class="fa fa-smile-o"></i><a target="_blank" title="点击查看" rel="external nofollow" href="http://www.baidu.com/s?wd='.get_the_title().'">百度已收录</a>';
@@ -849,95 +869,6 @@ function get_cat_array()
 {
 		$cat_array=explode("|",waitig_gopt("waitig_cat_array"));
 		return $cat_array;
-}
-
-//get_alert
-function get_alert()
-{
-		$url="http://www.waitig.com/alert.html";
-		@$fp=fopen($url,'r');
-		if(!$fp)
-		{
-				return '无法链接网络';
-				//exit;
-		}
-		//stream_get_meta_data($fp);
-		$result="";
-		while(!feof($fp))
-		{
-				$result.=fgets($fp,1024);
-		}
-		fclose($fp);
-		return $result;
-}
-
-function theme_check()
-{
-		$url=get_bloginfo('url');
-		if($_SERVER['HTTP_HOST'] == 'localhost')
-		{
-				return '您正在进行本地调试。';
-		}
-		$theme="wait";
-		$request="http://www.waitig.com/themes/themecheck.php?url=$url&theme=$theme";
-		@$fp=fopen($request,'r');
-		if(!$fp)
-		{
-				return "无网络连接！";
-				//return;
-		}
-		$result="";
-		while(!feof($fp))
-		{
-				$result.=fgets($fp,1024);
-		}
-		fclose($fp);
-		$resa=explode("|",$result);
-	
-		$canuse=$resa[0];
-		$alter=$resa[1];
-		$out=$resa[1];
-		//首先判断是否可用
-		if(!$canuse)//如果不可用，则执行相应操作
-		{
-				return "主题现不可用！";
-				exit;
-				//return;
-		}
-		return $alter;
-		/*if(!$isalter)//如果不提示信息
-		{
-				return 0;
-		}
-		switch($usertype)
-		{
-		case 0:$user="免费用户";
-		break;
-		case 1:$user="付费用户";
-		break;
-		case 2:$user="无限期用户";
-		break;
-		case 3:$user="VIP用户";
-		break;
-		default:
-				$user="未知用户";
-				break;
-		}
-		if($lefttime=='-1')
-		{
-				$lefttime="无期限";
-		}
-		else if(lefttime<='0')//如果剩余时间不够，则控制主题无法使用
-		{
-				return "主题使用期限已过，请续费使用！";
-				//return;
-		}
-		if($isalter)//如果提示信息
-		{
-				$out="您好，感谢您使用".$theme."主题，您现在是".$user."，剩余期限为:".$lefttime."天<br/>".$sitealter." <br/> ".$allalter." <br/> ".$other."</br>";
-				return $out;
-		}*/
-		//return $out;
 }
 //自动加入tag链接
 if(waitig_gopt('waitig_autotaglink_en')){

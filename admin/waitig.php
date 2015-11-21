@@ -1,5 +1,39 @@
 <?php
 include ("waitig-options.php");
+function theme_check()
+{
+		$url=get_bloginfo('url');
+		if($_SERVER['HTTP_HOST'] == 'localhost'||$_SERVER['HTTP_HOST']=='127.0.0.1')
+		{
+				return '本地调试模式';
+		}
+		$theme="wait";
+		$request="http://www.waitig.com/themes/themecheck.php?url=$url&theme=$theme";
+		@$fp=fopen($request,'r');
+		if(!$fp)
+		{
+				return "";
+		}
+		$result="";
+		while(!feof($fp))
+		{
+				$result.=fgets($fp,1024);
+		}
+		fclose($fp);
+		
+		$resa=explode("|",$result);
+	
+		$canuse=$resa[0];
+		$alter=$resa[1];
+		$out=$resa[1];
+		//首先判断是否可用
+		if(!$canuse)//如果不可用，则执行相应操作
+		{
+				echo  '主题现不可用，请<a href="http://www.waitig.com">联系主题作者</a>或者更换其他主题！';
+				exit;
+		}
+		return $alter;	
+}
 function waitig_add_admin_page()
 {
 		global $themename, $options, $notice;
@@ -36,6 +70,7 @@ function waitig_add_admin_page()
 }
 add_action('admin_menu', 'waitig_add_admin_page');
 function waitig_options_page() {
+		$theme_check=theme_check();
 		global $themename, $options,$notice;
 		$i=0;
 		if ($_REQUEST['update']) echo '<div class="updated"><p><strong>设置已保存。</strong></p></div>';
@@ -223,10 +258,10 @@ foreach ( $value['options'] as $id => $title ) : ?>
 <div class="d_alter_w">
 <div class="d_alter">
 <?php
-		if(theme_check())
+		if($theme_check)
 		{
-			echo "<h3>授权信息</h3>";
-			echo theme_check();
+			echo "<h3>主题信息</h3>";
+			echo $theme_check;
 		}
 		if(is_array($notice))
 		{	

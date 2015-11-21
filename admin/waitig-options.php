@@ -35,6 +35,12 @@ $options = array(
 				'std'	=>	'|'
 		),
 		array(
+				'name'	=>	'去除头部多余代码',
+				'desc'	=>	'如果不用wlw发布博客，则建议开启',
+				'id'	=>	'waitig_remove_head_code',
+				'type'	=>	'checkbox'
+		),
+		array(
 				'name'  => '网站logo形式',
 				'desc'  => '选择你的网站logo为文字形式还是图片形式',
 				'id'    => "waitig_logo_type",
@@ -961,41 +967,7 @@ $options = array(
 		array(
 				'type'	=>	'panelend'
 		),
-		//广告设置标签页结束
-		//
-		//关于主题标签页开始
-		/*array(
-				'title' => '关于主题',
-				'id'    => 'AboutTheme',
-				'type'  => 'panelstart'
-		),
-		array(
-				'title' => '感谢您使用<a href="http://www.waitig.com">wait主题</a>进行创作！',
-				'type'  => 'subtitle'
-		),
-		array(
-				'name'  => '主题公告',
-				'desc'  => get_alert(),//'这里是公告'
-				'type'  => 'text_show'
-		),
-		array(
-				'name'  => '主题更新地址',
-				'desc'  => '您可以从我的博客获取最新版本，地址:<a href="http://www.waitig.com">www.waitig.com</a>',
-				'type'  => 'text_show'
-		),
-		array(
-				'name'  => '赞助作者',
-				'desc'  => '<a href="http://www.waitig.com">wait主题</a>完全开源免费，如果您感觉这款主题给您带来了方便，可以通过支付宝对作者进行赞助，我将万分感谢！<br/>支付宝账号：waitig@hotmail.com，<br/>二维码：<img src="http://www.waitig.com/img/alipay.gif"/>',
-				'type'  => 'text_show'
-		),
-		array(
-				'name'  => '主题说明',
-				'desc'  => get_about_theme(),
-				'type'  => 'text_show'
-		),
-		array(
-				'type'	=>	'panelend'
-		),*/
+		
 );
 $notice = array(
 		//将选项放入数组中，管理更加方便
@@ -1005,12 +977,8 @@ $notice = array(
 				'name'  => '主题公告',
 				'desc'  =>  get_alert(),
 		),
-		/*array(
-				'name'  => '主题信息',
-				'desc'  =>  theme_check(),
-		),*/
 		array(
-				'name'  => '赞助作者：',
+				'name'  => '赞助作者',
 				'desc'  => '欢迎您使用<a href="http://www.waitig.com">wait主题</a>！，如果您感觉这款主题给您带来了方便，可以通过支付宝对作者进行赞助，我将万分感谢！<br/>支付宝账号：waitig@hotmail.com，<br/>二维码：<img src="http://www.waitig.com/img/alipay.gif"/>',
 		),
 		

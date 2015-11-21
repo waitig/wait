@@ -1,6 +1,8 @@
 cache/
 temp/
 *.bak
+*.css.bak
+*.php.bak
 *.swp
 backup/
 test.*
