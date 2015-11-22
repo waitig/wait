@@ -6,7 +6,7 @@ if ( 'POST' != $_SERVER['REQUEST_METHOD'] ) {
 	exit;
 }
 
-require( dirname(__FILE__) . '/../../../../wp-load.php' ); // 此 comments-ajax.php 位於主題資料夾,所以位置已不同
+require(dirname(__FILE__).'/../../../../wp-load.php' ); // 此 comments-ajax.php 位於主題資料夾,所以位置已不同
 nocache_headers();
 $comment_post_ID = isset($_POST['comment_post_ID']) ? (int) $_POST['comment_post_ID'] : 0;
 $post = get_post($comment_post_ID);
