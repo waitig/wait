@@ -5247,7 +5247,7 @@ margin: 5px auto 0px;
 }
 .navbar {
 height:auto;
-position:relative
+position:relative !important
 }
 .navbar .screen-mini {
 display:block;
