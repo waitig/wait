@@ -349,62 +349,6 @@ $options = array(
 				'type'	=>	'text',
 				'std'		=>	""
 		),
-		/*array(
-				'name'  => '分类一',
-				'desc'  => '启用,填入您的分类ID',
-				'id'    => 'waitig_cat_1',
-				'type'  => 'number',
-				'std'   => ''
-		),
-		array(
-				'name'  => '分类二',
-				'desc'  => '启用,填入您的分类ID',
-				'id'    => 'waitig_cat_2',
-				'type'  => 'number',
-				'std'   => ''
-		),
-		array(
-				'name'  => '分类三',
-				'desc'  => '启用,填入您的分类ID',
-				'id'    => 'waitig_cat_3',
-				'type'  => 'number',
-				'std'   => ''
-		),
-		array(
-				'name'  => '分类四',
-				'desc'  => '启用,填入您的分类ID',
-				'id'    => 'waitig_cat_4',
-				'type'  => 'number',
-				'std'   => ''
-		),
-		array(
-				'name'  => '分类五',
-				'desc'  => '启用,填入您的分类ID',
-				'id'    => 'waitig_cat_5',
-				'type'  => 'number',
-				'std'   => ''
-		),
-		array(
-				'name'  => '分类六',
-				'desc'  => '启用,填入您的分类ID',
-				'id'    => 'waitig_cat_6',
-				'type'  => 'number',
-				'std'   => ''
-		),
-		array(
-				'name'  => '分类七',
-				'desc'  => '启用,填入您的分类ID',
-				'id'    => 'waitig_cat_7',
-				'type'  => 'number',
-				'std'   => ''
-		),
-		array(
-				'name'  => '分类八',
-				'desc'  => '启用,填入您的分类ID',
-				'id'    => 'waitig_cat_8',
-				'type'  => 'number',
-				'std'   => ''
-		),*/
 		array(
 				'title' => '首页隐藏分类【博客模式下】',
 				'type'  => 'subtitle'
@@ -457,12 +401,26 @@ $options = array(
 				'title' => '导航栏设置',
 				'type'  => 'subtitle'
 		),
-		/*array(
+		array(
 				'name'  => '顶部悬浮菜单导航',
-				'desc'  => '开启【开启后您的菜单导航就会悬停在网站顶部】',
+				'desc'  => '开启【开启后您的菜单导航就会悬浮在页面上方】',
 				'id'    => "waitig_topnav",
 				'type'  => 'checkbox'
-		),*/
+		),
+		array(
+				'name'  => '导航栏图片',
+				'desc'  => '【高度72px最佳】输入导航栏图片地址，留空则代表关闭。',
+				'id'    => "waitig_nav_img",
+				'type'  => 'text',
+				'std'	=> get_bloginfo("template_url").'/img/nav-img.png'
+		),
+		array(
+				'name'  => '导航栏右侧链接',
+				'desc'  => '导航栏右侧链接文字及地址',
+				'id'    => "waitig_nav_link",
+				'type'  => 'text',
+				'std'	=> '<a href=\'www.waitig.com\'>链接一</a>|<a href=\'www.waitig.com\'>链接二</a>'
+		),
 		array(
 				'name'  => '透明导航栏',
 				'desc'  => '开启【开启后您的菜单导航栏就会变成半透明】',

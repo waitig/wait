@@ -35,29 +35,36 @@ if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 <body <?php body_class(); ?>>
 
 <header id="header" class="header">
-	<?php
+<style type="text/css">
+<?php
+if(waitig_gopt('waitig_topnav'))
+		echo '.navbar{position: fixed;}';
+else
+		echo '.navbar{position:absolute;}';
 if (waitig_gopt('waitig_tmnav')) 
 {
 		$tran=waitig_gopt('waitig_nav_tran');
 		$color_R=waitig_gopt('waitig_nav_color_r');
 		$color_G=waitig_gopt('waitig_nav_color_g');
 		$color_B=waitig_gopt('waitig_nav_color_b');		
-		echo '<style type="text/css">#nav-header{background-color: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');background: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');color: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');}</style>';
+		echo '#nav-header{background-color: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');background: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');color: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');}';
 }?>
-
+</style>
 	<div id="nav-header" class="navbar">
 
 		<ul class="nav">
+		<?php if(waitig_gopt('waitig_nav_img')){?><div class="nav-img"><a href="<?php echo home_url('/'); ?>"><img src="<?php echo waitig_gopt('waitig_nav_img'); ?>" alt="<?php bloginfo('name'); ?>"/> </div></a> <?php }?>
 			<?php echo str_replace("</ul></div>", "", ereg_replace("<div[^>]*><ul[^>]*>", "", wp_nav_menu(array('theme_location' => 'nav', 'echo' => false)) )); ?>
-<li style="float:right;">
+<div class="nav-right">
+<?php if(waitig_gopt('waitig_nav_link')){?><div class="nav-right-link"><?php echo waitig_gopt('waitig_nav_link'); ?></div><?php }?>
 					<div class="toggle-search"><i class="fa fa-search"></i></div>
 <div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href='<?php echo home_url('/search/'); ?>' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="/"><div> <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';" onfocus="if(this.value=='search...')this.value='';" value="search..."></div></form></div></div>
-</li>
+</div>
 		</ul>
 	</div>
 <div class="container-inner">
  <div class="wait-logo">
-	<a href="/">
+	<a href="<?php echo home_url('/'); ?>">
 	<span class="wait-mono">
 <?php if(waitig_gopt('waitig_logo_type')=='waitig_logo_pic'){ ?>
 <img src="<?php echo waitig_gopt('waitig_logo_url'); ?>" alt="<?php bloginfo('name'); ?>">
