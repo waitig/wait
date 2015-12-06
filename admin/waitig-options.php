@@ -71,12 +71,7 @@ $options = array(
 				'type'	=>	'textarea',
 				'std'	=>	''
 		),
-		array(
-				'name'	=>	'网站多彩风格',
-				'desc'	=>	'【开启】，默认为黑白简约风格，开启后将会变为多彩风格',
-				'id'	=>	'waitig_colorful_en',
-				'type'	=>	'checkbox'
-		),
+		
 		array(
 				'name'	=>	'文章无图时不显示缩略图',
 				'desc'	=>	'注意：选择此项目可能导致文章显示错位',
@@ -133,10 +128,6 @@ $options = array(
 				'std'   => '本周热门'
 		),
 		
-		array(
-				'title' => '占位文本设置',
-				'type'  => 'subtitle'
-		),
 		/*array(
 				'name'  => '搜索框',
 				'desc'  => '占位文本',
@@ -144,13 +135,7 @@ $options = array(
 				'type'  => 'text',
 				'std'   => '输入内容并回车'
 		),*/
-		array(
-				'name'  => '评论',
-				'desc'  => '评论框占位文本',
-				'id'    => "waitig_comment_placeholder",
-				'type'  => 'text',
-				'std'   => '说点什么吧…'
-		),
+		
 		array(
 				'title' => '投稿设置',
 				'type'  => 'subtitle'
@@ -180,53 +165,118 @@ $options = array(
 		),
 		//标签页‘网站设置’结束
 		//
-		//标签页‘公共代码’开始
+		//标签页‘个性设置’开始
 		array(
-				'title'	=>	'公共代码编辑',
-				'id'	=>	'codeseting',
+				'title'	=>	'个性设置',
+				'id'	=>	'socialsetting',
 				'type'	=>	'panelstart'
 		),
+		
 		array(
-				'title'	=>	'您可以在此编辑您网站的公共代码，这些代码将直接显示',
-				'type'	=>	'subtitle'
+				'title' => '丰富的个性话设置，使你的网站更加个性！',
+				'type'  => 'subtitle'
 		),
 		array(
-				'name'  => '流量统计代码',
-				'desc'  => '统计网站流量，推荐使用百度统计，国内比较优秀且速度快；还可使用Google统计、CNZZ等',
-				'id'    => 'waitig_track',
-				'type'  => 'textarea'
+				'name'	=>	'网站多彩风格',
+				'desc'	=>	'【开启】，默认为黑白简约风格，开启后将会变为多彩风格',
+				'id'	=>	'waitig_colorful_en',
+				'type'	=>	'checkbox'
 		),
 		array(
-				'name'  => '网站头部代码',
-				'desc'  => '会自动出现在页面头部（head区域），可放置广告代码等自定义（css或js）的全局代码块',
-				'id'    => 'waitig_headcode',
-				'type'  => 'textarea'
+				'name'  => '自定义鼠标指针',
+				'desc'  => '在此填入您的个性鼠标cur文件地址',
+				'id'    => 'waitig_ina_url',
+				'type'  => 'text',
+				'std'	=> get_bloginfo("template_url").'/img/Pinceau.CUR'
 		),
 		array(
-				'name'  => '文章页自定义代码',
-				'desc'  => '此选项可放置作用于文章的css代码或者JavaScript代码块',
-				'id'    => "waitig_singlecode",
-				'type'  => 'textarea',
-				'std'   => ''
+				'name'  => '自定义链接鼠标指针',
+				'desc'  => '在此填入您的个性鼠标cur文件地址',
+				'id'    => 'waitig_ina_url_point',
+				'type'  => 'text',
+				'std'	=> get_bloginfo("template_url").'/img/Pinceau select.CUR'
 		),
 		array(
-				'name'  => '网站footer公共代码',
-				'desc'  => '在全站页面footer部分出现，可放置网站的版权信息等等',
-				'id'    => 'waitig_footercode',
-				'type'  => 'textarea',
-				'std'   => ''
+				'name'  => '标签页抖动',
+				'desc'  => '启用    【启用你网站tag将会抖动起来】',
+				'id'    => "waitig_shack_en",
+				'type'  => 'checkbox'
 		),
 		array(
-				'name'  => '全站底部脚本代码',
-				'desc'  => '可放置广告代码等自定义（css或js）的全局代码块',
-				'id'    => 'waitig_footcode',
-				'type'  => 'textarea',
-				'std'   => ''
+				'name'  => '评论框占位文本',
+				'desc'  => '在此输入评论框的占位文本',
+				'id'    => "waitig_comment_placeholder",
+				'type'  => 'text',
+				'std'   => '说点什么吧…'
+		),
+		/*array(
+				'name'  => '网站禁止复制',
+				'desc'  => '启用    【启用后访客无法使用右键复制】',
+				'id'    => "waitig_copy_un",
+				'type'  => 'checkbox'
+		),*/
+		array(
+				'title' => '个性导航栏设置',
+				'type'  => 'subtitle'
+		),
+		array(
+				'name'  => '顶部悬浮菜单导航',
+				'desc'  => '开启【开启后您的菜单导航就会悬浮在页面上方】',
+				'id'    => "waitig_topnav",
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '导航栏图片',
+				'desc'  => '【高度72px最佳】输入导航栏图片地址，留空则代表关闭。',
+				'id'    => "waitig_nav_img",
+				'type'  => 'text',
+				'std'	=> get_bloginfo("template_url").'/img/nav-img.png'
+		),
+		array(
+				'name'  => '导航栏右侧链接',
+				'desc'  => '导航栏右侧链接文字及地址',
+				'id'    => "waitig_nav_link",
+				'type'  => 'text',
+				'std'	=> '<a href=\'www.waitig.com\'>链接一</a>|<a href=\'www.waitig.com\'>链接二</a>'
+		),
+		array(
+				'name'  => '透明导航栏',
+				'desc'  => '开启【开启后您的菜单导航栏就会变成半透明】',
+				'id'    => "waitig_tmnav",
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '导航栏透明度',
+				'desc'  => '设置透明度，【0~1】0为全透明，1为不透明',
+				'id'    => "waitig_nav_tran",
+				'type'  => 'smalltext',
+				'std'	=> '0.5'
+		),
+		array(
+				'name'  => '导航栏颜色设置【RGB】',
+				'desc'  => 'R',
+				'id'    => "waitig_nav_color_r",
+				'type'  => 'number',
+				'std'	=>	45
+		),
+		array(
+				'name'  => '',
+				'desc'  => 'G',
+				'id'    => "waitig_nav_color_g",
+				'type'  => 'number',
+				'std'	=>	45
+		),
+		array(
+				'name'  => '',
+				'desc'  => 'B',
+				'id'    => "waitig_nav_color_b",
+				'type'  => 'number',
+				'std'	=>	45
 		),
 		array(
 				'type'	=>	'panelend'
 		),
-		//公共代码设置标签页结束
+		//标签页‘个性设置’结束
 		//
 		//社交设置标签页开始
 		array(
@@ -397,64 +447,7 @@ $options = array(
 				'type'  => 'number',
 				'std'   => ''
 		),
-		array(
-				'title' => '导航栏设置',
-				'type'  => 'subtitle'
-		),
-		array(
-				'name'  => '顶部悬浮菜单导航',
-				'desc'  => '开启【开启后您的菜单导航就会悬浮在页面上方】',
-				'id'    => "waitig_topnav",
-				'type'  => 'checkbox'
-		),
-		array(
-				'name'  => '导航栏图片',
-				'desc'  => '【高度72px最佳】输入导航栏图片地址，留空则代表关闭。',
-				'id'    => "waitig_nav_img",
-				'type'  => 'text',
-				'std'	=> get_bloginfo("template_url").'/img/nav-img.png'
-		),
-		array(
-				'name'  => '导航栏右侧链接',
-				'desc'  => '导航栏右侧链接文字及地址',
-				'id'    => "waitig_nav_link",
-				'type'  => 'text',
-				'std'	=> '<a href=\'www.waitig.com\'>链接一</a>|<a href=\'www.waitig.com\'>链接二</a>'
-		),
-		array(
-				'name'  => '透明导航栏',
-				'desc'  => '开启【开启后您的菜单导航栏就会变成半透明】',
-				'id'    => "waitig_tmnav",
-				'type'  => 'checkbox'
-		),
-		array(
-				'name'  => '导航栏透明度',
-				'desc'  => '设置透明度，【0~1】0为全透明，1为不透明',
-				'id'    => "waitig_nav_tran",
-				'type'  => 'smalltext',
-				'std'	=> '0.5'
-		),
-		array(
-				'name'  => '导航栏颜色设置【RGB】',
-				'desc'  => 'R',
-				'id'    => "waitig_nav_color_r",
-				'type'  => 'number',
-				'std'	=>	45
-		),
-		array(
-				'name'  => '',
-				'desc'  => 'G',
-				'id'    => "waitig_nav_color_g",
-				'type'  => 'number',
-				'std'	=>	45
-		),
-		array(
-				'name'  => '',
-				'desc'  => 'B',
-				'id'    => "waitig_nav_color_b",
-				'type'  => 'number',
-				'std'	=>	45
-		),
+		
 		array(
 				'type'  => 'panelend'
 		),
@@ -781,12 +774,7 @@ $options = array(
 				'id'    => "waitig_autosave_un",
 				'type'  => 'checkbox'
 		),
-		/*array(
-				'name'  => '网站禁止复制',
-				'desc'  => '启用    【启用后访客无法使用右键复制】',
-				'id'    => "waitig_copy_un",
-				'type'  => 'checkbox'
-		),*/
+		
 		array(
 				'name'  => '屏蔽谷歌字体',
 				'desc'  => '启用  【开启后，将屏蔽加载谷歌字体文件，建议开启】',
@@ -833,6 +821,54 @@ $options = array(
 				'type'	=>	'panelend'
 		),
 		//高级设置标签页结束
+		//
+		//标签页‘公共代码’开始
+		array(
+				'title'	=>	'公共代码',
+				'id'	=>	'codeseting',
+				'type'	=>	'panelstart'
+		),
+		array(
+				'title'	=>	'您可以在此编辑您网站的公共代码，这些代码将直接显示',
+				'type'	=>	'subtitle'
+		),
+		array(
+				'name'  => '流量统计代码',
+				'desc'  => '统计网站流量，推荐使用百度统计，国内比较优秀且速度快；还可使用Google统计、CNZZ等',
+				'id'    => 'waitig_track',
+				'type'  => 'textarea'
+		),
+		array(
+				'name'  => '网站头部代码',
+				'desc'  => '会自动出现在页面头部（head区域），可放置广告代码等自定义（css或js）的全局代码块',
+				'id'    => 'waitig_headcode',
+				'type'  => 'textarea'
+		),
+		array(
+				'name'  => '文章页自定义代码',
+				'desc'  => '此选项可放置作用于文章的css代码或者JavaScript代码块',
+				'id'    => "waitig_singlecode",
+				'type'  => 'textarea',
+				'std'   => ''
+		),
+		array(
+				'name'  => '网站footer公共代码',
+				'desc'  => '在全站页面footer部分出现，可放置网站的版权信息等等',
+				'id'    => 'waitig_footercode',
+				'type'  => 'textarea',
+				'std'   => ''
+		),
+		array(
+				'name'  => '全站底部脚本代码',
+				'desc'  => '可放置广告代码等自定义（css或js）的全局代码块',
+				'id'    => 'waitig_footcode',
+				'type'  => 'textarea',
+				'std'   => ''
+		),
+		array(
+				'type'	=>	'panelend'
+		),
+		//公共代码设置标签页结束
 		//
 		//广告设置标签页开始
 		array(

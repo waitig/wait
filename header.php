@@ -37,18 +37,8 @@ if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 <header id="header" class="header">
 <style type="text/css">
 <?php
-if(waitig_gopt('waitig_topnav'))
-		echo '.navbar{position: fixed;}';
-else
-		echo '.navbar{position:absolute;}';
-if (waitig_gopt('waitig_tmnav')) 
-{
-		$tran=waitig_gopt('waitig_nav_tran');
-		$color_R=waitig_gopt('waitig_nav_color_r');
-		$color_G=waitig_gopt('waitig_nav_color_g');
-		$color_B=waitig_gopt('waitig_nav_color_b');		
-		echo '#nav-header{background-color: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');background: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');color: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');}';
-}?>
+get_styles();
+?>
 </style>
 	<div id="nav-header" class="navbar">
 
