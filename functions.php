@@ -879,14 +879,14 @@ function get_styles()
 	if(waitig_gopt('waitig_topnav'))
 		$style.='.navbar{position: fixed;}';
 	else
-		$style.'.navbar{position:absolute;}';
+		$style.='.navbar{position:absolute;}';
 	if (waitig_gopt('waitig_tmnav')) 
 	{
 		$tran=waitig_gopt('waitig_nav_tran');
 		$color_R=waitig_gopt('waitig_nav_color_r');
 		$color_G=waitig_gopt('waitig_nav_color_g');
 		$color_B=waitig_gopt('waitig_nav_color_b');		
-		$style.'#nav-header{background-color: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');background: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');color: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');}';	
+		$style.='#nav-header{background-color: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');background: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');color: rgba('.$color_R.','.$color_G.','.$color_B.', '.$tran.');}';	
 	}
 	echo $style;
 }
