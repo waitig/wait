@@ -6,7 +6,7 @@ $post_num = 4;$exclude_id = $post->ID;$posttags = get_the_tags();$i = 0;if ( $po
 
 		<li class="related_box"  >
 		<a href="<?php the_permalink();?>" title="<?php the_title();?>" target="_blank">
-<img src="<?php echo get_bloginfo("template_url") ?>/timthumb.php?src=<?php echo post_thumbnail_src();?>&h=110&w=185&q=90&zc=1&ct=1" alt="<?php the_title();?>" />	<br><span class="r_title"><?php the_title();?></span></a>
+<img src="<?php echo get_bloginfo("template_url") ?>/timthumb.php?src=<?php echo post_thumbnail_src();?>&h=140&w=185&q=90&zc=1&ct=1" alt="<?php the_title();?>" />	<br><span class="r_title"><?php the_title();?></span></a>
 		</li>
 	<?php $exclude_id .= ',' . $post->ID;$i ++;}wp_reset_query();}if ( $i < $post_num ){$cats = '';foreach ( get_the_category() as $cat ) $cats .= $cat->cat_ID . ',';$args = array(
 
@@ -16,7 +16,7 @@ $post_num = 4;$exclude_id = $post->ID;$posttags = get_the_tags();$i = 0;if ( $po
 
 	<li class="related_box"  >
 		<a href="<?php the_permalink();?>" title="<?php the_title();?>" target="_blank">
-		<img src="<?php echo get_bloginfo("template_url") ?>/timthumb.php?src=<?php echo post_thumbnail_src();?>&h=110&w=185&q=90&zc=1&ct=1" alt="<?php the_title();?>" /><br><span class="r_title"><?php the_title();?></span></a>
+		<img src="<?php echo get_bloginfo("template_url") ?>/timthumb.php?src=<?php echo post_thumbnail_src();?>&h=140&w=185&q=90&zc=1&ct=1" alt="<?php the_title();?>" /><br><span class="r_title"><?php the_title();?></span></a>
 		</li>
 	<?php $i++;}wp_reset_query();}if ( $i  == 0 )  echo '<div class=\"r_title\">没有相关文章!</div>';?>
 </ul>

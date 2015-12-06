@@ -4795,7 +4795,7 @@ padding:12px 20px 0 20px
 position:absolute;
 width:54px;
 height:54px;
-border-radius:2px;
+border-radius:50%;
 webkit-transition:all 300ms ease-in-out;
 -o-transition:all 300ms ease-in-out;
 -moz-transition:all 300ms ease-in-out;
@@ -5084,7 +5084,7 @@ display:block
 .related_posts {
 overflow:hidden;
 background-color:#fff;
-padding:20px 10px 0 10px;
+padding:10px 10px 0 10px;
 margin:10px 0 10px 0
 }
 .related_posts a:hover {
@@ -5098,17 +5098,63 @@ text-align:center
 .related_box {
 float:left;
 overflow:hidden;
-width:25%;
-padding-bottom:15px
+width:23%;
+padding:0px 1%;
+position:relative;
+height:140px;
+}
+.related_box img {
+width:100% !important;
+height:100% !important;
 }
 .related_box .r_title {
-line-height:25px;
-height:50px;
+line-height:18px;
+color:#fff;
+height:40px;
 font-size:14px;
 overflow:hidden;
 float:left;
-padding:10px 10px 0 10px;
-text-align:left
+padding:4px 10px 0px;
+text-align:left;
+position: absolute;
+bottom: 0px;
+right: 0px;
+left: 0px;
+background-color: rgba(0, 0, 0, 0.5);
+margin: 0px 4%;
+}
+.related_box .r_title:hover {
+height:100%;
+color:#00FF0C;
+transition:all 0.3s;
+-moz-transition:all 0.3s ease-out 0s; /* Firefox 4 */
+-webkit-transition:all 0.3s ease-out 0s; /* Safari and Chrome */
+-o-transition:all 0.3s ease-out 0s; /* Opera */
+
+}
+.focus .f_title {
+line-height:19px;
+color:#fff;
+height:40px;
+font-size:14px;
+overflow:hidden;
+float:left;
+padding:4px 10px 0px;
+text-align:left;
+position: absolute;
+bottom: 0px;
+right: 0px;
+left: 0px;
+background-color: rgba(0, 0, 0, 0.7);
+}
+.focus .f_title:hover {
+height:100%;
+color:#00FF0C;
+transition:all 0.3s;
+-moz-transition:all 0.3s ease-out 0s; /* Firefox 4 */
+-webkit-transition:all 0.3s ease-out 0s; /* Safari and Chrome */
+-o-transition:all 0.3s ease-out 0s; /* Opera */
+
 }
 .article-social {
 margin-bottom:30px;
@@ -5116,6 +5162,7 @@ padding-top:40px;
 text-align:center;
 text-indent:0
 }
+
 
 
 .action i,bdsharebuttonbox i {
@@ -5677,6 +5724,7 @@ width:90%
 padding:6px 20px
 }
 .c-avatar .avatar {
+border-radius: 50%;
 width:24px;
 height:24px
 }

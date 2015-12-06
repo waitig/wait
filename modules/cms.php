@@ -66,11 +66,11 @@ foreach($cat_array as $cat_id)
 						if (waitig_gopt('waitig_cdnurl_b')) {
 								echo '<img src="';
 								echo post_thumbnail_src();
-								echo '?imageView2/1/w/185/h/110/q/75" width="185px" height="110px" alt="' . get_the_title() . '" />';
+								echo '?imageView2/1/w/185/h/140/q/75" width="185px" height="140px" alt="' . get_the_title() . '" />';
 						} else {
 								echo '<img src="' . get_bloginfo("template_url") . '/timthumb.php?src=';
 								echo post_thumbnail_src();
-								echo '&h=110&w=185&q=90&zc=1&ct=1" width="185px" height="110px" alt="' . get_the_title() . '" />';
+								echo '&h=140&w=185&q=90&zc=1&ct=1" width="185px" height="140px" alt="' . get_the_title() . '" />';
 						} ?><br><span class="r_title"><?php
 								the_title(); ?></span></a></li>
 <?php

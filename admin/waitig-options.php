@@ -203,6 +203,13 @@ $options = array(
 				'type'  => 'checkbox'
 		),
 		array(
+				'name'  => '评论头像旋转',
+				'desc'  => '启用    【启用后你的评论头像会旋转】',
+				'id'    => "waitig_ava_tran",
+				'type'  => 'checkbox'
+		),
+		
+		array(
 				'name'  => '评论框占位文本',
 				'desc'  => '在此输入评论框的占位文本',
 				'id'    => "waitig_comment_placeholder",

@@ -284,7 +284,7 @@ foreach ($notice as $value)
 }
 .d_alter{
 	padding: 20px 10px;
-	border: 2px solid #CCC;
+	border: 5px solid #CCC;
 	min-height: 500px;
 }
 .catlist {
@@ -311,7 +311,7 @@ foreach ($notice as $value)
 	color:blue;
 }
 .d_formwrap tr {
-	border: 2px solid #ccc;
+	border: 2px /*solid #ccc*/;
 	padding: 20px
 }
 .panel {
