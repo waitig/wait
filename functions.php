@@ -253,7 +253,7 @@ function deel_share(){
 
 //默认头像
 function deel_avatar_default(){ 
-		return get_bloginfo('template_directory').'/img/default.png';
+		return get_bloginfo('template_directory').'/img/avatar/a_'.mt_rand(1,10).'.gif';
 }
 
 //获取所有站点分类id
@@ -285,7 +285,7 @@ function deel_avatar($avatar) {
 		else  
 				$avatar = strtr($avatar, array($g => $w.'/avatar/'.$f.'.png'));
 		if ( filesize($e) < 500 ) 
-				copy(get_bloginfo('template_directory').'/img/default.png', $e);
+				copy(get_bloginfo('template_directory').'/img/avatar/a_'.mt_rand(1,10).'.gif', $e);
 		return $avatar;
 }
 
