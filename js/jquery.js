@@ -1059,7 +1059,7 @@ function() {
             300)
         });
         a(".content .avatar, .sidebar .avatar, .pagecontent .avatar").lazyload({
-            placeholder: _deel.url + "/img/default.png",
+            placeholder: _deel.url + "/img/avatar/a_"+String(Math.ceil(Math.random()*10))+".gif",
             event: "scrollstop"
         });
         a(".wp-smiley").lazyload({

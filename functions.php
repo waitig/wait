@@ -169,7 +169,7 @@ function footerScript() {
 				wp_deregister_script( 'jquery' );
 				wp_register_script( 'jquery','//libs.baidu.com/jquery/1.8.3/jquery.min.js', false,'1.0');
 				wp_enqueue_script( 'jquery' );
-				wp_register_script( 'default', get_template_directory_uri() . '/js/jquery.js', false, '1.0', waitig_gopt('d_jquerybom_b') ? true : false );   
+				wp_register_script( 'default', get_template_directory_uri() . '/js/jquery.js', false, '1.1', waitig_gopt('d_jquerybom_b') ? true : false );   
 				wp_enqueue_script( 'default' );   
 				wp_register_style( 'style', get_template_directory_uri() . '/style.css',false,'2.3' );
 				wp_enqueue_style( 'style' ); 

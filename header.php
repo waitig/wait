@@ -17,7 +17,11 @@ if( is_singular() ){
 ?>
 <script>
 window._deel = {name: '<?php bloginfo('name') ?>',url: '<?php echo get_bloginfo("template_url") ?>', ajaxpager: '<?php echo waitig_gopt('waitig_ajaxpager_en') ?>', commenton: <?php echo $commenton ?>, roll: [<?php echo $sr_1 ?>,<?php echo $sr_2 ?>]}
-_deel.url = _deel.url.replace('<?php echo waitig_gopt("waitig_cdnurl"); ?>','<?php echo get_bloginfo("url"); ?>');
+<?php 
+if(waitig_gopt("waitig_cdnurl")) 
+{?>
+	_deel.url = _deel.url.replace('<?php echo waitig_gopt("waitig_cdnurl"); ?>','<?php echo get_bloginfo("url"); ?>');
+<?php }?>
 </script>
 
 
