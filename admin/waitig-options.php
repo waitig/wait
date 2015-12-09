@@ -168,7 +168,7 @@ $options = array(
 		//标签页‘个性设置’开始
 		array(
 				'title'	=>	'个性设置',
-				'id'	=>	'socialsetting',
+				'id'	=>	'personsetting',
 				'type'	=>	'panelstart'
 		),
 		

@@ -1,6 +1,7 @@
 <aside class="sidebar">	
-<div class="widget widget_text"><div class="textwidget"><div class="social">
+<div class="widget widget_text">
 <?php if( waitig_gopt('waitig_tqq') || waitig_gopt('waitig_weibo') || waitig_gopt('waitig_facebook') || waitig_gopt('waitig_twitter') ){ ?>
+<div class="textwidget"><div class="social">
 
 <?php if( waitig_gopt('waitig_weibo') ) echo '<a href="'.waitig_gopt('waitig_weibo').'" rel="external nofollow" title="新浪微博" target="lank"><i class="sinaweibo fa fa-weibo"></i></a>'; ?>
 <?php if( waitig_gopt('waitig_tqq') ) echo '<a  href="'.waitig_gopt('waitig_tqq').'" rel="external nofollow" title="腾讯微博" target="lank"><i class="tencentweibo fa fa-tencent-weibo"></i></a>'; ?>
