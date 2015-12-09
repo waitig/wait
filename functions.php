@@ -790,7 +790,8 @@ function post_thumbnail_src(){
 }
 //多说官方地址
 function mytheme_get_avatar($avatar) {
-		$avatar = str_replace(array("www.gravatar.com","0.gravatar.com","1.gravatar.com","2.gravatar.com"),"gravatar.duoshuo.com",$avatar);
+		$avatar = preg_replace("/http:\/\/(www|\d).gravatar.com\/avatar\//","http://cdn.v2ex.com/gravatar/",$avatar);
+    return $avatar;
 		return $avatar;
 }
 add_filter( 'get_avatar', 'mytheme_get_avatar', 10, 3 );
