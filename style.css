@@ -2965,8 +2965,7 @@ color:#fff;
 background-color:#16a085
 }
 */
-.navbar .nav li.current-menu-item a,.navbar .nav li.current-menu-parent a,.navbar .nav li.current_page_item a,.navbar .nav li.current-post-ancestor a {
-border-top-color:#006600;
+.navbar .nav li.current-menu-item a,.navbar .nav li.current-menu-parent a,.navbar .nav li.current_page_item a,.navbar .nav li.current-post-ancestor {
 color:#fff;
 position:relative;
 z-index:2
@@ -3005,8 +3004,12 @@ color:#fff
 .navbar .nav li li a:hover,.navbar .nav li li.current-menu-item a {
 background-color:#303030
 }
+.navbar .nav li.current-post-ancestor{
+border-top-color:#3786C7
+}
 .navbar .nav li:hover a,.navbar .nav li.current-menu-item a,.navbar .nav li.current-menu-parent a,.navbar .nav li.current_page_item a,.navbar .nav li.current-post-ancestor a {
 background-color:#353;
+
 }
 .sub-menu {
 min-width:116px;
