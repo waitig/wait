@@ -297,6 +297,13 @@ $options = array(
 				'type'  => 'subtitle'
 		),
 		array(
+				'name'  => '社交模块是否开启',
+				'desc'  => '【开启】 控制社交图标模块是否显示',
+				'id'    => 'waitig_social_en',
+				'type'  => 'checkbox',
+				'std'	=> '1'
+		),
+		array(
 				'name'  => 'RSS订阅地址',
 				'desc'  => '如果您想使用自定义的RSS地址，请在这里输入您期望的地址。',
 				'id'    => 'waitig_rss',

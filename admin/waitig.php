@@ -79,6 +79,25 @@ function waitig_options_page() {
 <div class="wrap d_wrap">
 	<h2>wait 主题选项</h2><input placeholder="筛选主题选项…" type="search" id="theme-options-search" />
 <div  class="d_formwrap">
+<div class="d_alter_w">
+<div class="d_alter">
+<?php
+		if($theme_check)
+		{
+			echo "<h3>主题信息</h3>";
+			echo $theme_check;
+		}
+		if(is_array($notice))
+		{	
+foreach ($notice as $value)
+{
+		echo "<h3>".$value['name']."</h3>";
+		echo "<span>".$value['desc']."</span><hr/>";
+}
+		}
+?>
+</div>
+</div>
 <form method="post">
 <h2 id ="nav_tap_wrapper">
 <?php
@@ -254,33 +273,17 @@ foreach ( $value['options'] as $id => $title ) : ?>
 </p>
 </form>
 </div>
-<div class="d_alter_w">
-<div class="d_alter">
-<?php
-		if($theme_check)
-		{
-			echo "<h3>主题信息</h3>";
-			echo $theme_check;
-		}
-		if(is_array($notice))
-		{	
-foreach ($notice as $value)
-{
-		echo "<h3>".$value['name']."</h3>";
-		echo "<span>".$value['desc']."</span><hr/>";
-}
-		}
-?>
-</div>
-</div>
 </div>
 <style>
 .d_alter_w{
 	display: inline;
-	float: right;
+	/*float: right;*/
 	height: 100%;
 	width: 29%;
-	margin-top: 10px;	
+	margin-top: 10px;
+	position: absolute;
+	top: 200px;
+	right:1%	
 }
 .d_alter{
 	padding: 20px 10px;
@@ -296,8 +299,8 @@ foreach ($notice as $value)
 }
 .d_formwrap
 {
-	max-width:805px;
 	float:left;
+	width:100%
 }
 #nav_tap_wrapper
 {
@@ -315,9 +318,12 @@ foreach ($notice as $value)
 	padding: 20px
 }
 .panel {
-	display: none
+	display: none;
+	width:69%
 }
-
+.panel input[type="text"]{
+	width:99%;
+}
 .panel h3 {
 	margin: 0;
 	font-size: 1.2em
