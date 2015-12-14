@@ -4319,14 +4319,27 @@ width:49%;
 height:30px;
 overflow:hidden;
 line-height:30px;
-color:#bbb
+color:#bbb;
+position: relative;
+}
+.relates .cms-time-r{
+position:absolute;
+right:5px;
+top:0px;
+}
+.relates .cms-title-a{
+width:85%;
+position: absolute;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space:nowrap;
 }
 .relates li i {
 vertical-align:middle
 }
 .relates a {
 margin-right:20px;
-padding-left:10px
+padding-left:10px;
 }
 .rowpage {
 position:relative;

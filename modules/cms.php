@@ -56,7 +56,7 @@ foreach($cat_array as $cat_id)
 		$tmp=0;
 		echo '<ul class="related_img" style="display:inline" >';
 		while (have_posts()):
-				the_post(); 
+		the_post(); 
 		if($tmp<waitig_gopt('waitig_cms_img_num'))
 		{
 ?>
@@ -78,8 +78,13 @@ foreach($cat_array as $cat_id)
 		else
 		{
 				if($tmp==waitig_gopt('waitig_cms_img_num'))
+				{
 						echo '</ul><div class="relates"><ul>';
-				echo '<li><i class="fa fa-minus"></i><a target="_blank" href="'.get_permalink().'">',get_the_title(),'</a></li>';
+				}
+				echo '<li><i class="fa fa-minus"></i><span class="cms-title-a"><a target="_blank" href="'.get_permalink().'">'.get_the_title().'</a></span>';
+?>
+		<span class="cms-time-r"><?php the_time('d/m');?></span></li>
+<?php
 		}
 		$tmp++;
 		endwhile; ?>
