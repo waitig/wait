@@ -3004,7 +3004,7 @@ color:#fff
 .navbar .nav li li a:hover,.navbar .nav li li.current-menu-item a {
 background-color:#303030
 }
-.navbar .nav li.current-post-ancestor{
+.navbar .nav li.current-post-ancestor current-post-parent{
 border-top-color:#3786C7
 }
 .navbar .nav li:hover a,.navbar .nav li.current-menu-item a,.navbar .nav li.current-menu-parent a,.navbar .nav li.current_page_item a,.navbar .nav li.current-post-ancestor a {
