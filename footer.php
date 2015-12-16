@@ -7,6 +7,11 @@
 <a href="<?php echo home_url('/'); ?>sitemap.xml" title="站点地图">站点地图</a>
    ·   基于WordPress构建  ·   Theme by <a href='http://www.waitig.com'>wait主题</a>  © 2011-2015  ·  <?php if( waitig_gopt('waitig_footercode') ) echo waitig_gopt('waitig_footercode'); ?> 
 <!--</div>-->
+<?php echo '<!--';
+echo '</br>';
+printf('This page loaded in %1$s seconds with %2$s database queries.', timer_stop(0,3), get_num_queries());
+echo '-->';
+?>
         <div class="trackcode pull-right">
             <?php if( waitig_gopt('waitig_track') ) echo waitig_gopt('waitig_track'); ?>
         </div>
