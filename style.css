@@ -2966,6 +2966,7 @@ background-color:#16a085
 }
 */
 .navbar .nav li.current-menu-item a,.navbar .nav li.current-menu-parent a,.navbar .nav li.current_page_item a,.navbar .nav li.current-post-ancestor {
+		border-top-color:#3786C7;
 color:#fff;
 position:relative;
 z-index:2
