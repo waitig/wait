@@ -1,23 +1,5 @@
 <?php
 defined('ABSPATH') or die('This file can not be loaded directly.');
-function waitig_comment_protection_pre($commentdata){
-		$sum=$_POST['idcode'];//用户提交的计算结果
-		if($sum==""||$sum==null)
-		{
-				err('请填写计算结果！');
-				return $commentdata;
-		}
-		$rightSum=$_POST['num1']+$_POST['num2'];
-switch($sum){
-//得到正确的计算结果则直接跳出
-case $rightSum:break;
-//未填写结果时提示错误
-case null:err('请填写计算结果！');break;
-//计算错误时的错误讯息
-default:err('你算错了哦，再试一遍吧？！');
-}
-return $commentdata;
-}
 
 global $comment_ids; $comment_ids = array();
 foreach ( $comments as $comment ) {
