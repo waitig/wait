@@ -6212,7 +6212,7 @@ transition: all 0.2s ease-in-out 0s;
 
 @media screen and (max-width:600px) {
 .related_box {
-width: 50%
+width: 48%
 }
 
 .related_box img {
@@ -6220,6 +6220,10 @@ border-style: solid;
 border-width: 5px;
 border-color: transparent
 }
+.related_box .r_title {
+width:100%
+}
+
 
 video,iframe {
 height: 200px
