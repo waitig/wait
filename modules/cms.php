@@ -32,14 +32,6 @@ margin: 5px 20px;
 	);
 	query_posts($args);
 	while (have_posts()) : the_post(); 
-
-
-
-	/*	$result = $wpdb->get_results("SELECT ID,post_title FROM $wpdb->posts where post_status='publish' and post_type='post' ORDER BY ID DESC LIMIT 0 , 10");
-foreach ($result as $post) {
-		setup_postdata($post);
-		$postid = $post->ID;
-		$title = $post->post_title;*/
 ?>
 		<li><i class="fa fa-minus"></i>
 		<span class="cms-title-a">

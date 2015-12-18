@@ -5496,6 +5496,12 @@ margin-top:-24px
 .tag-clouds li {
 width:50%
 }
+.article-content {
+padding: 2px; 
+}
+.article-header {
+padding: 2px 2px 10px 2px;
+}
 .navbar .btn.screen-nav {
 padding:11px 20px;
 height:auto;
