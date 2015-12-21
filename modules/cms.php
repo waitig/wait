@@ -1,104 +1,59 @@
-<?php
-if (is_home()||is_page()) {
-		if( waitig_gopt('waitig_adindex_02') ) echo '<div>'.waitig_gopt('waitig_adindex_02').'</div>';	
-		if (waitig_gopt('hot_list_check') || waitig_gopt('waitig_slide')=='waitig_sticky_en') { ?>
-		<div><div class="left-ad" style="clear: both;background-color: #fff; width: 30%;float: left;margin-right:2%;"></div><div class="hot-posts">
-			<h2 class="title"><?php echo waitig_gopt('hot_list_title') ?></h2>
-			<ul><?php hot_posts_list(); ?></ul>
-		</div></div>
-<?php
-		} 
-} ?>
-<style type="text/css">
-.widget-title{background:#FFFFFF;} 
-.title-h2
-{ 
-height: 45px;
- border-bottom: 1px solid #90BBA8; 
-margin: 5px 20px;
-}
-</style>
-<!-- 最新文章开始 -->
-<div class="relates"><h2 class="title"><small>最新文章</small></h2>
-<ul style="padding: 5px 0px 15px 20px;">
-<?php
-
-		$args = array(
-		'order'            => DESC,
-		'cat'              => '',
-		'orderby'          => '',
-		'showposts'        => 10,
-		'caller_get_posts' => 1
-	);
-	query_posts($args);
-	while (have_posts()) : the_post(); 
-?>
-		<li><i class="fa fa-minus"></i>
-		<span class="cms-title-a">
-		<a class="lastitle" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></span>
-<span class="cms-time-r"><?php the_time('d/m');?></span>
-</li>
-<?php
-	//}
-	endwhile; wp_reset_query(); ?>
-</ul>
-</div>
-<!-- 最新文章结束 -->
-<?php
-$cat_array=get_cat_array();
-foreach($cat_array as $cat_id)
+<?php 
+//载入热门文章板块
+include ('hostlist.php');
+//载入最新文章板块
+include ('recent.php');
+//载入分类一模块
+for($i='1';$i<'6';$i++)
 {
-		if ($cat_id) { ?>
-		<div class="widget-title">
-		<h2 class="title-h2"><small><?php
-				echo get_cat_name($cat_id); ?></small><span class="more" style="float:right;"><a style="left: 0px;" href="<?php
-				echo get_category_link($cat_id); ?>" title="阅读更多" target="_blank"><small>阅读更多</small></a></span></h2>
-		<div class="related_posts">
-<?php
-				query_posts(array(
-						'showposts' => waitig_gopt('waitig_cat_num') ? waitig_gopt('waitig_cat_num') : 4,
-						'cat' => $cat_id
-				)); ?>
-<?php
-		$tmp=0;
-		echo '<ul class="related_img" style="display:inline" >';
-		while (have_posts()):
-		the_post(); 
-		if($tmp<waitig_gopt('waitig_cms_img_num'))
+	if(waitig_gopt('waitig_cat'.$i))
+	{
+			$GLOBALS['catId']=waitig_gopt('waitig_cat'.$i.'_id');
+			$GLOBALS['postNum']=waitig_gopt('waitig_cat'.$i.'_num');
+			$GLOBALS['imgNum']=waitig_gopt('waitig_cat'.$i.'_img_num');
+			include ("bannerbox.php");
+	}
+}
+/*
+if(waitig_gopt('waitig_cat2'))
+{
+		$catId=waitig_gopt('waitig_cat2_id');
+		$postNum=waitig_gopt('waitig_cat2_num');
+		$imgNum=waitig_gopt('waitig_cat2_img_num');
+		include ("mixlist.php");
+}
+if(waitig_gopt('waitig_cat3'))
+{
+		$catId=waitig_gopt('waitig_cat3_id');
+		$postNum=waitig_gopt('waitig_cat3_num');
+		$imgNum=waitig_gopt('waitig_cat3_img_num');
+		include ("mixlist.php?catId=$catId&postNum=$postNum&imgNum=$imgNum");
+}
+if(waitig_gopt('waitig_cat4'))
+{
+		$catId=waitig_gopt('waitig_cat4_id');
+		$postNum=waitig_gopt('waitig_cat4_num');
+		$imgNum=waitig_gopt('waitig_cat4_img_num');
+		include ("mixlist.php?catId=$catId&postNum=$postNum&imgNum=$imgNum");
+}
+if(waitig_gopt('waitig_cat5'))
+{
+		$catId=waitig_gopt('waitig_cat5_id');
+		$postNum=waitig_gopt('waitig_cat5_num');
+		$imgNum=waitig_gopt('waitig_cat5_img_num');
+		include ("mixlist.php?catId=$catId&postNum=$postNum&imgNum=$imgNum");
+}
+ */
+if(waitig_gopt('waitig_big_list'))
+{
+		$bigPostNum=waitig_gopt('waitig_big_list_num');
+		$cat_array=get_cat_array();
+		foreach($cat_array as $cat_id)
 		{
-?>
-		<li class="related_box" ><a href="<?php
-				the_permalink(); ?>" title="<?php
-						the_title(); ?>" ><?php
-						if (waitig_gopt('waitig_cdnurl_b')) {
-								echo '<img src="';
-								echo post_thumbnail_src();
-								echo '?imageView2/1/w/185/h/140/q/75" width="185px" height="140px" alt="' . get_the_title() . '" />';
-						} else {
-								echo '<img src="' . get_bloginfo("template_url") . '/timthumb.php?src=';
-								echo post_thumbnail_src();
-								echo '&h=140&w=185&q=90&zc=1&ct=1" width="185px" height="140px" alt="' . get_the_title() . '" />';
-						} ?><br><span class="r_title"><?php
-								the_title(); ?></span></a></li>
-<?php
-		}
-		else
-		{
-				if($tmp==waitig_gopt('waitig_cms_img_num'))
-				{
-						echo '</ul><div class="relates"><ul>';
+				if ($cat_id) {
+						include ("biglist.php?catId=$cat_id&postNum=$bigPostNum");
 				}
-				echo '<li><i class="fa fa-minus"></i><span class="cms-title-a"><a target="_blank" href="'.get_permalink().'">'.get_the_title().'</a></span>';
-?>
-		<span class="cms-time-r"><?php the_time('d/m');?></span></li>
-<?php
 		}
-		$tmp++;
-		endwhile; ?>
-		</ul></div></div>
-<?php
-		if($tmp>waitig_gopt('waitig_cms_img_num'))
-				echo '</div>';
-		} 
 }
 ?>
+

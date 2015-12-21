@@ -4,7 +4,7 @@ Theme URL:http://waitig.com/
 Description:欢迎使用wait主题，主题更新地址：<a href="http://waitig.com/">等英博客</a>
 Author:waitig
 Author URI:http://waitig.com/
-Version:2.5.7
+Version:2.5.8
 */
 @font-face {
 		font-family:'FontAwesome';
@@ -1591,7 +1591,7 @@ sub {
 bottom:-0.25em
 }
 img {
-max-width:85%;
+max-width:100%;
 width:auto;
 height:auto;
 vertical-align:middle;
@@ -1641,7 +1641,8 @@ font-weight:200;
 line-height:30px
 }
 small {
-font-size:85%
+font-size:85%;
+color: #3786C7;
 }
 strong {
 font-weight:bold
@@ -1695,7 +1696,6 @@ font-weight:blod;
 line-height:35px;
 color:inherit;
 text-rendering:optimizelegibility;
-text-align: center;
 }
 .fenye a span,button.btn,.action,.social a,.article-content a.dl {
 transition-duration:500ms;
@@ -1758,8 +1758,7 @@ word-wrap:break-word;
 white-space:pre;
 white-space:pre-wrap;
 background-color:#f5f5f5;
-border:1px solid #ccc;
-border:1px solid rgba(0,0,0,0.15);
+
 border-radius:2px
 }
 pre.prettyprint {
@@ -2008,7 +2007,7 @@ float:right
 }
 body {
 margin:0;
-font-family:"Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;
+font-family:"Microsoft Yahei","幼圆","Helvetica Neue",Helvetica,Arial,sans-serif;
 font-size:14px;
 line-height:20px;
 color:#555;
@@ -2890,6 +2889,9 @@ clear:both
 #header {
 
 position:relative
+}
+.article-title{
+		text-align:center;
 }
 .container-inner {
 max-width:1226px;
@@ -4084,12 +4086,13 @@ background-color:#fff
 }
 .article-content h2 {
 font-size:18px;
-font-weight:blod;
+font-weight:bold;
 margin:20px -20px 20px -24px;
 padding:10px 20px 9px 10px;
 line-height:18px;
-border-left:4px solid #00a67c;
-background-color:#fbfbfb
+border-left:4px solid #3786C7;;
+border-bottom:1px solid #3786C7;;
+background-color:#eee
 }
 .article-content h3 {
 font-size:16px;
@@ -4154,7 +4157,7 @@ text-align:right;
 margin-left:10px
 }
 .article-content a {
-color:#00a67c
+color:#3786C7;
 }
 .article-content a:hover {
 color:#d9534f
@@ -4182,7 +4185,8 @@ background:#f78585
 }
 .article-content img {
 margin:0 auto;
-display:block
+display:block;
+max-width:85%;
 }
 .article-footer {
 background-color:#fff;
@@ -4199,7 +4203,7 @@ color:#bbb
 .article-tags a {
 display:inline-block;
 padding:2px 6px 3px;
-margin:0 2px;
+margin:1px 2px;
 color:#fff;
 background-color:#4a4a4a;
 opacity:.70;
@@ -4299,7 +4303,7 @@ text-align:right
 .relates {
 overflow:hidden;
 background-color:#fff;
-border-top:1px solid #f2f2f2;
+border-top:1px dotted #90BBA8;
 margin-bottom:10px
 height:100%;
 width:100%;
@@ -4312,7 +4316,7 @@ padding:15px 20px 10px;
 margin-bottom:0
 }
 .relates ul {
-padding:15px 0 15px 10px;
+padding:5px 0 15px 10px;
 overflow:hidden
 }
 .relates li {
@@ -5185,6 +5189,13 @@ width:100%;
 overflow:hidden;
 text-align:center
 }
+.widget-title{background:#FFFFFF;} 
+.title-h2
+{ 
+height: 45px;
+ border-bottom: 1px solid #90BBA8; 
+margin: 5px 20px;
+}
 .related_box {
 float:left;
 overflow:hidden;
@@ -5192,6 +5203,7 @@ width:23%;
 padding:0px 1%;
 position:relative;
 height:140px;
+margin-bottom:10px;
 }
 .related_box img {
 width:100% !important;
@@ -5318,7 +5330,7 @@ width:device-width
 }
 .article-content pre {
 background-color:#f8f8f8;
-border:1px solid #eee;
+border-left: 3px solid #3F3;
 overflow:hidden;
 padding:8px;
 font-size:14px
@@ -5410,7 +5422,8 @@ display:none
 .navbar .nav>li {
 float:none;
 margin-right:0;
-font-weight:bold
+font-weight:bold;
+border-top:0px;
 }
 .navbar .nav>li>a {
 padding:10px 20px 9px;
@@ -5498,7 +5511,8 @@ margin-top:-24px
 width:50%
 }
 .article-content {
-padding: 2px; 
+padding: 2px 3%; 
+
 }
 .article-header {
 padding: 2px 2px 10px 2px;
@@ -5513,6 +5527,12 @@ background-color:transparent
 .navbar .btn.screen-nav:hover {
 background-color:transparent
 }
+.article-content h2{
+margin: 20px 0px 20px 0px;
+padding:10px 20px 9px 1px;
+}
+
+
 .row-fluid {
 width:100%;
 *zoom:1
@@ -5692,6 +5712,9 @@ margin-left:8.441558441558442%;
 font-size:17px;
 line-height:25px
 }*/
+.nav-img{
+		display:none;
+}
 .pagecontent {
 margin-left:0
 }

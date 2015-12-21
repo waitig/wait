@@ -282,7 +282,7 @@ foreach ( $value['options'] as $id => $title ) : ?>
 	width: 29%;
 	margin-top: 10px;
 	position: absolute;
-	top: 200px;
+	top: 220px;
 	right:1%	
 }
 .d_alter{
@@ -328,20 +328,16 @@ foreach ( $value['options'] as $id => $title ) : ?>
 	margin: 0;
 	font-size: 1.2em
 }
-
 #panel_update ul
 {
 	list-style-type: disc
 }
-
 .nav-tab-wrapper {
 	clear: both
 }
-
 .nav-tab {
 	position: relative
 }
-
 .nav-tab i:before {
 	position: absolute;
 	top: -10px;
@@ -356,7 +352,6 @@ foreach ( $value['options'] as $id => $title ) : ?>
 	font: 400 18px/1 dashicons;
 	speak: none
 }
-
 #theme-options-search {
 	display: none;
 	float: right;
@@ -366,19 +361,15 @@ foreach ( $value['options'] as $id => $title ) : ?>
 	font-size: 16px;
 	line-height: 1.5
 }
-
 .updated+#theme-options-search {
 	margin-top: -91px
 }
-
 .wrap.searching .nav-tab-wrapper a,.wrap.searching .panel tr,#attrselector {
 	display: none
 }
-
 .wrap.searching .panel {
 	display: block !important
 }
-
 #attrselector[attrselector*=ok] {
 	display: block
 	}

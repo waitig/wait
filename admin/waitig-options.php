@@ -467,6 +467,165 @@ $options = array(
 		),
 		//样式设置标签页结束
 		//
+		//混合布局标签页开始
+		array(
+				'title'	=>	'混合布局',
+				'id'	=>	'mixsetting',
+				'type'	=>	'panelstart'
+		),
+		array(
+				'title'	=>	'在此页面配置您的混合布局模式，首先要在样式设置中选择混合布局模式',
+				'id'	=>	'subtitle'
+		),
+		array(
+				'name'  => '最新文章模块',
+				'desc'  => '开启',
+				'id'    => 'waitig_hot_list',
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '分类一',
+				'desc'  => '开启',
+				'id'    => 'waitig_cat1',
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '要显示的分类ID',
+				'desc'  => '填写你希望显示的分类的ID',
+				'id'    => 'waitig_cat1_id',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '显示文章数',
+				'desc'  => '填写你希望显示的文章数量',
+				'id'    => 'waitig_cat1_num',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '分类一图片模式显示数量',
+				'desc'  => '填写你分类中希望以【图片模式】显示的文章数量',
+				'id'    => 'waitig_cat1_img_num',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '分类二',
+				'desc'  => '开启',
+				'id'    => 'waitig_cat2',
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '要显示的分类ID',
+				'desc'  => '填写你希望显示的分类的ID',
+				'id'    => 'waitig_cat2_id',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '显示文章数',
+				'desc'  => '填写你希望显示的文章数量',
+				'id'    => 'waitig_cat2_num',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '以图片模式显示的数量',
+				'desc'  => '填写你分类中希望以【图片模式】显示的文章数量',
+				'id'    => 'waitig_cat2_img_num',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '分类三',
+				'desc'  => '开启',
+				'id'    => 'waitig_cat3',
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '要显示的分类ID',
+				'desc'  => '填写你希望显示的分类的ID',
+				'id'    => 'waitig_cat3_id',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '显示文章数',
+				'desc'  => '填写你希望显示的文章数量',
+				'id'    => 'waitig_cat3_num',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '以图片模式显示的数量',
+				'desc'  => '填写你分类中希望以【图片模式】显示的文章数量',
+				'id'    => 'waitig_cat3_img_num',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '分类四',
+				'desc'  => '开启',
+				'id'    => 'waitig_cat4',
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '要显示的分类ID',
+				'desc'  => '填写你希望显示的分类的ID',
+				'id'    => 'waitig_cat4_id',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '显示文章数',
+				'desc'  => '填写你希望显示的文章数量',
+				'id'    => 'waitig_cat4_num',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '以图片模式显示的数量',
+				'desc'  => '填写你分类中希望以【图片模式】显示的文章数量',
+				'id'    => 'waitig_cat4_img_num',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '分类五',
+				'desc'  => '开启',
+				'id'    => 'waitig_cat5',
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '要显示的分类ID',
+				'desc'  => '填写你希望显示的分类的ID',
+				'id'    => 'waitig_cat5_id',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '显示文章数',
+				'desc'  => '填写你希望显示的文章数量',
+				'id'    => 'waitig_cat5_num',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '以图片模式显示的数量',
+				'desc'  => '填写你分类中希望以【图片模式】显示的文章数量',
+				'id'    => 'waitig_cat5_img_num',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '底部大分类模块',
+				'desc'  => '开启',
+				'id'    => 'waitig_big_list',
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '显示文章数',
+				'desc'  => '填写你希望显示的文章数量',
+				'id'    => 'waitig_big_list_num',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '要显示的分类ID',
+				'desc'  => '填写你希望显示的分类ID,可填写多个，尽量为2的倍数，多个ID之间用“|”号分割',
+				'id'    => 'waitig_big_list_cat',
+				'type'  => 'text'
+		),
+		array(
+				'type'  => 'panelend'
+		),
+		//混合布局标签页结束
+		//
 		//文章设置标签页开始
 		array(
 				'title' => '文章设置',
