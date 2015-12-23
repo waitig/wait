@@ -33,7 +33,7 @@ if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/wait.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url');?>/csshake.min.css"></link>
 <link rel="shortcut icon" href="<?php echo get_bloginfo("template_url") ?>/favicon.ico">
-<link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url'); if(waitig_gopt('waitig_colorful_en')){ echo '/colorful.css';} else{ echo '/simple.css';} ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url'); if(waitig_gopt('waitig_colorful_en')){ echo '/colorful.css?ver=1.0.0';} else{ echo '/simple.css?ver=1.1.1';} ?>">
 <!--[if IE 9]><script src="<?php bloginfo('template_url'); ?>/js/html5.js"></script><![endif]-->
 </head>
 <body <?php body_class(); ?>>
