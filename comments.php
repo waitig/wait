@@ -14,7 +14,8 @@ $str = "SELECT COUNT(*) FROM $wpdb->comments WHERE comment_post_ID = $post->ID A
 $count_t = $post->comment_count;
 if ( have_comments() ) { 
 ?>
-<div id="postcomments">
+<!--评论列表-->
+<div id="postcomments border-box">
 	<div id="comments">
 		<i class="fa fa-comments-o"></i> <b><?php echo ' ('.$count_t.')'; ?></b>个小伙伴在吐槽
 	</div>
@@ -22,9 +23,10 @@ if ( have_comments() ) {
 		<?php wp_list_comments('type=comment&callback=deel_comment_list') ?>
 	</ol>
 	<div class="commentnav"	>
-		<?php paginate_comments_links('prev_text=«&next_text=»');?>
+		<?php paginate_comments_links('prev_text=&next_text=');?>
 	</div>
 </div>
+<!--评论列表结束-->
 <?php 
 } 
 
@@ -34,7 +36,8 @@ if ( !comments_open() ) return;
 date_default_timezone_set(PRC);
 $closeTimer = (strtotime(date('Y-m-d G:i:s'))-strtotime(get_the_time('Y-m-d G:i:s')))/86400;
 ?>
-<div id="respond" class="no_webshot">
+<!--添加评论模块开始-->
+<div id="respond" class="no_webshot border-box">
 	<?php if ( get_option('comment_registration') && !is_user_logged_in() ) { ?>
 	<h3 class="queryinfo">
 		<?php printf('您必须 <a href="%s">登录</a> 才能发表评论！', wp_login_url( get_permalink() ) );?>
@@ -109,7 +112,7 @@ get_currentuserinfo();
 				<?php } ?>
 			<?php } ?>
 		</div>
-
+<!--添加评论模块结束-->
 		
 	</form>
 	<?php } ?>

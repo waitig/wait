@@ -9,7 +9,7 @@ echo $catId."-";
 echo $imgNum;
   */
 ?>
-		<div class="widget-title">
+		<div class="cat-box border-box">
 		<h2 class="title-h2"><small><?php
 				echo get_cat_name($catId); ?></small><span class="more" style="float:right;"><a style="left: 0px;" href="<?php
 				echo get_category_link($catId); ?>" title="阅读更多" target="_blank"><small>More>></small></a></span></h2>

@@ -6,7 +6,7 @@
 		if( waitig_gopt('waitig_adindex_03') ) printf('<div class="banner banner-contenttop">'.waitig_gopt('waitig_adindex_03').'</div>');
 
 		if( $paged && $paged > 1 ){
-			printf('<header class="archive-header"><h1>最新发布 第'.$paged.'页</h1><div class="archive-header-info"><p>'.get_option('blogname').get_option('blogdescription').'</p></div></header>');
+			printf('<header class="archive-header border-box"><h1>最新发布 第'.$paged.'页</h1><div class="archive-header-info"><p>'.get_option('blogname').get_option('blogdescription').'</p></div></header>');
 		}else{
 				if( waitig_gopt('waitig_slide')=='waitig_sticky_en') include 'modules/sticky.php';
 				if(waitig_gopt('waitig_slide')=='waitig_slick_en') include 'modules/slick.php';

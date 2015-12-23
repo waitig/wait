@@ -31,8 +31,8 @@ class d_tag extends WP_Widget {
 				foreach($tags_list as $tag) {
 						$shack='';
 						if(waitig_gopt('waitig_shack_en'))
-								$shack='class="shake-slow"';
-				echo '<a '.$shack.' title="'. $tag->count .'个话题" href="'.get_tag_link($tag).'">'. $tag->name .' ('. $tag->count .')</a>'; 
+								$shack='shake-slow';
+				echo '<a class="'.$shack.' border-box" title="'. $tag->count .'个话题" href="'.get_tag_link($tag).'">'. $tag->name .' ('. $tag->count .')</a>'; 
 			} 
 		}else{
 			echo '暂无标签！';

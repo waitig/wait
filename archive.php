@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div class="content-wrap">
 	<div class="content">
-		<header class="archive-header"> 
+		<header class="archive-header border-box"> 
 			<h1><?php 
 				if(is_day()) echo the_time('Y年m月j日');
 				elseif(is_month()) echo the_time('Y年m月');

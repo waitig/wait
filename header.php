@@ -44,7 +44,7 @@ if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 get_styles();
 ?>
 </style>
-	<div id="nav-header" class="navbar">
+	<div id="nav-header" class="navbar border-box">
 
 		<ul class="nav">
 		<?php if(waitig_gopt('waitig_nav_img')){?><div class="nav-img"><a href="<?php echo home_url('/'); ?>"><img src="<?php echo waitig_gopt('waitig_nav_img'); ?>" alt="<?php bloginfo('name'); ?>"/> </div></a> <?php }?>
@@ -56,7 +56,7 @@ get_styles();
 </div>
 		</ul>
 	</div>
-<div class="container-inner">
+<div class="container-inner border-box">
  <div class="wait-logo">
 	<a href="<?php echo home_url('/'); ?>">
 	<span class="wait-mono">
@@ -72,7 +72,7 @@ bloginfo('name');}
  </div>
 </div>
 </header>
-<section class="container"><div class="speedbar">
+<section class="container"><div class="speedbar border-box">
 <?php 
 		if( waitig_gopt('waitig_sign_en') ){ 
 				global $current_user; 

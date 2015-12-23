@@ -4,7 +4,7 @@
 ?>
 <div class="content-wrap">
 	<div class="content">
-		<header class="archive-header"> 
+		<header class="archive-header border-box"> 
 			<h1><?php echo $curauth->display_name.'的文章' ?></h1>
 			<?php if ( $curauth->description ) echo '<div class="archive-header-info">'.$curauth->description.'</div>'; ?>
 		</header>

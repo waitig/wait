@@ -1,6 +1,6 @@
 <?php 
 //载入热门文章板块
-include ('hostlist.php');
+include ('hotlist.php');
 //载入最新文章板块
 include ('recent.php');
 //载入分类一模块

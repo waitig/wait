@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 <div class="content-wrap">
 	<div class="content">
+	<div class='article border-box'>
 <?php if( waitig_gopt('waitig_singleMenu_en') ) echo '<div class="breadcrumbs">'.deel_breadcrumbs().'</div>'; ?>
 
 		<?php while (have_posts()) : the_post(); ?>
@@ -54,10 +55,8 @@
 			<span class="article-nav-prev"><?php previous_post_link('<i class="fa fa-angle-double-left"></i> %link'); ?></span>
 			<span class="article-nav-next"><?php next_post_link('%link  <i class="fa fa-angle-double-right"></i>'); ?></span>
 		</nav>
-
-		<div class="related_top">
+</div>	
 			<?php include( 'modules/related.php' ); ?>
-		</div>
 		<?php if (wp_is_mobile() ): ?><?php if( waitig_gopt('Mobiled_adindex_02') )echo '<div id="comment-ad" class="banner-related">'.waitig_gopt('Mobiled_adindex_02').'</div>'; ?><?php endif ;?>
 		<?php if( waitig_gopt('waitig_adpost_02') ) echo '<div id="comment-ad" class="banner banner-related">'.waitig_gopt('waitig_adpost_02').'</div>'; ?>
 		<?php comments_template('', true); ?>

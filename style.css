@@ -13,6 +13,11 @@ Version:2.5.8
 		font-weight:normal;
 		font-style:normal
 }
+/** {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}*/
 .fa {
 		display:inline-block;
 		font-family:FontAwesome;
@@ -2136,7 +2141,7 @@ text-decoration:underline
 }
 .pagewrapper {
 background-color:#fff;
-position:relative
+position:relative;
 }
 .pageheader {
 padding:10px 20px 8px;
@@ -2183,8 +2188,15 @@ font-weight:normal
 .pagecontent .article-content {
 padding:0
 }
+
+#respond {	
+}
+.border-box{
+	border: solid 1px #378BCA;
+}
 .pagecontent #respond,.pagecontent #postcomments {
-margin:0 -20px
+margin-right: -20px;
+margin-left:-20px;
 }
 .pagesidebar {
 position:absolute;
@@ -3257,7 +3269,7 @@ color:#999
 .pagination {
 padding:20px 0 15px 0;
 background-color:#fff;
-text-align:center
+text-align:center;
 }
 .pagination ul {
 display:inline-block;
@@ -3276,7 +3288,8 @@ padding:4px 12px 3px;
 line-height:20px;
 text-decoration:none;
 background-color:#eee;
-color:#666
+color:#666;
+border:solid 1px #82B3DB;
 }
 
 .pagination ul>.active>a,.pagination ul>.active>span {
@@ -3358,7 +3371,7 @@ line-height:25px;
 *zoom:1;
 overflow:hidden;
 height:14px;
-margin-bottom:10px
+margin-bottom:10px;
 }
 .speedbar i {
 opacity:.50;
@@ -3785,7 +3798,7 @@ position:fixed
 .archive-header {
 background-color:#fbfbfb;
 padding:5px 20px;
-margin-bottom:1px
+margin-bottom:1px;
 }
 .archive-header h1 {
 font-size:22px;
@@ -3820,8 +3833,12 @@ color:#888
 border-color:#d9534f;
 color:#d9534f
 }
-
-
+.excerpt-box{
+margin:10px 0px;
+}
+.excerpt{
+		border-bottom:solid 1px #378BCA;
+}
 
 .excerpt:before,.excerpt:after {
 display:table;
@@ -4044,6 +4061,8 @@ margin-bottom:1px
 }
 .banner img {
 display:block
+}
+.article{
 }
 .page .article-header {
 padding:8px 20px
@@ -4300,6 +4319,29 @@ max-width:50%
 float:right;
 text-align:right
 }
+/*cat-box*/
+.cat-box{
+		background-color:#fff;
+		margin-top:10px;
+}
+.hot-posts{
+}
+.recentlist{
+}
+.recentlist ul{
+		padding: 5px 0 15px 10px;
+    overflow: hidden;
+}
+.recentlist ul li{
+		float: left;
+    width: 49%;
+    height: 30px;
+    overflow: hidden;
+    line-height: 30px;
+    color: #bbb;
+    position: relative;
+}
+
 .relates {
 overflow:hidden;
 background-color:#fff;
@@ -4443,9 +4485,8 @@ margin-bottom:20px
 .widget {
 clear:both;
 margin-bottom:10px;
-//background: rgba(255, 255,255, 0.9) none repeat scroll !important;
 background:#fff;
-border-radius: 5px;
+border:solid 1px #378BCA;
 }
 .widget h2 .btn {
 position:absolute;
@@ -4802,12 +4843,14 @@ color:#d9534f
 .d_postlist .text {
 margin:5px 0 0 20px;
 display:block;
-height:50px
+height:54px;
 overflow: hidden;
 text-overflow: ellipsis;
 display: -webkit-box;
 -webkit-line-clamp: 2;
--webkit-box-orient: vertical;
+-webkit-box-orient: vertical;    
+line-height: 18px;
+font-size: small;
 }
 .d_postlist .thumbnail {
 float:left;
@@ -4821,7 +4864,8 @@ display:block;
 margin:0 auto
 }
 .d_postlist .muted {
-padding-left:10px
+padding-left:10px;
+float:right;
 }
 .d_postlist .nopic li a {
 padding:8px 15px
@@ -4859,9 +4903,10 @@ padding:2px
 }
 #postcomments {
 position:relative;
-background-color:#fff
+background-color:#fff;
 }
 #respond {
+margin-top:10px;
 position:relative;
 background-color:#fff
 }
@@ -5175,11 +5220,14 @@ color:#fff
 .comment #cancel-comment-reply-link {
 display:block
 }
+.related-box{
+   margin:10px 0 10px 0;
+}
 .related_posts {
 overflow:hidden;
 background-color:#fff;
 padding:10px 10px 0 10px;
-margin:10px 0 10px 0
+
 }
 .related_posts a:hover {
 color:#d9534f
@@ -6171,8 +6219,8 @@ padding-top:7px;
 -webkit-border-radius:4px;
 -moz-border-radius:4px;
 border-radius:4px;
-border:solid 1px;
--webkit-box-shadow:inset 0 -1px 0 #3333sf
+border:solid 1px #378BCA;
+-webkit-box-shadow:inset 0 -1px 0 3333s;
 }
 
 /*.social .rss {
@@ -6654,7 +6702,7 @@ background:rgba(0,0,0,0.4) none repeat scroll !important;
 
 #topNotice li
 {
-line-height:25px;
+line-height:26px;
 }
 
 /******************** 响应式 ********************/

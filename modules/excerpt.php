@@ -1,11 +1,5 @@
 <?php if( waitig_gopt('waitig_adindex_02') ) echo '<div>'.waitig_gopt('waitig_adindex_02').'</div>'; ?>	
-<?php if(is_home()&& waitig_gopt('hot_list_check') ){ ?>
-<div>
-		<div class="hot-posts">
-			<h2 class="title"><?php echo waitig_gopt('hot_list_title') ?></h2>
-			<ul><?php hot_posts_list(); ?></ul>
-		</div></div>
-		<?php } ?>
+<?php include 'hotlist.php'; ?>
 <?php if (wp_is_mobile() ): ?><?php if( waitig_gopt('Mobiled_adindex_02') ) printf('<div class="banner-sticky">'.waitig_gopt('Mobiled_adindex_02').'</div>'); ?><?php endif ;?>
 <?php  
 $_author = waitig_gopt('waitig_post_author_un');
@@ -14,6 +8,8 @@ $_views = waitig_gopt('waitig_post_views_un');
 $_comment = waitig_gopt('waitig_post_comment_un');
 $_like = waitig_gopt('waitig_post_like_un');
 ?>
+<!--博客文章列表开始-->
+<div class="excerpt-box border-box">
 <?php while ( have_posts() ) : the_post(); ?>
 <?php  
 $_thumbnail = false;
@@ -51,3 +47,5 @@ if($diff<12){echo '<img src="'.get_bloginfo("template_url").'/img/new.gif" alt="
 </article>
 <?php endwhile; wp_reset_query(); ?>
 <?php deel_paging(); ?>
+</div>
+<!--博客文章列表结束-->
