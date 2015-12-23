@@ -4,7 +4,7 @@ Theme URL:http://waitig.com/
 Description:欢迎使用wait主题，主题更新地址：<a href="http://waitig.com/">等英博客</a>
 Author:waitig
 Author URI:http://waitig.com/
-Version:2.5.9
+Version:2.5.10
 */
 @font-face {
 		font-family:'FontAwesome';
@@ -3326,13 +3326,14 @@ padding:20px
 }
 .commentnav a,.commentnav .current,.commentnav .page-numbers {
 padding:4px 12px 3px;
-color:#666;
 display:inline-block;
-background-color:#eee;
+background-color:#fff;
+color:#000;
+border: solid 1px #378BCA;
 margin:0 1px
 }
 .commentnav .current {
-background-color:#00a67c;
+background-color:#82B3DB;
 color:#fff
 }
 .commentnav a:hover {
@@ -6269,11 +6270,11 @@ font-weight:bold
 .fenye span {
 text-indent:0;
 border-radius:2px;
-border:1px solid #f6ebeb;
+border:1px solid #378BCA;
 padding:4px 12px 3px;
-color:#fff;
+color:#000;
 display:inline-block;
-background-color:#5fbaac;
+background-color:#fff;
 margin:0 1px
 }
 .fenye a span {
@@ -6283,7 +6284,7 @@ color:#000;
 text-decoration:none
 }
 .fenye a:hover span {
-background-color:#fd9790;
+background-color:#82B3DB;
 color:#fff
 }
 /*实现渐变效果*/
@@ -6665,8 +6666,8 @@ background:rgba(0,0,0,0.4) none repeat scroll !important;
 }
 /*左右翻页箭头*/
 .viewArrows { display:block; width:50px; height:50px; line-height:50px; cursor:pointer; text-indent:-99999999px; position:absolute; top:150px;}
-.prev { left:20px; background:url(img/prev.png) center center no-repeat;}
-.next { right:20px; background:url(img/next.png) center center no-repeat;}
+.pic_prev { left:20px; background:url(img/prev.png) center center no-repeat;}
+.pic_next { right:20px; background:url(img/next.png) center center no-repeat;}
 
 .pics_switch .pic_box a.pic_banner {height:100%;width:100%;}
 

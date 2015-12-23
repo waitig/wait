@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div class="content-wrap">
 	<div class="content">
-		<header class="archive-header"> 
+		<header class="archive-header border-box"> 
 			<h1>标签：<?php echo single_tag_title(); ?></h1>
 		</header>
 		<?php include( 'modules/excerpt.php' ); ?>

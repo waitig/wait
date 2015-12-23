@@ -23,7 +23,7 @@ if ( have_comments() ) {
 		<?php wp_list_comments('type=comment&callback=deel_comment_list') ?>
 	</ol>
 	<div class="commentnav"	>
-		<?php paginate_comments_links('prev_text=&next_text=');?>
+		<?php paginate_comments_links('prev_text=上一页&next_text=下一页');?>
 	</div>
 </div>
 <!--评论列表结束-->

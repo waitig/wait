@@ -53,8 +53,8 @@ if (waitig_gopt('waitig_slick6img')) { ?>
     echo waitig_gopt('waitig_slick6title'); ?></span></a></div>
 <?php } ?>
 </div>
-<div class="viewArrows prev">上一张</div>
-        <div class="viewArrows next">下一张</div>
+<div class="viewArrows pic_prev">上一张</div>
+        <div class="viewArrows pic_next">下一张</div>
         <div class="pics_switch_clients">
 		  <ul>
 <?php 
