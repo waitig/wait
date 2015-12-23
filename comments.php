@@ -15,7 +15,7 @@ $count_t = $post->comment_count;
 if ( have_comments() ) { 
 ?>
 <!--评论列表-->
-<div id="postcomments border-box">
+<div id="postcomments" class = "border-box">
 	<div id="comments">
 		<i class="fa fa-comments-o"></i> <b><?php echo ' ('.$count_t.')'; ?></b>个小伙伴在吐槽
 	</div>
