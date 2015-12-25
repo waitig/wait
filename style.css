@@ -4,7 +4,7 @@ Theme URL:http://waitig.com/
 Description:欢迎使用wait主题，主题更新地址：<a href="http://waitig.com/">等英博客</a>
 Author:waitig
 Author URI:http://waitig.com/
-Version:2.5.10
+Version:2.5.11
 */
 @font-face {
 		font-family:'FontAwesome';
@@ -3835,7 +3835,7 @@ border-color:#d9534f;
 color:#d9534f
 }
 .excerpt-box{
-margin:10px 0px;
+margin:10px 0px 0px;
 }
 .excerpt{
 		border-bottom:solid 1px #378BCA;
@@ -3864,13 +3864,39 @@ margin:0 20px 0 0;
 text-align:center;
 position:relative;
 overflow:hidden;
-display:table
+display:table;
+transition-duration: .5s;
 }
 .excerpt .focus a {
 display:table-cell;
-vertical-align:middle
+vertical-align:middle;
+transition: All 0.7s ease;
+    
 }
-
+.excerpt .focus a img {
+-webkit-transition: -webkit-transform .3s linear;
+    -moz-transition: -moz-transform .3s linear;
+    -o-transition: -o-transform .3s linear;
+    transition: transform .3s linear;
+}
+.excerpt:hover .focus a img {
+-webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -o-transform: scale(1.3);
+}
+.thumbnail img{
+-webkit-transition: -webkit-transform .3s linear;
+    -moz-transition: -moz-transform .3s linear;
+    -o-transition: -o-transform .3s linear;
+    transition: transform .3s linear;
+}
+.thumbnail:hover img{
+-webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -o-transform: scale(1.3);
+}
 
 .excerpt p.auth-span {
 float:right;
@@ -4373,12 +4399,12 @@ line-height:30px;
 color:#bbb;
 position: relative;
 }
-.relates .cms-time-r{
+.cms-time-r{
 position:absolute;
 right:5px;
 top:0px;
 }
-.relates .cms-title-a{
+.cms-title-a{
 width:85%;
 position: absolute;
 text-overflow: ellipsis;
@@ -4858,7 +4884,8 @@ font-size: small;
 .d_postlist .thumbnail {
 float:left;
 margin-left:-90px;
-margin-top:10px
+margin-top:10px;
+overflow:hidden;
 }
 .d_postlist .thumbnail img {
 max-width:100px;
@@ -5223,6 +5250,81 @@ color:#fff
 .comment #cancel-comment-reply-link {
 display:block
 }
+.clear{
+		clear:both;
+}
+.big-line{
+		margin:0px -5px;
+		overflow:hidden;
+}
+.big-box{
+width:50%;
+position:relative;
+margin:0px;
+float:left;
+min-height:1px;
+}
+.big-cat{
+	margin:5px;
+	background-color:#fff;	
+}
+.big-posts{
+    padding: 5px 20px 20px 20px;
+}
+.entry-title{
+    font-size: 16px;
+    line-height: 30px;
+    margin: 0 0 5px 0;
+    width: 90%;
+    white-space: nowrap;
+    word-wrap: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.thumbnail-img{
+position: relative;
+    float: left;
+    width: 200px;
+    height: 130px;
+    margin: 0 20px 0 0;
+    clear: both;
+    overflow: hidden;
+    transition-duration: .5s;
+	
+}
+.thumbnail-img img{
+		-webkit-transition: -webkit-transform .3s linear;
+-moz-transition: -moz-transform .3s linear;
+-o-transition: -o-transform .3s linear;
+transition: transform .3s linear;
+}
+.thumbnail-img:hover img{
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -o-transform: scale(1.3);
+}
+.cat-main{
+font-size: 15px;
+    line-height: 30px;
+	height:150px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.cat-list li{
+		    float: left;
+    width: 100%;
+    height: 30px;
+    overflow: hidden;
+    line-height: 30px;
+    color: #bbb;
+	position: relative;
+	}
+.cat-list li a{
+		padding-left:10px;
+}
+
+
 .related-box{
    margin:10px 0 10px 0;
 }
@@ -5255,15 +5357,26 @@ padding:0px 1%;
 position:relative;
 height:140px;
 margin-bottom:10px;
+overflow:hidden;
 }
 .related_box img {
 width:100% !important;
 height:100% !important;
+/*-webkit-transition: -webkit-transform .3s linear;
+-moz-transition: -moz-transform .3s linear;
+-o-transition: -o-transform .3s linear;
+transition: transform .3s linear;*/
+}
+.thumbnail-img:hover img{
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -o-transform: scale(1.3);
 }
 .related_box .r_title {
 line-height:18px;
 color:#fff;
-height:40px;
+height:37px;
 font-size:14px;
 overflow:hidden;
 float:left;
@@ -5763,6 +5876,14 @@ margin-left:8.441558441558442%;
 font-size:17px;
 line-height:25px
 }*/
+.border-box{
+		border-left: none;
+    border-right: none;
+}
+.big-box{
+width:100%;
+}
+
 .nav-img{
 		display:none;
 }
@@ -5819,9 +5940,10 @@ right:4px
 .plinks ul li {
 width:33.3333333%
 }
-.excerpt,.excerpt:hover {
+.excerpt {
 padding:10px 15px 10px 15px
 }
+
 .excerpt-nothumbnail,.excerpt-nothumbnail:hover {
 padding:10px 20px
 }
@@ -6303,9 +6425,9 @@ border-width: 5px;
 border-color: transparent
 }
 .related_box .r_title {
-width:100%
+width:100%;
+padding:4px 2px;
 }
-
 
 video,iframe {
 height: 200px

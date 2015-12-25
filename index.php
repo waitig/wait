@@ -12,7 +12,7 @@
 				if(waitig_gopt('waitig_slide')=='waitig_slick_en') include 'modules/slick.php';
 		}
 
-		if(waitig_gopt('waitig_cms_en'))
+		if(waitig_gopt('waitig_site_type')=='waitig_site_cms')
 		{
 				include 'modules/cms.php';
 		}
@@ -30,4 +30,7 @@
 	?>
 	</div>
 </div>
-<?php get_sidebar(); get_footer(); ?>
+<?php get_sidebar();
+if(waitig_gopt('waitig_big_list'))
+	include 'modules/biglist.php';
+get_footer(); ?>

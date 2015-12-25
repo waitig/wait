@@ -171,7 +171,7 @@ function footerScript() {
 				wp_enqueue_script( 'jquery' );
 				wp_register_script( 'default', get_template_directory_uri() . '/js/jquery.js', false, '1.1', waitig_gopt('d_jquerybom_b') ? true : false );   
 				wp_enqueue_script( 'default' );   
-				wp_register_style( 'style', get_template_directory_uri() . '/style.css',false,'2.5.10' );
+				wp_register_style( 'style', get_template_directory_uri() . '/style.css',false,'2.5.11' );
 				wp_enqueue_style( 'style' ); 
 		}  
 }  
@@ -898,9 +898,9 @@ function get_styles()
 }
 
 //获取分类IDs
-function get_cat_array()
+function get_biglist_array()
 {
-		$cat_array=explode("|",waitig_gopt("waitig_cat_array"));
+		$cat_array=explode("|",waitig_gopt("waitig_big_list_cat"));
 		return $cat_array;
 }
 //自动加入tag链接

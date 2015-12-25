@@ -8,7 +8,7 @@
 		'order'            => DESC,
 		'cat'              => '',
 		'orderby'          => '',
-		'showposts'        => 10,
+		'showposts'        => waitig_gopt('waitig_excerptlist_num'),
 		'caller_get_posts' => 1
 	);
 	query_posts($args);

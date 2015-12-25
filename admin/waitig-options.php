@@ -71,63 +71,6 @@ $options = array(
 				'type'	=>	'textarea',
 				'std'	=>	''
 		),
-		
-		array(
-				'name'	=>	'文章无图时不显示缩略图',
-				'desc'	=>	'注意：选择此项目可能导致文章显示错位',
-				'id'	=>	'waitig_thumbnail_un',
-				'type'	=>	'checkbox'
-		),
-		array(
-				'name'	=>	'文章列表Ajax下拉加载',
-				'desc'	=>	'开启后，网站会采用Ajax方式自动下拉加载【非CMS模式】',
-				'id'	=>	'waitig_ajaxpager_en',
-				'type'	=>	'checkbox'
-		),
-		array(
-				'name'  => '自定义404页面',
-				'desc'  => '默认的404是神经猫游戏，开启后是一个白色哭泣的404',
-				'id'    => 'waitig_404_en',
-				'type'  => 'checkbox'
-		),
-		array(
-				'title' => '热门排行',
-				'type'  => 'subtitle'
-		),
-		array(
-				'name'  => '开启',
-				'desc'  => '【注意，在开启3D幻灯片的时候是默认打开的，无法关闭】',
-				'id'    => 'hot_list_check',
-				'type'  => 'checkbox'
-		),
-
-		array(
-				'name'  => '排序根据',
-				'desc'  => '选择一个参数作为排序的根据，可以选择评论数目，浏览数目或者点赞数目',
-				'id'    => "waitig_hot",
-				'type'  => 'radio',
-				'options' => array(
-						'评论数目' => 'waitig_hot_comment',
-						'浏览数目' => 'waitig_hot_views',
-						'点赞数目' => 'waitig_hot_zan'
-				),
-				'std'   => 'waitig_hot_comment'
-		),
-		array(
-				'name'  => '显示条目',
-				'desc'  => '设置显示的文章数量，建议不要大于10',
-				'id'    => "hot_list_number",
-				'type'  => 'number',
-				'std'   => 5
-		),
-		array(
-				'name'  => '排行名称',
-				'desc'  => '这里是显示在网站首页热门排行那里',
-				'id'    => "hot_list_title",
-				'type'  => 'text',
-				'std'   => '本周热门'
-		),
-		
 		/*array(
 				'name'  => '搜索框',
 				'desc'  => '占位文本',
@@ -387,59 +330,19 @@ $options = array(
 				'type'	=>	'text_show'
 		),
 		array(
-				'name'  => 'CMS模式',
-				'desc'  => '启用 【不启用的话，显示是博客模式】',
-				'id'    => "waitig_cms_en",
-				'type'  => 'checkbox'
-		),
-		array(
-				'name'  => '每个CMS分类显示文章数目',
-				'desc'  => '默认4个,尽量为2的倍数',
-				'id'    => "waitig_cat_num",
-				'type'  => 'number',
-				'std'   => '4'
-		),
-			array(
-				'name'  => '分类显示缩略图文章数目',
-				'desc'  => '默认4个,尽量为4的倍数，否则不太美观~',
-				'id'    => "waitig_cms_img_num",
-				'type'  => 'number',
-				'std'   => '4'
-		),
-		array(
-				'name'	=>	'首页显示的分类ID',
-				'desc'	=>	'这里填入需要在首页显示的分类的ID，数量随意，每个ID之间用“|”符号分割',
-				'id'		=>	"waitig_cat_array",
-				'type'	=>	'text',
-				'std'		=>	""
-		),
-		array(
-				'title' => '首页隐藏分类【博客模式下】',
+				'title' => '全局样式设置',
 				'type'  => 'subtitle'
 		),
 		array(
-				'name'  => '是否开启',
-				'desc'  => '启用',
-				'id'    => "waitiglockcat",
-				'type'  => 'checkbox'
-		),
-		array(
-				'name'  => '屏蔽分类一',
-				'desc'  => '启用,填入您的分类ID',
-				'id'    => 'waitiglockcat_1',
-				'type'  => 'number',
-				'std'   => ''
-		),
-		array(
-				'name'  => '屏蔽分类二',
-				'desc'  => '启用,填入您的分类ID',
-				'id'    => 'waitiglockcat_2',
-				'type'  => 'number',
-				'std'   => ''
-		),
-		array(
-				'title' => '主题侧边栏跟随设置',
-				'type'  => 'subtitle'
+				'name'  => '您的网站类型',
+				'desc'  => '选择您的网站类型【CMS样式请到CMS选项卡中设置，博客模式在本页设置】',
+				'id'    => "waitig_site_type",
+				'type'  => 'radio',
+				'options' => array(
+						'博客模式'	=>	'waitig_site_blog',
+						'CMS 模式'	=>	'waitig_site_cms',
+				),
+				'std'   => 'waitig_site_blog'
 		),
 		array(
 				'name'  => '侧边栏跟随',
@@ -461,7 +364,81 @@ $options = array(
 				'type'  => 'number',
 				'std'   => ''
 		),
+		array(
+				'name'  => '自定义404页面',
+				'desc'  => '默认的404是神经猫游戏，开启后是一个白色哭泣的404',
+				'id'    => 'waitig_404_en',
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '热门排行',
+				'desc'  => '开启热门排行',
+				'id'    => 'hot_list_check',
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '热门排行-排序根据',
+				'desc'  => '选择一个参数作为排序的根据，可以选择评论数目，浏览数目或者点赞数目',
+				'id'    => "waitig_hot",
+				'type'  => 'radio',
+				'options' => array(
+						'评论数目' => 'waitig_hot_comment',
+						'浏览数目' => 'waitig_hot_views',
+						'点赞数目' => 'waitig_hot_zan'
+				),
+				'std'   => 'waitig_hot_comment'
+		),
+		array(
+				'name'  => '热门排行-显示条目',
+				'desc'  => '设置显示的文章数量，建议不要大于10',
+				'id'    => "hot_list_number",
+				'type'  => 'number',
+				'std'   => 5
+		),
+		array(
+				'name'  => '热门排行-显示名称',
+				'desc'  => '显示的名称',
+				'id'    => "hot_list_title",
+				'type'  => 'text',
+				'std'   => '本周热门'
+		),
+		array(
+				'title' => '【博客模式】设置',
+				'type'  => 'subtitle'
+		),
+		array(
+				'name'	=>	'文章无图时不显示缩略图',
+				'desc'	=>	'注意：选择此项目可能导致文章显示错位',
+				'id'	=>	'waitig_thumbnail_un',
+				'type'	=>	'checkbox'
+		),
+		array(
+				'name'	=>	'文章列表Ajax下拉加载',
+				'desc'	=>	'开启后，网站会采用Ajax方式自动下拉加载【非CMS模式】',
+				'id'	=>	'waitig_ajaxpager_en',
+				'type'	=>	'checkbox'
+		),
 		
+		array(
+				'name'  => '首页屏蔽分类',
+				'desc'  => '启用',
+				'id'    => "waitiglockcat",
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '屏蔽分类一',
+				'desc'  => '启用,填入您的分类ID',
+				'id'    => 'waitiglockcat_1',
+				'type'  => 'number',
+				'std'   => ''
+		),
+		array(
+				'name'  => '屏蔽分类二',
+				'desc'  => '启用,填入您的分类ID',
+				'id'    => 'waitiglockcat_2',
+				'type'  => 'number',
+				'std'   => ''
+		),
 		array(
 				'type'  => 'panelend'
 		),
@@ -469,19 +446,53 @@ $options = array(
 		//
 		//混合布局标签页开始
 		array(
-				'title'	=>	'混合布局',
+				'title'	=>	'CMS设置',
 				'id'	=>	'mixsetting',
 				'type'	=>	'panelstart'
 		),
 		array(
-				'title'	=>	'在此页面配置您的混合布局模式，首先要在样式设置中选择混合布局模式',
+				'title'	=>	'在此页面配置您的CMS布局模式，首先要在样式设置中选择CMS布局模式',
 				'id'	=>	'subtitle'
 		),
 		array(
-				'name'  => '最新文章模块',
+				'name'	=>	'您的网站分类ID为：',
+				'desc'	=>	Bing_show_category(),
+				'type'	=>	'text_show'
+		),
+		/*array(
+				'name'  => 'CMS模式',
+				'desc'  => '启用 【不启用的话，显示是博客模式】',
+				'id'    => "waitig_cms_en",
+				'type'  => 'checkbox'
+		),*/
+		array(
+				'name'  => '热门文章模块',
 				'desc'  => '开启',
 				'id'    => 'waitig_hot_list',
 				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '最近文章模块',
+				'desc'  => '开启',
+				'id'    => 'waitig_excerptlist',
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '最新文章类型',
+				'desc'  => '选择最新文章的显示类型',
+				'id'    => "waitig_excerpt_type",
+				'type'  => 'radio',
+				'options' => array(
+						'列表模块模式[小]'	=>	'waitig_excerpt_small',
+						'文章摘要模式[大]'	=>	'waitig_excerpt_big',
+				),
+				'std'   => 'waitig_excerpt_big'
+		),
+		array(
+				'name'  => '显示文章数',
+				'desc'  => '填写你希望显示的文章数量【文章摘要模式】',
+				'id'    => 'waitig_excerptlist_num',
+				'type'  => 'number'
 		),
 		array(
 				'name'  => '分类一',
