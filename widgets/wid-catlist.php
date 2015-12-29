@@ -89,9 +89,17 @@ class d_catlist extends WP_Widget {
 
 
 function cat_posts_list($orderby,$limit,$cat,$img) {
+
+		if(is_single()){
+				$category = get_the_category();
+				$catq=$category[0]->term_id;
+		}
+		else{
+				$catq=get_cat_ID(single_cat_title('',false));
+		}
 	$args = array(
 		'order'            => DESC,
-		'cat'              => get_cat_ID( single_cat_title('',false) ),
+		'cat'              => $catq,
 		'orderby'          => $orderby,
 		'showposts'        => $limit,
 		'caller_get_posts' => 1
