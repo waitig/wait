@@ -7,8 +7,8 @@ function d_catlists() {
 
 class d_catlist extends WP_Widget {
 	function d_catlist() {
-		$widget_ops = array( 'classname' => 'd_catlist', 'description' => '图文展示（最新文章+热门文章+随机文章）' );
-		$this->WP_Widget( 'd_catlist', 'wait-聚合文章', $widget_ops, $control_ops );
+		$widget_ops = array( 'classname' => 'd_postlist', 'description' => '图文展示当前分类目录下的聚合文章' );
+		$this->WP_Widget( 'd_catlist', 'wait-分类聚合', $widget_ops, $control_ops );
 	}
 
 	function widget( $args, $instance ) {
@@ -29,7 +29,7 @@ class d_catlist extends WP_Widget {
 		echo $before_widget;
 		echo $before_title.$mo.$title.$after_title; 
 		echo '<ul'.$style.'>';
-		echo dtheme_posts_list( $orderby,$limit,$cat,$img );
+		echo cat_posts_list( $orderby,$limit,$cat,$img );
 		echo '</ul>';
 		echo $after_widget;
 	}
@@ -88,10 +88,10 @@ class d_catlist extends WP_Widget {
 }
 
 
-function dtheme_posts_list($orderby,$limit,$cat,$img) {
+function cat_posts_list($orderby,$limit,$cat,$img) {
 	$args = array(
 		'order'            => DESC,
-		'cat'              => $cat,
+		'cat'              => get_cat_ID( single_cat_title('',false) ),
 		'orderby'          => $orderby,
 		'showposts'        => $limit,
 		'caller_get_posts' => 1
@@ -106,3 +106,4 @@ function dtheme_posts_list($orderby,$limit,$cat,$img) {
 }
 
 ?>
+

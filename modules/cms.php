@@ -14,7 +14,7 @@ if(waitig_gopt('waitig_excerptlist'))
 		}
 }
 //载入小分类模块
-for($i='1';$i<'6';$i++)
+for($i='1';$i<'7';$i++)
 {
 	if(waitig_gopt('waitig_cat'.$i))
 	{

@@ -126,7 +126,6 @@ position:relative;
 padding:8px 40px;
 display:inline-block;
 border:1px solid #000;
-border-radius:2px;
 background-color:#fff;
 font-size:15px;
 margin:0 3px;
@@ -237,8 +236,8 @@ background:#fff
 float:left;
 width:45px;
 height:45px;
-margin-right:6.5px;
-margin-left:6.5px;
+margin-right:6px;
+margin-left:6px;
 position:relative;
 color:#000
 }
@@ -260,7 +259,6 @@ text-indent:-20px
 .hot-posts {
 clear:both;
 background-color:#fff;
-border-radius: 4px;
 }
 .hot-posts a {
 font-size:14px

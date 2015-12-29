@@ -8,6 +8,7 @@ include('wid-tags.php');
 include('wid-textbanner.php');
 include('wid-subscribe.php');
 include('wid-notice.php');
+include('wid-catlist.php');
 add_action('widgets_init','unregister_d_widget');
 function unregister_d_widget(){
     unregister_widget('WP_Widget_Search');

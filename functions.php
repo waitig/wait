@@ -94,7 +94,7 @@ function deel_setup(){
 		set_post_thumbnail_size(220, 150, true); 
 
 		//编辑器格式
-		add_editor_style('/editor-style.css');
+		add_editor_style('css/editor-style.css');
 
 		//头像缓存  
 		if( waitig_gopt('d_avatar_b') ){
@@ -171,7 +171,7 @@ function footerScript() {
 				wp_enqueue_script( 'jquery' );
 				wp_register_script( 'default', get_template_directory_uri() . '/js/jquery.js', false, '1.1', waitig_gopt('d_jquerybom_b') ? true : false );   
 				wp_enqueue_script( 'default' );   
-				wp_register_style( 'style', get_template_directory_uri() . '/style.css',false,'2.5.12' );
+				wp_register_style( 'style', get_template_directory_uri() . '/style.css',false,'3.0.0' );
 				wp_enqueue_style( 'style' ); 
 		}  
 }  
@@ -365,7 +365,13 @@ function deel_disable_autosave() {
 //隐藏分类
 function exclude_category_home($query) {
 		if ($query->is_home) {
-				$query->set('cat', '-' . waitig_gopt('waitiglockcat_1') . ',-' . waitig_gopt('waitiglockcat_1') . ''); //隐藏这两个分类
+				$cat_array=explode("|",waitig_gopt("waitiglockcat_array"));
+				foreach ($cat_array as $cat)
+				{
+						$cat_query.='-'.$cat.',';
+				}
+				$cat_query=substr($cat_query,0,strlen($cat_query)-1); 
+				$query->set('cat', $cat_query. ''); //隐藏分类
 		}
 		return $query;
 }
@@ -672,9 +678,21 @@ function hot_posts_list($days=7, $nums=10) {
 function hot_posts_list() {
 		$number=waitig_gopt('hot_list_number');
 		if (waitig_gopt('waitig_hot') == 'waitig_hot_views') {
-				$result = get_posts(array('numberposts'=>$number,'meta_key'=>'views','orderby'=>'meta_value_num','order'=>'desc'));
+				$result = get_posts(
+						array(
+						'numberposts'=>$number,
+						'meta_key'=>'views',
+						'orderby'=>'meta_value_num',
+						'order'=>'desc')
+				);
 		} elseif (waitig_gopt('waitig_hot') == 'waitig_hot_zan') {
-				$result = get_posts(array('numberposts'=>$number,'meta_key'=>'bigfa_ding','orderby'=>'meta_value_num','order'=>'desc'));
+				$result = get_posts(
+						array(
+								'numberposts'=>$number,
+								'meta_key'=>'bigfa_ding',
+								'orderby'=>'meta_value_num',
+								'order'=>'desc')
+						);
 		} elseif (waitig_gopt('waitig_hot') == 'waitig_hot_comment') {
 				$result = get_posts("numberposts=".$number."&orderby=comment_count&order=desc");
 		}
@@ -734,7 +752,7 @@ function waitig_is_mobile() {
 //新式登陆界面
 if(waitig_gopt('waitig_diy_login_page')){
 function diy_login_page() {
-  echo '<link rel="stylesheet" href="' . get_bloginfo( 'template_directory' ) . '/login.css" type="text/css" media="all" />' . "\n";
+  echo '<link rel="stylesheet" href="' . get_bloginfo( 'template_directory' ) . 'css/login.css" type="text/css" media="all" />' . "\n";
 }
 add_action( 'login_enqueue_scripts', 'diy_login_page' );
 }

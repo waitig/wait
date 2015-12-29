@@ -321,7 +321,7 @@ $options = array(
 				'type'	=>	'panelstart'
 		),
 		array(
-				'title' => '设置您的网站样式，支持网站CMS显示',
+				'title' => '请在此设置您的网站样式',
 				'type'  => 'subtitle'
 		),
 		array(
@@ -421,22 +421,15 @@ $options = array(
 		
 		array(
 				'name'  => '首页屏蔽分类',
-				'desc'  => '启用',
+				'desc'  => '【启用】,启用后，这些分类下的文章将不会在首页显示。',
 				'id'    => "waitiglockcat",
 				'type'  => 'checkbox'
 		),
 		array(
-				'name'  => '屏蔽分类一',
-				'desc'  => '启用,填入您的分类ID',
-				'id'    => 'waitiglockcat_1',
-				'type'  => 'number',
-				'std'   => ''
-		),
-		array(
-				'name'  => '屏蔽分类二',
-				'desc'  => '启用,填入您的分类ID',
-				'id'    => 'waitiglockcat_2',
-				'type'  => 'number',
+				'name'  => '屏蔽分类',
+				'desc'  => '填入您想屏蔽的分类ID，多个ID间用"|"号分割',
+				'id'    => 'waitiglockcat_array',
+				'type'  => 'text',
 				'std'   => ''
 		),
 		array(
@@ -452,7 +445,7 @@ $options = array(
 		),
 		array(
 				'title'	=>	'在此页面配置您的CMS布局模式，首先要在样式设置中选择CMS布局模式',
-				'id'	=>	'subtitle'
+				'type'	=>	'subtitle'
 		),
 		array(
 				'name'	=>	'您的网站分类ID为：',
@@ -513,7 +506,7 @@ $options = array(
 				'type'  => 'number'
 		),
 		array(
-				'name'  => '分类一图片模式显示数量',
+				'name'  => '以图片模式显示数量',
 				'desc'  => '填写你分类中希望以【图片模式】显示的文章数量',
 				'id'    => 'waitig_cat1_img_num',
 				'type'  => 'number'
@@ -612,6 +605,30 @@ $options = array(
 				'name'  => '以图片模式显示的数量',
 				'desc'  => '填写你分类中希望以【图片模式】显示的文章数量',
 				'id'    => 'waitig_cat5_img_num',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '分类六',
+				'desc'  => '开启',
+				'id'    => 'waitig_cat6',
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '要显示的分类ID',
+				'desc'  => '填写你希望显示的分类的ID',
+				'id'    => 'waitig_cat6_id',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '显示文章数',
+				'desc'  => '填写你希望显示的文章数量',
+				'id'    => 'waitig_cat6_num',
+				'type'  => 'number'
+		),
+		array(
+				'name'  => '以图片模式显示的数量',
+				'desc'  => '填写你分类中希望以【图片模式】显示的文章数量',
+				'id'    => 'waitig_cat6_img_num',
 				'type'  => 'number'
 		),
 		array(

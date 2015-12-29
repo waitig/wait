@@ -31,6 +31,6 @@
 	</div>
 </div>
 <?php get_sidebar();
-if(waitig_gopt('waitig_big_list'))
+if(waitig_gopt('waitig_big_list')&&waitig_gopt('waitig_site_type')!='waitig_site_blog')
 	include 'modules/biglist.php';
 get_footer(); ?>
