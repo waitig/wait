@@ -50,14 +50,14 @@ $(function(){
 	}).eq(0).trigger("mouseover");
 	
 	//上一页按钮
-	$(".pics_switch .prev").click(function() {
+	$(".pics_switch .pic_prev").click(function() {
 		index -= 1;
 		if(index == -1) {index = len - 1;}
 		showPics(index);
 	});
 	
 	//下一页按钮
-	$(".pics_switch .next").click(function() {
+	$(".pics_switch .pic_next").click(function() {
 		index += 1;
 		if(index == len) {index = 0;}
 		showPics(index);
