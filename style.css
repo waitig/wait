@@ -6843,8 +6843,8 @@ line-height:26px;
 @media all and (max-width: 1024px) {
 .header .inner_header { width:960px; height:90px;}
 .pics_switch , .pics_switch .pic_box , .pics_switch .pic_box a { width:1024px;}
-.prev { left:25px;}
-.next { right:25px;}
+.pic_prev { left:25px;}
+.pic_next { right:25px;}
 
 }
 
@@ -6878,8 +6878,8 @@ line-height:26px;
 
 @media all and (max-width: 640px) {
 
-.prev { left:40px;}
-.next { right:40px;}
+.pic_prev { left:40px;}
+.pic_next { right:40px;}
 
 .ps_box { margin-bottom:30px; overflow:hidden;}
 .pics_switch { height:400px;}
@@ -6893,8 +6893,8 @@ line-height:26px;
 
 @media all and (max-width: 480px) {
 
-.prev { left:10px;}
-.next { right:10px;}
+.pic_prev { left:10px;}
+.pic_next { right:10px;}
 
 .ps_box { margin-bottom:25px; overflow:hidden;}
 .ps_box .pics_switch_clients { height:30px;}
@@ -6910,8 +6910,8 @@ line-height:26px;
 
 @media all and (max-width: 320px) {
 
-.prev { left:10px;}
-.next { right:10px;}
+.pic_prev { left:10px;}
+.pic_next { right:10px;}
 
 .ps_box { margin-bottom:15px; overflow:hidden;}
 .ps_box .pics_switch_clients { height:30px;}
