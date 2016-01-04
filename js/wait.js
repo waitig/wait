@@ -5,7 +5,7 @@ function hdsiderbar(id)
 			$("#sidebar").hide(500);
 			$("#content").animate({
 					marginRight:"0px"
-			},1000);
+			},500);
 			//$("#content").css("margin-right","0px");
 			id.innerHTML="显示侧边栏";
 	}
@@ -14,7 +14,7 @@ function hdsiderbar(id)
 			$("#sidebar").show(500);
 			$("#content").animate({
 					marginRight:"370px"
-			},1000);
+			},500);
 			//$("#content").css("margin-right","370px");
 			id.innerHTML="隐藏侧边栏";
 	}
