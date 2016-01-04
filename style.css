@@ -4,7 +4,7 @@ Theme URL:http://waitig.com/
 Description:欢迎使用wait主题，主题更新地址：<a href="http://waitig.com/">等英博客</a>
 Author:waitig
 Author URI:http://waitig.com/
-Version:3.0.0
+Version:3.0.2
 */
 @font-face {
 		font-family:'FontAwesome';
@@ -4123,7 +4123,6 @@ line-height:60px
 .article-content {
 font-size:15px;
 line-height:26px;
-text-indent:30px;
 word-break:break-all;
 word-wrap:break-word;
 position:relative;
@@ -4150,6 +4149,7 @@ font-weight:blod
 }
 .article-content p {
 margin:0 0 10px 0;
+text-indent:30px;
 text-align: justify;
 }
 .article-content ul,.article-content ol {
@@ -4870,6 +4870,7 @@ font-size:14px
 .d_postlist li a:hover {
 color:#d9534f
 }
+
 .d_postlist .text {
 margin:5px 0 0 20px;
 display:block;
@@ -4898,8 +4899,23 @@ margin:0 auto
 padding-left:10px;
 float:right;
 }
+.d_postlist .nopic .postlist-title{
+width:75%;
+text-overflow: ellipsis;
+    overflow: hidden;
+	position:absolute;
+	white-space: nowrap;
+}
 .d_postlist .nopic li a {
-padding:8px 15px
+padding:6px;
+display:inline;
+}
+.d_postlist .nopic li{
+		color:#bbb;
+margin:5px 0px;
+}
+.d_postlist .nopic li i{
+vertical-align: middle;
 }
 .d_postlist .nopic .text {
 margin-top:0
@@ -5347,8 +5363,29 @@ text-align:center
 .title-h2
 { 
 height: 45px;
- border-bottom: 1px solid #90BBA8; 
+border-bottom: 1px solid #90BBA8; 
 margin: 5px 20px;
+position:relative;
+}
+.litte-cat-right{
+		position:absolute;
+		bottom:5px;
+		right:10px;
+}
+.litte-cat-right li{
+display:inline;
+margin-left:10px;
+    border-bottom: solid 2px #378BCA;
+}
+.wid-50
+{
+		width:50%;
+}
+.float-left{
+		float:left;
+}
+.float-right{
+		float:right;
 }
 .related_box {
 float:left;

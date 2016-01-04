@@ -9,4 +9,5 @@
 		<?php include( 'modules/excerpt.php' ); ?>
 	</div>
 </div>
+
 <?php get_sidebar(); get_footer(); ?>

@@ -122,7 +122,7 @@ if (function_exists('register_sidebar')){
 		));
 		register_sidebar(array(
 				'name'          => '首页侧栏',
-				'id'            => 'widget_sidebar',
+				'id'            => 'widget_indexsidebar',
 				'before_widget' => '<div class="widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<div class="title"><h2>',
@@ -171,7 +171,7 @@ function footerScript() {
 				wp_enqueue_script( 'jquery' );
 				wp_register_script( 'default', get_template_directory_uri() . '/js/jquery.js', false, '1.1', waitig_gopt('d_jquerybom_b') ? true : false );   
 				wp_enqueue_script( 'default' );   
-				wp_register_style( 'style', get_template_directory_uri() . '/style.css',false,'3.0.0' );
+				wp_register_style( 'style', get_template_directory_uri() . '/style.css',false,'3.0.2' );
 				wp_enqueue_style( 'style' ); 
 		}  
 }  
@@ -752,7 +752,7 @@ function waitig_is_mobile() {
 //新式登陆界面
 if(waitig_gopt('waitig_diy_login_page')){
 function diy_login_page() {
-  echo '<link rel="stylesheet" href="' . get_bloginfo( 'template_directory' ) . 'css/login.css" type="text/css" media="all" />' . "\n";
+  echo '<link rel="stylesheet" href="' . get_bloginfo( 'template_directory' ) . '/css/login.css" type="text/css" media="all" />' . "\n";
 }
 add_action( 'login_enqueue_scripts', 'diy_login_page' );
 }

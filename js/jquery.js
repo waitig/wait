@@ -1100,7 +1100,7 @@ function() {
                 "bdSize": "24"
             },
             share: [{
-                bdCustomStyle: _deel.url+"/share.css"
+                bdCustomStyle: _deel.url+"/css/share.css"
             }],
         };
         if (a(".article-content").length) {
