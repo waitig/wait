@@ -1,3 +1,24 @@
+function hdsiderbar(id)
+{
+	if($("#sidebar").is(":visible"))
+	{
+			$("#sidebar").hide(500);
+			$("#content").animate({
+					marginRight:"0px"
+			},1000);
+			//$("#content").css("margin-right","0px");
+			id.innerHTML="显示侧边栏";
+	}
+	else
+	{
+			$("#sidebar").show(500);
+			$("#content").animate({
+					marginRight:"370px"
+			},1000);
+			//$("#content").css("margin-right","370px");
+			id.innerHTML="隐藏侧边栏";
+	}
+}
 function MarqueeNews(){
  $('#news').find("ul").animate({
   marginTop : "-20px"
@@ -38,3 +59,4 @@ function godown(){
    }).find("li:first").appendTo(this)
  })
 }
+

@@ -704,12 +704,12 @@ $options = array(
 				'id'    => 'waitig_bdshare_en',
 				'type'  => 'checkbox'
 		),
-		array(
+		/*array(
 				'name'  => '文章面包屑',
 				'desc'  => '开启',
 				'id'    => 'waitig_singleMenu_en',
 				'type'  => 'checkbox'
-		),  
+		),*/  
 	   array(
 				'name'  => '文章摘要',
 				'desc'  => '个字',

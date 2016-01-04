@@ -1,8 +1,13 @@
 <?php get_header(); ?>
 <div class="content-wrap">
-	<div class="content">
+	<div id="content" class="content">
 	<div class='article border-box'>
-<?php if( waitig_gopt('waitig_singleMenu_en') ) echo '<div class="breadcrumbs">'.deel_breadcrumbs().'</div>'; ?>
+<div class="breadcrumbs"> 
+<?php echo deel_breadcrumbs();?>
+<button id="hide-siderbar" class="float-right border-box" onclick="hdsiderbar(this)">
+隐藏侧边栏
+</button>
+</div>
 
 		<?php while (have_posts()) : the_post(); ?>
 		<header class="article-header">

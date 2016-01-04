@@ -1,4 +1,4 @@
-<aside class="sidebar">
+<aside id="sidebar" class="sidebar">
 <?php if( waitig_gopt('waitig_social_en')) { ?>
 <div class="widget widget_text">
 <div class="textwidget"><div class="social">
