@@ -30,7 +30,7 @@ wp_head();
 if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/jquery.easing.js" type="text/javascript"></script>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/studio.js?ver=1.0.3" type="text/javascript"></script>
-<script src="<?php echo get_bloginfo("template_url") ?>/js/wait.js?ver=3.0.2" type="text/javascript"></script>
+<script src="<?php echo get_bloginfo("template_url") ?>/js/wait.js?ver=1.0.2" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url');?>/css/csshake.min.css"></link>
 <link rel="shortcut icon" href="<?php echo get_bloginfo("template_url") ?>/favicon.ico">
 <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url'); if(waitig_gopt('waitig_colorful_en')){ echo '/css/colorful.css?ver=1.0.1';} else{ echo '/css/simple.css?ver=1.1.3';} ?>">
