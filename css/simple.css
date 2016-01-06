@@ -10,13 +10,12 @@ color:#333
 color:#333
 }
 a {
-color:#333;
+color:#468847;
 text-decoration:none
 }
 .btn-primary,.btn-inverse{
 color:#000;
 background-color:#fff;
-border: solid 1px #378BCA;
 }
 .btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.btn-primary.disabled,.btn-primary[disabled] {
 color:#fff;
