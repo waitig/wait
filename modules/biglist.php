@@ -10,13 +10,13 @@ foreach($cat_array as $cat_id)
 		<div class="big-box ">
 		<div class="big-cat border-box">
 		<div class="title-h2">
-<a style="left: 0px;" href="<?php echo get_category_link($catId); ?>" title="<?php echo get_cat_name($catId); ?>" target="_blank">
-				<h2 class="float-left wid-50" ><?php echo get_cat_name($catId); ?>>></h2></a>
+<a style="left: 0px;" href="<?php echo get_category_link($cat_id); ?>" title="<?php echo get_cat_name($cat_id); ?>" target="_blank">
+				<h2 class="float-left wid-50" ><?php echo get_cat_name($cat_id); ?>>></h2></a>
 <span class="litte-cat-right">
 <?php
-if(get_category_children($catId)!= "" )  
+if(get_category_children($cat_id)!= "" )  
     {   
-    echo str_replace("li","span",wp_list_categories("child_of=".$catId."&depth=0&hide_empty=0&title_li=&orderby=id&order=DESC&echo=false"));  
+    echo str_replace("li","span",wp_list_categories("child_of=".$cat_id."&depth=0&hide_empty=0&title_li=&orderby=id&order=DESC&echo=false"));  
     }
 ?>
 </span>
