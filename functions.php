@@ -912,6 +912,12 @@ function get_styles()
 		$style.='.avatar {-webkit-transition: 0.4s;-webkit-transition: -webkit-transform 0.4s ease-out;transition: transform 0.4s ease-out;-moz-transition: -moz-transform 0.4s ease-out;}
 	.avatar:hover {transform: rotateZ(360deg);-webkit-transform: rotateZ(360deg);-moz-transform: rotateZ(360deg);}';
 	}
+	if($color=waitig_gopt('waitig_main_color'))
+	{
+			$style.='a{color:'.$color.';}';
+	}
+	else
+			$style.='a{color:#468847;}';
 	echo $style;
 }
 

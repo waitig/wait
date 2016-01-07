@@ -334,6 +334,13 @@ $options = array(
 				'type'  => 'subtitle'
 		),
 		array(
+				'name'  => '您的网站主色',
+				'desc'  => '设置您的网站主颜色，默认为#468847,可以使用选色工具选定后再填到此处',
+				'id'    => "waitig_main_color",
+				'type'  => 'smalltext',
+				'std'   => '#468847'
+		),
+		array(
 				'name'  => '您的网站类型',
 				'desc'  => '选择您的网站类型【CMS样式请到CMS选项卡中设置，博客模式在本页设置】',
 				'id'    => "waitig_site_type",

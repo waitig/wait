@@ -324,6 +324,10 @@ foreach ( $value['options'] as $id => $title ) : ?>
 .panel input[type="text"]{
 	width:99%;
 }
+.panel input[type="text"].small-text{
+	width:auto;
+	max-width:80px;
+}
 .panel h3 {
 	margin: 0;
 	font-size: 1.2em
@@ -372,7 +376,7 @@ foreach ( $value['options'] as $id => $title ) : ?>
 }
 #attrselector[attrselector*=ok] {
 	display: block
-	}
+}
 </style>
 <style id="theme-options-filter"></style>
 <div id="attrselector" attrselector="ok" ></div>

@@ -9,11 +9,18 @@ foreach($cat_array as $cat_id)
 ?>
 		<div class="big-box ">
 		<div class="big-cat border-box">
-		<h2 class="title-h2"><small><?php echo get_cat_name($cat_id); ?></small>
-		<span class="more" style="float:right;">
-		<a style="left: 0px;" href="<?php echo get_category_link($cat_id); ?>" title="阅读更多" target="_blank">
-		<small>Read More >></small>
-</a></span></h2>
+		<div class="title-h2">
+<a style="left: 0px;" href="<?php echo get_category_link($catId); ?>" title="<?php echo get_cat_name($catId); ?>" target="_blank">
+				<h2 class="float-left wid-50" ><?php echo get_cat_name($catId); ?>>></h2></a>
+<span class="litte-cat-right">
+<?php
+if(get_category_children($catId)!= "" )  
+    {   
+    echo str_replace("li","span",wp_list_categories("child_of=".$catId."&depth=0&hide_empty=0&title_li=&orderby=id&order=DESC&echo=false"));  
+    }
+?>
+</span>
+</div>
 		<div class = "big-posts">
 <?php
 				query_posts(array(
