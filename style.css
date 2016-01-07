@@ -4,7 +4,7 @@ Theme URL:http://waitig.com/
 Description:欢迎使用wait主题，主题更新地址：<a href="http://waitig.com/">等英博客</a>
 Author:waitig
 Author URI:http://waitig.com/
-Version:3.0.3
+Version:3.0.4
 */
 @font-face {
 		font-family:'FontAwesome';
@@ -5375,8 +5375,12 @@ position:relative;
 .litte-cat-right li{
 display:inline;
 margin-left:10px;
-    border-bottom: solid 2px #378BCA;
+    border-bottom: solid 2px #CAD0D4;
 }
+.litte-cat-right li:hover{
+	border-bottom: solid 2px #90BBA8;
+}
+
 .wid-50
 {
 		width:50%;
