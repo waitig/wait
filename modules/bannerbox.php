@@ -12,8 +12,8 @@ echo $imgNum;
 		<div class="cat-box border-box">
 		<div class="title-h2">
 <a style="left: 0px;" href="<?php echo get_category_link($catId); ?>" title="<?php echo get_cat_name($catId); ?>" target="_blank">
-				<h2 class="float-left wid-50" ><?php echo get_cat_name($catId); ?>>></h2></a>
-<span class="litte-cat-right">
+				<h2 class="litte-cat-title float-left over-elps" ><?php echo get_cat_name($catId); ?>>></h2></a>
+<span class="litte-cat-right over-elps">
 <?php
 if(get_category_children($catId)!= "" )  
     {   
