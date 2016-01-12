@@ -6085,10 +6085,13 @@ line-height:20px
 .banner {
 display:none
 }
-}@media(max-width:334px) {
+}
+@media(max-width:450px) {
 .litte-cat-right{
 	display:none;
 }
+}
+@media(max-width:334px) {
 .wait-mono {
 font-size:32px!important
 }
