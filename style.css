@@ -5584,7 +5584,8 @@ background-color:#f8f8f8;
 border-left: 2px solid #3F3;
 overflow:hidden;
 padding:8px;
-font-size:14px
+font-size:14px;
+margin-left:20px;
 }
 .prettyprint.linenums,pre.prettyprint.linenums {
 -webkit-box-shadow:inset 40px 0 0 #eee,inset 42px 0 0 #33b796;
