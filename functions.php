@@ -961,7 +961,12 @@ function make_log_file(){
 	    $fh = fopen($filename, "w");
         fwrite($fh, $word);    
         fclose($fh);
-	}
+		}
+		else
+		{
+				$myfile = fopen($filename, "w")
+				fclose($myfile);
+		}
    //endif;
 }
 }
