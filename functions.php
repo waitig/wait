@@ -964,7 +964,7 @@ function make_log_file(){
 		}
 		else
 		{
-				$myfile = fopen($filename, "w")
+				$myfile = fopen($filename, "w");
 				fclose($myfile);
 		}
    //endif;
