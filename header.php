@@ -35,6 +35,7 @@ if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 <link rel="shortcut icon" href="<?php echo get_bloginfo("template_url") ?>/favicon.ico">
 <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url'); if(waitig_gopt('waitig_colorful_en')){ echo '/css/colorful.css?ver=1.0.1';} else{ echo '/css/simple.css?ver=1.1.4';} ?>">
 <!--[if IE 9]><script src="<?php bloginfo('template_url'); ?>/js/html5.js"></script><![endif]-->
+<?php require_once(get_stylesheet_directory()."/user/user-head.php"); ?>
 </head>
 <body <?php body_class(); ?>>
 

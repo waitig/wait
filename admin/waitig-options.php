@@ -159,12 +159,12 @@ $options = array(
 				'type'  => 'text',
 				'std'   => '说点什么吧…'
 		),
-		/*array(
-				'name'  => '网站禁止复制',
-				'desc'  => '启用    【启用后访客无法使用右键复制】',
-				'id'    => "waitig_copy_un",
+		array(
+				'name'  => '开启蜘蛛统计',
+				'desc'  => '启用    【要查看统计结果请到页面菜单新建[蜘蛛统计]页面】',
+				'id'    => "waitig_spider",
 				'type'  => 'checkbox'
-		),*/
+		),
 		array(
 				'title' => '个性导航栏设置',
 				'type'  => 'subtitle'
