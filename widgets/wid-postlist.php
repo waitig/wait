@@ -101,7 +101,7 @@ function dtheme_posts_list($orderby,$limit,$cat,$img) {
 if($img)
 	{	
 ?>
-<li><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" ><span class="thumbnail"><?php echo '<img src="'.get_bloginfo("template_url").'/timthumb.php?src=';echo post_thumbnail_src();echo '&h=64&w=100&q=90&zc=1&ct=1" alt="'.get_the_title().'" /></span>';?><span class="text"><?php the_title(); ?></span><span class="muted"><?php the_time('Y-m-d');?></span><span class="muted float-right"><?php comments_number('', '1评论', '%评论'); ?></span></a></li>
+<li><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" ><span class="thumbnail"><?php echo '<img src="'.get_bloginfo("template_url").'/timthumb.php?src=';echo post_thumbnail_src();echo '&h=64&w=100&q=90&zc=0&ct=1" alt="'.get_the_title().'" /></span>';?><span class="text"><?php the_title(); ?></span><span class="muted"><?php the_time('Y-m-d');?></span><span class="muted float-right"><?php comments_number('', '1评论', '%评论'); ?></span></a></li>
 <?php
 	}
 	else

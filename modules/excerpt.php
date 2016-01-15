@@ -20,7 +20,7 @@ if( has_post_thumbnail() || !waitig_gopt('waitig_thumbnail_un') ){
 <article class="excerpt<?php echo !$_thumbnail ? ' excerpt-nothumbnail' : '' ?>">
 
 <?php if( $_thumbnail ){ ?>
-	<div class="focus"><a target="_blank" href="<?php the_permalink(); ?>"><img class="thumb" src="<?php echo get_bloginfo("template_url") ?>/timthumb.php?src=<?php echo post_thumbnail_src(); ?>&h=123&w=200&q=90&zc=1&ct=1" alt="<?php the_title(); ?>" />
+	<div class="focus"><a target="_blank" href="<?php the_permalink(); ?>"><img class="thumb" src="<?php echo get_bloginfo("template_url") ?>/timthumb.php?src=<?php echo post_thumbnail_src(); ?>&h=123&w=200&q=90&zc=0&ct=1" alt="<?php the_title(); ?>" />
 <span class="f_title"><?php the_title(); ?></span></a>
 </div>
 	<header><?php  if( !is_category() ) {$category = get_the_category();

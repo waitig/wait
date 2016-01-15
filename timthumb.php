@@ -99,7 +99,7 @@ if(! defined('DEFAULT_Q') ){
 }
 //默认 缩放/裁剪 模式，0：根据传入的值进行缩放（不裁剪）， 1：以最合适的比例裁剪和调整大小（裁剪）， 2：按比例调整大小，并添加边框（裁剪），2：按比例调整大小，不添加边框（裁剪）
 if(! defined('DEFAULT_ZC') ){
-  define ('DEFAULT_ZC', 1);
+  define ('DEFAULT_ZC', 0);
 }
 //默认需要对<strong><strong>图片</strong></strong>进行的<strong>处理</strong>操作，可选值和参数格式请参看processImageAndWriteToCache函数中的$filters和$imageFilters的注释
 if(! defined('DEFAULT_F') ){

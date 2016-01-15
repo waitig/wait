@@ -5321,17 +5321,20 @@ transition: transform .3s linear;
 }
 .cat-main{
 font-size: 15px;
-    line-height: 30px;
-	height:150px;
+    line-height: 26px;
+	height:130px;
 	overflow:hidden;
 	text-overflow:ellipsis;
+	text-align: justify;
+}
+.cat-list{
+		margin-top:5px;
 }
 .cat-list li{
 		    float: left;
     width: 100%;
-    height: 30px;
-    overflow: hidden;
-    line-height: 30px;
+    margin:5px 0px;
+	overflow: hidden;
     color: #bbb;
 	position: relative;
 	}

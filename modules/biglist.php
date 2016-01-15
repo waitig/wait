@@ -39,10 +39,10 @@ if(get_category_children($cat_id)!= "" )
 <h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 <a target="_blank" href="<?php the_permalink(); ?>">
 <figure class="thumbnail-img">
-	<img class="thumb" src="<?php echo get_bloginfo("template_url") ?>/timthumb.php?src=<?php echo post_thumbnail_src(); ?>&h=130&w=200&q=90&zc=1&ct=1" alt="<?php the_title(); ?>" />
+	<img class="thumb" src="<?php echo get_bloginfo("template_url") ?>/timthumb.php?src=<?php echo post_thumbnail_src(); ?>&h=130&w=200&q=90&zc=0&ct=1" alt="<?php the_title(); ?>" />
 </figure>
 <div class="cat-main">
-	<?php echo mb_strimwidth(strip_tags(apply_filters('the_content', $post->post_content)), 0, 180,"..."); ?>
+	<?php echo mb_strimwidth(strip_tags(apply_filters('the_content', $post->post_content)), 0, 200,"..."); ?>
 </div>
 </a>
 <div class="clear"></div>

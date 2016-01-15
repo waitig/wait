@@ -46,7 +46,7 @@ if(get_category_children($catId)!= "" )
 						} else {
 								echo '<img src="' . get_bloginfo("template_url") . '/timthumb.php?src=';
 								echo post_thumbnail_src();
-								echo '&h=140&w=185&q=90&zc=1&ct=1" width="185px" height="140px" alt="' . get_the_title() . '" />';
+								echo '&h=140&w=185&q=90&zc=0&ct=1" width="185px" height="140px" alt="' . get_the_title() . '" />';
 						} ?><br><span class="r_title"><?php
 								the_title(); ?></span></a></li>
 <?php
