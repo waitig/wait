@@ -1662,7 +1662,7 @@ font-style:normal
 color:#c09853
 }
 .muted {
-color:#676767
+color:#999
 }
 a.muted:hover,a.muted:focus {
 color:#808080
@@ -4860,7 +4860,7 @@ padding:12px 10px 15px 20px
 padding:0 20px 20px
 }
 .d_postlist li a {
-padding:5px 0 15px 90px;
+padding:5px 0 5px 90px;
 border-bottom:solid 1px #eee;
 overflow:hidden;
 position:relative;
@@ -4880,8 +4880,7 @@ text-overflow: ellipsis;
 display: -webkit-box;
 -webkit-line-clamp: 2;
 -webkit-box-orient: vertical;    
-line-height: 18px;
-font-size: small;
+line-height: 24px;
 }
 .d_postlist .thumbnail {
 float:left;
@@ -4897,7 +4896,6 @@ margin:0 auto
 }
 .d_postlist .muted {
 padding-left:10px;
-float:right;
 }
 .d_postlist .nopic .postlist-title{
 width:75%;
@@ -4912,7 +4910,7 @@ display:inline;
 }
 .d_postlist .nopic li{
 		color:#bbb;
-margin:5px 0px;
+margin:8px 0px;
 }
 .d_postlist .nopic li i{
 vertical-align: middle;
