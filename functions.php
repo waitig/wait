@@ -934,7 +934,7 @@ function make_log_file(){
         //去除rc-ajax评论以及cron机制访问记录
 	if(strstr($_SERVER["REQUEST_URI"],"rc-ajax")== false 
 		&& strstr($_SERVER["REQUEST_URI"],"wp-cron.php")== false ) {
-		$word .= date('mdHis',$_SERVER['REQUEST_TIME'] + 3600*8) . " ";
+		$word .= date('mdHis',$_SERVER['REQUEST_TIME']) . " ";
                 //访问页面
 		$word .= $_SERVER["REQUEST_URI"] ." ";
                 //协议
