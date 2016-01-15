@@ -951,7 +951,7 @@ function make_log_file(){
                 //获取IP
 		$word .= getIP() . " ";
         $word .= "\n";
-        $day = date('md',$_SERVER['REQUEST_TIME'] + 3600*8);    
+        $day = date('md',$_SERVER['REQUEST_TIME']);    
         if (file_exists($filename)) {
         $fh = fopen($filename, "r");
         $data = fread($fh, 10);
