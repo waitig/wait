@@ -2,7 +2,7 @@ html{
   background: transparent;
 }
 body.login{
-  background: #fff url("img/login_bg.jpg") no-repeat center top;
+  background: #fff url("../img/login_bg.jpg") no-repeat center top;
 }
 .login label{
   color: #000;

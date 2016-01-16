@@ -159,7 +159,7 @@ function draw_canvas($google,$baidu,$bing,$sogou,$soso,$else){
 	$soso2 = $soso*100/$tmp;
 	$else2 = $else*100/$tmp;
 	$str.= "<br><div style='border-top: 1px solid #e6e6e6;'><br>
-	<div style='float:left;width:150px;border-width:1px;border-style:groove;padding:15px;'><b>蜘蛛爬行分析图：</b><br>";
+	<div style='width:150px;border-width:1px;border-style:groove;padding:15px;'><b>蜘蛛爬行分析图：</b><br>";
 	$str.= "日期：" . date("Y-m-d");
 	$str.= "<br>蜘蛛一共爬行". $tmp . "次：<br>";
 	$str.= "<li><span style='color:#33A1C9;'>google:". $google ."次(". intval($google2) ."%)</span></li>";
@@ -168,7 +168,8 @@ function draw_canvas($google,$baidu,$bing,$sogou,$soso,$else){
 	$str.= "<li><span style='color:#FF9912;'>sogou:". $sogou ."次(". intval($sogou2) ."%)</span></li>";
 	$str.= "<li><span style='color:#FF6347;'>soso:". $soso ."次(". intval($soso2) ."%)</span></li>";
 	$str.= "<li><span style='color:#55aa00;'>else:". $else ."次(". (100 - intval($google2) - intval($baidu2) - intval($bing2) - intval($sogou2) - intval($soso2)) ."%)</span></li></div>";
-	$str.=	"<img src = 'http://chart.apis.google.com/chart?cht=p3&chco=33A1C9,0033ff,872657,FF9912,FF6347,55aa00&chd=t:".$google2 .",".$baidu2.",".$bing2.",".$sogou2.",".$soso2.",".$else2."&chs=400x200&chl=google|baidu|bing|sogou|soso|else' /></div><br>";
+	//$str.=	"<img src = 'http://chart.apis.google.com/chart?cht=p3&chco=33A1C9,0033ff,872657,FF9912,FF6347,55aa00&chd=t:".$google2 .",".$baidu2.",".$bing2.",".$sogou2.",".$soso2.",".$else2."&chs=400x200&chl=google|baidu|bing|sogou|soso|else' />
+	$str.="</div><br>";
 	return $str;
 }
 ?>
