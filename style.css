@@ -2887,7 +2887,7 @@ background-color:#424242;
 *zoom:1;
 clear:both;
 width:100%;
-height: 72px;
+/*height: 72px;*/
 top:0px;
 }
 .navbar:before,.navbar:after {
