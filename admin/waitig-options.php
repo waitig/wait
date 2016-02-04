@@ -119,11 +119,25 @@ $options = array(
 				'title' => '丰富的个性话设置，使你的网站更加个性！',
 				'type'  => 'subtitle'
 		),
-		array(
+		/*array(
 				'name'	=>	'网站多彩风格',
 				'desc'	=>	'【开启】，默认为黑白简约风格，开启后将会变为多彩风格',
 				'id'	=>	'waitig_colorful_en',
 				'type'	=>	'checkbox'
+		),*/
+		array(
+				'name'  => '您的网站主色',
+				'desc'  => '设置您的网站主颜色，默认为#468847,可以使用选色工具选定后再填到此处',
+				'id'    => "waitig_main_color",
+				'type'  => 'smalltext',
+				'std'   => '#468847'
+		),
+		array(
+				'name'  => '网站边框颜色',
+				'desc'  => '设置您的网站边框颜色，默认为#378BCA,可以使用选色工具选定后再填到此处',
+				'id'    => "waitig_border_color",
+				'type'  => 'smalltext',
+				'std'   => '#378BCA'
 		),
 		array(
 				'name'  => '自定义鼠标指针',
@@ -332,13 +346,6 @@ $options = array(
 		array(
 				'title' => '全局样式设置',
 				'type'  => 'subtitle'
-		),
-		array(
-				'name'  => '您的网站主色',
-				'desc'  => '设置您的网站主颜色，默认为#468847,可以使用选色工具选定后再填到此处',
-				'id'    => "waitig_main_color",
-				'type'  => 'smalltext',
-				'std'   => '#468847'
 		),
 		array(
 				'name'  => '您的网站类型',

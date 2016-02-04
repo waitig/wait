@@ -2178,9 +2178,9 @@ padding:0
 
 #respond {	
 }
-.border-box{
+/*.border-box{
 	border: solid 1px #378BCA;
-}
+}*/
 .pagecontent #respond,.pagecontent #postcomments {
 margin-right: -20px;
 margin-left:-20px;
@@ -4483,7 +4483,7 @@ margin-bottom:20px
 clear:both;
 margin-bottom:10px;
 background:#fff;
-border:solid 1px #378BCA;
+/*border:solid 1px #378BCA;*/
 }
 .widget h2 .btn {
 position:absolute;

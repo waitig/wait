@@ -918,6 +918,10 @@ function get_styles()
 	}
 	else
 			$style.='a{color:#468847;}';
+	$bordercolor=waitig_gopt('waitig_border_color');
+	if($bordercolor=='')
+			$bordercolor='#378BCA';
+	$style.=".border-box {border:solid 1px $bordercolor;} .widget {border:solid 1px $bordercolor;} .excerpt{border-bottom:solid 1px $bordercolor;}";
 	echo $style;
 }
 
