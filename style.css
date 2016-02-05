@@ -6797,6 +6797,11 @@ float: right
 }
 
 /********************slick home ********************/
+.pic_box
+{
+		overflow:hidden;
+		padding:5px;
+}
 .pics_switch 
 { 
 position:relative; 
@@ -6806,7 +6811,6 @@ height:300px;
 background:#1b1c24; 
 overflow:hidden;
 margin-bottom:10px;
-border-radius: 4px;
 }
 .pics_switch .pb { position:relative;height:100%;}
 .pics_switch .pic_box { position:relative; height:100%;float:left; overflow:hidden;}
