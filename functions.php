@@ -912,16 +912,16 @@ function get_styles()
 		$style.='.avatar {-webkit-transition: 0.4s;-webkit-transition: -webkit-transform 0.4s ease-out;transition: transform 0.4s ease-out;-moz-transition: -moz-transform 0.4s ease-out;}
 	.avatar:hover {transform: rotateZ(360deg);-webkit-transform: rotateZ(360deg);-moz-transform: rotateZ(360deg);}';
 	}
-	if($color=waitig_gopt('waitig_main_color'))
+	$color=waitig_gopt('waitig_main_color');
+	if($color=='')
 	{
-			$style.='a{color:'.$color.';}';
+			$color='#468847';
 	}
-	else
-			$style.='a{color:#468847;}';
+	$style.="a{color:$color;}.navbar .nav li.current-menu-item { border-top-color: $color;} .navbar .nav>li:hover {border-top-color: $color;}";
 	$bordercolor=waitig_gopt('waitig_border_color');
 	if($bordercolor=='')
 			$bordercolor='#378BCA';
-	$style.=".border-box {border:solid 1px $bordercolor;} .widget {border:solid 1px $bordercolor;} .excerpt{border-bottom:solid 1px $bordercolor;}";
+	$style.=".border-box {border:solid 1px $bordercolor;} .widget {border:solid 1px $bordercolor;} .excerpt{border-bottom:solid 1px $bordercolor;} ";
 	echo $style;
 }
 
