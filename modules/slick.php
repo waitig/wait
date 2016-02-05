@@ -2,7 +2,8 @@
 if(!(waitig_gopt(waitig_mobilesticky)&&waitig_is_mobile())):
 ?>
 <!--<div class="ps_box" style="height:300px">-->
-	<div class="pics_switch">
+<div class="pic_box border-box">	
+<div class="pics_switch">
 		<div class="pb">
 <?php
 if (waitig_gopt('waitig_slick1img')) { ?>
@@ -73,7 +74,8 @@ if (waitig_gopt('waitig_slick6img'))
 ?>
           </ul>
         </div>
-      </div>
+	  </div>
+</div>
     <!--</div>-->
 <?php
 endif
