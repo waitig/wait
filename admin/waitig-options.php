@@ -191,17 +191,17 @@ $options = array(
 		),
 		array(
 				'name'  => '导航栏图片',
-				'desc'  => '【高度72px最佳】输入导航栏图片地址，留空则代表关闭。',
+				'desc'  => '输入导航栏图片地址，留空则代表关闭。',
 				'id'    => "waitig_nav_img",
 				'type'  => 'text',
-				'std'	=> get_bloginfo("template_url").'/img/nav-img.png'
+				'std'	=> ''
 		),
 		array(
 				'name'  => '导航栏右侧链接',
 				'desc'  => '导航栏右侧链接文字及地址',
 				'id'    => "waitig_nav_link",
 				'type'  => 'text',
-				'std'	=> '<a href=\'www.waitig.com\'>链接一</a>|<a href=\'www.waitig.com\'>链接二</a>'
+				'std'	=> '<a href=\'www.waitig.com\'>订阅</a>|<a href=\'www.waitig.com\'>注册</a>'
 		),
 		array(
 				'name'  => '透明导航栏',
@@ -1100,7 +1100,7 @@ $options = array(
 				'desc'  => '显示在网站LOGO的右侧，请注意宽度！',
 				'id'    => 'waitig_nav_ad',
 				'type'  => 'textarea',
-				'std'   => '<img src="'.get_bloginfo("template_url").'/img/logo_ad1.jpg" alt="等英博客"></img>'
+				'std'   => ''
 		),
 		array(
 				'name'  => '广告：全站 - 导航下横幅',
