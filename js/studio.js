@@ -22,6 +22,7 @@ $(function(){
 		imgWidth = $(window).width();
 	}
 	$('.pics_switch .pb .pic_box').css({'width':$('.pics_switch').width()});
+	$('.container-inner').css({'marginTop':($('.navbar').height()+5)});
 	//小按钮鼠标滑过透明度
 	//该ps_box-.pics_switch 下两行
 	$('.pics_switch .pics_switch_clients ul li').css({'opacity':0.9});

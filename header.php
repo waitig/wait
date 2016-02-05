@@ -71,6 +71,7 @@ bloginfo('name');}
  <div class="nav-ad">
 	<?php if(!wp_is_mobile()) echo waitig_gopt('waitig_nav_ad'); ?>
  </div>
+<div class="clear"></div>
 </div>
 </header>
 <section class="container"><div class="speedbar border-box">

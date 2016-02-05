@@ -2,7 +2,7 @@
 if(!(waitig_gopt(waitig_mobilesticky)&&waitig_is_mobile())):
 ?>
 <!--<div class="ps_box" style="height:300px">-->
-<div class="pic_box border-box">	
+<div class="slick_box border-box">	
 <div class="pics_switch">
 		<div class="pb">
 <?php
