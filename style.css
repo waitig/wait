@@ -5910,8 +5910,8 @@ margin-left:8.441558441558442%;
 	font-size:smaller;
 }
 .border-box{
-		border-left: none;
-    border-right: none;
+	border-left: none !important;
+    border-right: none !important;
 }
 .big-box{
 width:100%;
