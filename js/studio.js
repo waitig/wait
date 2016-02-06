@@ -51,7 +51,7 @@ $(function(){
 	
 	//上一页按钮
 	$(".pics_switch .pic_prev").click(function() {
-	alert('1');
+		//alert('1');
 		index -= 1;
 		if(index == -1) {index = len - 1;}
 		showPics(index);
