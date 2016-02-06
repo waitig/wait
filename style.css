@@ -2879,7 +2879,7 @@ background-color:#303030
 border-top-color:#3786C7
 }
 .navbar .nav li:hover a,.navbar .nav li.current-menu-item a,.navbar .nav li.current-menu-parent a,.navbar .nav li.current_page_item a,.navbar .nav li.current-post-ancestor a {
-background-color:#353;
+background-color:#000;
 
 }
 .sub-menu {
