@@ -29,7 +29,7 @@ if(waitig_gopt("waitig_cdnurl"))
 wp_head(); 
 if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/jquery.easing.js" type="text/javascript"></script>
-<script src="<?php echo get_bloginfo("template_url") ?>/js/studio.js?ver=1.0.4" type="text/javascript"></script>
+<script src="<?php echo get_bloginfo("template_url") ?>/js/studio.js?ver=1.0.5" type="text/javascript"></script>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/wait.js?ver=1.0.2" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url');?>/css/csshake.min.css"></link>
 <link rel="shortcut icon" href="<?php echo get_bloginfo("template_url") ?>/favicon.ico">
