@@ -818,6 +818,13 @@ $options = array(
 				'type'  => 'subtitle'
 		),
 		array(
+				'name'  => '幻灯片高度',
+				'desc'  => '在这里输入您的幻灯片图片高度',
+				'id'    => "waitig_slick_height",
+				'type'  => 'number',
+				'std'   => '300'
+		),
+		array(
 				'name'  => '幻灯片一图片',
 				'desc'  => '在这里输入您的幻灯片的图片路径',
 				'id'    => "waitig_slick1img",

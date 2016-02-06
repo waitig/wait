@@ -922,6 +922,10 @@ function get_styles()
 	if($bordercolor=='')
 			$bordercolor='#378BCA';
 	$style.=".border-box {border:solid 1px $bordercolor;} .widget {border:solid 1px $bordercolor;} .excerpt{border-bottom:solid 1px $bordercolor;} ";
+	$slick_height=waitig_gopt('waitig_slick_height');
+	if($slick_height=='')
+			$slick_height='300';
+	$style.=".pics_switch .pic_box {height:".$slick_height."px";
 	echo $style;
 }
 

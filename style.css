@@ -6817,7 +6817,7 @@ background:#1b1c24;
 overflow:hidden;
 }
 .pics_switch .pb { position:relative;height:100%;}
-.pics_switch .pic_box { position:relative; height:350px;float:left; overflow:hidden;}
+.pics_switch .pic_box { position:relative;float:left; overflow:hidden;}
 .pics_switch .pic_box a 
 {
 margin:auto; 
