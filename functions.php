@@ -917,7 +917,7 @@ function get_styles()
 	{
 			$color='#468847';
 	}
-	$style.="a{color:$color;}.navbar .nav li.current-menu-item { border-top-color: $color;} .navbar .nav>li:hover {border-top-color: $color;}";
+	$style.="a{color:$color;}.navbar .nav li.current-menu-item { border-top-color: $color;} .navbar .nav>li:hover {border-top-color: $color;} .navbar .nav li.current-menu-item a,.navbar .nav li.current-menu-parent a,.navbar .nav li.current_page_item a,.navbar .nav li.current-post-ancestor {border-top-color:$color;";
 	$bordercolor=waitig_gopt('waitig_border_color');
 	if($bordercolor=='')
 			$bordercolor='#378BCA';
