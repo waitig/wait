@@ -2818,7 +2818,7 @@ display:block;
 min-width:100px;
 width:auto;
 text-align:center;
-border-top:5px solid;
+border-bottom:5px solid;
 /*height:60px;*/
 }
 /*.navbar .nav>li:hover {
