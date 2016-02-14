@@ -144,14 +144,14 @@ $options = array(
 				'desc'  => '在此填入您的个性鼠标cur文件地址',
 				'id'    => 'waitig_ina_url',
 				'type'  => 'text',
-				'std'	=> get_bloginfo("template_url").'/img/Pinceau.CUR'
+				'std'	=> ''
 		),
 		array(
 				'name'  => '自定义链接鼠标指针',
 				'desc'  => '在此填入您的个性鼠标cur文件地址',
 				'id'    => 'waitig_ina_url_point',
 				'type'  => 'text',
-				'std'	=> get_bloginfo("template_url").'/img/Pinceau select.CUR'
+				'std'	=> ''
 		),
 		array(
 				'name'  => '标签页抖动',
