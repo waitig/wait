@@ -2314,9 +2314,9 @@ padding:0
 
 #respond {	
 }
-/*.border-box{
+.border-tags{
 	border: solid 1px #378BCA;
-}*/
+}
 .pagecontent #respond,.pagecontent #postcomments {
 margin-right: -20px;
 margin-left:-20px;
