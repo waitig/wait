@@ -1,11 +1,50 @@
 </section>
+<?php if(waitig_gopt('footbar_en')){ ?>
+<div class="footbar">
+<ul>
+<li>
+<p class="footbar-title">
+<?php echo waitig_gopt('footbar_title1'); ?>
+</p>
+<span class="footbar-span">
+<?php echo waitig_gopt('footbar_span1'); ?>
+</span>
+</li>
+<li>
+<p class="footbar-title">
+<?php echo waitig_gopt('footbar_title2'); ?>
+</p>
+<span class="footbar-span">
+<?php echo waitig_gopt('footbar_span2'); ?>
+</span>
+</li>
+<li>
+<p class="footbar-title">
+<?php echo waitig_gopt('footbar_title3'); ?>
+</p>
+<span class="footbar-span">
+<?php echo waitig_gopt('footbar_span3'); ?>
+</span>
+</li>
+<li>
+<p class="footbar-title">
+<?php echo waitig_gopt('footbar_title4'); ?>
+</p>
+<span class="footbar-span">
+<?php echo waitig_gopt('footbar_span4'); ?>
+</span>
+</li>
+</ul>
+<div class="clear"></div>
+</div>
+<?php } ?>
 <footer class="footer">
 	<div class="footer-inner">
-        <!--<div class="copyright pull-left">-->
+        <!--<div class="copyright pull-left">
 		<a href="<?php echo home_url('/'); ?>" title="<?php echo get_option('blogname');?>"><?php echo get_option('blogname');?></a>
  版权所有，保留一切权利  ·  
 <a href="<?php echo home_url('/'); ?>sitemap.xml" title="站点地图">站点地图</a>
-   ·   基于WordPress构建  ·   Theme by <a href='http://www.waitig.com'>wait主题</a>  © 2011-2015  ·  <?php if( waitig_gopt('waitig_footercode') ) echo waitig_gopt('waitig_footercode'); ?> 
+   ·   基于WordPress构建  ·   Theme by <a href='http://www.waitig.com'>wait主题</a>  © 2011-2015  ·  --><?php if( waitig_gopt('waitig_footercode') ) echo waitig_gopt('waitig_footercode'); ?> 
 <!--</div>-->
 <?php echo '<!--';
 echo '</br>';
@@ -26,5 +65,6 @@ if($dHasShare == true){
 if( waitig_gopt('waitig_footcode') ) echo waitig_gopt('waitig_footcode'); 
 require_once(get_stylesheet_directory()."/user/user-foot.php");
 ?>
+<script type="text/javascript">document.body.oncopy=function(){alert("复制成功！若要转载请务必保留原文链接，申明来源，谢谢合作！");}</script>
 </body>
 </html>

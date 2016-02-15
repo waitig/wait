@@ -178,15 +178,7 @@ font-family:"Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif!import
 .d_subscribe .rssbutton:hover {
 background-color:#378Bca;
 }
-.footer {
-background:#333;
-border-top:8px solid #000;
--webkit-box-shadow:0 -5px 0 rgba(0,0,0,.1);
--moz-box-shadow:0 -8px 0 rgba(0,0,0,.1);
-box-shadow:0 -8px 0 rgba(0,0,0,.1);
-position:relative;
-*zoom:1
-}
+
 .sinaweibo {
 background:#fff
 }

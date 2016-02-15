@@ -917,11 +917,11 @@ function get_styles()
 	{
 			$color='#468847';
 	}
-	$style.="a{color:$color;}.navbar .nav li.current-menu-item { border-bottom-color: $color;} .navbar .nav>li:hover {border-bottom-color: $color;} .navbar .nav li.current-menu-item a,.navbar .nav li.current-menu-parent a,.navbar .nav li.current_page_item a,.navbar .nav li.current-post-ancestor {border-bottom-color:$color;}";
+	$style.="a{color:$color;}.navbar .nav li.current-menu-item { border-bottom-color: $color;} .navbar .nav>li:hover {border-bottom-color: $color;} .navbar .nav li.current-menu-item a,.navbar .nav li.current-menu-parent a,.navbar .nav li.current_page_item a,.navbar .nav li.current-post-ancestor {border-bottom-color:$color;} ";
 	$bordercolor=waitig_gopt('waitig_border_color');
 	if($bordercolor=='')
 			$bordercolor='#378BCA';
-	$style.=".border-box {border:solid 1px $bordercolor;} .widget {border:solid 1px $bordercolor;} .excerpt{border-bottom:solid 1px $bordercolor;} ";
+	$style.=".border-box {border:solid 1px $bordercolor;} .widget {border:solid 1px $bordercolor;} .excerpt{border-bottom:solid 1px $bordercolor;} .footer,.footbar{border-top: 2px solid $bordercolor;}";
 	$slick_height=waitig_gopt('waitig_slick_height');
 	if($slick_height=='')
 			$slick_height='300';

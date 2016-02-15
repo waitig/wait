@@ -238,6 +238,72 @@ $options = array(
 				'std'	=>	45
 		),
 		array(
+				'title' => '新式底部信息设置',
+				'type'  => 'subtitle'
+		),
+		array(
+				'name'  => '开启新式网站底部样式',
+				'desc'  => '开启【开启后将会显示新式网站底部样式】',
+				'id'    => "footbar_en",
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '位置一标题',
+				'desc'  => '输入第一个位置的标题',
+				'id'    => "footbar_title1",
+				'type'  => 'text',
+				'std'	=> ''
+		),
+		array(
+				'name'  => '位置一内容',
+				'desc'  => '输入第一个位置的内容',
+				'id'    => "footbar_span1",
+				'type'  => 'textarea',
+				'std'	=> ''
+		),
+	array(
+				'name'  => '位置二标题',
+				'desc'  => '输入第二个位置的标题',
+				'id'    => "footbar_title2",
+				'type'  => 'text',
+				'std'	=> ''
+		),
+		array(
+				'name'  => '位置二内容',
+				'desc'  => '输入第二个位置的内容',
+				'id'    => "footbar_span2",
+				'type'  => 'textarea',
+				'std'	=> ''
+		),	
+		array(
+				'name'  => '位置三标题',
+				'desc'  => '输入第三个位置的标题',
+				'id'    => "footbar_title3",
+				'type'  => 'text',
+				'std'	=> ''
+		),
+		array(
+				'name'  => '位置三内容',
+				'desc'  => '输入第三个位置的内容',
+				'id'    => "footbar_span3",
+				'type'  => 'textarea',
+				'std'	=> ''
+		),
+		array(
+				'name'  => '位置四标题',
+				'desc'  => '输入第四个位置的标题',
+				'id'    => "footbar_title4",
+				'type'  => 'text',
+				'std'	=> ''
+		),
+		array(
+				'name'  => '位置四内容',
+				'desc'  => '输入第四个位置的内容',
+				'id'    => "footbar_span4",
+				'type'  => 'textarea',
+				'std'	=> ''
+		),
+		array(
 				'type'	=>	'panelend'
 		),
 		//标签页‘个性设置’结束
