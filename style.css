@@ -2119,7 +2119,7 @@ background-color: #000;
  * 
  ******************************/
 .footbar {
-	height: 200px;
+	min-height: 200px;
     color: #ccc;
     font-size: 13px;
     position: relative;
@@ -2181,7 +2181,7 @@ width: 25%;
     text-transform: uppercase;
     text-shadow: 0 1px rgba(0,0,0,0.1);
     box-shadow: 0 0 3px rgba(0,0,0,0.3);
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
     opacity: .9;
     cursor: default;
     -webkit-transition: opacity .4s;
@@ -2199,7 +2199,7 @@ width: 25%;
 }
 .footbar>ul>li li:hover {
     background-color: #000;
-	color:#fff;
+	color:#fff !important;
 	padding:9px;
     cursor: pointer;
     -moz-box-shadow: 3px 3px 22px #48e0d3;

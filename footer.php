@@ -40,11 +40,7 @@
 <?php } ?>
 <footer class="footer">
 	<div class="footer-inner">
-        <!--<div class="copyright pull-left">
-		<a href="<?php echo home_url('/'); ?>" title="<?php echo get_option('blogname');?>"><?php echo get_option('blogname');?></a>
- 版权所有，保留一切权利  ·  
-<a href="<?php echo home_url('/'); ?>sitemap.xml" title="站点地图">站点地图</a>
-   ·   基于WordPress构建  ·   Theme by <a href='http://www.waitig.com'>wait主题</a>  © 2011-2015  ·  --><?php if( waitig_gopt('waitig_footercode') ) echo waitig_gopt('waitig_footercode'); ?> 
+        <?php if( waitig_gopt('waitig_footercode') ) echo waitig_gopt('waitig_footercode'); ?> 
 <!--</div>-->
 <?php echo '<!--';
 echo '</br>';
