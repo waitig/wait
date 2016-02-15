@@ -6600,6 +6600,7 @@ color:#fff
 /*实现渐变效果*/
 a{
 transition: all 0.2s ease-in-out 0s;
+text-decoration: none;
 }
 
 @media screen and (max-width:600px) {
