@@ -2210,7 +2210,7 @@ width: 25%;
 	color:#fff !important;
     cursor: pointer;  
 }
-.footbar>ul>li>a:hover {
+.footbar>ul>li>.footbar-span>a:hover {
     background-color: #000;
 	color:#fff !important;
     cursor: pointer;
