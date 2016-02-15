@@ -2210,7 +2210,7 @@ width: 25%;
 	color:#fff !important;
     cursor: pointer;  
 }
-.footbar>ul>li a:hover {
+.footbar>ul>li>a:hover {
     background-color: #000;
 	color:#fff !important;
     cursor: pointer;
@@ -2228,7 +2228,10 @@ width: 25%;
 }
 .footbar .footbar-span {
 		text-align: justify;
-		width:90%;
+		padding:0px 10%;
+}
+.footbar .footbar-span p{
+		text-align: justify;
 }
 .footer {
 background:#000;
