@@ -53,10 +53,10 @@ $options = array(
 		),
 		array(
 				'name'  => '网站图片logo地址',
-				'desc'  => '在此填入您的图片l地址【图片高度不要超过75px,等于75px最佳】',
+				'desc'  => '在此填入您的图片l地址',
 				'id'    => 'waitig_logo_url',
 				'type'  => 'text',
-				'std'	=> get_bloginfo("template_url").'/img/logo.png'
+				'std'	=> ''
 		),
 		array(
 				'name'  => '网站CDN网址',
@@ -1105,6 +1105,36 @@ $options = array(
 				'id'    => "waitig_sign_en",
 				'type'  => 'checkbox'
 		),
+		array(
+				'name'  => '评论开启go跳转',
+				'desc'  => '启用 【请在页面中新建go跳转页面，并把页面别名设为go】',
+				'id'    => "waitig_go",
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '禁止主题自动更新',
+				'desc'  => '禁止自动更新 【不推荐】',
+				'id'    => "waitig_updates_un",
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '网站登录页面保护',
+				'desc'  => '启用 【启用后请填写下面的名称与参数来登陆，格式：http://xxxx/wp-login.php?名称=参数  （请使用英文！）】',
+				'id'    => "waitig_admin_lock",
+				'type'  => 'checkbox'
+		),
+		array(
+				'name'  => '名称',
+				'desc'  => '输入名称',
+				'id'    => "waitig_admin_q",
+				'type'  => 'text'
+		),	
+		array(
+				'name'  => '参数',
+				'desc'  => '输入参数',
+				'id'    => "waitig_admin_a",
+				'type'  => 'text'
+		),	
 		array(
 				'type'	=>	'panelend'
 		),

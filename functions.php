@@ -72,7 +72,7 @@ function deel_setup(){
 
 		//添加后台左下角文字
 		function waitig_admin_footer_text($text) {
-				$text = '感谢使用<a target="_blank" href=http://www.waitig.com/ >waitig主题 3.0</a>进行创作！';
+				$text = '感谢使用<a target="_blank" href=http://www.waitig.com/ >waitig主题 3.1</a>进行创作！';
 				return $text;
 		}
 		add_filter('admin_footer_text', 'waitig_admin_footer_text');
@@ -552,7 +552,11 @@ function deel_comment_list($comment, $args, $depth) {
 		}
 		//信息
 		echo '<div class="c-meta">';
-		echo '<span class="c-author">'.get_comment_author_link().'</span>';
+		if(waitig_gopt('waitig_go')){
+				echo '<span class="c-author"><a href="'.home_url('/').'go/?url=';comment_author_url();echo '" rel="external nofollow" target="_blank">'.get_comment_author().'</span>';
+		}
+		else
+				echo '<span class="c-author">'.get_comment_author_link().'</span>';
 		echo get_comment_time('Y-m-d H:i '); echo time_ago(); 
 		if ($comment->comment_approved !== '0'){ 
 				echo comment_reply_link( array_merge( $args, array('add_below' => 'div-comment', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); 
@@ -886,7 +890,70 @@ function get_about_theme()
 		}
 		return $content;
 }
+//给外部链接加上跳转
+/*if(waitig_gopt('waitig_go')):
+function waitig_go_url($content){
+	preg_match_all('/<a(.*?)href="(.*?)"(.*?)>/',$content,$matches);
+	if($matches && !is_page('about')){
+		foreach($matches[2] as $val){
+			if(strpos($val,'://')!==false && strpos($val,home_url())===false && !preg_match('/\.(jpg|jepg|png|ico|bmp|gif|tiff)/i',$val)){ 
+			$content=str_replace("href=\"$val\"", "href=\"".home_url()."/go/?url=$val\" ",$content);
+			}
+		}
+	}
+	return $content;
+}
+add_filter('the_content','waitig_go_url',999);
+endif;*/
+//保护后台登陆
+if(waitig_gopt('waitig_admin_lock')):
+function waitig_login_protection() {
+    if ($_GET[''.waitig_gopt('waitig_admin_q').''] != ''.waitig_gopt('waitig_admin_a').'') {
+     wp_die('本页面仅限管理员浏览，请<a href="' . home_url() . '">点此返回网站首页</a>');   
+    }
+}
+add_action('login_enqueue_scripts', 'waitig_login_protection');
+endif;
+// 评论添加@
+function waitig_comment_add_at( $comment_text, $comment = '') {
+  if( $comment->comment_parent > 0) {
+    $comment_text = '@<a href="#comment-' . $comment->comment_parent . '">'.get_comment_author( $comment->comment_parent ) . '</a> ' . $comment_text;
+  }
 
+  return $comment_text;
+}
+add_filter( 'comment_text' , 'waitig_comment_add_at', 20, 2);
+//管理后台添加按钮
+function waitig_custom_adminbar_menu($meta = TRUE) {
+    global $wp_admin_bar;
+    if (!is_user_logged_in()) {
+        return;
+    }
+    if (!is_super_admin() || !is_admin_bar_showing()) {
+        return;
+    }
+    $wp_admin_bar->add_menu(array(
+        'id' => 'git_option',
+        'title' => 'wait主题选项', /* 设置链接名 */
+        'href' => 'themes.php?page=waitig.php'
+    ));
+    $wp_admin_bar->add_menu(array(
+        'id' => 'waitig_guide',
+        'title' => 'wait主题更新及反馈', /* 设置链接名 */
+        'href' => 'http://www.waitig.com/wait_theme_update_note_and_feedback.html', /* 设置链接地址 */
+        'meta' => array(
+            target => '_blank'
+        )
+    ));
+}
+add_action('admin_bar_menu', 'waitig_custom_adminbar_menu', 100);
+//主题自动更新
+if (!waitig_gopt('waitig_updates_un')):
+    require 'modules/updates.php';
+    $example_update_checker = new ThemeUpdateChecker('wait', 'http://www.waitig.com/themes/info.json'
+    //此处链接不可改
+    );
+endif;
 //获取css样式
 function get_styles()
 {
