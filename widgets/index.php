@@ -1,5 +1,4 @@
 <?php  
-
 include('wid-banner.php');
 include('wid-readers.php');
 include('wid-postlist.php');
@@ -16,5 +15,4 @@ function unregister_d_widget(){
     unregister_widget('WP_Widget_Tag_Cloud');
     unregister_widget('WP_Nav_Menu_Widget');
 }
-
 ?>

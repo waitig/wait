@@ -71,14 +71,6 @@ $options = array(
 				'type'	=>	'textarea',
 				'std'	=>	''
 		),
-		/*array(
-				'name'  => '搜索框',
-				'desc'  => '占位文本',
-				'id'    => "waitig_search_placeholder",
-				'type'  => 'text',
-				'std'   => '输入内容并回车'
-		),*/
-		
 		array(
 				'title' => '投稿设置',
 				'type'  => 'subtitle'
@@ -114,7 +106,6 @@ $options = array(
 				'id'	=>	'personsetting',
 				'type'	=>	'panelstart'
 		),
-		
 		array(
 				'title' => '丰富的个性话设置，使你的网站更加个性！',
 				'type'  => 'subtitle'
@@ -165,7 +156,6 @@ $options = array(
 				'id'    => "waitig_ava_tran",
 				'type'  => 'checkbox'
 		),
-		
 		array(
 				'name'  => '评论框占位文本',
 				'desc'  => '在此输入评论框的占位文本',
@@ -314,7 +304,6 @@ $options = array(
 				'id'	=>	'socialsetting',
 				'type'	=>	'panelstart'
 		),
-		
 		array(
 				'title' => '在网站显示社交图标，建议不要超过六个，否则会显示错位，留空则代表关闭',
 				'type'  => 'subtitle'
@@ -498,7 +487,6 @@ $options = array(
 				'id'	=>	'waitig_ajaxpager_en',
 				'type'	=>	'checkbox'
 		),
-		
 		array(
 				'name'  => '首页屏蔽分类',
 				'desc'  => '【启用】,启用后，这些分类下的文章将不会在首页显示。',
@@ -826,14 +814,12 @@ $options = array(
 				'id'    => 'waitig_spam_lang',
 				'type'  => 'checkbox'
 		),
-		
 		/*array(
 				'name'  => '自动超链接',
 				'desc'  => '启用 【就是那种可以把一个链接自动变成可以点击的超链接】',
 				'id'    => 'waitig_linktrue_en',
 				'type'  => 'checkbox'
 		),*/
-		
 		array(
 				'type'  => 'panelend'
 		),
@@ -871,7 +857,6 @@ $options = array(
 				'title' => '小款[716*297]幻灯设置',
 				'type'  => 'subtitle'
 		),
-	
 		array(
 				'name'  => '幻灯片显示数目',
 				'desc'  => '个',
@@ -1031,7 +1016,6 @@ $options = array(
 				'title' => '本页面中的一些功能主要是为了替代一些插件，可能会和一些插件发生冲突',
 				'type'  => 'subtitle'
 		),
-		
 		array(
 				'name'  => '新式登陆界面',
 				'desc'  => '启用   【将会修改默认的登陆界面，用新式登陆界面代替】',
@@ -1062,7 +1046,6 @@ $options = array(
 				'id'    => "waitig_autosave_un",
 				'type'  => 'checkbox'
 		),
-		
 		array(
 				'name'  => '屏蔽谷歌字体',
 				'desc'  => '启用  【开启后，将屏蔽加载谷歌字体文件，建议开启】',
@@ -1282,7 +1265,6 @@ $options = array(
 				'type'  => 'textarea',
 				'std'   => ''
 		),
-
 		array(
 				'type'	=>	'panelend'
 		),
@@ -1300,6 +1282,5 @@ $notice = array(
 				'name'  => '赞助作者',
 				'desc'  => '欢迎您使用<a href="http://www.waitig.com">wait主题</a>！，如果您感觉这款主题给您带来了方便，可以通过支付宝对作者进行赞助，我将万分感谢！<br/>支付宝账号：waitig@hotmail.com，<br/>二维码：<img src="http://www.waitig.com/img/alipay.gif"/>',
 		),
-		
 );
 ?>

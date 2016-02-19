@@ -3,7 +3,6 @@ $dname = 'wait';
 add_action( 'after_setup_theme', 'deel_setup' );
 include('admin/waitig.php');
 include('widgets/index.php');
-
 //增强编辑器开始
 function add_editor_buttoness($buttons) {
 		$buttons[] = 'fontselect';
@@ -50,26 +49,19 @@ function deel_setup(){
 			remove_action( 'wp_head',   'start_post_rel_link', 10, 0 ); 
 			remove_action( 'wp_head',   'wp_generator' ); 
 		}
-
 		add_theme_support( 'custom-background' );
 		//隐藏admin Bar
 		add_filter('show_admin_bar','hide_admin_bar');
-
-
 		//阻止站内PingBack
 		if( waitig_gopt('waitig_pingback_un') ){
 				add_action('pre_ping','deel_noself_ping');   
 		}   
-
 		//评论回复邮件通知
 		add_action('comment_post','comment_mail_notify'); 
-
 		//自动勾选评论回复邮件通知，不勾选则注释掉 
 		add_action('comment_form','deel_add_checkbox');
-
 		//评论表情改造，如需更换表情，img/smilies/下替换
 		add_filter('smilies_src','deel_smilies_src',1,10); 
-
 		//添加后台左下角文字
 		function waitig_admin_footer_text($text) {
 				$text = '感谢使用<a target="_blank" href=http://www.waitig.com/ >waitig主题 3.1</a>进行创作！';
@@ -81,26 +73,20 @@ function deel_setup(){
 				add_action('wp_print_scripts','deel_disable_autosave' );
 				remove_action('pre_post_update','wp_save_post_revision' );
 		}
-
 		//去除自带js
 		wp_deregister_script( 'l10n' ); 
-
 		//修改默认发信地址
 		add_filter('wp_mail_from', 'deel_res_from_email');
 		add_filter('wp_mail_from_name', 'deel_res_from_name');
-
 		//缩略图设置
 		add_theme_support('post-thumbnails');
 		set_post_thumbnail_size(220, 150, true); 
-
 		//编辑器格式
 		add_editor_style('css/editor-style.css');
-
 		//头像缓存  
 		if( waitig_gopt('d_avatar_b') ){
 				add_filter('get_avatar','deel_avatar');  
 		}
-
 		//定义菜单
 		if (function_exists('register_nav_menus')){
 				register_nav_menus( array(
@@ -108,9 +94,7 @@ function deel_setup(){
 						'pagemenu' => __('页面导航')
 				));
 		}
-
 }
-
 if (function_exists('register_sidebar')){
 		register_sidebar(array(
 				'name'          => '全站侧栏',
@@ -153,16 +137,12 @@ if (function_exists('register_sidebar')){
 				'after_title'   => '</h2></div>'
 		));
 }
-
-
 function deel_breadcrumbs(){
 		if( !is_single() ) return false;
 		$categorys = get_the_category();
 		$category = $categorys[0];
-
 		return '<a title="返回首页" href="'.get_bloginfo('url').'"><i class="fa fa-home"></i></a> <small>></small> '.get_category_parents($category->term_id, true, ' <small>></small> ').'<span class="muted">'.get_the_title().'</span>';
 }
-
 // 取消原有jQuery
 function footerScript() {
 		if ( !is_admin() ) {
@@ -176,8 +156,6 @@ function footerScript() {
 		}  
 }  
 add_action( 'wp_enqueue_scripts', 'footerScript' );
-
-
 if ( ! function_exists( 'deel_paging' ) ) :
 		function deel_paging() {
 				$p = 4;
@@ -189,7 +167,6 @@ if ( ! function_exists( 'deel_paging' ) ) :
 				if ( empty( $paged ) ) $paged = 1;
 				// echo '<span class="pages">Page: ' . $paged . ' of ' . $max_page . ' </span> '; 
 				echo '<li class="prev-page">'; previous_posts_link('上一页'); echo '</li>';
-
 				if ( $paged > $p + 1 ) p_link( 1, '<li>第一页</li>' );
 				if ( $paged > $p + 2 ) echo "<li><span>···</span></li>";
 				for( $i = $paged - $p; $i <= $paged + $p; $i++ ) { 
@@ -206,16 +183,13 @@ function p_link( $i, $title = '' ) {
 		echo "<li><a href='", esc_html( get_pagenum_link( $i ) ), "'>{$i}</a></li>";
 }
 endif;
-
 function deel_strimwidth($str ,$start , $width ,$trimmarker ){
 		$output = preg_replace('/^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$start.'}((?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$width.'}).*/s','\1',$str);
 		return $output.$trimmarker;
 }
-
 function waitig_gopt($e){
 		return stripslashes(get_option($e));
 }
-
 if ( ! function_exists( 'deel_views' ) ) :
 		function deel_record_visitors(){
 				if (is_singular()) 
@@ -233,7 +207,6 @@ if ( ! function_exists( 'deel_views' ) ) :
 				}
 		}
 add_action('wp_head', 'deel_record_visitors');  
-
 //浏览量查询
 function deel_views($after=''){
 		global $post;
@@ -250,12 +223,10 @@ function deel_share(){
 		global $dHasShare;
 		$dHasShare = true;
 }
-
 //默认头像
 function deel_avatar_default(){ 
 		return get_bloginfo('template_directory').'/img/avatar/a_'.mt_rand(1,10).'.gif';
 }
-
 //获取所有站点分类id
 function Bing_show_category() {
 		global $wpdb;
@@ -266,11 +237,9 @@ function Bing_show_category() {
 		$categorys = $wpdb->get_results($request);
 		foreach ($categorys as $category) { //调用菜单
 				$output .= $category->name . "=(&nbsp;" . $category->term_id . '&nbsp;),&nbsp;&nbsp;';
-
 		}
 		return $output;
 }
-
 //评论头像缓存
 function deel_avatar($avatar) {
 		$tmp = strpos($avatar, 'http');
@@ -288,7 +257,6 @@ function deel_avatar($avatar) {
 				copy(get_bloginfo('template_directory').'/img/avatar/a_'.mt_rand(1,10).'.gif', $e);
 		return $avatar;
 }
-
 //关键字
 function deel_keywords() {
 		global $s, $post;
@@ -309,7 +277,6 @@ function deel_keywords() {
 				echo "<meta name=\"keywords\" content=\"$keywords\">\n";
 		}
 }
-
 //网站描述
 function deel_description() {
 		global $s, $post;
@@ -333,22 +300,18 @@ function deel_description() {
 		$description = mb_substr( $description, 0, 220, 'utf-8' );
 		echo "<meta name=\"description\" content=\"$description\">\n";
 }
-
 function hide_admin_bar($flag) {
 		return false;
 }
-
 //最新发布加new 单位'小时'
 function deel_post_new($timer='48'){
 		$t=( strtotime( date("Y-m-d H:i:s") )-strtotime( $post->post_date ) )/3600; 
 		if( $t < $timer ) echo "<i>new</i>";
 }
-
 //修改评论表情调用路径
 function deel_smilies_src ($img_src, $img, $siteurl){
 		return get_bloginfo('template_directory').'/img/smilies/'.$img;
 }
-
 //阻止站内文章Pingback 
 function deel_noself_ping( &$links ) {
 		$home = get_option( 'home' );
@@ -356,12 +319,10 @@ function deel_noself_ping( &$links ) {
 				if ( 0 === strpos( $link, $home ) )
 						unset($links[$l]);
 }
-
 //移除自动保存
 function deel_disable_autosave() {
 		wp_deregister_script('autosave');
 }
-
 //隐藏分类
 function exclude_category_home($query) {
 		if ($query->is_home) {
@@ -384,7 +345,6 @@ if(waitig_gopt('waitig_keywords'))
 //页面描述 
 if(waitig_gopt('waitig_description'))
 		add_action('wp_head','deel_description');
-
 //禁用谷歌字体
 if (waitig_gopt('waitig_google_un')):
 		function googlo_remove_open_sans_from_wp_core() {
@@ -400,7 +360,6 @@ if (waitig_gopt('waitig_uncategroy_en')){
 		add_action('created_category', 'no_category_base_refresh_rules');
 		add_action('edited_category', 'no_category_base_refresh_rules');
 		add_action('delete_category', 'no_category_base_refresh_rules');
-
 		function no_category_base_refresh_rules() {
 				global $wp_rewrite;
 				$wp_rewrite->flush_rules();
@@ -502,19 +461,16 @@ function comment_mail_notify($comment_id) {
 				//echo 'mail to ', $to, '<br/> ' , $subject, $message; // for testing
 		}
 }
-
 //自动勾选 
 function deel_add_checkbox() {
 		echo '<label for="comment_mail_notify" class="checkbox inline" style="padding-top:0"><input type="checkbox" name="comment_mail_notify" id="comment_mail_notify" value="comment_mail_notify" checked="checked"/>有人回复时邮件通知我</label>';
 }
-
 //时间显示方式‘xx以前’
 function time_ago( $type = 'commennt', $day = 7 ) {
 		$d = $type == 'post' ? 'get_post_time' : 'get_comment_time';
 		if (time() - $d('U') > 60*60*24*$day) return;
 		echo ' (', human_time_diff($d('U'), strtotime(current_time('mysql', 0))), '前)';
 }
-
 function timeago( $ptime ) {
 		$ptime = strtotime($ptime);
 		$etime = time() - $ptime - 8*60*60;
@@ -536,11 +492,9 @@ function timeago( $ptime ) {
 				}
 		};
 }
-
 //评论样式
 function deel_comment_list($comment, $args, $depth) {
 		echo '<li '; comment_class(); echo ' id="comment-'.get_comment_ID().'">';
-
 		//头像
 		echo '<div class="c-avatar">';
 		echo str_replace(' src=', ' data-original=', get_avatar( $comment->comment_author_email, $size = '54' , deel_avatar_default())); 
@@ -574,7 +528,6 @@ if (!function_exists('remove_wp_open_sans')) :
 add_action('admin_enqueue_scripts', 'remove_wp_open_sans');
 add_action('login_init', 'remove_wp_open_sans');
 endif;
-
 //waitig添加钮Download
 function DownloadUrl($atts, $content = null) {
 		extract(shortcode_atts(array("href" => 'http://'), $atts));
@@ -587,14 +540,12 @@ function GithubUrl($atts, $content=null) {
 		return '<a class="dl" href="'.$href.'" target="_blank" rel="nofollow"><i class="fa fa-github-alt"></i>'.$content.'</a>';
 }
 add_shortcode('gt' , 'GithubUrl' );
-
 //waitig@添加钮Demo
 function DemoUrl($atts, $content=null) {
 		extract(shortcode_atts(array("href" => 'http://'), $atts));
 		return '<a class="dl" href="'.$href.'" target="_blank" rel="nofollow"><i class="fa fa-external-link"></i>'.$content.'</a>';
 }
 add_shortcode('dm' , 'DemoUrl' );
-
 //waitig@添加编辑器快捷按钮
 add_action('admin_print_scripts', 'my_quicktags');
 function my_quicktags() {
@@ -604,7 +555,6 @@ function my_quicktags() {
 				array('quicktags')
 		);
 }; 
-
 //评论过滤  
 function refused_spam_comments( $comment_data ) {  
 		$pattern = '/[一-龥]/u';  
@@ -620,8 +570,6 @@ function refused_spam_comments( $comment_data ) {
 if( waitig_gopt('waitig_spam_lang') ){
 		add_filter('preprocess_comment','refused_spam_comments');
 }   
-
-
 //点赞
 add_action('wp_ajax_nopriv_bigfa_like', 'bigfa_like');
 add_action('wp_ajax_bigfa_like', 'bigfa_like');
@@ -640,11 +588,8 @@ function bigfa_like(){
 				else {
 						update_post_meta($id, 'bigfa_ding', ($bigfa_raters + 1));
 				}
-
 				echo get_post_meta($id,'bigfa_ding',true);
-
 		} 
-
 		die;
 }
 //最热排行
@@ -678,7 +623,6 @@ function hot_posts_list($days=7, $nums=10) {
 	echo $output;
 }
  */
-
 function hot_posts_list() {
 		$number=waitig_gopt('hot_list_number');
 		if (waitig_gopt('waitig_hot') == 'waitig_hot_views') {
@@ -736,7 +680,6 @@ function add_next_page_button($mce_buttons) {
 		}
 		return $mce_buttons;
 }
-
 //判断手机广告
 function waitig_is_mobile() {
 		if ( empty($_SERVER['HTTP_USER_AGENT']) ) {
@@ -780,11 +723,8 @@ i, .ab-icon, .mce-close, i.mce-i-aligncenter, i.mce-i-alignjustify, i.mce-i-alig
 </style>';
 }
 add_action('admin_head', 'Bing_admin_lettering');
-
-
 //waitig@添加相关文章图片文章
 if ( function_exists('add_theme_support') )add_theme_support('post-thumbnails');
-
 //输出缩略图地址
 function post_thumbnail_src(){
 		global $post;
@@ -817,7 +757,6 @@ function mytheme_get_avatar($avatar) {
 		return $avatar;
 }
 add_filter( 'get_avatar', 'mytheme_get_avatar', 10, 3 );
-
 //检测百度是否收录
 function baidu_check($url){
 		global $wpdb;
@@ -919,7 +858,6 @@ function waitig_comment_add_at( $comment_text, $comment = '') {
   if( $comment->comment_parent > 0) {
     $comment_text = '@<a href="#comment-' . $comment->comment_parent . '">'.get_comment_author( $comment->comment_parent ) . '</a> ' . $comment_text;
   }
-
   return $comment_text;
 }
 add_filter( 'comment_text' , 'waitig_comment_add_at', 20, 2);
@@ -995,7 +933,6 @@ function get_styles()
 	$style.=".pics_switch .pic_box {height:".$slick_height."px";
 	echo $style;
 }
-
 //获取分类IDs
 function get_biglist_array()
 {
@@ -1127,13 +1064,11 @@ function getIP() //get ip address
         }
         return $browseinfo;
 	}
-
 //保存日志文件至mylogs.txt
 make_log_file();
 }
 //自动加入tag链接
 if(waitig_gopt('waitig_autotaglink_en')){
-	
 	function replace_text_wps($content)
 	{
 		 $posttags = get_the_tags();
@@ -1150,7 +1085,6 @@ if(waitig_gopt('waitig_autotaglink_en')){
 	}
 	add_filter('the_content','replace_text_wps');
 }
-
 //自动文字超链接
 if(waitig_gopt('waitig_autotextlink_en')) {
 		function replace_text_auto($content){
@@ -1164,7 +1098,6 @@ if(waitig_gopt('waitig_autotextlink_en')) {
 		}
 		add_filter('the_content','replace_text_auto');
 }
-
 //文章（包括feed）末尾加版权说明
 if(waitig_gopt('waitig_copyright'))
 {

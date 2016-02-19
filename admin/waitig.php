@@ -20,9 +20,7 @@ function theme_check()
 				$result.=fgets($fp,1024);
 		}
 		fclose($fp);
-		
 		$resa=explode("|",$result);
-	
 		$canuse=$resa[0];
 		$alter=$resa[1];
 		$out=$resa[1];
@@ -388,14 +386,12 @@ foreach ( $value['options'] as $id => $title ) : ?>
 						$($(this).attr("href")).show();
 						return false;
 				});
-
 				var themeOptionsFilter = $("#theme-options-filter");
 				themeOptionsFilter.text("ok");
 				if ($("#attrselector").is(":visible") && themeOptionsFilter.text() != "") {
 						$(".panel tr").each(function (el) {
 								$(this).attr("data-searchtext", $(this).text().replace(/\r|\n/g, '').replace(/ +/g, ' ').toLowerCase());
 						});
-
 						var wrap = $(".wrap");
 						$("#theme-options-search").show().on("input propertychange", function () {
 								var text = $(this).val().replace(/^ +| +$/, "").toLowerCase();
@@ -457,7 +453,6 @@ function waitig_pointer_print_scripts() {
 						}, 700);
 						return false;
 				});
-
 				$(window).on("resize scroll", function() {
 						$menuAppearance.pointer("reposition");
 				});

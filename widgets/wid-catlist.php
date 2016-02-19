@@ -1,6 +1,5 @@
 <?php
 add_action( 'widgets_init', 'd_catlists' );
-
 function d_catlists() {
 	register_widget( 'd_catlist' );
 }
@@ -115,13 +114,10 @@ function cat_posts_list($orderby,$limit,$cat,$img) {
 	else
 	{
 ?>
-
 <li><i class="fa fa-minus"></i><span class="postlist-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" ><?php the_title(); ?></a></span><span class="muted float-right"><?php comments_number('', '1评论', '%评论'); ?></span>
 <div class="clear"></div>
 </li>
 <?php	}
-    endwhile; wp_reset_query();
+endwhile; wp_reset_query();
 }
-
 ?>
-
