@@ -151,6 +151,12 @@ $options = array(
 				'type'  => 'checkbox'
 		),
 		array(
+				'name'  => '开启浮动小人',
+				'desc'  => '启用    【启用后会在你的网站上显示一个浮动小人】',
+				'id'    => "waitig_spig_en",
+				'type'  => 'checkbox'
+		),
+		array(
 				'name'  => '评论头像旋转',
 				'desc'  => '启用    【启用后你的评论头像会旋转】',
 				'id'    => "waitig_ava_tran",
