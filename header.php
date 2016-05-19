@@ -23,28 +23,26 @@ if(waitig_gopt("waitig_cdnurl"))
 	_deel.url = _deel.url.replace('<?php echo waitig_gopt("waitig_cdnurl"); ?>','<?php echo get_bloginfo("url"); ?>');
 <?php }?>
 </script>
-
-
 <?php 
-wp_head(); 
+wp_head();
 if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/jquery.easing.js" type="text/javascript"></script>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/studio.js?ver=1.0.5" type="text/javascript"></script>
 <script src="<?php echo get_bloginfo("template_url") ?>/js/wait.js?ver=1.0.4" type="text/javascript"></script>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+<?php if(waitig_gopt('waitig_shack_en')){ ?>
 <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url');?>/css/csshake.min.css"></link>
+<?php } ?>
 <link rel="shortcut icon" href="<?php echo get_bloginfo("template_url") ?>/favicon.ico">
-<link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url'); if(waitig_gopt('waitig_colorful_en')){ echo '/css/colorful.css?ver=1.0.1';} else{ echo '/css/simple.css?ver=1.1.4';} ?>">
 <!--[if IE 9]><script src="<?php bloginfo('template_url'); ?>/js/html5.js"></script><![endif]-->
-<?php //require_once(get_stylesheet_directory()."/user/user-head.php"); ?>
-</head>
-<body <?php body_class(); ?>>
-
-<header id="header" class="header">
 <style type="text/css">
 <?php
 get_styles();
 ?>
 </style>
+</head>
+<body <?php body_class(); ?>>
+<header id="header" class="header">
 	<div id="nav-header" class="navbar border-box">
 
 		<ul class="nav">
