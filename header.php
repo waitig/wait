@@ -33,7 +33,7 @@ if( waitig_gopt('waitig_headcode') ) echo waitig_gopt('waitig_headcode'); ?>
 <?php if(waitig_gopt('waitig_shack_en')){ ?>
 <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url');?>/css/csshake.min.css"></link>
 <?php } ?>
-<link rel="shortcut icon" href="<?php echo get_bloginfo("template_url") ?>/favicon.ico">
+<link rel="shortcut icon" href="/favicon.ico">
 <!--[if IE 9]><script src="<?php bloginfo('template_url'); ?>/js/html5.js"></script><![endif]-->
 <style type="text/css">
 <?php
