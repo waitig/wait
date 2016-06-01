@@ -656,7 +656,7 @@ function hot_posts_list() {
 						if ($commentcount != 0) {
 								$output.= '<li><p><span class="post-comments">评论 (' . $commentcount . ')</span><span class="muted"><a href="javascript:;" data-action="ding" data-id="' . $postid . '" id="Addlike" class="action';
 								if (isset($_COOKIE['bigfa_ding_' . $postid])) $output.= ' actived';
-								$output.= '"><i class="fa fa-heart-o"></i><span class="count">';
+								$output.= '"><i class="fa fa-thumbs-o-up"></i><span class="count">';
 								if (get_post_meta($postid, 'bigfa_ding', true)) {
 										$output.= get_post_meta($postid, 'bigfa_ding', true);
 								} else {
@@ -1103,8 +1103,8 @@ if(waitig_gopt('waitig_copyright'))
 {
 		function deel_copyright($content) {
 				if (is_single() || is_feed()) {
-						$copyright = str_replace(array('{{title}}','{{link}}','{{blog_name}}','{{blog_link}}'), array(get_the_title(), get_permalink(),get_bloginfo('name'),get_bloginfo('url')), waitig_gopt('waitig_copyright'));
-						$content.= '<hr /><div align="left" style="margin-bottom: 10px;padding:5px 20px;border-radius: 5px;background-color: #fcf8e3;border: 1px solid #4094EF;color: #8a6d3b"><i class="fa fa-bullhorn" style="text-indent:-20px"></i>' . $copyright . '</div>';
+						$copyright = str_replace(array('{{title}}','{{link}}','{{blog_name}}','{{blog_link}}','{{display_name}}','{{nickname}}','{{description}}','{{user_link}}'), array(get_the_title(), get_permalink(),get_bloginfo('name'),get_bloginfo('url'),get_the_author_meta('display_name'),get_the_author_meta('nickname'),get_the_author_meta('description'),get_author_posts_url(get_the_author_meta('ID'))), waitig_gopt('waitig_copyright'));
+						$content.= '<hr /><div align="left" style="padding:5px 5px 5px 15px;background-color: #fbfbfb;border: 1px solid #b9b9b9;color: #999">' . $copyright . '</div>';
 				}
 				return $content;
 		}

@@ -48,7 +48,7 @@
 
 <div class="article-social">
 		<form action="https://shenghuo.alipay.com/send/payment/fill.htm" method="POST" target="_Blank" name="rewardForm" accept-charset="GBK" rel="nofollow" ><input name="optEmail" type="hidden" value="<?php echo waitig_gopt('waitig_pay');?>"><input name="payAmount" type="hidden" value="10"><input name="memo" type="hidden" value="感谢您对小站的捐赠，请留下您的联系方式！">
-			<a href="javascript:;" data-action="ding" data-id="<?php the_ID(); ?>" id="Addlike" class="action<?php if(isset($_COOKIE['bigfa_ding_'.$post->ID])) echo ' actived';?>"><i class="fa fa-heart-o"></i>喜欢 (<span class="count"><?php if( get_post_meta($post->ID,'bigfa_ding',true) ){ echo get_post_meta($post->ID,'bigfa_ding',true); } else {echo '0';}?></span>)</a><?php if( waitig_gopt('waitig_payme_en') ) echo'<span class="or"><button class="subsub" type=submit">赏</button></span>'; if( waitig_gopt('waitig_bdshare_en') )  deel_share(); ?>	
+			<a href="javascript:;" data-action="ding" data-id="<?php the_ID(); ?>" id="Addlike" class="action<?php if(isset($_COOKIE['bigfa_ding_'.$post->ID])) echo ' actived';?>"><i class="fa fa-thumbs-o-up"></i>点赞 (<span class="count"><?php if( get_post_meta($post->ID,'bigfa_ding',true) ){ echo get_post_meta($post->ID,'bigfa_ding',true); } else {echo '0';}?></span>)</a><?php if( waitig_gopt('waitig_payme_en') ) echo'<span class="or"><button class="subsub" type=submit">赏</button></span>'; if( waitig_gopt('waitig_bdshare_en') )  deel_share(); ?>	
 </form>
 </div>
 	</article>	

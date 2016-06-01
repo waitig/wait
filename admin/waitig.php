@@ -86,7 +86,9 @@ function waitig_options_page() {
 			echo $theme_check;
 		}
 		if(is_array($notice))
-		{	
+		{
+			echo "<h3> 主题公告</h3>";
+			echo "<span>".get_alert()."</span><hr/>";
 foreach ($notice as $value)
 {
 		echo "<h3>".$value['name']."</h3>";

@@ -62,10 +62,10 @@ if( waitig_gopt('waitig_footcode') ) echo waitig_gopt('waitig_footcode');
 //require_once(get_stylesheet_directory()."/user/user-foot.php");
 ?>
 <script type="text/javascript">document.body.oncopy=function(){alert("复制成功！若要转载请务必保留原文链接，申明来源，谢谢合作！");}</script>
-<!--.浮动小人-->
 <?php if( waitig_gopt('waitig_spig_en'))
 {
 ?>
+<!--.浮动小人-->
     <script type="text/javascript">
         <?php if(is_home()) echo 'var isindex=true;var title="";';else echo 'var isindex=false;var title="',  get_the_title(),'";'; ?>
         <?php if((($display_name = wp_get_current_user()->display_name) != null)) echo 'var visitor="',$display_name,'";'; else if(isset($_COOKIE['comment_author_'.COOKIEHASH])) echo 'var visitor="',$_COOKIE['comment_author_'.COOKIEHASH],'";';else echo 'var visitor="游客";';echo "\n"; ?>
@@ -80,7 +80,7 @@ if( waitig_gopt('waitig_footcode') ) echo waitig_gopt('waitig_footcode');
         <div id="message">加载中……</div>
         <div id="mumu" class="mumu"></div>
 	</div>
-<?php } ?>
     <!--.end浮动小人-->
+<?php } ?>
 </body>
 </html>

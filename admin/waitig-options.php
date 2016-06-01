@@ -125,10 +125,10 @@ $options = array(
 		),
 		array(
 				'name'  => '网站边框颜色',
-				'desc'  => '设置您的网站边框颜色，默认为#378BCA,可以使用选色工具选定后再填到此处',
+				'desc'  => '设置您的网站边框颜色，默认为#c3c3c3,可以使用选色工具选定后再填到此处',
 				'id'    => "waitig_border_color",
 				'type'  => 'smalltext',
-				'std'   => '#378BCA'
+				'std'   => '#c3c3c3'
 		),
 		array(
 				'name'  => '自定义鼠标指针',
@@ -806,7 +806,7 @@ $options = array(
 		),
 		array(
 				'name'  => '文章底部版权信息',
-				'desc'  => '输入您文章底部的版权标识，您可以使用如下代码：{{title}}--文章标题，{{link}}--文章链接，{{blog_name}}--博客名称，{{blog_link}}--博客主页链接，完美支持HTML标签，留空代表关闭，',
+				'desc'  => '输入您文章底部的版权标识，您可以使用如下代码：{{title}}--文章标题，{{link}}--文章链接，{{blog_name}}--博客名称，{{blog_link}}--博客主页链接，{{display_name}}--作者显示的名字，{{nickname}}--作者昵称，{{description}}--作者描述，{{user_link}}--作者页面链接，完美支持HTML标签，留空代表关闭，',
 				'id'    => 'waitig_copyright',
 				'type'  => 'textarea'
 		),	
@@ -1281,12 +1281,8 @@ $notice = array(
 		//
 		//右侧公告
 		array(
-				'name'  => '主题公告',
-				'desc'  =>  get_alert(),
-		),
-		array(
 				'name'  => '赞助作者',
-				'desc'  => '欢迎您使用<a href="http://www.waitig.com">wait主题</a>！，如果您感觉这款主题给您带来了方便，可以通过支付宝对作者进行赞助，我将万分感谢！<br/>支付宝账号：waitig@hotmail.com，<br/>二维码：<img src="http://www.waitig.com/img/alipay.gif"/>',
+				'desc'  => '欢迎您使用<a href="http://www.waitig.com">wait主题</a>！，如果您感觉这款主题给您带来了方便，可以通过支付宝对作者进行赞助，我将万分感谢！<br/>支付宝账号：waitig@hotmail.com，<br/>二维码：<img src="http://img.waitig.com/img/alipay.gif"/>',
 		),
 );
 ?>
