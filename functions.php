@@ -473,7 +473,7 @@ function time_ago( $type = 'commennt', $day = 7 ) {
 }
 function timeago( $ptime ) {
 		$ptime = strtotime($ptime);
-		$etime = time() - $ptime - 8*60*60;
+		$etime = time() - $ptime;
 		if($etime < 1) return '刚刚';
 		$interval = array (
 				12 * 30 * 24 * 60 * 60  =>  '年前 ('.date('Y-m-d', $ptime).')',
