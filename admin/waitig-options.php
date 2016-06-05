@@ -82,6 +82,12 @@ $options = array(
 				'type'  => 'checkbox'
 		),
 		array(
+				'name'  => '媒体按钮',
+				'desc'  => '开启',
+				'id'    => 'waitig_tougao_media',
+				'type'  => 'checkbox'
+		),
+		array(
 				'name'  => '投稿时间间隔',
 				'desc'  => '秒，默认：240',
 				'id'    => "waitig_tougao_time",

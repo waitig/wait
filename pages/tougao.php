@@ -26,22 +26,37 @@ get_header();
 		</article>
 		<?php endwhile;  ?>
 		<ul class="submit-form">
-			<li> <strong>标题</strong>
-				<input id="tougao-title" class="input-block-level" type="text" size="40" placeholder="写点什么...">	
+			<li> <strong>标题(必填)</strong>
+				<input id="tougao-title" class="input-block-level" type="text" size="40" placeholder="在此输入标题...">	
 				<p class="text-error hide"></p>
 			</li>
-			<li> <strong>网址</strong>
-				<input id="tougao-url" class="input-block-level" type="text" placeholder="http://" size="100">	
+			<li> <strong>分类目录</strong><br/>
+				<?php wp_dropdown_categories('hide_empty=0&id=tougao_categorg&show_count=0&hierarchical=1'); ?>
 				<p class="text-error hide"></p>
 			</li>
 			<li>
-				<strong>内容</strong>
-				<textarea id="tougao-content" rows="12" class="input-block-level" placeholder="写点什么..."></textarea>
+				<strong>内容(20-5000字)</strong>
+				<?php wp_editor( '', 'tougao-content', $settings = array(
+		//'teeny'=>1,
+        'quicktags'=> 1,
+        //WP默认按钮有strong,em,link,block,del,ins,img,ul,ol,li,code,more,spell,close 请自行选择
+        'quicktags'=> array('buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,more,spell,close',),
+        'tinymce'=>0,
+        'media_buttons'=>waitig_gopt('waitig_tougao_media'),
+        'textarea_rows'=>12,
+        'editor_class'=>"input-block-level",
+        'placeholder'=>"在此输入内容..."
+) ); ?>
+				<!--<textarea id="tougao-content" rows="12" class="input-block-level" placeholder="写点什么..."></textarea>-->
+				<p id="tougao-content-error" class="text-error hide"></p>
+			</li>
+			<li> <strong>来源网址</strong>
+				<input id="tougao-url" class="input-block-level" type="text" placeholder="http://" size="100">	
 				<p class="text-error hide"></p>
 			</li>
 		</ul>
 		<div class="text-error"></div>
-		<button id="tougao-submit" class="btn btn-primary"><i class="fa fa-check-square-o"></i> 立即提交</button>
+		<button id="tougao_submit" class="btn btn-primary border-box"><i class="fa fa-check-square-o"></i> 立即提交</button>
 	</div>
 </div>
 

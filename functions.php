@@ -64,7 +64,7 @@ function deel_setup(){
 		add_filter('smilies_src','deel_smilies_src',1,10); 
 		//添加后台左下角文字
 		function waitig_admin_footer_text($text) {
-				$text = '感谢使用<a target="_blank" href=http://www.waitig.com/ >waitig主题 3.1</a>进行创作！';
+				$text = '感谢使用<a target="_blank" href=http://www.waitig.com/ >waitig主题 3.2</a>进行创作！';
 				return $text;
 		}
 		add_filter('admin_footer_text', 'waitig_admin_footer_text');
