@@ -83,8 +83,11 @@ get_currentuserinfo();
 		
 		<div class="comt">
 			<div class="comt-box">
-			<!--<textarea placeholder="<?php echo waitig_gopt('waitig_comment_placeholder')?>" class="input-block-level comt-area" name="comment" id="comment" cols="100%" rows="3" tabindex="1" onkeydown="if(event.ctrlKey&amp;&amp;event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>-->
-			<?php wp_editor( '', 'comment', $settings = array(
+				<?php //if(!waitig_gopt('waitig_comment_placeholder')){?>
+			<textarea placeholder="<?php echo waitig_gopt('waitig_comment_placeholder')?>" class="input-block-level comt-area" name="comment" id="comment" cols="100%" rows="3" tabindex="1" onkeydown="if(event.ctrlKey&amp;&amp;event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
+			<?php/* }
+			else{
+			wp_editor( '', 'comment', $settings = array(
         'quicktags'=> 1,
         //WP默认按钮有strong,em,link,block,del,ins,img,ul,ol,li,code,more,spell,close 请自行选择
         'quicktags'=> array('buttons' => 'strong,em,block,del,ins,ul,ol,li,code,more,spell,close',),
@@ -92,10 +95,11 @@ get_currentuserinfo();
         'media_buttons'=>0,
         'textarea_rows'=>4,
         'editor_class'=>"input-block-level comt-area"
-) ); ?>
+) ); }*/
+?>
 				<div class="comt-ctrl">
 
-					<button class="btn btn-primary pull-right" type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-check-square-o"></i> 提交评论</button>
+					<button class="btn btn-primary pull-right border-box" type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-check-square-o"></i> 提交评论</button>
 					<div class="comt-tips pull-right"><?php comment_id_fields(); do_action('comment_form', $post->ID); ?></div>
 					<span data-type="comment-insert-smilie" class="muted comt-smilie"><i class="fa fa-smile-o"></i> 表情</span>&nbsp;&nbsp;&nbsp;&nbsp;
 					

@@ -26,7 +26,8 @@ do_action('pre_comment_on_post', $comment_post_ID);
 $comment_author       = ( isset($_POST['author']) )  ? trim(strip_tags($_POST['author'])) : null;
 $comment_author_email = ( isset($_POST['email']) )   ? trim($_POST['email']) : null;
 $comment_author_url   = ( isset($_POST['url']) )     ? trim($_POST['url']) : null;
-$comment_content      = ( isset($_POST['comment']) ) ? trim($_POST['comment']) : null;
+//$comment_content      = ( isset($_POST['comment']) ) ? trim($_POST['comment']) : null;
+$comment_content      = ( isset( $_POST['comment'])) ? trim(htmlspecialchars($_POST['comment'], ENT_QUOTES)) : '';
 $edit_id              = ( isset($_POST['edit_id']) ) ? $_POST['edit_id'] : null; // 提取 edit_id
 $num1=$_POST['num1'];
 $num2=$_POST['num2'];
