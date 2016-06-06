@@ -1110,5 +1110,6 @@ if(waitig_gopt('waitig_copyright'))
 		}
 		add_filter( 'the_content',  'deel_copyright' );
 }
-//require_once(get_stylesheet_directory()."/user/user-functions.php");
+//获取发表文章最多的用户
+
 ?>
