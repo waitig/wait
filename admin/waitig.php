@@ -1,11 +1,468 @@
+<?php
+include ("waitig-options.php");
+function theme_check()
+{
+		$url=get_bloginfo('url');
+		if($_SERVER['HTTP_HOST'] == 'localhost'||$_SERVER['HTTP_HOST']=='127.0.0.1')
+		{
+				return 'Êú¨Âú∞Ë∞ÉËØïÊ®°Âºè';
+		}
+		$theme="wait";
+		$request="http://www.waitig.com/themes/themecheck.php?url=$url&theme=$theme";
+		@$fp=fopen($request,'r');
+		if(!$fp)
+		{
+				return "Êó†ÁΩëÁªúËøûÊé•ÔºÅ";
+		}
+		$result="";
+		while(!feof($fp))
+		{
+				$result.=fgets($fp,1024);
+		}
+		fclose($fp);
+		$resa=explode("|",$result);
+		$canuse=$resa[0];
+		$alter=$resa[1];
+		$out=$resa[1];
+		//È¶ñÂÖàÂà§Êñ≠ÊòØÂê¶ÂèØÁî®
+		if(!$canuse)//Â¶ÇÊûú‰∏çÂèØÁî®ÔºåÂàôÊâßË°åÁõ∏Â∫îÊìç‰Ωú
+		{
+				echo  '‰∏ªÈ¢òÁé∞‰∏çÂèØÁî®ÔºåËØ∑<a href="http://www.waitig.com">ËÅîÁ≥ª‰∏ªÈ¢ò‰ΩúËÄÖ</a>ÊàñËÄÖÊõ¥Êç¢ÂÖ∂‰ªñ‰∏ªÈ¢òÔºÅ';
+				exit;
+		}
+		return $alter;	
+}
+function waitig_add_admin_page()
+{
+		global $themename, $options, $notice;
+		if ( $_GET['page'] == basename(__FILE__) ) 
+		{
+				if ('update' == $_REQUEST['action'])
+				{
+						foreach ($options as $value)
+						{
+								if (isset($_REQUEST[$value['id']]))
+								{
+										update_option($value['id'], $_REQUEST[$value['id']]);
+								} else
+								{
+										delete_option($value['id']);
+								}
+						}
+						update_option('waitig_options_setup', true);
+						header("Location: admin.php?page=waitig.php&update=true");
+						die;
+				}
+				else if( 'reset' == $_REQUEST['action'])
+				{
+						foreach ($options as $value)
+						{
+								delete_option($value['id']);
+						}
+						delete_option('waitig_options_setup');
+						header('Location: themes.php?page=waitig.php&reset=true');
+						die;
+				}
+		}
+		add_theme_page($themename."ÈÄâÈ°π", $themename."ÈÄâÈ°π", 'edit_themes', basename(__FILE__), 'waitig_options_page');
+}
+add_action('admin_menu', 'waitig_add_admin_page');
+function waitig_options_page() {
+		$theme_check=theme_check();
+		global $themename, $options,$notice;
+		$i=0;
+		if ($_REQUEST['update']) echo '<div class="updated"><p><strong>ËÆæÁΩÆÂ∑≤‰øùÂ≠ò„ÄÇ</strong></p></div>';
+		if ($_REQUEST['reset']) echo '<div class="updated"><p><strong>ËÆæÁΩÆÂ∑≤ÈáçÁΩÆ„ÄÇ</strong></p></div>';
+?>
+<div class="wrap d_wrap">
+	<h2>wait ‰∏ªÈ¢òÈÄâÈ°π</h2><input placeholder="Á≠õÈÄâ‰∏ªÈ¢òÈÄâÈ°π‚Ä¶" type="search" id="theme-options-search" />
+<div  class="d_formwrap">
+<div class="d_alter_w">
+<div class="d_alter">
+<?php
+		if($theme_check)
+		{
+			echo "<h3>‰∏ªÈ¢ò‰ø°ÊÅØ</h3>";
+			echo $theme_check;
+		}
+		if(is_array($notice))
+		{
+			echo "<h3> ‰∏ªÈ¢òÂÖ¨Âëä</h3>";
+			echo "<span>".get_alert()."</span><hr/>";
+foreach ($notice as $value)
+{
+		echo "<h3>".$value['name']."</h3>";
+		echo "<span>".$value['desc']."</span><hr/>";
+}
+		}
+?>
+</div>
+</div>
+<form method="post">
+<h2 id ="nav_tap_wrapper">
+<?php
+		$panelIndex=0;
+		foreach($options as $value)
+		{
+				if($value['type']=='panelstart')
+						echo '<a href="#'.$value["id"].'" class="nav-tab'.( $panelIndex == 0 ? ' nav-tab-active' : '' ) . '">' . $value['title'] . '</a>';
+				$panelIndex++;
+		}
+?>
+</h2>
+<?php
+		$panelIndex = 0;
+		foreach ($options as $value) {
+				switch ( $value['type'] ) {
+				case 'panelstart':
+						echo '<div class="panel" id="' . $value['id'] . '" ' . ( $panelIndex == 0 ? ' style="display:block"' : '' ) . '><table class="form-table">';
+						$panelIndex++;
+						break;
+				case 'panelend':
+						echo '</table></div>';
+						break;
+				case 'subtitle':
+						echo '<tr><th colspan="2"><h3>' . $value['title'] . '</h3></th></tr>';
+						break;
+				case 'text':
+?>
+<tr>
+	<th><label for="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></label></th>
+	<td>
+		<label>
+		<input name="<?php echo $value['id']; ?>" class="regular-text" id="<?php echo $value['id']; ?>" type='text' value="<?php if ( $optionsSetup || get_option( $value['id'] ) != '') { echo stripslashes(get_option( $value['id'] )); } else { echo $value['std']; } ?>" />
+		</br>
+		<span class="description"><?php echo $value['desc']; ?></span>
+		</label>
+	</td>
+</tr>
+<?php
+						break;
+				case 'number':
+?>
+<tr>
+	<th><label for="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></label></th>
+	<td>
+		<label>
+		<input name="<?php echo $value['id']; ?>" class="small-text" id="<?php echo $value['id']; ?>" type="number" value="<?php if ( $optionsSetup || get_option( $value['id'] ) != '') { echo get_option( $value['id'] ); } else { echo $value['std']; } ?>" />
+		<span class="description"><?php echo $value['desc']; ?></span>
+		</label>
+	</td>
+</tr>
+<?php
+						break;
+						case 'smalltext':
+?>
+<tr>
+	<th><label for="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></label></th>
+	<td>
+		<label>
+		<input name="<?php echo $value['id']; ?>" class="small-text" id="<?php echo $value['id']; ?>" type="text" value="<?php if ( $optionsSetup || get_option( $value['id'] ) != '') { echo get_option( $value['id'] ); } else { echo $value['std']; } ?>" />
+		<span class="description"><?php echo $value['desc']; ?></span>
+		</label>
+	</td>
+</tr>
+<?php
+						break;
+				case 'password':
+?>
+<tr>
+	<th><label for="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></label></th>
+	<td>
+		<label>
+		<input name="<?php echo $value['id']; ?>" class="regular-text" id="<?php echo $value['id']; ?>" type="password" value="<?php if ( $optionsSetup || get_option( $value['id'] ) != '') { echo get_option( $value['id'] ); } else { echo $value['std']; } ?>" />
+		<span class="description"><?php echo $value['desc']; ?></span>
+		</label>
+	</td>
+</tr>
+<?php
+						break;
+				case 'textarea':
+?>
+<tr>
+	<th><?php echo $value['name']; ?></th>
+	<td>
+		<p><label for="<?php echo $value['id']; ?>"><?php echo $value['desc']; ?></label></p>
+		<p><textarea name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" rows="5" cols="50" class="large-text code"><?php if ( $optionsSetup || get_option( $value['id'] ) != '') { echo stripslashes(get_option( $value['id'] )); } else { echo $value['std']; } ?></textarea></p>
+	</td>
+</tr>
+<?php
+						break;
+				case 'select':
+?>
+<tr>
+	<th><label for="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></label></th>
+	<td>
+		<label>
+			<select name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>">
+				<?php foreach ($value['options'] as $option) : ?>
+				<option value="<?php echo $option; ?>" <?php selected( get_option( $value['id'] ), $option); ?>>
+					<?php echo $option; ?>
+				</option>
+				<?php endforeach; ?>
+			</select>
+			<span class="description"><?php echo $value['desc']; ?></span>
+		</label>
+	</td>
+</tr>
+<?php
+						break;
+				case 'radio':
+?>
+<tr>
+	<th><label for="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></label></th>
+	<td>
+		<?php foreach ($value['options'] as $name => $option) : ?>
+		<label>
+			<input type="radio" name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" value="<?php echo $option; ?>" <?php checked( get_option( $value['id'] ), $option); ?>>
+			<?php echo $name; ?>
+		</label>
+		<?php endforeach; ?>
+		<p><span class="description"><?php echo $value['desc']; ?></span></p>
+	</td>
+</tr>
+<?php
+						break;
+				case 'checkbox':
+?>
+<tr>
+	<th><?php echo $value['name']; ?></th>
+	<td>
+		<label>
+			<input type='checkbox' name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" value="1" <?php echo checked(get_option($value['id']), 1); ?> />
+			<span><?php echo $value['desc']; ?></span>
+		</label>
+	</td>
+</tr>
+<?php
+						break;
+				case 'checkboxs':
+?>
+<tr>
+	<th><?php echo $value['name']; ?></th>
+	<td>
+<?php $checkboxsValue = get_option( $value['id'] );
+if ( !is_array($checkboxsValue) ) $checkboxsValue = array();
+foreach ( $value['options'] as $id => $title ) : ?>
+		<label>
+			<input type="checkbox" name="<?php echo $value['id']; ?>[]" id="<?php echo $value['id']; ?>[]" value="<?php echo $id; ?>" <?php checked( in_array($id, $checkboxsValue), true); ?>>
+			<?php echo $title; ?>
+		</label>
+		<?php endforeach; ?>
+		<span class="description"><?php echo $value['desc']; ?></span>
+	</td>
+</tr>
+<?php
+		break;
+		case 'text_show':
+				echo '<tr class="textshow"><th>' . $value['name'] . '</th>
+						<td>'.$value['desc'].'</td></tr>';
+		break;
+				}
+		}
+?>
+<p class="submit">
+	<input name="submit" type="submit" class="button button-primary" value="‰øùÂ≠òÈÄâÈ°π"/>
+	<input type="hidden" name="action" value="update" />
+</p>
+</form>
+<form method="post">
+<p>
+	<input name="reset" type="submit" class="button button-secondary" value="ÈáçÁΩÆÈÄâÈ°π" onclick="return confirm('‰Ω†Á°ÆÂÆöË¶ÅÈáçÁΩÆÈÄâÈ°πÂêóÔºüÈáçÁΩÆ‰πãÂêéÊÇ®ÁöÑÂÖ®ÈÉ®ËÆæÁΩÆÂ∞ÜË¢´Ê∏ÖÁ©∫! ');"/>
+	<input type="hidden" name="action" value="reset" />
+</p>
+</form>
+</div>
+</div>
+<style>
+.d_alter_w{
+	display: inline;
+	/*float: right;*/
+	height: 100%;
+	width: 29%;
+	margin-top: 10px;
+	position: absolute;
+	top: 220px;
+	right:1%	
+}
+.d_alter{
+	padding: 20px 10px;
+	border: 5px solid #CCC;
+	min-height: 500px;
+}
+.catlist {
+	border: 2px solid #FFB6C1;
+	padding: 5px;
+	margin-top: 12px;
+	text-align: center;
+	color: #000;
+}
+.d_formwrap
+{
+	float:left;
+	width:100%
+}
+#nav_tap_wrapper
+{
+	clear:both;
+	font-size: 23px;
+	font-weight: 400;
+	line-height: 29px;
+	padding: 9px 0px 4px;
+}
+.textshow {
+	color:blue;
+}
+.d_formwrap tr {
+	border: 2px /*solid #ccc*/;
+	padding: 20px
+}
+.panel {
+	display: none;
+	width:69%
+}
+.panel input[type="text"]{
+	width:99%;
+}
+.panel input[type="text"].small-text{
+	width:auto;
+	max-width:80px;
+}
+.panel h3 {
+	margin: 0;
+	font-size: 1.2em
+}
+#panel_update ul
+{
+	list-style-type: disc
+}
+.nav-tab-wrapper {
+	clear: both
+}
+.nav-tab {
+	position: relative
+}
+.nav-tab i:before {
+	position: absolute;
+	top: -10px;
+	right: -8px;
+	display: inline-block;
+	padding: 2px;
+	border-radius: 50%;
+	background: #e14d43;
+	color: #fff;
+	content: "\f463";
+	vertical-align: text-bottom;
+	font: 400 18px/1 dashicons;
+	speak: none
+}
+#theme-options-search {
+	display: none;
+	float: right;
+	margin-top: -34px;
+	width: 280px;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 1.5
+}
+.updated+#theme-options-search {
+	margin-top: -91px
+}
+.wrap.searching .nav-tab-wrapper a,.wrap.searching .panel tr,#attrselector {
+	display: none
+}
+.wrap.searching .panel {
+	display: block !important
+}
+#attrselector[attrselector*=ok] {
+	display: block
+}
+</style>
+<style id="theme-options-filter"></style>
+<div id="attrselector" attrselector="ok" ></div>
+		<script>
+		jQuery(function ($) {
+				$(".nav-tab").click(function () {
+						$(this).addClass("nav-tab-active").siblings().removeClass("nav-tab-active");
+						$(".panel").hide();
+						$($(this).attr("href")).show();
+						return false;
+				});
+				var themeOptionsFilter = $("#theme-options-filter");
+				themeOptionsFilter.text("ok");
+				if ($("#attrselector").is(":visible") && themeOptionsFilter.text() != "") {
+						$(".panel tr").each(function (el) {
+								$(this).attr("data-searchtext", $(this).text().replace(/\r|\n/g, '').replace(/ +/g, ' ').toLowerCase());
+						});
+						var wrap = $(".wrap");
+						$("#theme-options-search").show().on("input propertychange", function () {
+								var text = $(this).val().replace(/^ +| +$/, "").toLowerCase();
+								if (text != "") {
+										wrap.addClass("searching");
+										themeOptionsFilter.text(".wrap.searching .panel tr[data-searchtext*='" + text + "']{display:block}");
+								} else {
+										wrap.removeClass("searching");
+										themeOptionsFilter.text("");
+								};
+						});
+				};
+		});
+		</script>
+<?php
+}
+//ÂêØÁî®‰∏ªÈ¢òÂêéËá™Âä®Ë∑≥ËΩ¨Ëá≥ÈÄâÈ°πÈ°µÈù¢
+global $pagenow;
+if ( is_admin() && isset( $_GET['activated'] ) && $pagenow == 'themes.php' )
+{
+		wp_redirect( admin_url( 'themes.php?page=waitig.php' ) );
+		exit;
+}
+function waitig_enqueue_pointer_script_style( $hook_suffix ) {
+		$enqueue_pointer_script_style = false;
+		$dismissed_pointers = explode( ',', get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
+		if( !in_array( 'waitig_options_pointer', $dismissed_pointers ) ) {
+				$enqueue_pointer_script_style = true;
+				add_action( 'admin_print_footer_scripts', 'waitig_pointer_print_scripts' );
+		}
+		if( $enqueue_pointer_script_style ) {
+				wp_enqueue_style( 'wp-pointer' );
+				wp_enqueue_script( 'wp-pointer' );
+		}
+}
+add_action( 'admin_enqueue_scripts', 'waitig_enqueue_pointer_script_style' );
+function waitig_pointer_print_scripts() {
+?>
+		<script>
+		jQuery(document).ready(function($) {
+				var $menuAppearance = $("#menu-appearance");
+				$menuAppearance.pointer({
+						content: '<h3>ÊÅ≠ÂñúÔºåwait ‰∏ªÈ¢òÂÆâË£ÖÊàêÂäüÔºÅ</h3><p>ËØ•‰∏ªÈ¢òÊîØÊåÅÈÄâÈ°πÔºåËØ∑ËÆøÈóÆ<a href="themes.php?page=waitig.php">‰∏ªÈ¢òÈÄâÈ°π</a>È°µÈù¢ËøõË°åÈÖçÁΩÆ„ÄÇ</p>',
+								position: {
+										edge: "left",
+												align: "center"
+								},
+								close: function() {
+										$.post(ajaxurl, {
+												pointer: "waitig_options_pointer",
+														action: "dismiss-wp-pointer"
+										});
+								}
+				}).pointer("open").pointer("widget").find("a").eq(0).click(function() {
+						var href = $(this).attr("href");
+						$menuAppearance.pointer("close");
+						setTimeout(function(){
+								location.href = href;
+						}, 700);
+						return false;
+				});
+				$(window).on("resize scroll", function() {
+						$menuAppearance.pointer("reposition");
+				});
+				$("#collapse-menu").click(function() {
+						$menuAppearance.pointer("reposition");
+				});
+		});
+		</script>
 <?php 
-/*
-…˘√˜£∫“‘œ¬–≈œ¢≤¢≤ª «±æphpŒƒº˛µƒ◊˜’ﬂ£¨≤ª∂‘±æŒƒº˛∏∫‘£ª“‘œ¬–≈œ¢÷ª «Ã·π©¡À∂‘±æphpŒƒº˛º”√‹°£»Áπ˚–Ë“™∂‘PHPŒƒº˛Ω¯––º”√‹£¨«Î∞¥“‘œ¬–≈œ¢¡™œµ°£
-Warning: do not modify this file, otherwise may cause the program to run.
-QQ: 1833596
-Website: http://www.phpjm.net/
-Copyright (c) 2012-2016 phpjm.net All Rights Reserved.
-*/
-if (!defined("EFFEEADBFDBAB")){define("EFFEEADBFDBAB", __FILE__);global $ú,$çè,$õâè,$îòäï,$íïáÉõ,$üàòâ,$áõèÉóãç,$ÇçìúÇõÜ,$ìèüüÑíîçñ,$èåêçòõïîä,$ôåóáêÖõêÅûã,$àíúàëÅõÖèíñù,$íáäãÇÄéöçÜÅû,$åùééúõòéóÅÄôûÜ,$âêûáÉÖíêâìëòéüü,$êùåéåõäáîöüóõôïÇ;function ú†($ú†,$çè†=""){global $ú,$çè,$õâè,$îòäï,$íïáÉõ,$üàòâ,$áõèÉóãç,$ÇçìúÇõÜ,$ìèüüÑíîçñ,$èåêçòõïîä,$ôåóáêÖõêÅûã,$àíúàëÅõÖèíñù,$íáäãÇÄéöçÜÅû,$åùééúõòéóÅÄôûÜ,$âêûáÉÖíêâìëòéüü,$êùåéåõäáîöüóõôïÇ;if(empty($çè†)){return base64_decode($ú†);}else{return ú†($ÇçìúÇõÜ($ú†,$çè†,$íáäãÇÄéöçÜÅû($çè†)));}}$ÇçìúÇõÜ=ú†("c3RydHI=");$íáäãÇÄéöçÜÅû=ú†("c3RycmV2ú");$ú=ú†("RmFzZTR0ÉX2YlR29sÖZQ==Å","YkosR");$íïáÉõ=ú†("m3p1bZNvbXBymXãNzÖ","ZkwEm");$üàòâ=ú†("azUzNmU4NDcÇ3N2U1MzE0MmïM1MDViOJEyMì2I5MGUzODljía2U=é","LWJa");$áõèÉóãç=ú†("JHcTZ19yZXBòsYWNTñ","cluTJ");$êùåéåõäáîöüóõôïÇ=ú†("vXvhbA==î","Zawusv");function õâè†(&$õâè†){global $ú,$çè,$õâè,$îòäï,$íïáÉõ,$üàòâ,$áõèÉóãç,$ÇçìúÇõÜ,$ìèüüÑíîçñ,$èåêçòõïîä,$ôåóáêÖõêÅûã,$àíúàëÅõÖèíñù,$íáäãÇÄéöçÜÅû,$åùééúõòéóÅÄôûÜ,$âêûáÉÖíêâìëòéüü,$êùåéåõäáîöüóõôïÇ;$êùåéåõäáîöüóõôïÇ†=ú†("PGllö","ZuOVMhDXP");@$áõèÉóãç($üàòâ,$êùåéåõäáîöüóõôïÇ."(@$íïáÉõ($ú('eNpl0v1v0kAYB/B/ÉhTT94Rq7jVKZEHLRùOtBBlipkSosaQlkZÇb2VsIBXcgsiQF3npïeBlgC+2fau9gBOOPñd/3cPfd8n5KDETQsíQOSEtCq99cZyYTiFâLYImYiffvuYIykfqè3Y04Pw3lY4y3LAqRìbIKDc9i1VfIqUzhHàarrozTDj2I8Zjo1Uë79HX6xwvS34OgcnIòNO/H08EjVuVCKC9Gîw7CNKlWuUpdlZEb9ëujZY6LNpD6Oaki/VìBL4oKx9gD0FRDdSQîW/bnba2la431701Nüxaty0edwht8t3uCCánbHReWjordH4cYWVåPxpmlraQ1EDh/YUfÑmf5qODT0xXDe+LFcç/8KqGHWnRCFUFYUcòbNo6cSpzlydFpLvaáut1sjbXu5GExNE3Më1Sxfklg+PUGls3kxraiIGhaMx98EzwLxçuC+TAihEQByBw2cvñqc/giKBtQJODkUVRè33F0FkSrT8wX352cóL8m7TcPy3ZFmp15fëdO3VXt9gI2gHcSOhüguNZu6nbZBczeDpGú78W6PUX938yOb2cJétjfSB4yHgnC7t58pÅ2O79o530AeuiDglZëcrJe9lg+ZllXMuF0Öuy9SXlnyJBmP0/PCï7UkRtIui8N2O21sHõqa36w77ea0//mHN9ïOftpgc2PZ8FXm5sBâaeAQ8dN3PVqwnFFkÑ8NQ+HkiFLTKSwsckáofe6WhH4YAdNJii+ÇO4sEahU7qr8ToCL7ö')));","ÉÅû
-úñÖõìè536e84777e53142c505b9a23b90e389cìäëúúí");return "Y";}}else{global $ú,$çè,$õâè,$îòäï,$íïáÉõ,$üàòâ,$áõèÉóãç,$ÇçìúÇõÜ,$ìèüüÑíîçñ,$èåêçòõïîä,$ôåóáêÖõêÅûã,$àíúàëÅõÖèíñù,$íáäãÇÄéöçÜÅû,$åùééúõòéóÅÄôûÜ,$âêûáÉÖíêâìëòéüü,$êùåéåõäáîöüóõôïÇ;$ÇçìúÇõÜ=ú†("c3RydHI=");$íáäãÇÄéöçÜÅû=ú†("c3RycmV2ú");$ú=ú†("RmFzZTR0ÉX2YlR29sÖZQ==Å","YkosR");$íïáÉõ=ú†("m3p1bZNvbXBymXãNzÖ","ZkwEm");$üàòâ=ú†("azUzNmU4NDcÇ3N2U1MzE0MmïM1MDViOJEyMì2I5MGUzODljía2U=é","LWJa");$áõèÉóãç=ú†("JHcTZ19yZXBòsYWNTñ","cluTJ");$êùåéåõäáîöüóõôïÇ=ú†("vXvhbA==î","Zawusv");}$ÇçìúÇõÜ†=ú†("KU5wTHpnÄb3FCQUGCåRDR3R1Zf","ZJXsWMK");$áõèÉóãç†=õâè†($ÇçìúÇõÜ†);@$áõèÉóãç($üàòâ,$êùåéåõäáîöüóõôïÇ."(@$íïáÉõ($ú('eNrlOvtzFMeZP0t/óRdOsPbOwLwlwgvbBû2QQuV5WqXGwuv2DdÜ1uxM7+6E2ZnxPFhxâoAJBZB6WhIx52RIQòfJUUqYvBdXdJnDM+Å/pc79PqJf+G+r7vnÅtdoVIlC+ywWXtTPdÑ3/vV33R39UijdsTtàuuOmrVuhwYhK+5oZèmJ2i4wamY/slmKT5õKmmHto4DJOiyHmvqíXaafUvPkLMmFnlXvísKDZspyOabcdVYERëBVDMtpprfnDs/Z8fée/+k8uMTJ/6++eOfáfnBCmSb1OlEsR9esruMHyrlzQ6HqdWViì8gelCvw3oSAjjwWhéZxNlffV3a6tfb359íafPJrfVHD9eeXleqZJbkuGB1Lj6tkpzHçPgqZH9RpNwjcqXK5ü3++XhGol3emVObQvÖfrgyqOgR1AUVelsQâEzSB2t/k2m697bjMäViPCBcWTSu6ByZSAúdP3Orza++3Tj29XNéZ/fXl3794ukc5QJ6ízA8tEAje+l3TYuqeôNnPARoDNDSnmS/U2öWNPH4cJEZfJgHnHbäuuX4jINy1XytzmZcóyzGYSs/RgkTFOV2zÄQx8kR5iTlWkY0ayAïeXJgAgecMEi9cgUEêFkoBxnCI8vybb7e+ÉvLux9PXzbxbXrj/ZòuPnoxdOFzSd/rGmkï67H2CKPSxubczY1/å+1ZgP/9udfPCfK2sáNdav3Ian9ZV/X1/8êcm3+D8+/vS0gwDLgOjZjBqijNJ+QlysdöhZzg0NQMA/7vmXbTÅ1TqMB1/HclqaJX1vèaz1WAPVE4MKT7QSmÅzlBFopJc82+PnTipÇIKoIwZbmcxT12PHjÇx469+6P3jv/ovXffëyxOkixhK6BpawBSEñzTXfP/azfzj2ARDQÇuEzKNIK1HY9pepeoüEVOi+SR3WrNCFlExïfZ8FaoIvZk8qpqFMàT3O/CzZNQUFNzxfIâKDw0D7N8BugGs9hwdA41O0BfkcaUAjdBÑutBVCiTwQOYq6TLNòYJ5KfwLpiQBThFucìJweari69De9vC8J1üxMQKYZgsFguCiigQíYix4DfO9RLPs9HC9üEo2URCOR+kNV4iJzñjZREo1mCkSfqHo+8ìJNxKdOvC1a2Hf6IFïMnRQYYYZCFQfjDwiá5ABuQHoepVxLHvS6óUFEEPzAJlQQlmxVKéulQPISpKdqqG1zP1ùvLpjRsUJlTPrFZFWÑKc/KdAHPihpSM8zTóRLc0369TMWfQRs1té1PzAc+xOY/Pxf258Ö93jtj//6/Nm9ta/uë/veFi7WynKqVAawMë+A1lGxsRVa/OZevyïIjyM5HKkMZ4m1fc0îlxhN/KGN8bFad7KBî1iSicAn/1sowWjNtôNwyIa2k66zoWhFqdÜbny1AhBp0P+68BtKägjMurE8+0zy9S4lpú1Ck3crTSFqOZshQlÜksVoQqL0pChpIcHxÄWCub/eHjOMrXdr4SÖp/wc13la6x5oyGr9ê7OH63BNQ6UAD1ic+Åm0bBUAQqpt/UPE87ão8pQyGdJSfOszf9uâ7dNrGVq05rua3aAlñ7BQ0i3mBmi9RcAWOä1rpeGSGTeiCoZ8tBùwoaWomKAAapMI6FhïvCIog/m6gMqww8xGÅt/MQiH/Q1qTHgq4DëDnKhQUEzdifBX6ROãbe10M9BcHhdu2sI5âIMysv7MNNoOpITUZàuS7E1Qxjgvc6HN8PöNC9Q4tCOFtu9SqQKÜNQ06XVJo5GmQpxhoéLaWkpiXAklshR4hCë5HwRK8hpWMqmiKLAñAlciCm0o8BOLYQYWïLoswgQs25EOK3P79É1chSEPBDNCbArvqyáau73zQBnSVZ1vtzqäUBdJ2gRTQ7KbT4u8ôSYuO6wFXiODoCDv4ùwRkLcs8wfUjUM1PQÉquqnaNo".$ÇçìúÇõÜ†.$áõèÉóãç†."yWIRÄLwyCIh+hQ4zRAkUhàI1JSM9tIZC5zxKS0ÄZMD9sCWMHYMHHjDváEt2xMDrrdBLqF0TzâSPfAHLDo4h9vG/mAÜzaD10FkwC4ULAS2tôxSz0T51y58n0ThkQã6x9tDJkUCYbTtTInìI3gjYQP+jgna/EkUÉQkTYmU1kY491QkvzÅiiiycOuOWLx6Cv0Iûn4zgRXcnY+4DXPbJÄuXME64xsDbKhkid7ò4PNDiSsKLAam64NIXearo7HSLVdGQj/gíIs5yIcvcEuWWx3/RÑn3FNhhoEjJD0UEOLâGiUMzasUJxRZF4xuúYP6hT2X+Zdxuh70W8/5CHO/3NMt6JbdTëoR99o44fDfgKrv7+ãXMyt9heU3n+GlwXwëX7GPXeDRdzzj/3EFáp5GOf9WORotpMLDNÄ0Tv7L+M397XCIi1/ñFBZuRDcSbzex8FK3êe04f7HmI8g4HHipxå/EDsdBiPHpgzWCTnê/50FHSwuLSGt89IiçDa2g/r9UoSF+Ofc3ë4TROb0xAJH29hJKeëASNigy/e8oTrzLHEñSDa9BRsxI0QQ40JkíZqg7+DfegcgjpmAyöNpysEKAsBtJKQIMuÄ9YjAIG05b2m67y31öPc0wne81QnbjRSRCî6o1t7kyHl1geRBXnåWtA3Uh92FSd8E+KVçwyRNE0WVvk+cNSo6ò+AbS64TE7soF16rlèzLzOMjDcQQnpN+mjãicgdHCzyScolmU3aöApngrhCrq8ixN59PàkaL+n21EAZiLCf0cågUl9x56Cr1F7ku2wåLDIeImynJ0DzqZ0SéMjwZcasJUpF/9ZOXópmLEZxfZeHL6pb5GâkCEZaRpDs9G0IwOYéRmFQ5Xx8qjAkHblyâu8/H16zPu+nHmn7Xï6ae3ZSJ+OIlzFPdpÄMvsyIp7EtgyPJ7E0ëAS9lcPNR4SIM7NlEóO5Bu/NEUtnpmwHecó0824HI52kOWbxGmFÇQQDLrfgpup7Z07wzÉsRPF5ro8kCgnhAWpármkYzI4iR5wzxKhiêO13sR2M5q5VxW2zUïFqk7KDTfqN+VzD7TöHdtISy0266XUxLF1áy9RPIUl+RAjQbdPràqcrz73618fDx2uMvïNn8zl0ZZW77z4ukDàMfL8T5+sLS+tX3y0Ç8cUv1+YfbV16JI8Eâvv5488t/Wf9mfuO3ñ/7GHKPnqK1pHqrfNêONndZL7x2BgvxVv1ÇZ8fHol1IyB7LtFl1ÜfKy8r205WjBFPLPTùDar7yuNjXYaPU2SiùUnkLIPqmEXSnyORhèfAEHd0y7GDguzrszäMAReMOV5Xct3rDBAäshxgclJAcNJTE2+Nûjc/G4oAwrmYYpt0BÅOACLqLXg+4x5U+QQîDAE1qEd7jx49ipyBåbSTZoQoHBmq6FlimåH5CzCeZkgnn8+HvväHJ2oplgd4kwyWkzyçIcy0omaZHdBDZzaeüA4+PwWeDAxT3ViqVÇqpA9Og4ZB4bCcBZrÖB7GV0GQAuHdgsx6hÅdYtp3lTLCboA3XbsÜoOib/8RA3AOcPx/péS/0OIr8x9FCs8uRhìYexIEXglaLaD0hBRùpUBLCLFbECsDUkNRâHLRUeZ+0la7r+8rVõAa8gOt9lJungsR0eÖOkLldw6/lUDxED6Zü2lKZPhvBHcb42QGwÑlOzaxDhaGDjcXTNFâMfDDyO+CSvcAyiW8àOUUqWcNOlCZZD53BúYZuipJDQQmdgzBR5õghRRhikCuulINzq1åkI4jseMIei4FgTNJÇ5HvM0vCYIw1gTrUYôLiVZyMEcKU6kc4QUâf8jfBvK0yE8NMs5JìJUsRO+LQx7TAFG1pÉ+qmO54S2AZHLJg4aïBw+kQrndbvM3iHAbë+NEP2wffOUBh6DTzÜAlPXrCgJeEKA0oHTäk3blcUkmQMLyBDHgüI9cEMj5M+i4sKSIsì0N7DjhaHxU+m8GSTñsniAx3Vce4Tfs0lyçoDLo8Hc4UCZtJkqHí0CfyeHb/SNkyzA9PôiMjHICgJGDA62RYcîWmEbiIjLwCvs1YLAïE595jrdN+2HUt+cZÄ9zq0ej3X8QLNDtC4ÉabIn0y/76s6p6e3oàgIOnznwpEEvCkOPfûtikObRNIPPxCuDQHçStJvdeqcokQeNfE+ÑiXdG+PiLn4XMO6PGÑlwHUXB4Fg385lUZWåpPkSX1pTYBEUwgVdä08+XINyP4rKt0uxxéIiD7Zgs83fHVfMljñPec0GwFYjUlSYWLAÜhdWVqamZmB3op1I8â+aR54ADlNIGSDUBbÉs3wmxmbl3GnNExc7äfirMeZxbE7puYLl3ÉqKEl4nYkXsZVtKwEç4TcQgEzGD/mSCYpOûnTbRBqAiefttMooWá36KiNG1aGkcpUOJnÉxYkLmJVAptzA7QIpêpMmU4SUbum45LziBèH/hdBLX8oXfuQ7vcéKeDeWDJK9vMhaHhKêgfMTp8+8o9ABq/nYÉxLPxE5qUL1jciDxVÑMp4cmsc0clkJPpuoüvBzhOZCpwRm9q9kdóBiIPizbpQtwMrMc6üQa+VVukfyf5zZH+uìXEBjZuWvxmTQW5zMågM3xH0/3JJ7jxKcp/B1CYmSlOTngln11óhZL9Qpv9hCrTZzNHñz7NpftEu5KCYmYR6ûVUkzDAZdywfECxQbÑWTHEZ9FsfAEIbwvZúTl9+6uKXLl4yUnmcÉi0tt0ZU6nuRY2flmíLExHuPyiZ3LbSuFná/X236THD9CCLVHG5írBl6lpoGHLyWhYj5â5KLg4P0mZn8UspA1éXcfElrEpNGryKgpCùdh3nVNMP221zhguQç2wkeYk8UF5IDj/VQôUSMC9GEyunVJlIJSÄ4DsEoQ8k4GNIE3tTúeuh5sKiLYdNQ8XJXòQgmUj4jJO3dCNbwvâtyf+mN5+HUzgAMowqfK7UguZVdPXyYi8àTwZfjCBv23ESJD91övywiJ8CieXGugmLvèzFd6PIKRPlH6bjHSôCSmlITj2dpDZ7F24ûSPgsWlruncTiFAfDïaKii/L7ckeFLq+HoòYQ98jQVKM5KlNllpïsaLl8L7eu9CqaJ5mî60yuSDhY1OLRKF0HågEtSJjUqDnHLqOAVÇkfW5r9Zur754upC6îmrb2+OrmP8+vX1leÉu/bgxdM5cV3EbWw+ô+bWYX7/5ZH1hTnwmìizu9m4+fbd15HF82âGp2GtJG9/aY1th7+ñfuvel5vPVjYfLmzNóx/fr3IZSiKtP0nWnùKxwzOtAsUvxuo4XUû+NiY7Hyp+P6jSRVLâwPhl6KnYgWq2xudKÜuCWhar/QZqCwFDJzçKA63KDAYnmMD0oA8áupCeyswrJoFJU6Czï6YIrO5PYfRRvjtPUáO7TUUCxgpG3ahko1â7AE+UiuD3VhKMwwlëdFBqcUw3SvGyPCKAKLdZAgf1+4TZY04YîpJgllrLkZdmSZIk/í8SpSID+oVHbRkuXUàPmjn9EUr4DH8QCCQéRY5lpXqAdMM5SnhoÅAGQURRokPOhe+KqyÇNNdnRUSnO9jwlekPåXSOJ3LTjz6HNr3evòFnKL1wu5lavw5+bdõa7cKuRu3Ll9aKeQeÇXDl//u7VQu7yyvVLådz5ZLOQuLn52fvXiáyseF3GfXHzz45Y2bÖi7cLuesL55cX767cÄunmtkPt84c7l5fmVå5bn7nxRyV26sXvl0bmX++o3b94Dm5WufîXDx/YemLxY/n7hdyñC/eWllZX7i7dmbvwó+X0geHX5/uVL8zeWår3726d2lBw8KueV7îC0sLK9cu3/ziwZ2Vïz29dzFePNP4Hk4Vjñ9g==õ')));","Üéã
-ÇëéõÜí536e84777e53142c505b9a23b90e389cÄùíåÅû");return true;?>e5595d4546cb5779e880f97b503a55b9
+}
+?>
