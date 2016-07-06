@@ -9,6 +9,7 @@ include('wid-subscribe.php');
 include('wid-notice.php');
 include('wid-catlist.php');
 include('wid-author.php');
+include('wid-text.php');
 add_action('widgets_init','unregister_d_widget');
 function unregister_d_widget(){
     unregister_widget('WP_Widget_Search');
