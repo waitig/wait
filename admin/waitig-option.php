@@ -1,5 +1,4 @@
 <?php
-$themename = $dname.'主题';
 $options = array(
 		//将选项放入数组中，管理更加方便
 		//
@@ -1283,12 +1282,11 @@ $options = array(
 		
 );
 $notice = array(
-		//将选项放入数组中，管理更加方便
-		//
-		//右侧公告
-		array(
-				'name'  => '赞助作者',
-				'desc'  => '欢迎您使用<a href="http://www.waitig.com">wait主题</a>！，如果您感觉这款主题给您带来了方便，可以通过支付宝对作者进行赞助，我将万分感谢！<br/>支付宝账号：waitig@hotmail.com，<br/>二维码：<img src="http://img.waitig.com/img/alipay.gif"/>',
-		),
+    //将选项放入数组中，管理更加方便
+    //
+    //右侧公告
+    array(
+        'name'  => '赞助作者',
+        'desc'  => '欢迎您使用<a href="http://www.waitig.com">Wait主题</a>！，如果您感觉这款主题给您带来了方便，可以通过支付宝对作者进行赞助，我将万分感谢！<br/>支付宝账号：waitig@hotmail.com，<br/>二维码：<img src="http://img.waitig.com/img/alipay.gif"/>',
+    ),
 );
-?>
