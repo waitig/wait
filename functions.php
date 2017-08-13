@@ -255,13 +255,15 @@ function deel_avatar_default()
 function Bing_show_category()
 {
     global $wpdb;
+    $output = '';
     $request = "SELECT $wpdb->terms.term_id, name FROM $wpdb->terms ";
     $request .= " LEFT JOIN $wpdb->term_taxonomy ON $wpdb->term_taxonomy.term_id = $wpdb->terms.term_id ";
     $request .= " WHERE $wpdb->term_taxonomy.taxonomy = 'category' ";
     $request .= " ORDER BY term_id asc";
     $categorys = $wpdb->get_results($request);
     foreach ($categorys as $category) { //调用菜单
-        $output .= $category->name . "=(&nbsp;" . $category->term_id . '&nbsp;),&nbsp;&nbsp;';
+        $output .= $category->name . "&nbsp;&nbsp;[&nbsp" . $category->term_id . '&nbsp;]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+
     }
     return $output;
 }
@@ -1220,5 +1222,13 @@ if (waitig_gopt('waitig_copyright')) {
 
     add_filter('the_content', 'deel_copyright');
 }
-//获取发表文章最多的用户
+
+//登陆后跳转到首页
+if(waitig_gopt('login_redirect_url')){
+    function my_login_redirect($redirect_to, $request){
+        return waitig_gopt('login_redirect_url');
+    }
+    add_filter("login_redirect", "my_login_redirect", 10, 3);
+}
+
 ?>
