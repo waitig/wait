@@ -159,7 +159,7 @@ function footerScript()
         wp_enqueue_script('jquery');
         wp_register_script('default', get_template_directory_uri() . '/js/code.min.js', false, '1.1', waitig_gopt('d_jquerybom_b') ? true : false);
         wp_enqueue_script('default');
-        wp_register_style('style', get_template_directory_uri() . '/style.css', false, '3.0.4');
+        wp_register_style('style', get_template_directory_uri() . '/style.css', false, '3.0.5');
         wp_enqueue_style('style');
     }
 }
