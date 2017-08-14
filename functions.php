@@ -1,5 +1,5 @@
 <?php
-$themename = 'Wait';
+$themename = 'wait';
 add_action('after_setup_theme', 'deel_setup');
 include('admin/waitig.php');
 include('widgets/index.php');
@@ -1042,7 +1042,7 @@ function get_styles()
     if ($color == '') {
         $color = '#468847';
     }
-    $style .= "a{color:$color;}.navbar .nav li.current-menu-item { border-bottom-color: $color;} .navbar .nav>li:hover {border-bottom-color: $color;} .navbar .nav li.current-menu-item a,.navbar .nav li.current-menu-parent a,.navbar .nav li.current_page_item a,.navbar .nav li.current-post-ancestor {border-bottom-color:$color;} ";
+    $style .= "a{color:$color;}.navbar .nav li.current-menu-item,.navbar .nav li.current-menu-parent,.navbar .nav li.current-category-parent { border-bottom-color: $color;} .navbar .nav>li:hover {border-bottom-color: $color;} .navbar .nav li.current-menu-item a,.navbar .nav li.current-menu-parent a,.navbar .nav li.current_page_item a,.navbar .nav li.current-post-ancestor {border-bottom-color:$color;} ";
     $bordercolor = waitig_gopt('waitig_border_color');
     if ($bordercolor == '')
         $bordercolor = '#378BCA';

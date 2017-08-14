@@ -54,7 +54,7 @@ $options = array(
         'name' => '网站图片logo地址',
         'desc' => '在此填入您的图片l地址',
         'id' => 'waitig_logo_url',
-        'type' => 'text',
+        'type' => 'images',
         'std' => ''
     ),
     array(
@@ -194,7 +194,7 @@ $options = array(
         'name' => '导航栏图片',
         'desc' => '输入导航栏图片地址，留空则代表关闭。',
         'id' => "waitig_nav_img",
-        'type' => 'text',
+        'type' => 'images',
         'std' => ''
     ),
     array(
