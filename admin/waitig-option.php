@@ -358,7 +358,7 @@ $options = array(
         'name' => '微信二维码',
         'desc' => '请输入您的二维码图片路径',
         'id' => 'waitig_weixin_qr',
-        'type' => 'text',
+        'type' => 'images',
         'std' => ''
     ),
     array(
@@ -386,7 +386,7 @@ $options = array(
         'name' => '支付宝二维码',
         'desc' => '请输入您的支付宝图片路径',
         'id' => 'waitig_pay_qr',
-        'type' => 'text',
+        'type' => 'images',
         'std' => ''
     ),
     array(
@@ -443,12 +443,6 @@ $options = array(
         'id' => "waitig_sideroll_2",
         'type' => 'number',
         'std' => ''
-    ),
-    array(
-        'name' => '自定义404页面',
-        'desc' => '默认的404是神经猫游戏，开启后是一个白色哭泣的404',
-        'id' => 'waitig_404_en',
-        'type' => 'checkbox'
     ),
     array(
         'name' => '热门排行',
@@ -890,7 +884,7 @@ $options = array(
         'name' => '幻灯片一图片',
         'desc' => '在这里输入您的幻灯片的图片路径',
         'id' => "waitig_slick1img",
-        'type' => 'text',
+        'type' => 'images',
         'std' => ''
     ),
     array(
@@ -911,7 +905,7 @@ $options = array(
         'name' => '幻灯片二图片',
         'desc' => '在这里输入您的幻灯片的图片路径',
         'id' => "waitig_slick2img",
-        'type' => 'text',
+        'type' => 'images',
         'std' => ''
     ),
     array(
@@ -932,7 +926,7 @@ $options = array(
         'name' => '幻灯片三图片',
         'desc' => '在这里输入您的幻灯片的图片路径',
         'id' => "waitig_slick3img",
-        'type' => 'text',
+        'type' => 'images',
         'std' => ''
     ),
     array(
@@ -953,7 +947,7 @@ $options = array(
         'name' => '幻灯片四图片',
         'desc' => '在这里输入您的幻灯片的图片路径',
         'id' => "waitig_slick4img",
-        'type' => 'text',
+        'type' => 'images',
         'std' => ''
     ),
     array(
@@ -974,7 +968,7 @@ $options = array(
         'name' => '幻灯片五图片',
         'desc' => '在这里输入您的幻灯片的图片路径',
         'id' => "waitig_slick5img",
-        'type' => 'text',
+        'type' => 'images',
         'std' => ''
     ),
     array(
@@ -995,7 +989,7 @@ $options = array(
         'name' => '幻灯片六图片',
         'desc' => '在这里输入您的幻灯片的图片路径',
         'id' => "waitig_slick6img",
-        'type' => 'text',
+        'type' => 'images',
         'std' => ''
     ),
     array(
