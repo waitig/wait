@@ -61,7 +61,7 @@
         <ul class="nav">
             <?php if (waitig_gopt('waitig_nav_img')) { ?>
                 <div class="nav-img"><a href="<?php echo home_url('/'); ?>"><img
-                            src="<?php echo waitig_gopt('waitig_nav_img'); ?>" alt="<?php bloginfo('name'); ?>"/>
+                                src="<?php echo waitig_gopt('waitig_nav_img'); ?>" alt="<?php bloginfo('name'); ?>"/>
                 </div></a> <?php } ?>
             <div class="toggle-search"><i class="fa fa-search"></i></div>
             <?php echo str_replace("</ul></div>", "", ereg_replace("<div[^>]*><ul[^>]*>", "", wp_nav_menu(array('theme_location' => 'nav', 'echo' => false)))); ?>
@@ -75,7 +75,8 @@
                               action="/">
                             <div><input type="text" class="search" name="s"
                                         onblur="if(this.value==='')this.value='search...';"
-                                        onfocus="if(this.value==='search...')this.value='';" value="search..." title="搜索"></div>
+                                        onfocus="if(this.value==='search...')this.value='';" value="search..."
+                                        title="搜索"></div>
                         </form>
                     </div>
                 </div>

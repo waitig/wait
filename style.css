@@ -1910,7 +1910,7 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 
 .navbar .nav > li {
     position: relative;
-    float: right;
+    float: left;
     margin: 0 2px 0 0;
     display: block;
     min-width: 100px;
