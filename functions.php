@@ -63,8 +63,8 @@ function deel_setup()
     //添加后台左下角文字
     function waitig_admin_footer_text($text)
     {
-        global $themename,$themeversion;
-        $text = '感谢使用<a target="_blank" href=https://www.waitig.com/ >'.$themename.'主题 '.$themeversion.'</a>进行创作！';
+        global $themename, $themeversion;
+        $text = '感谢使用<a target="_blank" href=https://www.waitig.com/ >' . $themename . '主题 ' . $themeversion . '</a>进行创作！';
         return $text;
     }
 
@@ -1211,5 +1211,22 @@ function register_my_custom_submenu_page()
 function my_custom_submenu_page_callback()
 {
     echo '<iframe src="http://www.waitig.com/wait_theme_update_note_and_feedback.html" width="100%"  height="800px" frameborder="0"></iframe>';
+}
+
+//图片地址
+/* 替换图片链接为 https */
+if (waitig_gopt('waitig_enable_https')) {
+    function my_content_manipulator($content)
+    {
+        $homeUrl = home_url('/');
+        $trueHomeUrl = str_replace('http://', '', $homeUrl);
+        $trueHomeUrl = str_replace('https://', '', $trueHomeUrl);
+        if (is_ssl()) {
+            $content = str_replace('http://' . $trueHomeUrl . 'wp-content/uploads', 'https://' . $trueHomeUrl . 'wp-content/uploads', $content);
+        }
+        return $content;
+    }
+
+    add_filter('the_content', 'my_content_manipulator');
 }
 ?>
