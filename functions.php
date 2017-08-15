@@ -1,5 +1,6 @@
 <?php
 $themename = 'wait';
+$themeversion = '3.3';
 add_action('after_setup_theme', 'deel_setup');
 include('admin/waitig.php');
 include('widgets/index.php');
@@ -62,7 +63,8 @@ function deel_setup()
     //添加后台左下角文字
     function waitig_admin_footer_text($text)
     {
-        $text = '感谢使用<a target="_blank" href=http://www.waitig.com/ >waitig主题 3.2</a>进行创作！';
+        global $themename,$themeversion;
+        $text = '感谢使用<a target="_blank" href=https://www.waitig.com/ >'.$themename.'主题 '.$themeversion.'</a>进行创作！';
         return $text;
     }
 
@@ -1190,11 +1192,24 @@ if (waitig_gopt('waitig_copyright')) {
 }
 
 //登陆后跳转到首页
-if(waitig_gopt('login_redirect_url')){
-    function my_login_redirect($redirect_to, $request){
+if (waitig_gopt('login_redirect_url')) {
+    function my_login_redirect($redirect_to, $request)
+    {
         return waitig_gopt('login_redirect_url');
     }
+
     add_filter("login_redirect", "my_login_redirect", 10, 3);
 }
 
+//主题反馈菜单
+add_action('admin_menu', 'register_my_custom_submenu_page');
+function register_my_custom_submenu_page()
+{
+    add_submenu_page('waitig.php', '主题更新及反馈', '主题更新及反馈', 'manage_options', 'my-custom-submenu-page', 'my_custom_submenu_page_callback');
+}
+
+function my_custom_submenu_page_callback()
+{
+    echo '<iframe src="http://www.waitig.com/wait_theme_update_note_and_feedback.html" width="100%"  height="800px" frameborder="0"></iframe>';
+}
 ?>

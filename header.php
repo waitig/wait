@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:wb="http://open.weibo.com/wb">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8">
@@ -44,7 +44,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <?php if (waitig_gopt('waitig_shack_en')) { ?>
         <link rel="stylesheet" type="text/css"
-              href="<?php echo get_bloginfo('template_url'); ?>/css/csshake.min.css"></link>
+              href="<?php echo get_bloginfo('template_url'); ?>/css/csshake.min.css"/>
     <?php } ?>
     <link rel="shortcut icon" href="/favicon.ico">
     <!--[if IE 9]>
@@ -62,7 +62,7 @@
             <?php if (waitig_gopt('waitig_nav_img')) { ?>
                 <div class="nav-img"><a href="<?php echo home_url('/'); ?>"><img
                                 src="<?php echo waitig_gopt('waitig_nav_img'); ?>" alt="<?php bloginfo('name'); ?>"/>
-                </div></a> <?php } ?>
+                    </a></div> <?php } ?>
             <div class="toggle-search"><i class="fa fa-search"></i></div>
             <?php echo str_replace("</ul></div>", "", ereg_replace("<div[^>]*><ul[^>]*>", "", wp_nav_menu(array('theme_location' => 'nav', 'echo' => false)))); ?>
             <div class="nav-right">

@@ -1021,6 +1021,13 @@ $options = array(
         'title' => '本页面中的一些功能主要是为了替代一些插件，可能会和一些插件发生冲突',
         'type' => 'subtitle'
     ),
+    //waitig_enable_https
+    array(
+        'name' => '网站开启HTTPS',
+        'desc' => '开启   【如果你的网站开启了HTTPS，请勾选此项，并按照<a class="button-primary" rel="nofollow" href="https://www.waitig.com/wordpress-baidu-share-dont-support-https.html" target="lank">教程链接</a>中的方法来解决百度分享不支持HTTPS问题】',
+        'id' => "waitig_enable_https",
+        'type' => 'checkbox'
+    ),
     array(
         'name' => '新式登陆界面',
         'desc' => '启用   【将会修改默认的登陆界面，用新式登陆界面代替】',
