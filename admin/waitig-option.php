@@ -192,7 +192,7 @@ $options = array(
     ),
     array(
         'name' => '导航栏图片',
-        'desc' => '输入导航栏图片地址，留空则代表关闭。',
+        'desc' => '输入导航栏图片地址，留空则代表关闭。【为了保持样式，图片最大高度限制为45px】',
         'id' => "waitig_nav_img",
         'type' => 'images',
         'std' => ''

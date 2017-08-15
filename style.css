@@ -1900,7 +1900,11 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 }
 
 .nav-img {
-    float: left
+    float: left;
+}
+
+.nav-img img{
+    max-height:45px;
 }
 
 .navbar .nav.pull-right {

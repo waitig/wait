@@ -28,7 +28,7 @@
             ajaxpager: '<?php echo waitig_gopt('waitig_ajaxpager_en') ?>',
             commenton: <?php echo $commenton ?>,
             roll: [<?php echo $sr_1 ?>,<?php echo $sr_2 ?>]
-        }
+        };
         <?php
         if(waitig_gopt("waitig_cdnurl"))
         {?>
@@ -128,4 +128,4 @@
         </div>
     </div>
     <?php if (waitig_gopt('waitig_adsite_01')) echo '<div class="banner banner-site">' . waitig_gopt('waitig_adsite_01') . '</div>'; ?>
-    <?php if (waitig_gopt('waitig_adsite_02')) echo '<div class="banner banner-site"`>' . waitig_gopt('waitig_adsite_02') . '</div>'; ?>
+    <?php if (waitig_gopt('waitig_adsite_02')) echo '<div class="banner banner-site">' . waitig_gopt('waitig_adsite_02') . '</div>'; ?>
