@@ -28,12 +28,7 @@ function add_editor_buttoness($buttons)
 
 add_filter("mce_buttons_3", "add_editor_buttoness");
 //增强编辑器结束
-//检测主题更新
-/*require_once('theme-update-checker.php'); 
-$waitig_update_checker = new ThemeUpdateChecker(
-    	'wait主题', //主题名字
-    	'http://www.waitig.com/themes/info.json'  //info.json 的访问地址
-);*/
+
 /*****************************
  *系统初始化函数
  *author：waitig
@@ -692,36 +687,7 @@ function bigfa_like()
 }
 
 //最热排行
-/*
-function hot_posts_list($days=7, $nums=10) { 
-	global $wpdb;
-	$today = date("Y-m-d H:i:s");
-	$daysago = date( "Y-m-d H:i:s", strtotime($today) - ($days * 24 * 60 * 60) );  
-	$result = $wpdb->get_results("SELECT comment_count, ID, post_title, post_date FROM $wpdb->posts WHERE post_date BETWEEN '$daysago' AND '$today' ORDER BY comment_count DESC LIMIT 0 , $nums");
-	$output = '';
-	if(empty($result)) {
-		$output = '<li>None data.</li>';
-	} else {
-		$i = 1;
-		foreach ($result as $topten) {
-			$postid = $topten->ID;
-			$title = $topten->post_title;
-			$commentcount = $topten->comment_count;
-			if ($commentcount != 0) {
-			  $output .= '<li><p><span class="post-comments">评论 ('.$commentcount.')</span><span class="muted"><a href="javascript:;" data-action="ding" data-id="'.$postid.'" id="Addlike" class="action';
-	if(isset($_COOKIE['bigfa_ding_'.$postid])) $output .=' actived';
-	$output .='"><i class="fa fa-heart-o"></i><span class="count">';
-	if( get_post_meta($postid,'bigfa_ding',true) ){ 
-		$output .=get_post_meta($postid,'bigfa_ding',true);
-	} else {$output .='0';}
-	$output .='</span>喜欢</a></span></p><span class="label label-'.$i.'">'.$i.'</span><a href="'.get_permalink($postid).'" title="'.$title.'">'.$title.'</a></li>';
-				$i++;
-			}
-		}
-	}
-	echo $output;
-}
- */
+
 function hot_posts_list()
 {
     $number = waitig_gopt('hot_list_number');
