@@ -818,7 +818,7 @@ function post_thumbnail_src()
         $post_thumbnail_src = '';
         ob_start();
         ob_end_clean();
-        $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+        $output = preg_match_all('|<img.*?src=[\'"](.*?)[\'"].*?>|i', $post->post_content, $matches);
         $post_thumbnail_src = $matches [1] [0];   //获取该图片 src
         if (empty($post_thumbnail_src)) {    //如果日志中没有图片，则显示随机图片
             $random = mt_rand(1, 22);
@@ -847,7 +847,7 @@ function baidu_check($url)
     $post_id = (null === $post_id) ? get_the_ID() : $post_id;
     $baidu_record = get_post_meta($post_id, 'baidu_record', true);
     if ($baidu_record != 1) {
-        $url = 'http://www.baidu.com/s?wd=' . $url;
+        $url = 'https://www.baidu.com/s?wd=' . $url;
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
